@@ -7,6 +7,7 @@ using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerformanceApp;
 using PerformanceApp.Controllers;
+using PerformanceApp.Controllers.Api;
 
 namespace PerformanceApp.Tests.Controllers
 {

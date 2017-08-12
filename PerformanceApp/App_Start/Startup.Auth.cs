@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using PerformanceApp.Providers;
-using PerformanceApp.Models;
+using PerformanceApp.Identity.Models;
+using PerformanceApp.Identity.Providers;
 
 namespace PerformanceApp
 {

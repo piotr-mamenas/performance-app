@@ -6,16 +6,15 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using System.Web.Http.ModelBinding;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using PerformanceApp.Models;
-using PerformanceApp.Providers;
-using PerformanceApp.Results;
+using PerformanceApp.Identity.Models;
+using PerformanceApp.Identity.Providers;
+using PerformanceApp.Identity.Results;
 
 namespace PerformanceApp.Controllers
 {

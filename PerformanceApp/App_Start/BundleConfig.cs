@@ -1,28 +1,35 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace PerformanceApp
 {
     public class BundleConfig
     {
-        // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            RegisterAppBundles(bundles);
+            RegisterVendorBundles(bundles);
+        }
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+        private static void RegisterAppBundles(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                "~/Content/app/app.js"));
+        }
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+        private static void RegisterVendorBundles(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/vendor/jquery").Include(
+                "~/Content/vendor/scripts/jquery-{version}.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/vendor/modernizr").Include(
+                "~/Content/vendor/scripts/modernizr-*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/vendor/bootstrap").Include(
+                "~/Content/vendor/scripts/bootstrap.js",
+                "~/Content/vendor/scripts/respond.js"));
+
+            bundles.Add(new StyleBundle("~/Content/vendor/css").Include(
+                "~/Content/vendor/styles/bootstrap.css"));
         }
     }
 }
