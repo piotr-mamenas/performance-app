@@ -79,3 +79,6 @@ D:\Project\performance-app\PerformanceApp.Tests\obj\Debug\PerformanceApp.Tests.d
 D:\Project\performance-app\PerformanceApp.Tests\obj\Debug\PerformanceApp.Tests.pdb
 D:\Project\performance-app\PerformanceApp.Tests\bin\Debug\EntityFramework.SqlServer.dll
 D:\Project\performance-app\PerformanceApp.Tests\bin\Debug\EntityFramework.SqlServer.xml
+D:\Project\performance-app\PerformanceApp.Tests\bin\Debug\Core.dll
+D:\Project\performance-app\PerformanceApp.Tests\bin\Debug\Core.pdb
+D:\Project\performance-app\PerformanceApp.Tests\bin\Debug\Core.dll.config
