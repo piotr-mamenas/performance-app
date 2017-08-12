@@ -190,6 +190,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\PartnersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Api\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -205,9 +206,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\app\app.js" />
+    <Content Include="Content\vendor\styles\bootstrap-theme.css" />
+    <Content Include="Content\vendor\styles\bootstrap-theme.min.css" />
+    <Content Include="Content\vendor\styles\font-awesome.css" />
+    <Content Include="Content\vendor\styles\font-awesome.min.css" />
     <Content Include="Content\vendor\styles\bootstrap.css" />
     <Content Include="Content\vendor\styles\bootstrap.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="Content\vendor\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\vendor\scripts\bootstrap.js" />
     <Content Include="Content\vendor\scripts\bootstrap.min.js" />
@@ -237,6 +243,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Content\vendor\fonts\FontAwesome.otf" />
+    <Content Include="Content\vendor\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\vendor\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\vendor\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\vendor\fonts\fontawesome-webfont.eot" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

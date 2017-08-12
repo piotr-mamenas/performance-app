@@ -29,7 +29,9 @@ namespace PerformanceApp
                 "~/Content/vendor/scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/vendor/css").Include(
-                "~/Content/vendor/styles/bootstrap.css"));
+                "~/Content/vendor/styles/bootstrap.css",
+                "~/Content/vendor/styles/bootstrap-theme",
+                "~/Content/vendor/styles/font-awesome.css"));
         }
     }
 }

@@ -8,29 +8,29 @@
     @Scripts.Render("~/bundles/vendor/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <div class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Performance App", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink(" Partners", "Index", "Home", new { area = "" }, new { @class = "fa fa-users" })</li>
+                    <li>@Html.ActionLink(" Contacts", "Index", "Home", new { area = "" }, new { @class = "fa fa-address-card-o" })</li>
+                    <li>@Html.ActionLink(" Accounts", "Index", "Home", new {area = ""}, new {@class = "fa fa-university"})</li>
+                    <li>@Html.ActionLink(" Portfolios", "Index", "Home", new {area = ""}, new {@class = "fa fa-book"})</li>
+                    <li>@Html.ActionLink(" Reports", "Index", "Home", new {area = ""}, new {@class = "fa fa-bar-chart"})</li>
+                    <li>@Html.ActionLink(" Terminal", "Index", "Home", new {area = ""}, new {@class = "fa fa-terminal"})</li>
+                    <li>@Html.ActionLink(" Search", "Index", "Home", new {area = ""}, new {@class = "fa fa-search"})</li>
                 </ul>
             </div>
-        </div>
     </div>
     <div class="container">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/vendor/jquery")

@@ -1,0 +1,16 @@
+namespace DAL.Migrations
+{
+    using System.Data.Entity.Migrations;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<DAL.AppDbContext>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = false;
+        }
+
+        protected override void Seed(AppDbContext context)
+        {
+        }
+    }
+}
