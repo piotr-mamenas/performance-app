@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerformanceApp", "PerformanceApp\PerformanceApp.csproj", "{A8E03DF8-A581-4A70-878E-D81E7F370A50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerformanceApp.Tests", "PerformanceApp.Tests\PerformanceApp.Tests.csproj", "{C22D2CAD-579B-4B95-BF62-9E460086E277}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8E03DF8-A581-4A70-878E-D81E7F370A50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8E03DF8-A581-4A70-878E-D81E7F370A50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8E03DF8-A581-4A70-878E-D81E7F370A50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8E03DF8-A581-4A70-878E-D81E7F370A50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C22D2CAD-579B-4B95-BF62-9E460086E277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C22D2CAD-579B-4B95-BF62-9E460086E277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C22D2CAD-579B-4B95-BF62-9E460086E277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C22D2CAD-579B-4B95-BF62-9E460086E277}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
