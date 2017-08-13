@@ -9,7 +9,7 @@ namespace DAL.EntityConfigurations.IdentityConfigurations
         {
             Map(c =>
             {
-                c.ToTable("UserLogins");
+                c.ToTable("tbl_UserLogins");
                 c.Properties(p => new
                 {
                     p.LoginProvider,

@@ -9,7 +9,7 @@ namespace DAL.EntityConfigurations.IdentityConfigurations
         {
             Map(c =>
             {
-                c.ToTable("Users");
+                c.ToTable("tbl_Users");
                 c.Property(p => p.Id).HasColumnName("UserId");
                 c.Properties(p => new
                 {

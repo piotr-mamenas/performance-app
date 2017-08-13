@@ -76,7 +76,6 @@
     <Compile Include="Domain\Identity\ApplicationUserLogin.cs" />
     <Compile Include="Domain\Identity\ApplicationUserRole.cs" />
     <Compile Include="Domain\Identity\IdentityModels.cs" />
-    <Compile Include="Domain\NonPersistent\Bic.cs" />
     <Compile Include="Domain\Organization\Bank.cs" />
     <Compile Include="Domain\Organization\BaseOrganization.cs" />
     <Compile Include="Domain\Partner\AssetManager.cs" />

@@ -16,6 +16,7 @@ namespace DAL
         {
             modelBuilder.Configurations.Add(new OrganizationConfiguration());
             modelBuilder.Configurations.Add(new PartnerConfiguration());
+            modelBuilder.Configurations.Add(new ContactConfiguration());
 
             modelBuilder.Configurations.Add(new ApplicationRoleConfiguration());
             modelBuilder.Configurations.Add(new ApplicationUserClaimConfiguration());

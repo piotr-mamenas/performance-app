@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Partner;
 
 namespace DAL.EntityConfigurations
@@ -11,13 +12,19 @@ namespace DAL.EntityConfigurations
 
             ToTable("tbl_Partner");
 
+            Property(o => o.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
+                .HasColumnName("PartnerId");
+
             Property(p => p.Name)
                 .IsRequired()
-                .HasMaxLength(255);
+                .HasMaxLength(255)
+                .HasColumnName("PartnerName");
 
             Property(p => p.Number)
                 .IsRequired()
-                .HasMaxLength(30);
+                .HasMaxLength(30)
+                .HasColumnName("PartnerNumber");
 
             HasRequired(p => p.Organization)
                 .WithRequiredPrincipal(o => o.Partner);
