@@ -43,7 +43,7 @@ namespace Web
         {
             var manager =
                 new ApplicationUserManager(
-                    new ApplicationUserStore((AppDbContext) context.Get<ApplicationDbContext>()));
+                    new ApplicationUserStore(context.Get<ApplicationDbContext>()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
