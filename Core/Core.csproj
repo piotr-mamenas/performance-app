@@ -71,14 +71,19 @@
     <Compile Include="Domain\Contact\BaseContact.cs" />
     <Compile Include="Domain\Country\BaseCountry.cs" />
     <Compile Include="Domain\Currency\BaseCurrency.cs" />
+    <Compile Include="Domain\Identity\ApplicationRole.cs" />
+    <Compile Include="Domain\Identity\ApplicationUserClaim.cs" />
+    <Compile Include="Domain\Identity\ApplicationUserLogin.cs" />
+    <Compile Include="Domain\Identity\ApplicationUserRole.cs" />
     <Compile Include="Domain\Identity\IdentityModels.cs" />
+    <Compile Include="Domain\NonPersistent\Bic.cs" />
     <Compile Include="Domain\Organization\Bank.cs" />
     <Compile Include="Domain\Organization\BaseOrganization.cs" />
     <Compile Include="Domain\Partner\AssetManager.cs" />
     <Compile Include="Domain\Partner\BasePartner.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Interfaces\Repositories\IAssetManagerRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IBankRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPartnerRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IOrganizationRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

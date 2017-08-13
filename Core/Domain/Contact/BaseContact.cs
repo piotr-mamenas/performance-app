@@ -1,4 +1,6 @@
-﻿namespace Core.Domain.Contact
+﻿using Core.Domain.Partner;
+
+namespace Core.Domain.Contact
 {
     public class BaseContact
     {
@@ -13,5 +15,9 @@
         public string Email { get; set; }
 
         public string PhoneNumber { get; set; }
+
+        public virtual BasePartner Partner { get; set; }
+
+        public int PartnerId { get; set; }
     }
 }

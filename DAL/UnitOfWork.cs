@@ -11,11 +11,12 @@ namespace DAL
         public UnitOfWork(AppDbContext context)
         {
             _context = context;
-            AssetManagers = new AssetManagerRepository(_context);
+            Partners = new PartnerRepository(_context);
+            Organizations = new OrganizationRepository(_context);
         }
 
-        public IAssetManagerRepository AssetManagers { get; private set; }
-        public IBankRepository Banks { get; private set; }
+        public IPartnerRepository Partners { get; }
+        public IOrganizationRepository Organizations { get; }
 
         public int Complete()
         {

@@ -5,8 +5,8 @@ namespace Core.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IAssetManagerRepository AssetManagers { get; }
-        IBankRepository Banks { get; }
+        IPartnerRepository Partners { get; }
+        IOrganizationRepository Organizations { get; }
         int Complete();
     }
 }

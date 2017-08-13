@@ -1,11 +1,11 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerformanceApp", "PerformanceApp\PerformanceApp.csproj", "{A8E03DF8-A581-4A70-878E-D81E7F370A50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{A8E03DF8-A581-4A70-878E-D81E7F370A50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerformanceApp.Tests", "PerformanceApp.Tests\PerformanceApp.Tests.csproj", "{C22D2CAD-579B-4B95-BF62-9E460086E277}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{C22D2CAD-579B-4B95-BF62-9E460086E277}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{9BE4C39D-6C17-4D22-8A87-B1639FC8D371}"
 EndProject

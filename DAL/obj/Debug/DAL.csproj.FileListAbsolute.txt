@@ -11,11 +11,9 @@ D:\Project\performance-app\DAL\bin\Debug\EntityFramework.xml
 D:\Project\performance-app\DAL\bin\Debug\EntityFramework.SqlServer.xml
 D:\Project\performance-app\DAL\obj\Debug\DAL.dll
 D:\Project\performance-app\DAL\obj\Debug\DAL.pdb
-D:\Project\performance-app\DAL\obj\Debug\DAL.Migrations.InitialModel.resources
-D:\Project\performance-app\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
 D:\Project\performance-app\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 D:\Project\performance-app\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\Project\performance-app\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 D:\Project\performance-app\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\Project\performance-app\DAL\obj\Debug\DAL.Migrations.AddedAssetManagerAndBankPersistence.resources
-D:\Project\performance-app\DAL\obj\Debug\DAL.Migrations.CorrectingInitialModelDbSet.resources
+D:\Project\performance-app\DAL\obj\Debug\DAL.Migrations.InitialModel.resources
+D:\Project\performance-app\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache

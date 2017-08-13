@@ -12,8 +12,10 @@ namespace Core.Domain.Partner
 
         public string Number { get; set; }
 
-        public BaseOrganization Organization { get; set; }
+        public virtual BaseOrganization Organization { get; set; }
 
-        public IEnumerable<BaseContact> Contact { get; set; }
+        public int OrganizationId { get; set; }
+
+        public virtual ICollection<BaseContact> Contacts { get; set; }
     }
 }

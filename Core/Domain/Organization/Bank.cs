@@ -2,6 +2,6 @@
 {
     public class Bank : BaseOrganization
     {
-        public string BankCode { get; set; }
+        public string Bic { get; set; }
     }
 }
