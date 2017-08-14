@@ -26,8 +26,9 @@ namespace DAL.EntityConfigurations
                 .HasMaxLength(30)
                 .HasColumnName("PartnerNumber");
 
-            HasRequired(p => p.Organization)
-                .WithRequiredPrincipal(o => o.Partner);
+            HasMany(p => p.Organizations)
+                .WithMany(o => o.Partners)
+                .Map(m => m.ToTable("tbl_OrganizationPartners").MapLeftKey("PartnerId").MapRightKey("OrganizationId"));
 
             HasMany(p => p.Contacts)
                 .WithRequired(c => c.Partner)

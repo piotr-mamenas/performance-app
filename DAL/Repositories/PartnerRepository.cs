@@ -5,14 +5,14 @@ namespace DAL.Repositories
 {
     public class PartnerRepository : Repository<BasePartner>, IPartnerRepository
     {
-        public PartnerRepository(AppDbContext context)
+        public PartnerRepository(PerformanceContext context)
             : base(context)
         {
         }
 
-        public AppDbContext AppDbContext
+        public PerformanceContext PerformanceContext
         {
-            get { return Context as AppDbContext; }
+            get { return Context as PerformanceContext; }
         }
     }
 }

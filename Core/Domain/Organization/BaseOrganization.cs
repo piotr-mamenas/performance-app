@@ -1,4 +1,5 @@
-﻿using Core.Domain.Partner;
+﻿using System.Collections.Generic;
+using Core.Domain.Partner;
 
 namespace Core.Domain.Organization
 {
@@ -8,6 +9,6 @@ namespace Core.Domain.Organization
 
         public string Name { get; set; }
 
-        public BasePartner Partner { get; set; }
+        public ICollection<BasePartner> Partners { get; set; }
     }
 }

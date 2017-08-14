@@ -31,7 +31,7 @@ namespace Web
             bundles.Add(new StyleBundle("~/Content/vendor/css").Include(
                 "~/Content/vendor/styles/bootstrap.css",
                 "~/Content/vendor/styles/bootstrap-theme",
-                "~/Content/vendor/styles/font-awesome.css"));
+                "~/Content/vendor/styles/font-awesome.css").IncludeDirectory("~/Content/DataTables/css","*.css", true));
         }
     }
 }

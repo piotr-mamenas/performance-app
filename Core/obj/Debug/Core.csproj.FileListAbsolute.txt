@@ -3,11 +3,11 @@ D:\Project\performance-app\Core\bin\Debug\Core.dll
 D:\Project\performance-app\Core\bin\Debug\Core.pdb
 D:\Project\performance-app\Core\bin\Debug\EntityFramework.dll
 D:\Project\performance-app\Core\bin\Debug\EntityFramework.SqlServer.dll
-D:\Project\performance-app\Core\bin\Debug\EntityFramework.xml
-D:\Project\performance-app\Core\bin\Debug\EntityFramework.SqlServer.xml
-D:\Project\performance-app\Core\obj\Debug\Core.dll
-D:\Project\performance-app\Core\obj\Debug\Core.pdb
 D:\Project\performance-app\Core\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 D:\Project\performance-app\Core\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Project\performance-app\Core\bin\Debug\EntityFramework.xml
+D:\Project\performance-app\Core\bin\Debug\EntityFramework.SqlServer.xml
 D:\Project\performance-app\Core\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 D:\Project\performance-app\Core\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Project\performance-app\Core\obj\Debug\Core.dll
+D:\Project\performance-app\Core\obj\Debug\Core.pdb

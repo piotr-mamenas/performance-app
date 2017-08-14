@@ -16,24 +16,6 @@ namespace Web.Controllers
         [Route("")]
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-
-            var newOrganization = new BaseOrganization()
-            {
-                Name = "Post Finance"
-            };
-
-            _unitOfWork.Organizations.Add(newOrganization);
-
-            var newPartner = new BasePartner
-            {
-                Name = "Partner",
-                Number = "P0123"
-            };
-
-            _unitOfWork.Partners.Add(newPartner);
-            _unitOfWork.Complete();
-
             return View();
         }
 

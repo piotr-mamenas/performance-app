@@ -36,6 +36,8 @@ namespace DAL.EntityConfigurations
             Property(c => c.PhoneNumber)
                 .HasMaxLength(40)
                 .HasColumnName("ContactPhoneNumber");
+
+            HasRequired(c => c.Partner).WithMany(p => p.Contacts);
         }
     }
 }

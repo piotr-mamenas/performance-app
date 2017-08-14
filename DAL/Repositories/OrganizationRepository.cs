@@ -5,14 +5,14 @@ namespace DAL.Repositories
 {
     public class OrganizationRepository : Repository<BaseOrganization>, IOrganizationRepository
     {
-        public OrganizationRepository(AppDbContext context)
+        public OrganizationRepository(PerformanceContext context)
             : base(context)
         {
         }
 
-        public AppDbContext AppDbContext
+        public PerformanceContext PerformanceContext
         {
-            get { return Context as AppDbContext; }
+            get { return Context as PerformanceContext; }
         }
     }
 }

@@ -30,7 +30,14 @@
             </div>
     </div>
     <div class="container">
-        @RenderBody()
+        <div class="row">
+            <div class="col-md-6">
+                Hello
+            </div>
+            <div class="col-md-6">
+                @RenderBody()
+            </div>
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/vendor/jquery")

@@ -115,3 +115,5 @@ D:\Project\performance-app\Web\bin\Microsoft.AI.Web.xml
 D:\Project\performance-app\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
 D:\Project\performance-app\Web\obj\Debug\Web.dll
 D:\Project\performance-app\Web\obj\Debug\Web.pdb
+D:\Project\performance-app\Web\bin\Ninject.Web.WebApi.dll
+D:\Project\performance-app\Web\bin\Ninject.Web.WebApi.xml

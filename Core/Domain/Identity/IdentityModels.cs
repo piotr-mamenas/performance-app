@@ -20,14 +20,14 @@ namespace Core.Domain.Identity
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
     {
-        public ApplicationDbContext()
-            : base("DefaultConnection")
+        public ApplicationDbContext(string context)
+            : base(context)
         {
         }
         
         public static ApplicationDbContext Create()
         {
-            return new ApplicationDbContext();
+            return new ApplicationDbContext("DefaultConnection");
         }
     }
 }
