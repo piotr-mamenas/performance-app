@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/vendor/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar navbar-default">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -29,20 +29,18 @@
                 </ul>
             </div>
     </div>
-    <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 Hello
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 @RenderBody()
             </div>
         </div>
-    </div>
 
     @Scripts.Render("~/bundles/vendor/jquery")
     @Scripts.Render("~/bundles/vendor/bootstrap")
     @Scripts.Render("~/bundles/app")
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts", false)
 </body>
 </html>

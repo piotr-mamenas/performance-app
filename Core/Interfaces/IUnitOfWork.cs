@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Core.Interfaces.Repositories;
 
 namespace Core.Interfaces
@@ -7,6 +8,6 @@ namespace Core.Interfaces
     {
         IPartnerRepository Partners { get; }
         IOrganizationRepository Organizations { get; }
-        int Complete();
+        Task<int> CompleteAsync();
     }
 }

@@ -13,6 +13,7 @@ namespace DAL
         public DbSet<BaseOrganization> Organizations { get; set; }
         public DbSet<BasePartner> Partners { get; set; }
 
+        // TODO: Implement simple initialization to base later, for now we want defaultconnection
         public PerformanceContext()
             : base("DefaultConnection")
         {

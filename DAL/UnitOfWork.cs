@@ -1,4 +1,5 @@
-﻿using Core.Interfaces;
+﻿using System.Threading.Tasks;
+using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using DAL.Repositories;
 
@@ -20,9 +21,9 @@ namespace DAL
         public IOrganizationRepository Organizations { get; }
         public IContactRepository Contacts { get; }
 
-        public int Complete()
+        public async Task<int> CompleteAsync()
         {
-            return _context.SaveChanges();
+            return await _context.SaveChangesAsync();
         }
 
         public void Dispose()

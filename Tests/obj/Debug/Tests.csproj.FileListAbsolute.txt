@@ -17,3 +17,4 @@ D:\Project\performance-app\Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Project\performance-app\Tests\bin\Debug\System.Web.WebPages.Razor.xml
 D:\Project\performance-app\Tests\obj\Debug\Tests.dll
 D:\Project\performance-app\Tests\obj\Debug\Tests.pdb
+D:\Project\performance-app\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache

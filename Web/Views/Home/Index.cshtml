@@ -1,5 +1,22 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<table id="table" class="display">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>What</th>
+        <th>Who</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
 
-Hello World
+@section scripts{
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable();
+        });
+    </script>
+}
