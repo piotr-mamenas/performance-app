@@ -12,7 +12,7 @@ namespace Core.Domain.Partner
 
         public string Number { get; set; }
 
-        public ICollection<BaseOrganization> Organizations { get; set; }
+        public ICollection<BaseInstitution> Organizations { get; set; }
 
         public virtual ICollection<BaseContact> Contacts { get; set; }
     }

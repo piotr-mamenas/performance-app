@@ -204,9 +204,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\ContactsController.cs" />
+    <Compile Include="Controllers\Api\CountriesController.cs" />
+    <Compile Include="Controllers\Api\CurrenciesController.cs" />
+    <Compile Include="Controllers\Api\InstitutionsController.cs" />
     <Compile Include="Controllers\Api\PartnersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Api\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -512,9 +515,9 @@
       <Project>{9be4c39d-6c17-4d22-8a87-b1639fc8d371}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{b2ce8a5c-043c-4ea9-bcd3-402b9c1891de}</Project>
-      <Name>DAL</Name>
+      <Name>Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

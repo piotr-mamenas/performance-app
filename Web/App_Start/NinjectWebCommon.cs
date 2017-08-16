@@ -1,13 +1,14 @@
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
-using DAL;
-using DAL.Repositories;
+using Infrastructure;
+using Infrastructure.Repositories;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Web.App_Start.NinjectWebCommon), "Stop")]
 
 namespace Web.App_Start
 {
+    // TODO: Move to Infra layer 
     using System;
     using System.Web;
 
@@ -68,7 +69,7 @@ namespace Web.App_Start
         {
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
             kernel.Bind<IContactRepository>().To<ContactRepository>().InRequestScope();
-            kernel.Bind<IOrganizationRepository>().To<OrganizationRepository>().InRequestScope();
+            kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
             kernel.Bind<IPartnerRepository>().To<PartnerRepository>().InRequestScope();
         }        
     }

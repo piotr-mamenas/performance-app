@@ -2,12 +2,13 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Core.Domain.Identity;
-using DAL;
+using Infrastructure;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 
+// TODO: Move to infra layer if possible (double check)
 namespace Web
 {
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.

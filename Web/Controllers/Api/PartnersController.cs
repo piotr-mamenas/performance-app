@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -19,7 +18,7 @@ namespace Web.Controllers.Api
 
         [HttpGet]
         [ResponseType(typeof(BasePartner))]
-        public async Task<IHttpActionResult> Get(int id)
+        public async Task<IHttpActionResult> GetAsync(int id)
         {
             var partner = await _unitOfWork.Partners.GetAsync(id);
 
@@ -31,7 +30,7 @@ namespace Web.Controllers.Api
         }
 
         [HttpPut]
-        public async Task<IHttpActionResult> Update(int id, BasePartner partner)
+        public async Task<IHttpActionResult> UpdateAsync(int id, BasePartner partner)
         {
             if (!ModelState.IsValid)
             {
@@ -53,7 +52,7 @@ namespace Web.Controllers.Api
         }
 
         [HttpPost]
-        public async Task<IHttpActionResult> Create(BasePartner partner)
+        public async Task<IHttpActionResult> CreateAsync(BasePartner partner)
         {
             if (!ModelState.IsValid)
             {
@@ -66,7 +65,7 @@ namespace Web.Controllers.Api
         }
 
         [HttpDelete]
-        public async Task<IHttpActionResult> Delete(int id)
+        public async Task<IHttpActionResult> DeleteAsync(int id)
         {
             if (!ModelState.IsValid)
             {

@@ -76,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\" />
-    <Folder Include="DAL\" />
+    <Folder Include="Infrastructure\" />
     <Folder Include="Web\Api\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

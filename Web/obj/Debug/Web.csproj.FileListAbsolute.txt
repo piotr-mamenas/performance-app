@@ -30,7 +30,6 @@ D:\Project\performance-app\Web\bin\Web.dll
 D:\Project\performance-app\Web\bin\Web.pdb
 D:\Project\performance-app\Web\bin\Antlr3.Runtime.dll
 D:\Project\performance-app\Web\bin\Core.dll
-D:\Project\performance-app\Web\bin\DAL.dll
 D:\Project\performance-app\Web\bin\EntityFramework.dll
 D:\Project\performance-app\Web\bin\EntityFramework.SqlServer.dll
 D:\Project\performance-app\Web\bin\Microsoft.AI.Agent.Intercept.dll
@@ -74,8 +73,6 @@ D:\Project\performance-app\Web\bin\WebActivatorEx.dll
 D:\Project\performance-app\Web\bin\WebGrease.dll
 D:\Project\performance-app\Web\bin\Core.pdb
 D:\Project\performance-app\Web\bin\Core.dll.config
-D:\Project\performance-app\Web\bin\DAL.pdb
-D:\Project\performance-app\Web\bin\DAL.dll.config
 D:\Project\performance-app\Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\Project\performance-app\Web\bin\Ninject.xml
 D:\Project\performance-app\Web\bin\Ninject.Web.Common.xml
@@ -117,3 +114,6 @@ D:\Project\performance-app\Web\obj\Debug\Web.dll
 D:\Project\performance-app\Web\obj\Debug\Web.pdb
 D:\Project\performance-app\Web\bin\Ninject.Web.WebApi.dll
 D:\Project\performance-app\Web\bin\Ninject.Web.WebApi.xml
+D:\Project\performance-app\Web\bin\Infrastructure.dll
+D:\Project\performance-app\Web\bin\Infrastructure.pdb
+D:\Project\performance-app\Web\bin\Infrastructure.dll.config

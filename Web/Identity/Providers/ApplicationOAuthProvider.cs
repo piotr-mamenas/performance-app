@@ -1,4 +1,5 @@
-﻿/*
+﻿//TODO: OAuth not needed but keeping just in case, should be moved to Infra layer
+/*
 namespace Web.Identity.Providers
 {
 
