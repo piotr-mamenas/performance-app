@@ -23,6 +23,8 @@ namespace Infrastructure.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Contacts.AddOrUpdate(p => p);
         }
     }
 }

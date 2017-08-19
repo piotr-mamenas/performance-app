@@ -8,7 +8,6 @@ using Infrastructure.Repositories;
 
 namespace Web.App_Start
 {
-    // TODO: Move to Infra layer 
     using System;
     using System.Web;
 
@@ -69,8 +68,20 @@ namespace Web.App_Start
         {
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
             kernel.Bind<IContactRepository>().To<ContactRepository>().InRequestScope();
-            kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
+            kernel.Bind<ICurrencyRepository>().To<CurrencyRepository>().InRequestScope();
+            kernel.Bind<ICountryRepository>().To<CountryRepository>().InRequestScope();
             kernel.Bind<IPartnerRepository>().To<PartnerRepository>().InRequestScope();
-        }        
+            kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
+        }
+
+        // IMapper based dependency injection
+        //private static void BindMapper(this IKernel kernel)
+        //{
+            //var mapperConfiguration = new MapperConfiguration(cfg =>
+            //{
+                //cfg.AddProfile(new MappingProfile());
+            //});
+            //kernel.Bind<IMapper>().ToConstant(mapperConfiguration.CreateMapper());
+        //}
     }
 }

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/vendor/css")
+    @Styles.Render("~/bundles/vendor/styles")
     @Scripts.Render("~/bundles/vendor/modernizr")
 </head>
 <body>
@@ -39,7 +39,8 @@
         </div>
 
     @Scripts.Render("~/bundles/vendor/jquery")
-    @Scripts.Render("~/bundles/vendor/bootstrap")
+    @Scripts.Render("~/bundles/vendor/jqueryval")
+    @Scripts.Render("~/bundles/vendor/scripts")
     @Scripts.Render("~/bundles/app")
     @RenderSection("scripts", false)
 </body>

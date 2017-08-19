@@ -1,6 +1,4 @@
 ﻿using System.Web.Mvc;
-using Core.Domain.Organization;
-using Core.Domain.Partner;
 using Core.Interfaces;
 
 namespace Web.Controllers

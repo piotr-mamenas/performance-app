@@ -1,4 +1,4 @@
-﻿using Core.Domain.Organization;
+﻿using Core.Domain.Institution;
 
 namespace Core.Interfaces.Repositories
 {

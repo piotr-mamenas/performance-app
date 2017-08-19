@@ -3,12 +3,14 @@ D:\Project\performance-app\Tests\bin\Debug\Tests.dll
 D:\Project\performance-app\Tests\bin\Debug\Tests.pdb
 D:\Project\performance-app\Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 D:\Project\performance-app\Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Project\performance-app\Tests\bin\Debug\nunit.framework.dll
 D:\Project\performance-app\Tests\bin\Debug\System.Web.Helpers.dll
 D:\Project\performance-app\Tests\bin\Debug\System.Web.Mvc.dll
 D:\Project\performance-app\Tests\bin\Debug\System.Web.Razor.dll
 D:\Project\performance-app\Tests\bin\Debug\System.Web.WebPages.Deployment.dll
 D:\Project\performance-app\Tests\bin\Debug\System.Web.WebPages.dll
 D:\Project\performance-app\Tests\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Project\performance-app\Tests\bin\Debug\nunit.framework.xml
 D:\Project\performance-app\Tests\bin\Debug\System.Web.Helpers.xml
 D:\Project\performance-app\Tests\bin\Debug\System.Web.Mvc.xml
 D:\Project\performance-app\Tests\bin\Debug\System.Web.Razor.xml
@@ -17,4 +19,3 @@ D:\Project\performance-app\Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Project\performance-app\Tests\bin\Debug\System.Web.WebPages.Razor.xml
 D:\Project\performance-app\Tests\obj\Debug\Tests.dll
 D:\Project\performance-app\Tests\obj\Debug\Tests.pdb
-D:\Project\performance-app\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache

@@ -21,17 +21,23 @@ namespace Web
             bundles.Add(new ScriptBundle("~/bundles/vendor/jquery").Include(
                 "~/Content/vendor/scripts/jquery/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/vendor/jqueryval").Include(
+                "~/Content/vendor/scripts/jquery/jquery.unobtrusive*",
+                "~/Content/vendor/scripts/jquery/jquery.validate*"));
+
             bundles.Add(new ScriptBundle("~/bundles/vendor/modernizr").Include(
                 "~/Content/vendor/scripts/modernizr/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/vendor/bootstrap").Include(
-                "~/Content/vendor/scripts/bootstrap/bootstrap.js",
-                "~/Content/vendor/scripts/respond/respond.js"));
+            bundles.Add(new ScriptBundle("~/bundles/vendor/scripts")
+                .Include("~/Content/vendor/scripts/bootstrap/bootstrap.js")
+                .Include("~/Content/vendor/scripts/respond/respond.js")
+                .IncludeDirectory("~/Content/vendor/scripts/datatables","*.js", true));
 
-            bundles.Add(new StyleBundle("~/Content/vendor/css").Include(
-                "~/Content/vendor/styles/bootstrap.css",
-                "~/Content/vendor/styles/bootstrap-theme.css",
-                "~/Content/vendor/styles/font-awesome.css").IncludeDirectory("~/Content/vendor/styles/datatables/css","*.css", true));
+            bundles.Add(new StyleBundle("~/bundles/vendor/styles")
+                .Include("~/Content/vendor/styles/bootstrap/bootstrap.css")
+                .Include("~/Content/vendor/styles/bootstrap/bootstrap-theme.css")
+                .Include("~/Content/vendor/styles/font-awesome/font-awesome.css")
+                .IncludeDirectory("~/Content/vendor/styles/datatables/css","*.css", true));
         }
     }
 }

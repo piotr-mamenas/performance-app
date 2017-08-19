@@ -3,7 +3,7 @@ using Core.Domain.Contact;
 using Core.Domain.Country;
 using Core.Domain.Currency;
 using Core.Domain.Identity;
-using Core.Domain.Organization;
+using Core.Domain.Institution;
 using Core.Domain.Partner;
 using Infrastructure.EntityConfigurations;
 using Infrastructure.EntityConfigurations.IdentityConfigurations;

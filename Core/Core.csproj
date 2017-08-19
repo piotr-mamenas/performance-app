@@ -69,8 +69,8 @@
     <Compile Include="Domain\Identity\ApplicationUserLogin.cs" />
     <Compile Include="Domain\Identity\ApplicationUserRole.cs" />
     <Compile Include="Domain\Identity\IdentityModels.cs" />
-    <Compile Include="Domain\Organization\Bank.cs" />
-    <Compile Include="Domain\Organization\BaseInstitution.cs" />
+    <Compile Include="Domain\Institution\Bank.cs" />
+    <Compile Include="Domain\Institution\BaseInstitution.cs" />
     <Compile Include="Domain\Partner\AssetManager.cs" />
     <Compile Include="Domain\Partner\BasePartner.cs" />
     <Compile Include="Dtos\ContactDto.cs" />
@@ -78,6 +78,12 @@
     <Compile Include="Dtos\CurrencyDto.cs" />
     <Compile Include="Dtos\InstitutionDto.cs" />
     <Compile Include="Dtos\PartnerDto.cs" />
+    <Compile Include="Enums\ContactType.cs" />
+    <Compile Include="Enums\CountryType.cs" />
+    <Compile Include="Enums\CurrencyType.cs" />
+    <Compile Include="Enums\InstitutionType.cs" />
+    <Compile Include="Enums\PartnerType.cs" />
+    <Compile Include="Interfaces\IComplete.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Repositories\IContactRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICountryRepository.cs" />
@@ -103,6 +109,8 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Interfaces\Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,4 @@
-﻿using Core.Domain.Organization;
+﻿using Core.Domain.Institution;
 using Core.Interfaces.Repositories;
 
 namespace Infrastructure.Repositories
@@ -10,9 +10,6 @@ namespace Infrastructure.Repositories
         {
         }
 
-        public PerformanceContext PerformanceContext
-        {
-            get { return Context as PerformanceContext; }
-        }
+        public PerformanceContext PerformanceContext => Context as PerformanceContext;
     }
 }

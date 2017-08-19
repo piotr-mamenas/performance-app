@@ -11,9 +11,6 @@ namespace Infrastructure.Repositories
             
         }
 
-        public PerformanceContext PerformanceContext
-        {
-            get { return Context as PerformanceContext; }
-        }
+        public PerformanceContext PerformanceContext => Context as PerformanceContext;
     }
 }

@@ -5,7 +5,7 @@ using Infrastructure.Repositories;
 
 namespace Infrastructure
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork, IComplete
     {
         private readonly PerformanceContext _context;
 
