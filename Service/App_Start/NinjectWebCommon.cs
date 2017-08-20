@@ -15,7 +15,6 @@ namespace Service.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using Ninject.Web.WebApi;
 
     public static class NinjectWebCommon 
     {

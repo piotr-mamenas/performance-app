@@ -21,3 +21,7 @@ D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.Migrations.In
 D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.csproj.GenerateResource.Cache
 D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.dll
 D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.pdb
+D:\Project\performance-app\Infrastructure\bin\Debug\Ninject.dll
+D:\Project\performance-app\Infrastructure\bin\Debug\Ninject.xml
+D:\Project\performance-app\Infrastructure\bin\Debug\Ninject.Extensions.Logging.dll
+D:\Project\performance-app\Infrastructure\bin\Debug\Ninject.Extensions.Logging.xml

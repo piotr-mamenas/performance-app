@@ -1,24 +1,19 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace Tests.Web.Controllers
 {
-    [TestClass]
+    [TestFixture]
     public class HomeControllerTest
     {
-        [TestMethod]
+        [SetUp]
+        public void Init()
+        {
+            
+        }
+
+        [Test]
         public void Index()
         {
-
-            //TODO: I KNOW RIGHT XD
-            // Arrange
-            //HomeController controller = new HomeController();
-
-            // Act
-            //ViewResult result = controller.Index() as ViewResult;
-
-            // Assert
-            //Assert.IsNotNull(result);
-            //Assert.AreEqual("Home Page", result.ViewBag.Title);
         }
     }
 }

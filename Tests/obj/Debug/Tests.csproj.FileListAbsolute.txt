@@ -1,7 +1,6 @@
 D:\Project\performance-app\Tests\bin\Debug\Tests.dll.config
 D:\Project\performance-app\Tests\bin\Debug\Tests.dll
 D:\Project\performance-app\Tests\bin\Debug\Tests.pdb
-D:\Project\performance-app\Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 D:\Project\performance-app\Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
 D:\Project\performance-app\Tests\bin\Debug\nunit.framework.dll
 D:\Project\performance-app\Tests\bin\Debug\System.Web.Helpers.dll
@@ -19,3 +18,4 @@ D:\Project\performance-app\Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Project\performance-app\Tests\bin\Debug\System.Web.WebPages.Razor.xml
 D:\Project\performance-app\Tests\obj\Debug\Tests.dll
 D:\Project\performance-app\Tests\obj\Debug\Tests.pdb
+D:\Project\performance-app\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache

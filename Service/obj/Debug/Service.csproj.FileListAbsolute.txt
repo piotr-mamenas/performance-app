@@ -66,3 +66,9 @@ D:\Project\performance-app\Service\bin\Ninject.Web.WebApi.xml
 D:\Project\performance-app\Service\bin\Ninject.Web.WebApi.WebHost.xml
 D:\Project\performance-app\Service\bin\EntityFramework.SqlServer.dll
 D:\Project\performance-app\Service\bin\EntityFramework.SqlServer.xml
+D:\Project\performance-app\Service\bin\log4net.dll
+D:\Project\performance-app\Service\bin\log4net.xml
+D:\Project\performance-app\Service\bin\Ninject.Extensions.Logging.dll
+D:\Project\performance-app\Service\bin\Ninject.Extensions.Logging.xml
+D:\Project\performance-app\Service\bin\Ninject.Extensions.Logging.Log4Net.dll
+D:\Project\performance-app\Service\bin\Ninject.Extensions.Logging.Log4Net.xml
