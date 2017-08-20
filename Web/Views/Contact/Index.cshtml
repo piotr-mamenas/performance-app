@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.TableFor(typeof(PartnerDto), "table");
+@Html.TableFor(typeof(ContactDto), "table");
 
 @section scripts{
     <script>
@@ -18,7 +18,7 @@
                     {
                         data: "name",
                         render: function(data, type, object) {
-                            
+
                         }
                     }
                 ]

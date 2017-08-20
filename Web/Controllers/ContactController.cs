@@ -1,26 +1,21 @@
 ﻿using System.Web.Mvc;
-using Core.Interfaces;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
 
 namespace Web.Controllers
 {
-    [RoutePrefix("")]
-    public class HomeController : BaseController
+    [RoutePrefix("contacts")]
+    public class ContactController : BaseController
     {
-        public HomeController(IUnitOfWork unitOfWork, ILogger logger)
+        public ContactController(ILogger logger)
             : base(logger)
         {
-            _unitOfWork = unitOfWork;
         }
 
-        [AllowAnonymous]
         [Route("")]
         public ActionResult Index()
         {
             return View();
         }
-
-        private readonly IUnitOfWork _unitOfWork;
     }
 }

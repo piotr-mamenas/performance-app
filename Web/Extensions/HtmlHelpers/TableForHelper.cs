@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using Infrastructure.Helpers;
 
 namespace Web.Extensions.HtmlHelpers
 {
@@ -33,7 +35,10 @@ namespace Web.Extensions.HtmlHelpers
 
             foreach (var prop in typeOf.GetProperties())
             {
-                builder.Append("<th>" + prop.Name + "</th>");
+                if (!prop.IsPropertyACollection())
+                {
+                    builder.Append("<th>" + prop.Name + "</th>");
+                }
             }
 
             builder.AppendLine("</tr>")
