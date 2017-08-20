@@ -1,4 +1,4 @@
-/*! Select for DataTables 1.2.2
+/*! Select for DataTables 1.1.2
  * 2015-2016 SpryMedia Ltd - datatables.net/license/mit
  */
 
@@ -6,7 +6,7 @@
  * @summary     Select for DataTables
  * @description A collection of API methods, events and buttons for DataTables
  *   that provides selection options of the items in a DataTable
- * @version     1.2.2
+ * @version     1.1.2
  * @file        dataTables.select.js
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     datatables.net/forums
@@ -54,7 +54,7 @@ var DataTable = $.fn.dataTable;
 // Version information for debugger
 DataTable.select = {};
 
-DataTable.select.version = '1.2.2';
+DataTable.select.version = '1.1.2';
 
 DataTable.select.init = function ( dt ) {
 	var ctx = dt.settings()[0];
@@ -71,18 +71,15 @@ DataTable.select.init = function ( dt ) {
 	var info = true;
 	var selector = 'td, th';
 	var className = 'selected';
-	var setStyle = false;
 
 	ctx._select = {};
 
 	// Initialisation customisations
 	if ( opts === true ) {
 		style = 'os';
-		setStyle = true;
 	}
 	else if ( typeof opts === 'string' ) {
 		style = opts;
-		setStyle = true;
 	}
 	else if ( $.isPlainObject( opts ) ) {
 		if ( opts.blurable !== undefined ) {
@@ -99,7 +96,6 @@ DataTable.select.init = function ( dt ) {
 
 		if ( opts.style !== undefined ) {
 			style = opts.style;
-			setStyle = true;
 		}
 
 		if ( opts.selector !== undefined ) {
@@ -133,7 +129,7 @@ DataTable.select.init = function ( dt ) {
 
 	// If the init options haven't enabled select, but there is a selectable
 	// class name, then enable
-	if ( ! setStyle && $( dt.table().node() ).hasClass( 'selectable' ) ) {
+	if ( $( dt.table().node() ).hasClass( 'selectable' ) ) {
 		dt.select.style( 'os' );
 	}
 };
@@ -305,12 +301,12 @@ function disableMouseSelection( dt )
 	var ctx = dt.settings()[0];
 	var selector = ctx._select.selector;
 
-	$( dt.table().container() )
+	$( dt.table().body() )
 		.off( 'mousedown.dtSelect', selector )
 		.off( 'mouseup.dtSelect', selector )
 		.off( 'click.dtSelect', selector );
 
-	$('body').off( 'click.dtSelect' + dt.table().node().id );
+	$('body').off( 'click.dtSelect' );
 }
 
 /**
@@ -321,26 +317,26 @@ function disableMouseSelection( dt )
  */
 function enableMouseSelection ( dt )
 {
-	var container = $( dt.table().container() );
+	var body = $( dt.table().body() );
 	var ctx = dt.settings()[0];
 	var selector = ctx._select.selector;
 
-	container
+	body
 		.on( 'mousedown.dtSelect', selector, function(e) {
 			// Disallow text selection for shift clicking on the table so multi
 			// element selection doesn't look terrible!
-			if ( e.shiftKey || e.metaKey || e.ctrlKey ) {
-				container
+			if ( e.shiftKey ) {
+				body
 					.css( '-moz-user-select', 'none' )
 					.one('selectstart.dtSelect', selector, function () {
 						return false;
 					} );
 			}
 		} )
-		.on( 'mouseup.dtSelect', selector, function() {
+		.on( 'mouseup.dtSelect', selector, function(e) {
 			// Allow text selection to occur again, Mozilla style (tested in FF
 			// 35.0.1 - still required)
-			container.css( '-moz-user-select', '' );
+			body.css( '-moz-user-select', '' );
 		} )
 		.on( 'click.dtSelect', selector, function ( e ) {
 			var items = dt.select.items();
@@ -348,7 +344,7 @@ function enableMouseSelection ( dt )
 
 			// If text was selected (click and drag), then we shouldn't change
 			// the row's selected state
-			if ( window.getSelection && $.trim( window.getSelection().toString() ) ) {
+			if ( window.getSelection && window.getSelection().toString() ) {
 				return;
 			}
 
@@ -359,32 +355,25 @@ function enableMouseSelection ( dt )
 				return;
 			}
 
-			var cell = dt.cell( $(e.target).closest('td, th') );
+			var cell = $(e.target).closest('td, th');
+			var cellIndex = dt.cell( cell ).index();
 
-			// Check the cell actually belongs to the host DataTable (so child
-			// rows, etc, are ignored)
-			if ( ! cell.any() ) {
+			// Check the cell actually belongs to the host DataTable (so child rows,
+			// etc, are ignored)
+			if ( ! dt.cell( cell ).any() ) {
 				return;
 			}
 
-			var event = $.Event('user-select.dt');
-			eventTrigger( dt, event, [ items, cell, e ] );
-
-			if ( event.isDefaultPrevented() ) {
-				return;
-			}
-
-			var cellIndex = cell.index();
 			if ( items === 'row' ) {
 				idx = cellIndex.row;
 				typeSelect( e, dt, ctx, 'row', idx );
 			}
 			else if ( items === 'column' ) {
-				idx = cell.index().column;
+				idx = dt.cell( cell ).index().column;
 				typeSelect( e, dt, ctx, 'column', idx );
 			}
 			else if ( items === 'cell' ) {
-				idx = cell.index();
+				idx = dt.cell( cell ).index();
 				typeSelect( e, dt, ctx, 'cell', idx );
 			}
 
@@ -392,16 +381,10 @@ function enableMouseSelection ( dt )
 		} );
 
 	// Blurable
-	$('body').on( 'click.dtSelect' + dt.table().node().id, function ( e ) {
+	$('body').on( 'click.dtSelect', function ( e ) {
 		if ( ctx._select.blurable ) {
 			// If the click was inside the DataTables container, don't blur
 			if ( $(e.target).parents().filter( dt.table().container() ).length ) {
-				return;
-			}
-
-			// Ignore elements which have been removed from the DOM (i.e. paging
-			// buttons)
-			if ( e.target.getRootNode() !== document ) {
 				return;
 			}
 
@@ -431,13 +414,9 @@ function eventTrigger ( api, type, args, any )
 		return;
 	}
 
-	if ( typeof type === 'string' ) {
-		type = type +'.dt';
-	}
-
 	args.unshift( api );
 
-	$(api.table().node()).trigger( type, args );
+	$(api.table().node()).triggerHandler( type+'.dt', args );
 }
 
 /**
@@ -455,26 +434,22 @@ function info ( api )
 		return;
 	}
 
-	var rows    = api.rows( { selected: true } ).flatten().length;
-	var columns = api.columns( { selected: true } ).flatten().length;
-	var cells   = api.cells( { selected: true } ).flatten().length;
-
-	var add = function ( el, name, num ) {
-		el.append( $('<span class="select-item"/>').append( api.i18n(
+	var output  = $('<span class="select-info"/>');
+	var add = function ( name, num ) {
+		output.append( $('<span class="select-item"/>').append( api.i18n(
 			'select.'+name+'s',
 			{ _: '%d '+name+'s selected', 0: '', 1: '1 '+name+' selected' },
 			num
 		) ) );
 	};
 
+	add( 'row',    api.rows( { selected: true } ).flatten().length );
+	add( 'column', api.columns( { selected: true } ).flatten().length );
+	add( 'cell',   api.cells( { selected: true } ).flatten().length );
+
 	// Internal knowledge of DataTables to loop over all information elements
 	$.each( ctx.aanFeatures.i, function ( i, el ) {
 		el = $(el);
-
-		var output  = $('<span class="select-info"/>');
-		add( output, 'row', rows );
-		add( output, 'column', columns );
-		add( output, 'cell', cells  );
 
 		var exisiting = el.children('span.select-info');
 		if ( exisiting.length ) {
@@ -560,7 +535,7 @@ function init ( ctx ) {
 	} );
 
 	// Update the table information element with selected item summary
-	api.on( 'draw.dtSelect.dt select.dtSelect.dt deselect.dtSelect.dt info.dt', function () {
+	api.on( 'draw.dtSelect.dt select.dtSelect.dt deselect.dtSelect.dt', function () {
 		info( api );
 	} );
 
@@ -679,21 +654,6 @@ function typeSelect ( e, dt, ctx, type, idx )
 				dt[type]( idx ).select();
 			}
 		}
-	} else if ( style == 'multi+shift' ) {
-		if ( e.shiftKey ) {
-			if ( type === 'cell' ) {
-				cellRange( dt, idx, ctx._select_lastCell || null );
-			}
-			else {
-				rowColumnRange( dt, type, idx, ctx._select_lastCell ?
-					ctx._select_lastCell[type] :
-					null
-				);
-			}
-		}
-		else {
-			dt[ type ]( idx ).select( ! isSelected );
-		}
 	}
 	else {
 		dt[ type ]( idx ).select( ! isSelected );
@@ -726,7 +686,7 @@ $.each( [
 			data = settings[ o.prop ][ indexes[i] ];
 
 			if ( (selected === true && data._select_selected === true) ||
-			     (selected === false && ! data._select_selected )
+				 (selected === false && ! data._select_selected )
 			) {
 				out.push( indexes[i] );
 			}
@@ -749,7 +709,7 @@ DataTable.ext.selector.cell.push( function ( settings, opts, cells ) {
 		rowData = settings.aoData[ cells[i].row ];
 
 		if ( (selected === true && rowData._selected_cells && rowData._selected_cells[ cells[i].column ] === true) ||
-		     (selected === false && ( ! rowData._selected_cells || ! rowData._selected_cells[ cells[i].column ] ) )
+			 (selected === false && ( ! rowData._selected_cells || ! rowData._selected_cells[ cells[i].column ] ) )
 		) {
 			out.push( cells[i] );
 		}
@@ -1014,26 +974,16 @@ function i18n( label, def ) {
 	};
 }
 
-// Common events with suitable namespaces
-function namespacedEvents ( config ) {
-	var unique = config._eventNamespace;
-
-	return 'draw.dt.DT'+unique+' select.dt.DT'+unique+' deselect.dt.DT'+unique;
-}
-
-var _buttonNamespace = 0;
-
 $.extend( DataTable.ext.buttons, {
 	selected: {
 		text: i18n( 'selected', 'Selected' ),
 		className: 'buttons-selected',
-		init: function ( dt, node, config ) {
+		init: function ( dt, button, config ) {
 			var that = this;
-			config._eventNamespace = '.select'+(_buttonNamespace++);
 
 			// .DT namespace listeners are removed by DataTables automatically
 			// on table destroy
-			dt.on( namespacedEvents(config), function () {
+			dt.on( 'draw.dt.DT select.dt.DT deselect.dt.DT', function () {
 				var enable = that.rows( { selected: true } ).any() ||
 				             that.columns( { selected: true } ).any() ||
 				             that.cells( { selected: true } ).any();
@@ -1042,19 +992,15 @@ $.extend( DataTable.ext.buttons, {
 			} );
 
 			this.disable();
-		},
-		destroy: function ( dt, node, config ) {
-			dt.off( config._eventNamespace );
 		}
 	},
 	selectedSingle: {
 		text: i18n( 'selectedSingle', 'Selected single' ),
 		className: 'buttons-selected-single',
-		init: function ( dt, node, config ) {
+		init: function ( dt, button, config ) {
 			var that = this;
-			config._eventNamespace = '.select'+(_buttonNamespace++);
 
-			dt.on( namespacedEvents(config), function () {
+			dt.on( 'draw.dt.DT select.dt.DT deselect.dt.DT', function () {
 				var count = dt.rows( { selected: true } ).flatten().length +
 				            dt.columns( { selected: true } ).flatten().length +
 				            dt.cells( { selected: true } ).flatten().length;
@@ -1063,9 +1009,6 @@ $.extend( DataTable.ext.buttons, {
 			} );
 
 			this.disable();
-		},
-		destroy: function ( dt, node, config ) {
-			dt.off( config._eventNamespace );
 		}
 	},
 	selectAll: {
@@ -1082,11 +1025,10 @@ $.extend( DataTable.ext.buttons, {
 		action: function () {
 			clear( this.settings()[0], true );
 		},
-		init: function ( dt, node, config ) {
+		init: function ( dt, button, config ) {
 			var that = this;
-			config._eventNamespace = '.select'+(_buttonNamespace++);
 
-			dt.on( namespacedEvents(config), function () {
+			dt.on( 'draw.dt.DT select.dt.DT deselect.dt.DT', function () {
 				var count = dt.rows( { selected: true } ).flatten().length +
 				            dt.columns( { selected: true } ).flatten().length +
 				            dt.cells( { selected: true } ).flatten().length;
@@ -1095,9 +1037,6 @@ $.extend( DataTable.ext.buttons, {
 			} );
 
 			this.disable();
-		},
-		destroy: function ( dt, node, config ) {
-			dt.off( config._eventNamespace );
 		}
 	}
 } );
@@ -1111,7 +1050,7 @@ $.each( [ 'Row', 'Column', 'Cell' ], function ( i, item ) {
 		action: function () {
 			this.select.items( lc );
 		},
-		init: function ( dt ) {
+		init: function ( dt, button, config ) {
 			var that = this;
 
 			dt.on( 'selectItems.dt.DT', function ( e, ctx, items ) {

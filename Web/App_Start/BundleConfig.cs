@@ -18,8 +18,13 @@ namespace Web
 
         private static void RegisterVendorBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/vendor/jquery").Include(
-                "~/Content/vendor/scripts/jquery/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/vendor/lib").Include(
+                "~/Content/vendor/scripts/jquery/jquery-{version}.js",
+                "~/Content/vendor/scripts/bootstrap/bootstrap.js",
+                "~/Content/vendor/scripts/respond/respond.js",
+                "~/Content/vendor/scripts/bootbox/bootbox.js",
+                "~/Content/vendor/scripts/datatables/jquery.datatables.js",
+                "~/Content/vendor/scripts/datatables/datatables.bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/vendor/jqueryval").Include(
                 "~/Content/vendor/scripts/jquery/jquery.unobtrusive*",
@@ -28,16 +33,11 @@ namespace Web
             bundles.Add(new ScriptBundle("~/bundles/vendor/modernizr").Include(
                 "~/Content/vendor/scripts/modernizr/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/vendor/scripts")
-                .Include("~/Content/vendor/scripts/bootstrap/bootstrap.js")
-                .Include("~/Content/vendor/scripts/respond/respond.js")
-                .IncludeDirectory("~/Content/vendor/scripts/datatables","*.js", true));
-
-            bundles.Add(new StyleBundle("~/bundles/vendor/styles")
-                .Include("~/Content/vendor/styles/bootstrap/bootstrap.css")
-                .Include("~/Content/vendor/styles/bootstrap/bootstrap-theme.css")
-                .Include("~/Content/vendor/styles/font-awesome/font-awesome.css")
-                .IncludeDirectory("~/Content/vendor/styles/datatables/css","*.css", true));
+            bundles.Add(new StyleBundle("~/bundles/vendor/styles").Include(
+                "~/Content/vendor/styles/bootstrap/bootstrap.css",
+                "~/Content/vendor/styles/bootstrap/bootstrap-theme.css",
+                "~/Content/vendor/styles/font-awesome/font-awesome.css",
+                "~/Content/vendor/styles/datatables/css/datatables.bootstrap.css"));
         }
     }
 }

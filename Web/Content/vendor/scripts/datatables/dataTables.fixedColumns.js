@@ -1,11 +1,11 @@
-/*! FixedColumns 3.2.2
+/*! FixedColumns 3.2.1
  * ©2010-2016 SpryMedia Ltd - datatables.net/license
  */
 
 /**
  * @summary     FixedColumns
  * @description Freeze columns in place on a scrolling DataTable
- * @version     3.2.2
+ * @version     3.2.1
  * @file        dataTables.fixedColumns.js
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
@@ -139,14 +139,7 @@ var FixedColumns = function ( dt, init ) {
 		 *  @type     array.<int>
 		 *  @default  []
 		 */
-		"aiInnerWidths": [],
-
-
-		/**
-		 * Is the document layout right-to-left
-		 * @type boolean
-		 */
-		rtl: $(dtSettings.nTable).css('direction') === 'rtl'
+		"aiInnerWidths": []
 	};
 
 
@@ -618,16 +611,14 @@ $.extend( FixedColumns.prototype , {
 				}
 			} )
 			.on( 'select.dt.DTFC deselect.dt.DTFC', function ( e, dt, type, indexes ) {
-				if ( e.namespace === 'dt' ) {
-					that._fnDraw( false );
-				}
+				that._fnDraw( false );
 			} )
 			.on( 'destroy.dt.DTFC', function () {
 				jqTable.off( '.DTFC' );
 
 				$(that.dom.scroller).off( '.DTFC' );
 				$(window).off( '.DTFC' );
-				$(that.s.dt.nTableWrapper).off( '.DTFC' );
+				$(this.s.dt.nTableWrapper).off( '.DTFC' );
 
 				$(that.dom.grid.left.liner).off( '.DTFC '+wheelType );
 				$(that.dom.grid.left.wrapper).remove();
@@ -800,7 +791,17 @@ $.extend( FixedColumns.prototype , {
 		}
 
 		// RTL support - swap the position of the left and right columns (#48)
-		if ( this.s.rtl ) {
+		if ( $(this.dom.body).css('direction') === 'rtl' ) {
+			$(nLeft).css( {
+				left: '',
+				right: 0
+			} );
+
+			$(nRight).css( {
+				left: oOverflow.bar+"px",
+				right: ''
+			} );
+
 			$('div.DTFC_RightHeadBlocker', nSWrapper).css( {
 				left: -oOverflow.bar+'px',
 				right: ''
@@ -822,10 +823,10 @@ $.extend( FixedColumns.prototype , {
 		var iBodyHeight = $(this.s.dt.nTable.parentNode).outerHeight();
 		var iFullHeight = $(this.s.dt.nTable.parentNode.parentNode).outerHeight();
 		var oOverflow = this._fnDTOverflow();
-		var iLeftWidth = this.s.iLeftWidth;
-		var iRightWidth = this.s.iRightWidth;
-		var rtl = $(this.dom.body).css('direction') === 'rtl';
-		var wrapper;
+		var
+			iLeftWidth = this.s.iLeftWidth,
+			iRightWidth = this.s.iRightWidth,
+			iRight;
 		var scrollbarAdjust = function ( node, width ) {
 			if ( ! oOverflow.bar ) {
 				// If there is no scrollbar (Macs) we need to hide the auto scrollbar
@@ -855,21 +856,8 @@ $.extend( FixedColumns.prototype , {
 
 		if ( this.s.iLeftColumns > 0 )
 		{
-			wrapper = oGrid.left.wrapper;
-			wrapper.style.width = iLeftWidth+'px';
-			wrapper.style.height = '1px';
-
-			// Swap the position of the left and right columns for rtl (#48)
-			// This is always up against the edge, scrollbar on the far side
-			if ( rtl ) {
-				wrapper.style.left = '';
-				wrapper.style.right = 0;
-			}
-			else {
-				wrapper.style.left = 0;
-				wrapper.style.right = '';
-			}
-
+			oGrid.left.wrapper.style.width = iLeftWidth+"px";
+			oGrid.left.wrapper.style.height = "1px";
 			oGrid.left.body.style.height = iBodyHeight+"px";
 			if ( oGrid.left.foot ) {
 				oGrid.left.foot.style.top = (oOverflow.x ? oOverflow.bar : 0)+"px"; // shift footer for scrollbar
@@ -881,20 +869,14 @@ $.extend( FixedColumns.prototype , {
 
 		if ( this.s.iRightColumns > 0 )
 		{
-			wrapper = oGrid.right.wrapper;
-			wrapper.style.width = iRightWidth+'px';
-			wrapper.style.height = '1px';
-
-			// Need to take account of the vertical scrollbar
-			if ( this.s.rtl ) {
-				wrapper.style.left = oOverflow.y ? oOverflow.bar+'px' : 0;
-				wrapper.style.right = '';
-			}
-			else {
-				wrapper.style.left = '';
-				wrapper.style.right = oOverflow.y ? oOverflow.bar+'px' : 0;
+			iRight = iWidth - iRightWidth;
+			if ( oOverflow.y )
+			{
+				iRight -= oOverflow.bar;
 			}
 
+			oGrid.right.wrapper.style.width = iRightWidth+"px";
+			oGrid.right.wrapper.style.height = "1px";
 			oGrid.right.body.style.height = iBodyHeight+"px";
 			if ( oGrid.right.foot ) {
 				oGrid.right.foot.style.top = (oOverflow.x ? oOverflow.bar : 0)+"px";
@@ -1516,7 +1498,7 @@ FixedColumns.defaults = /** @lends FixedColumns.defaults */{
  *  @default   See code
  *  @static
  */
-FixedColumns.version = "3.2.2";
+FixedColumns.version = "3.2.1";
 
 
 

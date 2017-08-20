@@ -87,3 +87,9 @@ D:\Project\performance-app\Web\bin\Ninject.Web.Mvc.dll
 D:\Project\performance-app\Web\bin\Ninject.xml
 D:\Project\performance-app\Web\bin\Ninject.Web.Common.xml
 D:\Project\performance-app\Web\bin\Ninject.Web.Mvc.xml
+D:\Project\performance-app\Web\bin\log4net.dll
+D:\Project\performance-app\Web\bin\log4net.xml
+D:\Project\performance-app\Web\bin\Ninject.Extensions.Logging.dll
+D:\Project\performance-app\Web\bin\Ninject.Extensions.Logging.xml
+D:\Project\performance-app\Web\bin\Ninject.Extensions.Logging.Log4Net.dll
+D:\Project\performance-app\Web\bin\Ninject.Extensions.Logging.Log4Net.xml

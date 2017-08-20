@@ -30,17 +30,15 @@
             </div>
     </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-2">
                 Hello
             </div>
-            <div class="col-md-8">
+            <div class="col-md-10" style="padding: 20px;">
                 @RenderBody()
             </div>
         </div>
 
-    @Scripts.Render("~/bundles/vendor/jquery")
-    @Scripts.Render("~/bundles/vendor/jqueryval")
-    @Scripts.Render("~/bundles/vendor/scripts")
+    @Scripts.Render("~/bundles/vendor/lib")
     @Scripts.Render("~/bundles/app")
     @RenderSection("scripts", false)
 </body>
