@@ -162,6 +162,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Templates\BaseController.cs" />
+    <Compile Include="Extensions\HtmlHelpers\TableForHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -202,6 +203,7 @@
     <Content Include="Content\vendor\styles\datatables\css\dataTables.bootstrap.min.css" />
     <Content Include="Content\vendor\styles\datatables\css\dataTables.bootstrap4.css" />
     <Content Include="Content\vendor\styles\datatables\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\vendor\styles\datatables\css\dataTables.fontAwesome.css" />
     <Content Include="Content\vendor\styles\datatables\css\dataTables.foundation.css" />
     <Content Include="Content\vendor\styles\datatables\css\dataTables.foundation.min.css" />
     <Content Include="Content\vendor\styles\datatables\css\dataTables.jqueryui.css" />
@@ -393,7 +395,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
