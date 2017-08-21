@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Contact;
 using Core.Dtos;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure.Extensions;
+using Newtonsoft.Json;
 
 namespace Service.Controllers
 {
@@ -15,6 +17,7 @@ namespace Service.Controllers
     /// 
     /// </summary>
     [RoutePrefix("api/contacts")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ContactsController : ApiController
     {
         private readonly IContactRepository _repository;

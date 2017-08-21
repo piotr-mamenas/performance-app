@@ -12,7 +12,7 @@ namespace Infrastructure
 {
     public class PerformanceContext : ApplicationDbContext
     {
-        public DbSet<BaseInstitution> Organizations { get; set; }
+        public DbSet<BaseInstitution> Institutions { get; set; }
         public DbSet<BasePartner> Partners { get; set; }
         public DbSet<BaseContact> Contacts { get; set; }
         public DbSet<BaseCurrency> Currencies { get; set; }

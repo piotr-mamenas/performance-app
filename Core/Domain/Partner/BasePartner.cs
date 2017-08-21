@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Core.Domain.Contact;
 using Core.Domain.Institution;
+using Core.Enums;
+using Core.Enums.Domain;
 
 namespace Core.Domain.Partner
 {

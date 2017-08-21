@@ -40,7 +40,6 @@ namespace Service.Controllers
             {
                 return NotFound();
             }
-
             return Ok(partners.Map<ICollection<PartnerDto>>());
         }
 

@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Partner;
+using Core.Enums;
+using Core.Enums.Domain;
 
 namespace Infrastructure.EntityConfigurations
 {
@@ -35,7 +37,7 @@ namespace Infrastructure.EntityConfigurations
                 .HasForeignKey(c => c.PartnerId)
                 .WillCascadeOnDelete(false);
 
-            Map<AssetManager>(p => p.Requires("PartnerType").HasValue(1));
+            Map<AssetManager>(p => p.Requires("PartnerType").HasValue((int)PartnerType.AssetManager));
         }
     }
 }

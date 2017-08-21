@@ -37,7 +37,9 @@ namespace Infrastructure.EntityConfigurations
                 .HasMaxLength(40)
                 .HasColumnName("ContactPhoneNumber");
 
-            HasRequired(c => c.Partner).WithMany(p => p.Contacts);
+            HasRequired(c => c.Partner)
+                .WithMany(p => p.Contacts)
+                .WillCascadeOnDelete(false);
         }
     }
 }

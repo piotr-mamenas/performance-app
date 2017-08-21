@@ -1,4 +1,4 @@
-﻿namespace Core.Enums
+﻿namespace Core.Enums.Domain
 {
     public enum CountryType
     {

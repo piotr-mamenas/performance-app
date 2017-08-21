@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Institution;
+using Core.Enums;
+using Core.Enums.Domain;
 
 namespace Infrastructure.EntityConfigurations
 {
@@ -21,7 +23,12 @@ namespace Infrastructure.EntityConfigurations
                 .HasColumnName("InstitutionName")
                 .HasMaxLength(255);
 
-            Map<Bank>(o => o.Requires("InstitutionType").HasValue(1));
+            Property(o => o.Bic)
+                .IsRequired()
+                .HasColumnName("InstitutionBicCode")
+                .HasMaxLength(11);
+
+            Map<Bank>(o => o.Requires("InstitutionType").HasValue((int)InstitutionType.Bank));
         }
     }
 }

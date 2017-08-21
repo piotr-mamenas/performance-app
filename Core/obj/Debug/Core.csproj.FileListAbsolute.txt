@@ -11,4 +11,3 @@ D:\Project\performance-app\Core\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 D:\Project\performance-app\Core\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\Project\performance-app\Core\obj\Debug\Core.dll
 D:\Project\performance-app\Core\obj\Debug\Core.pdb
-D:\Project\performance-app\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache

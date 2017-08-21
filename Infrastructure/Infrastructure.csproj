@@ -71,9 +71,9 @@
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Helpers\AttributeHelper.cs" />
     <Compile Include="Helpers\ReflectionHelper.cs" />
-    <Compile Include="Migrations\201708142158464_InitialModel.cs" />
-    <Compile Include="Migrations\201708142158464_InitialModel.Designer.cs">
-      <DependentUpon>201708142158464_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\201708212331044_Initial.cs" />
+    <Compile Include="Migrations\201708212331044_Initial.Designer.cs">
+      <DependentUpon>201708212331044_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PerformanceContext.cs" />
@@ -96,6 +96,9 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708212331044_Initial.resx">
+      <DependentUpon>201708212331044_Initial.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
       <SubType>Designer</SubType>
@@ -108,14 +111,6 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708142158464_InitialModel.resx">
-      <DependentUpon>201708142158464_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Caching\" />
-    <Folder Include="Exceptions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

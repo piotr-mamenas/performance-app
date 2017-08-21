@@ -17,11 +17,11 @@ D:\Project\performance-app\Infrastructure\bin\Debug\log4net.xml
 D:\Project\performance-app\Infrastructure\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 D:\Project\performance-app\Infrastructure\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.csprojResolveAssemblyReference.cache
-D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.Migrations.InitialModel.resources
-D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.csproj.GenerateResource.Cache
 D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.dll
 D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.pdb
 D:\Project\performance-app\Infrastructure\bin\Debug\Ninject.dll
 D:\Project\performance-app\Infrastructure\bin\Debug\Ninject.xml
 D:\Project\performance-app\Infrastructure\bin\Debug\Ninject.Extensions.Logging.dll
 D:\Project\performance-app\Infrastructure\bin\Debug\Ninject.Extensions.Logging.xml
+D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.Migrations.Initial.resources
+D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.csproj.GenerateResource.Cache

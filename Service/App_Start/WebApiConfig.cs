@@ -2,7 +2,9 @@
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Service
 {
@@ -10,8 +12,15 @@ namespace Service
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API routes
+            //var corsToken = new EnableCorsAttribute(
+            //    origins: "*",
+            //    headers: "*",
+            //    methods: "*");
+
+            config.EnableCors();
+            
             config.MapHttpAttributeRoutes();
+
             config.Formatters.Add(new BrowserJsonFormatter());
         }
     }
@@ -20,8 +29,14 @@ namespace Service
     {
         public BrowserJsonFormatter()
         {
-            this.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
-            this.SerializerSettings.Formatting = Formatting.Indented;
+            SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            SerializerSettings = new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                Formatting = Formatting.Indented,
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
         }
 
         public override void SetDefaultContentHeaders(Type type, HttpContentHeaders headers, MediaTypeHeaderValue mediaType)

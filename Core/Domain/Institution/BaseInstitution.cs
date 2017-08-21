@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.Domain.Partner;
+using Core.Enums;
+using Core.Enums.Domain;
 
 namespace Core.Domain.Institution
 {
@@ -10,5 +12,7 @@ namespace Core.Domain.Institution
         public string Name { get; set; }
 
         public ICollection<BasePartner> Partners { get; set; }
+
+        public string Bic { get; set; }
     }
 }
