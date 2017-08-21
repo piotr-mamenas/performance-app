@@ -4,22 +4,42 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.TableFor(typeof(ContactDto), "table");
+@Html.TableFor(typeof(ContactDto), "contactTable")
 
 @section scripts{
     <script>
         $(document).ready(function() {
-            $('#table').DataTable({
+            $('#contactTable').DataTable({
+                processing: true,
+                serverSide: false,
                 ajax: {
-                    url: @Html.GetWebServerUri(),
-                    dataSrc: ""
+                    url: '@Html.GetWebServerUri()' + 'api/contacts',
+                    type: 'GET',
+                    dataSrc: '',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    headers: {
+                        'Access-Control-Allow-Origin' : '@Html.GetWebServerUri()'
+                    }
                 },
                 columns: [
                     {
-                        data: "name",
-                        render: function(data, type, object) {
-
-                        }
+                        data: 'name'
+                    },
+                    {
+                        data: 'firstName'
+                    },
+                    {
+                        data: 'lastName'
+                    },
+                    {
+                        data: 'email'
+                    },
+                    {
+                        data: 'phoneNumber'
+                    },
+                    {
+                        data: 'partner.name'
                     }
                 ]
             });

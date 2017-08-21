@@ -7,7 +7,7 @@ namespace Web.Extensions.HtmlHelpers
     {
         public static string GetWebServerUri(this HtmlHelper helper)
         {
-            return ConfigurationManager.AppSettings.Get("webServerUri");
+            return ConfigurationManager.AppSettings["webServerUri"];
         }
     }
 }

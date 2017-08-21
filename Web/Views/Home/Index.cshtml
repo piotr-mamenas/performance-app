@@ -1,28 +1,3 @@
-﻿@using Core.Dtos
-@using Web.Extensions.HtmlHelpers
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@Html.TableFor(typeof(PartnerDto), "table");
-
-@section scripts{
-    <script>
-        $(document).ready(function() {
-            $('#table').DataTable({
-                ajax: {
-                    url: @Html.GetWebServerUri(),
-                    dataSrc: ""
-                },
-                columns: [
-                    {
-                        data: "name",
-                        render: function(data, type, object) {
-                            
-                        }
-                    }
-                ]
-            });
-        });
-    </script>
 }

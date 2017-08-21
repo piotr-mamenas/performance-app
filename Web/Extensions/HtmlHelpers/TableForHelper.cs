@@ -1,5 +1,7 @@
 ﻿using System;
-using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -35,9 +37,10 @@ namespace Web.Extensions.HtmlHelpers
 
             foreach (var prop in typeOf.GetProperties())
             {
-                if (!prop.IsPropertyACollection())
+                if (!prop.IsPropertyACollection() && !prop.PropertyType.IsPrimitive)
                 {
-                    builder.Append("<th>" + prop.Name + "</th>");
+                    var displayName = GetDisplayName(prop) ?? prop.Name;
+                    builder.Append("<th>" + displayName + "</th>");
                 }
             }
 
@@ -50,6 +53,22 @@ namespace Web.Extensions.HtmlHelpers
         private static string GetTableBody()
         {
             return "<tbody></tbody>";
+        }
+        
+        private static string GetDisplayName(PropertyInfo property)
+        {
+            if (property == null) throw new ArgumentNullException(nameof(property), @"Property does not have [Display Name] defined");
+
+            var isDisplayNameAttributeDefined = Attribute.IsDefined(property, typeof(DisplayNameAttribute));
+
+            if (isDisplayNameAttributeDefined)
+            {
+                return property.GetCustomAttributes(typeof(DisplayNameAttribute), true)
+                    .Cast<DisplayNameAttribute>()
+                    .Single()
+                    .DisplayName;
+            }
+            return null;
         }
     }
 }
