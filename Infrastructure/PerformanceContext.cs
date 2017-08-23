@@ -20,7 +20,7 @@ namespace Infrastructure
 
         // TODO: Implement simple initialization to base later, for now we want defaultconnection
         public PerformanceContext()
-            : base("DefaultConnection")
+            : base("PerformanceApp")
         {
             
         }

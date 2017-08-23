@@ -12,5 +12,9 @@ namespace Service
             GlobalConfiguration.Configure(WebApiConfig.Register);
             MappingConfiguration.InitializeMapper();
         }
+
+        protected void Application_BeginRequest()
+        {
+        }
     }
 }

@@ -25,3 +25,4 @@ D:\Project\performance-app\Infrastructure\bin\Debug\Ninject.Extensions.Logging.d
 D:\Project\performance-app\Infrastructure\bin\Debug\Ninject.Extensions.Logging.xml
 D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.Migrations.Initial.resources
 D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.csproj.GenerateResource.Cache
+D:\Project\performance-app\Infrastructure\obj\Debug\Infrastructure.Migrations.Initial1.resources

@@ -12,13 +12,6 @@ namespace Service
     {
         public static void Register(HttpConfiguration config)
         {
-            //var corsToken = new EnableCorsAttribute(
-            //    origins: "*",
-            //    headers: "*",
-            //    methods: "*");
-
-            config.EnableCors();
-            
             config.MapHttpAttributeRoutes();
 
             config.Formatters.Add(new BrowserJsonFormatter());
@@ -33,7 +26,6 @@ namespace Service
             SerializerSettings = new JsonSerializerSettings
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
                 Formatting = Formatting.Indented,
                 ContractResolver = new CamelCasePropertyNamesContractResolver()
             };

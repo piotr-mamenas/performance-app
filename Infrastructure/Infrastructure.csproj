@@ -57,6 +57,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapper\MappingConfiguration.cs" />
@@ -71,9 +72,13 @@
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Helpers\AttributeHelper.cs" />
     <Compile Include="Helpers\ReflectionHelper.cs" />
-    <Compile Include="Migrations\201708212331044_Initial.cs" />
-    <Compile Include="Migrations\201708212331044_Initial.Designer.cs">
-      <DependentUpon>201708212331044_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201708222301037_Initial.cs" />
+    <Compile Include="Migrations\201708222301037_Initial.Designer.cs">
+      <DependentUpon>201708222301037_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708222333522_Initial1.cs" />
+    <Compile Include="Migrations\201708222333522_Initial1.Designer.cs">
+      <DependentUpon>201708222333522_Initial1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PerformanceContext.cs" />
@@ -96,8 +101,11 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708212331044_Initial.resx">
-      <DependentUpon>201708212331044_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708222301037_Initial.resx">
+      <DependentUpon>201708222301037_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708222333522_Initial1.resx">
+      <DependentUpon>201708222333522_Initial1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

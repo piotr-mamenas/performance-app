@@ -24,7 +24,6 @@ namespace Infrastructure.EntityConfigurations
                 .HasMaxLength(255);
 
             Property(o => o.Bic)
-                .IsRequired()
                 .HasColumnName("InstitutionBicCode")
                 .HasMaxLength(11);
 

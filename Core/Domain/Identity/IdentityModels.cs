@@ -1,4 +1,7 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.Data.Entity.Validation;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -23,11 +26,13 @@ namespace Core.Domain.Identity
         public ApplicationDbContext(string context)
             : base(context)
         {
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
         }
         
         public static ApplicationDbContext Create()
         {
-            return new ApplicationDbContext("DefaultConnection");
+            return new ApplicationDbContext("PerformanceApp");
         }
     }
 }

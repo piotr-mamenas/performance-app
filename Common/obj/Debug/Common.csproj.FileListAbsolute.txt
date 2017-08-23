@@ -1,0 +1,5 @@
+D:\Project\performance-app\Common\bin\Debug\Common.dll
+D:\Project\performance-app\Common\bin\Debug\Common.pdb
+D:\Project\performance-app\Common\obj\Debug\Common.dll
+D:\Project\performance-app\Common\obj\Debug\Common.pdb
+D:\Project\performance-app\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

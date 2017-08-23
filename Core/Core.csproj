@@ -59,8 +59,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Account\BaseAccount.cs" />
+    <Compile Include="Domain\Asset\BaseAsset.cs" />
     <Compile Include="Domain\Contact\BaseContact.cs" />
     <Compile Include="Domain\Country\BaseCountry.cs" />
     <Compile Include="Domain\Currency\BaseCurrency.cs" />
@@ -73,6 +76,7 @@
     <Compile Include="Domain\Institution\BaseInstitution.cs" />
     <Compile Include="Domain\Partner\AssetManager.cs" />
     <Compile Include="Domain\Partner\BasePartner.cs" />
+    <Compile Include="Domain\Position\BasePosition.cs" />
     <Compile Include="Dtos\AccountDto.cs" />
     <Compile Include="Dtos\ContactDto.cs" />
     <Compile Include="Dtos\CountryDto.cs" />
@@ -111,9 +115,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Domain\Account\" />
-    <Folder Include="Domain\Asset\" />
-    <Folder Include="Domain\Position\" />
     <Folder Include="Interfaces\Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

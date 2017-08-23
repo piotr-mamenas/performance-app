@@ -1,5 +1,8 @@
+using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using Core.Domain.Contact;
 using Core.Domain.Country;
 using Core.Domain.Currency;
@@ -17,11 +20,15 @@ namespace Infrastructure.Migrations
 
         protected override void Seed(PerformanceContext context)
         {
-            SeedCountry(context.Countries);
-            SeedContact(context.Contacts);
-            SeedPartner(context.Partners);
-            SeedCurrency(context.Currencies);
-            SeedInstitution(context.Institutions);
+            //if (Debugger.IsAttached == false)
+            //{
+            //    Debugger.Launch();
+            //}
+            //SeedCountry(context.Countries);
+            //SeedContact(context.Contacts);
+            //SeedPartner(context.Partners);
+            //SeedCurrency(context.Currencies);
+            //SeedInstitution(context.Institutions);
         }
 
         private static void SeedCountry(IDbSet<BaseCountry> set)
@@ -30,24 +37,21 @@ namespace Infrastructure.Migrations
             {
                 Id = 1,
                 Name = "Poland",
-                Code = "PL",
-                IsEnabled = true
+                Code = "PL"
             });
 
             set.AddOrUpdate(new BaseCountry
             {
                 Id = 2,
                 Name = "Switzerland",
-                Code = "CH",
-                IsEnabled = true
+                Code = "CH"
             });
 
             set.AddOrUpdate(new BaseCountry
             {
                 Id = 3,
                 Name = "Second Poland",
-                Code = "GB",
-                IsEnabled = true
+                Code = "GB"
             });
         }
 

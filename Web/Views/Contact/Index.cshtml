@@ -10,35 +10,35 @@
     <script>
         $(document).ready(function() {
             $('#contactTable').DataTable({
-                processing: true,
-                serverSide: false,
                 ajax: {
                     url: '@Html.GetWebServerUri()' + 'api/contacts',
                     type: 'GET',
                     dataSrc: '',
-                    dataType: 'json',
-                    contentType: 'application/json'
+                    dataType: 'json'
                 },
                 columns: [
                     {
-                        data: 'name'
+                        data: 'Name'
                     },
                     {
-                        data: 'firstName'
+                        data: 'FirstName'
                     },
                     {
-                        data: 'lastName'
+                        data: 'LastName'
                     },
                     {
-                        data: 'email'
+                        data: 'Email'
                     },
                     {
-                        data: 'phoneNumber'
+                        data: 'PhoneNumber'
                     },
                     {
-                        data: 'partner.name'
+                        data: 'Partner'
                     }
-                ]
+                ],
+                language: {
+                    emptyTable: "No records at present."
+                }
             });
         });
     </script>
