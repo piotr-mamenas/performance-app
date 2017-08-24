@@ -1,6 +1,0 @@
-D:\Project\performance-app\TaskServer\bin\Debug\TaskServer.exe.config
-D:\Project\performance-app\TaskServer\bin\Debug\TaskServer.exe
-D:\Project\performance-app\TaskServer\bin\Debug\TaskServer.pdb
-D:\Project\performance-app\TaskServer\obj\Debug\TaskServer.exe
-D:\Project\performance-app\TaskServer\obj\Debug\TaskServer.pdb
-D:\Project\performance-app\TaskServer\obj\Debug\TaskServer.csprojResolveAssemblyReference.cache
