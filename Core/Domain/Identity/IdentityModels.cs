@@ -26,8 +26,6 @@ namespace Core.Domain.Identity
         public ApplicationDbContext(string context)
             : base(context)
         {
-            Configuration.ProxyCreationEnabled = false;
-            Configuration.LazyLoadingEnabled = false;
         }
         
         public static ApplicationDbContext Create()

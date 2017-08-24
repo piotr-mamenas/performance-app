@@ -1,6 +1,4 @@
-﻿using System.Data.SqlTypes;
-
-namespace Core.Domain.Country
+﻿namespace Core.Domain.Country
 {
     public class BaseCountry
     {

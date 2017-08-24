@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using Core.Domain.Contact;
 using Core.Domain.Institution;
-using Core.Enums;
-using Core.Enums.Domain;
 
 namespace Core.Domain.Partner
 {
@@ -16,6 +14,6 @@ namespace Core.Domain.Partner
 
         public ICollection<BaseInstitution> Organizations { get; set; }
 
-        public virtual ICollection<BaseContact> Contacts { get; set; }
+        public ICollection<BaseContact> Contacts { get; set; }
     }
 }

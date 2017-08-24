@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -34,7 +35,7 @@ namespace Service.Controllers
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var countries = await _repository.GetAllAsync();
+            var countries = await _repository.GetAll().ToListAsync();
 
             if (countries == null)
             {

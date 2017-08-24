@@ -1,7 +1,11 @@
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using Core.Domain.Identity;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure;
 using Infrastructure.Repositories;
+using Ninject.Activation;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Service.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Service.App_Start.NinjectWebCommon), "Stop")]
@@ -67,6 +71,8 @@ namespace Service.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<DbContext>().To<PerformanceContext>().InRequestScope();
+            kernel.Bind<DbContext>().ToSelf().InRequestScope();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
             kernel.Bind<IContactRepository>().To<ContactRepository>().InRequestScope();
             kernel.Bind<ICurrencyRepository>().To<CurrencyRepository>().InRequestScope();

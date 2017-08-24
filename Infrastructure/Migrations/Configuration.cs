@@ -1,8 +1,5 @@
-using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using System.Data.Entity.Validation;
-using System.Diagnostics;
 using Core.Domain.Contact;
 using Core.Domain.Country;
 using Core.Domain.Currency;

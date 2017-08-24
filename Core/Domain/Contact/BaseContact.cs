@@ -16,7 +16,7 @@ namespace Core.Domain.Contact
 
         public string PhoneNumber { get; set; }
 
-        public virtual BasePartner Partner { get; set; }
+        public BasePartner Partner { get; set; }
 
         public int PartnerId { get; set; }
     }

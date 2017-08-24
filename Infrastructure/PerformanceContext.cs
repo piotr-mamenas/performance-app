@@ -7,6 +7,7 @@ using Core.Domain.Institution;
 using Core.Domain.Partner;
 using Infrastructure.EntityConfigurations;
 using Infrastructure.EntityConfigurations.IdentityConfigurations;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Infrastructure
 {
@@ -18,11 +19,11 @@ namespace Infrastructure
         public DbSet<BaseCurrency> Currencies { get; set; }
         public DbSet<BaseCountry> Countries { get; set; }
 
-        // TODO: Implement simple initialization to base later, for now we want defaultconnection
         public PerformanceContext()
             : base("PerformanceApp")
         {
-            
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
