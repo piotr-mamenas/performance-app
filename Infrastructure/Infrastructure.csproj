@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201708222333522_Initial1.Designer.cs">
       <DependentUpon>201708222333522_Initial1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708241955434_FixCurrencyNameLengthMigration.cs" />
+    <Compile Include="Migrations\201708241955434_FixCurrencyNameLengthMigration.Designer.cs">
+      <DependentUpon>201708241955434_FixCurrencyNameLengthMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PerformanceContext.cs" />
     <Compile Include="ApplicationUserStore.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708222333522_Initial1.resx">
       <DependentUpon>201708222333522_Initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708241955434_FixCurrencyNameLengthMigration.resx">
+      <DependentUpon>201708241955434_FixCurrencyNameLengthMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

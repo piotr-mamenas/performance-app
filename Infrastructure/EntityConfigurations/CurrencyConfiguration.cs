@@ -22,7 +22,7 @@ namespace Infrastructure.EntityConfigurations
                 .HasColumnName("CurrencyName");
 
             Property(c => c.Code)
-                .HasMaxLength(2)
+                .HasMaxLength(3)
                 .HasColumnName("CurrencyCode");
 
             Property(c => c.IsEnabled)
