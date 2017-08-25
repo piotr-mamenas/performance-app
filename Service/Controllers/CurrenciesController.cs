@@ -4,11 +4,11 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Core.Domain.Currency;
 using Core.Dtos;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure.Extensions;
+using Core.Domain.Currencies;
 
 namespace Service.Controllers
 {
@@ -83,7 +83,7 @@ namespace Service.Controllers
                 return NotFound();
             }
 
-            _repository.Add(currency.Map<BaseCurrency>());
+            _repository.Add(currency.Map<Currency>());
             await _unitOfWork.CompleteAsync();
 
             return Ok();
@@ -102,7 +102,7 @@ namespace Service.Controllers
                 return BadRequest();
             }
 
-            _repository.Add(currency.Map<BaseCurrency>());
+            _repository.Add(currency.Map<Currency>());
 
             await _unitOfWork.CompleteAsync();
 

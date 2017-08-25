@@ -65,17 +65,9 @@
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Helpers\AttributeHelper.cs" />
     <Compile Include="Helpers\ReflectionHelper.cs" />
-    <Compile Include="Migrations\201708222301037_Initial.cs" />
-    <Compile Include="Migrations\201708222301037_Initial.Designer.cs">
-      <DependentUpon>201708222301037_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708222333522_Initial1.cs" />
-    <Compile Include="Migrations\201708222333522_Initial1.Designer.cs">
-      <DependentUpon>201708222333522_Initial1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708241955434_FixCurrencyNameLengthMigration.cs" />
-    <Compile Include="Migrations\201708241955434_FixCurrencyNameLengthMigration.Designer.cs">
-      <DependentUpon>201708241955434_FixCurrencyNameLengthMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201708252157188_InitialDatabaseModel.cs" />
+    <Compile Include="Migrations\201708252157188_InitialDatabaseModel.Designer.cs">
+      <DependentUpon>201708252157188_InitialDatabaseModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PerformanceContext.cs" />
@@ -99,14 +91,8 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708222301037_Initial.resx">
-      <DependentUpon>201708222301037_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708222333522_Initial1.resx">
-      <DependentUpon>201708222333522_Initial1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708241955434_FixCurrencyNameLengthMigration.resx">
-      <DependentUpon>201708241955434_FixCurrencyNameLengthMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708252157188_InitialDatabaseModel.resx">
+      <DependentUpon>201708252157188_InitialDatabaseModel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

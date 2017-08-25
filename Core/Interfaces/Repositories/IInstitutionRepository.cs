@@ -1,8 +1,8 @@
-﻿using Core.Domain.Institution;
+﻿using Core.Domain.Institutions;
 
 namespace Core.Interfaces.Repositories
 {
-    public interface IInstitutionRepository : IRepository<BaseInstitution>
+    public interface IInstitutionRepository : IRepository<Institution>
     {
     }
 }

@@ -1,8 +1,8 @@
-﻿using Core.Domain.Contact;
+﻿using Core.Domain.Contacts;
 
 namespace Core.Interfaces.Repositories
 {
-    public interface IContactRepository : IRepository<BaseContact>
+    public interface IContactRepository : IRepository<Contact>
     {
     }
 }

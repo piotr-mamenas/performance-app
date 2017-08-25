@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Contact;
+using Core.Domain.Contacts;
 
 namespace Infrastructure.EntityConfigurations
 {
-    public class ContactConfiguration : EntityTypeConfiguration<BaseContact>
+    public class ContactConfiguration : EntityTypeConfiguration<Contact>
     {
         public ContactConfiguration()
         {

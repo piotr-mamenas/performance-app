@@ -1,9 +1,9 @@
-﻿using Core.Domain.Country;
+﻿using Core.Domain.Countries;
 using Core.Interfaces.Repositories;
 
 namespace Infrastructure.Repositories
 {
-    public class CountryRepository : Repository<BaseCountry>, ICountryRepository
+    public class CountryRepository : Repository<Country>, ICountryRepository
     {
         public CountryRepository(PerformanceContext context)
             : base(context)

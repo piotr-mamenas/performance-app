@@ -1,8 +1,8 @@
-﻿using Core.Domain.Currency;
+﻿using Core.Domain.Currencies;
 
 namespace Core.Interfaces.Repositories
 {
-    public interface ICurrencyRepository : IRepository<BaseCurrency>
+    public interface ICurrencyRepository : IRepository<Currency>
     {
     }
 }

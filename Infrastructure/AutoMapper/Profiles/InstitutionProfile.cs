@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Core.Domain.Institution;
+using Core.Domain.Institutions;
 using Core.Dtos;
 
 namespace Infrastructure.AutoMapper.Profiles
@@ -8,7 +8,7 @@ namespace Infrastructure.AutoMapper.Profiles
     {
         public InstitutionProfile()
         {
-            CreateMap<BaseInstitution, InstitutionDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+            CreateMap<Institution, InstitutionDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ReverseMap();
 

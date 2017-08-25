@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Core.Domain.Partner;
+using Core.Domain.Partners;
 
-namespace Core.Domain.Account
+namespace Core.Domain.Accounts
 {
-    public class BaseAccount
+    public class BaseAccount<T> : BaseEntity<T> where T : BaseEntity<T>, new()
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public string Number { get; set; }
@@ -16,7 +14,7 @@ namespace Core.Domain.Account
 
         public DateTime DateClosed { get; set; }
 
-        public virtual ICollection<BasePartner> Partners { get; set; }
+        public virtual ICollection<Partner> Partners { get; set; }
         
     }
 }

@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Core.Domain.Country;
+using Core.Domain.Countries;
 using Core.Dtos;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
@@ -83,7 +83,7 @@ namespace Service.Controllers
                 return NotFound();
             }
 
-            _repository.Add(country.Map<BaseCountry>());
+            _repository.Add(country.Map<Country>());
 
             await _unitOfWork.CompleteAsync();
 
@@ -103,7 +103,7 @@ namespace Service.Controllers
                 return BadRequest();
             }
 
-            _repository.Add(country.Map<BaseCountry>());
+            _repository.Add(country.Map<Country>());
 
             await _unitOfWork.CompleteAsync();
 

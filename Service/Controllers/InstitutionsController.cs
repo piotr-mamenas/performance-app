@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Core.Domain.Institution;
+using Core.Domain.Institutions;
 using Core.Dtos;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
@@ -47,7 +47,7 @@ namespace Service.Controllers
                 return NotFound();
             }
 
-            return Ok(institutions.Map<ICollection<BaseInstitution>>());
+            return Ok(institutions.Map<ICollection<Institution>>());
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace Service.Controllers
                 return NotFound();
             }
 
-            _repository.Add(institution.Map<BaseInstitution>());
+            _repository.Add(institution.Map<Institution>());
 
             await _unitOfWork.CompleteAsync();
 
@@ -110,7 +110,7 @@ namespace Service.Controllers
                 return BadRequest();
             }
 
-            _repository.Add(institution.Map<BaseInstitution>());
+            _repository.Add(institution.Map<Institution>());
 
             await _unitOfWork.CompleteAsync();
 
@@ -132,7 +132,7 @@ namespace Service.Controllers
                 return NotFound();
             }
 
-            _repository.Remove(institution.Map<BaseInstitution>());
+            _repository.Remove(institution.Map<Institution>());
 
             await _unitOfWork.CompleteAsync();
 

@@ -1,8 +1,9 @@
-﻿using Core.Domain.Partner;
+﻿using Core.Domain.Institutions;
+using Core.Domain.Partners;
 
 namespace Core.Interfaces.Repositories
 {
-    public interface IPartnerRepository : IRepository<BasePartner>
+    public interface IPartnerRepository : IRepository<Partner>
     {
     }
 }

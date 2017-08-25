@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Currency;
+using Core.Domain.Currencies;
 
 namespace Infrastructure.EntityConfigurations
 {
-    public class CurrencyConfiguration : EntityTypeConfiguration<BaseCurrency>
+    public class CurrencyConfiguration : EntityTypeConfiguration<Currency>
     {
         public CurrencyConfiguration()
         {

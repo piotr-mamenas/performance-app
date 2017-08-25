@@ -1,11 +1,9 @@
-﻿using Core.Domain.Partner;
+﻿using Core.Domain.Partners;
 
-namespace Core.Domain.Contact
+namespace Core.Domain.Contacts
 {
-    public class BaseContact
+    public class BaseContact<T> : BaseEntity<T> where T : BaseEntity<T>, new()
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public string FirstName { get; set; }
@@ -16,7 +14,7 @@ namespace Core.Domain.Contact
 
         public string PhoneNumber { get; set; }
 
-        public BasePartner Partner { get; set; }
+        public Partner Partner { get; set; }
 
         public int PartnerId { get; set; }
     }

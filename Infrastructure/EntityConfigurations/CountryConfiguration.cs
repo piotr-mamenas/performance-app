@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Country;
+using Core.Domain.Countries;
 
 namespace Infrastructure.EntityConfigurations
 {
-    public class CountryConfiguration : EntityTypeConfiguration<BaseCountry>
+    public class CountryConfiguration : EntityTypeConfiguration<Country>
     {
         public CountryConfiguration()
         {

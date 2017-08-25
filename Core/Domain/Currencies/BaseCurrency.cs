@@ -1,9 +1,7 @@
-﻿namespace Core.Domain.Country
+﻿namespace Core.Domain.Currencies
 {
-    public class BaseCountry
+    public class BaseCurrency<T> : BaseEntity<T> where T : BaseCurrency<T>, new()
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public string Code { get; set; }

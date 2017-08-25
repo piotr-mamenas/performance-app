@@ -3,7 +3,7 @@ namespace Infrastructure.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class InitialDatabaseModel : DbMigration
     {
         public override void Up()
         {
@@ -62,7 +62,7 @@ namespace Infrastructure.Migrations
                     {
                         CurrencyId = c.Int(nullable: false, identity: true),
                         CurrencyName = c.String(nullable: false, maxLength: 255),
-                        CurrencyCode = c.String(maxLength: 2),
+                        CurrencyCode = c.String(maxLength: 3),
                         CurrencyEnabled = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.CurrencyId);

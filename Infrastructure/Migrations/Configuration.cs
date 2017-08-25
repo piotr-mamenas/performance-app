@@ -1,10 +1,10 @@
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using Core.Domain.Contact;
-using Core.Domain.Country;
-using Core.Domain.Currency;
-using Core.Domain.Institution;
-using Core.Domain.Partner;
+using Core.Domain.Contacts;
+using Core.Domain.Countries;
+using Core.Domain.Currencies;
+using Core.Domain.Institutions;
+using Core.Domain.Partners;
 
 namespace Infrastructure.Migrations
 {
@@ -25,38 +25,38 @@ namespace Infrastructure.Migrations
             context.SaveChanges();
         }
 
-        private static void SeedCountry(IDbSet<BaseCountry> set)
+        private static void SeedCountry(IDbSet<Country> set)
         {
             set.AddOrUpdate(c => c.Id,
-                new BaseCountry
+                new Country
                 {
                     Id = 1,
                     Name = "Poland",
                     Code = "PL",
                     IsEnabled = true
                 },
-                new BaseCountry
+                new Country
                 {
                     Id = 2,
                     Name = "Switzerland",
                     Code = "CH",
                     IsEnabled = true
                 },
-                new BaseCountry
+                new Country
                 {
                     Id = 3,
                     Name = "United Kingdom",
                     Code = "UK",
                     IsEnabled = true
                 },
-                new BaseCountry
+                new Country
                 {
                     Id = 4,
                     Name = "Germany",
                     Code = "DE",
                     IsEnabled = true
                 },
-                new BaseCountry
+                new Country
                 {
                     Id = 5,
                     Name = "Russia",
@@ -65,10 +65,10 @@ namespace Infrastructure.Migrations
                 });
         }
 
-        private static void SeedContact(IDbSet<BaseContact> set)
+        private static void SeedContact(IDbSet<Contact> set)
         {
             set.AddOrUpdate(c => c.Id,
-                new BaseContact
+                new Contact
                 {
                     Id = 1,
                     Email = "gordon.gekko@teldar.com",
@@ -78,7 +78,7 @@ namespace Infrastructure.Migrations
                     PartnerId = 1,
                     PhoneNumber = "+41 111 111 111"
                 },
-                new BaseContact
+                new Contact
                 {
                     Id = 2,
                     Email = "piotr.mamenas@gmail.com",
@@ -88,7 +88,7 @@ namespace Infrastructure.Migrations
                     PartnerId = 1,
                     PhoneNumber = "+41 222 222 222"
                 },
-                new BaseContact
+                new Contact
                 {
                     Id = 3,
                     Email = "jordan.belfort@stratton.com",
@@ -100,16 +100,16 @@ namespace Infrastructure.Migrations
                 });
         }
 
-        private static void SeedPartner(IDbSet<BasePartner> set)
+        private static void SeedPartner(IDbSet<Partner> set)
         {
             set.AddOrUpdate(p => p.Id,
-                new BasePartner
+                new Partner
                 {
                     Id = 1,
                     Name = "OCPD Trading Company",
                     Number = "LX249"
                 },
-                new BasePartner
+                new Partner
                 {
                     Id = 2,
                     Name = "Buffet Investments",
@@ -117,24 +117,24 @@ namespace Infrastructure.Migrations
                 });
         }
 
-        private static void SeedCurrency(IDbSet<BaseCurrency> set)
+        private static void SeedCurrency(IDbSet<Currency> set)
         {
             set.AddOrUpdate(c => c.Id,
-                new BaseCurrency
+                new Currency
                 {
                     Id = 1,
                     Code = "CHF",
                     IsEnabled = true,
                     Name = "Swiss Franc"
                 },
-                new BaseCurrency
+                new Currency
                 {
                     Id = 2,
                     Code = "PLN",
                     IsEnabled = true,
                     Name = "Polish Zloty"
                 },
-                new BaseCurrency
+                new Currency
                 {
                     Id = 3,
                     Code = "EUR",
@@ -143,16 +143,16 @@ namespace Infrastructure.Migrations
                 });
         }
 
-        private static void SeedInstitution(IDbSet<BaseInstitution> set)
+        private static void SeedInstitution(IDbSet<Institution> set)
         {
             set.AddOrUpdate(i => i.Id,
-                new BaseInstitution
+                new Institution
                 {
                     Id = 1,
                     Bic = "CRESCHZZ80A",
                     Name = "Credit Suisse"
                 },
-                new BaseInstitution
+                new Institution
                 {
                     Id = 2,
                     Name = "European Union"

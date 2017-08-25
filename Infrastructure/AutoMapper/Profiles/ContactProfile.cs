@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Core.Domain.Contact;
+using Core.Domain.Contacts;
 using Core.Dtos;
 
 namespace Infrastructure.AutoMapper.Profiles
@@ -8,7 +8,7 @@ namespace Infrastructure.AutoMapper.Profiles
     {
         public ContactProfile()
         {
-            CreateMap<BaseContact, ContactDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+            CreateMap<Contact, ContactDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.FirstName, opt => opt.MapFrom(src => src.FirstName))
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.LastName))

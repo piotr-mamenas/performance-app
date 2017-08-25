@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Core.Domain.Country;
+using Core.Domain.Countries;
 using Core.Dtos;
 
 namespace Infrastructure.AutoMapper.Profiles
@@ -8,7 +8,7 @@ namespace Infrastructure.AutoMapper.Profiles
     {
         public CountryProfile()
         {
-            CreateMap<BaseCountry, CountryDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+            CreateMap<Country, CountryDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.Code, opt => opt.MapFrom(src => src.Code))
                 .ForMember(dest => dest.IsEnabled, opt => opt.MapFrom(src => src.IsEnabled))

@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Institution;
+using Core.Domain.Institutions;
 using Core.Enums;
 using Core.Enums.Domain;
 
 namespace Infrastructure.EntityConfigurations
 {
-    public class InstitutionConfiguration : EntityTypeConfiguration<BaseInstitution>
+    public class InstitutionConfiguration : EntityTypeConfiguration<Institution>
     {
         public InstitutionConfiguration()
         {

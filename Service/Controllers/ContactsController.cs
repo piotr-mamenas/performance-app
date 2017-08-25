@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
-using Core.Domain.Contact;
+using Core.Domain.Contacts;
 using Core.Dtos;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
@@ -92,7 +92,7 @@ namespace Service.Controllers
                 return NotFound();
             }
 
-            _repository.Add(contact.Map<BaseContact>());
+            _repository.Add(contact.Map<Contact>());
 
             await _unitOfWork.CompleteAsync();
 
@@ -112,7 +112,7 @@ namespace Service.Controllers
                 return BadRequest();
             }
 
-            _repository.Add(contact.Map<BaseContact>());
+            _repository.Add(contact.Map<Contact>());
 
             await _unitOfWork.CompleteAsync();
 

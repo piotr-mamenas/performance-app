@@ -1,23 +1,22 @@
 ﻿using System.Data.Entity;
-using Core.Domain.Contact;
-using Core.Domain.Country;
-using Core.Domain.Currency;
+using Core.Domain.Contacts;
+using Core.Domain.Countries;
+using Core.Domain.Currencies;
 using Core.Domain.Identity;
-using Core.Domain.Institution;
-using Core.Domain.Partner;
+using Core.Domain.Institutions;
+using Core.Domain.Partners;
 using Infrastructure.EntityConfigurations;
 using Infrastructure.EntityConfigurations.IdentityConfigurations;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Infrastructure
 {
     public class PerformanceContext : ApplicationDbContext
     {
-        public DbSet<BaseInstitution> Institutions { get; set; }
-        public DbSet<BasePartner> Partners { get; set; }
-        public DbSet<BaseContact> Contacts { get; set; }
-        public DbSet<BaseCurrency> Currencies { get; set; }
-        public DbSet<BaseCountry> Countries { get; set; }
+        public DbSet<Institution> Institutions { get; set; }
+        public DbSet<Partner> Partners { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Currency> Currencies { get; set; }
+        public DbSet<Country> Countries { get; set; }
 
         public PerformanceContext()
             : base("PerformanceApp")

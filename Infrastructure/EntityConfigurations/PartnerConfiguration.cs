@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Partner;
+using Core.Domain.Partners;
 using Core.Enums;
 using Core.Enums.Domain;
 
 namespace Infrastructure.EntityConfigurations
 {
-    public class PartnerConfiguration : EntityTypeConfiguration<BasePartner>
+    public class PartnerConfiguration : EntityTypeConfiguration<Partner>
     {
         public PartnerConfiguration()
         {
