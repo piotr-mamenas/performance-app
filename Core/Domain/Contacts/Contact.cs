@@ -1,6 +1,8 @@
-﻿namespace Core.Domain.Contacts
+﻿using Core.Interfaces;
+
+namespace Core.Domain.Contacts
 {
-    public class Contact : BaseContact<Contact>
+    public class Contact : BaseContact<Contact>, IEntityRoot
     {
     }
 }

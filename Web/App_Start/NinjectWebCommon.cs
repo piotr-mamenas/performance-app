@@ -1,3 +1,8 @@
+using Core.Domain.Contacts;
+using Core.Domain.Countries;
+using Core.Domain.Currencies;
+using Core.Domain.Institutions;
+using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure;
@@ -68,12 +73,13 @@ namespace Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
-            kernel.Bind<IContactRepository>().To<ContactRepository>().InRequestScope();
-            kernel.Bind<ICurrencyRepository>().To<CurrencyRepository>().InRequestScope();
-            kernel.Bind<ICountryRepository>().To<CountryRepository>().InRequestScope();
-            kernel.Bind<IPartnerRepository>().To<PartnerRepository>().InRequestScope();
-            kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
-            
+            kernel.Bind<IContactRepository<Contact>>().To<ContactRepository<Contact>>().InRequestScope();
+            kernel.Bind<ICurrencyRepository<Currency>>().To<CurrencyRepository<Currency>>().InRequestScope();
+            kernel.Bind<ICountryRepository<Country>>().To<CountryRepository<Country>>().InRequestScope();
+            kernel.Bind<IPartnerRepository<Partner>>().To<PartnerRepository<Partner>>().InRequestScope();
+            kernel.Bind<IPartnerRepository<AssetManager>>().To<PartnerRepository<AssetManager>>().InRequestScope();
+            kernel.Bind<IInstitutionRepository<Institution>>().To<InstitutionRepository<Institution>>().InRequestScope();
+            kernel.Bind<IInstitutionRepository<Bank>>().To<InstitutionRepository<Bank>>().InRequestScope();
         }
 
         // IMapper based dependency injection

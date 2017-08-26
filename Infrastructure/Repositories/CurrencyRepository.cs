@@ -1,9 +1,9 @@
-﻿using Core.Domain.Currencies;
+﻿using Core.Interfaces;
 using Core.Interfaces.Repositories;
 
 namespace Infrastructure.Repositories
 {
-    public class CurrencyRepository : Repository<Currency>, ICurrencyRepository
+    public class CurrencyRepository<TSpecificEntity> : Repository<TSpecificEntity>, ICurrencyRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot, new()
     {
         public CurrencyRepository(PerformanceContext context)
             : base(context)

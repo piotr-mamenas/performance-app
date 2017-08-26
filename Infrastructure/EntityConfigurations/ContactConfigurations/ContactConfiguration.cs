@@ -2,7 +2,7 @@
 using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Contacts;
 
-namespace Infrastructure.EntityConfigurations
+namespace Infrastructure.EntityConfigurations.ContactConfigurations
 {
     public class ContactConfiguration : EntityTypeConfiguration<Contact>
     {

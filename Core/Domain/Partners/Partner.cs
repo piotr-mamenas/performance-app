@@ -1,6 +1,8 @@
-﻿namespace Core.Domain.Partners
+﻿using Core.Interfaces;
+
+namespace Core.Domain.Partners
 {
-    public class Partner : BasePartner<Partner>
+    public class Partner : BasePartner<Partner>, IEntityRoot
     {
     }
 }

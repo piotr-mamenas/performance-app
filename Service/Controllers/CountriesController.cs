@@ -19,7 +19,7 @@ namespace Service.Controllers
     public class CountriesController : ApiController
     {
         private readonly IComplete _unitOfWork;
-        private readonly ICountryRepository _repository;
+        private readonly ICountryRepository<Country> _repository;
 
         public CountriesController(IUnitOfWork unitOfWork)
         {

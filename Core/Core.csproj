@@ -97,6 +97,7 @@
     <Compile Include="Enums\Domain\InstitutionType.cs" />
     <Compile Include="Enums\Domain\PartnerType.cs" />
     <Compile Include="Interfaces\IComplete.cs" />
+    <Compile Include="Interfaces\IEntityRoot.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Repositories\IContactRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICountryRepository.cs" />

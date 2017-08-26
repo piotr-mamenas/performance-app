@@ -2,7 +2,7 @@
 
 namespace Core.Interfaces.Repositories
 {
-    public interface IInstitutionRepository : IRepository<Institution>
+    public interface IInstitutionRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot, new()
     {
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Core.Domain.Contacts
 {
-    public class BaseContact<T> : BaseEntity<T> where T : BaseEntity<T>, new()
+    public abstract class BaseContact<T> : BaseEntity<T> where T : BaseEntity<T>, new()
     {
         public string Name { get; set; }
 

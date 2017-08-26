@@ -19,7 +19,7 @@ namespace Service.Controllers
     public class PartnersController : ApiController
     {
         private readonly IComplete _unitOfWork;
-        private readonly IPartnerRepository _repository;
+        private readonly IPartnerRepository<Partner> _repository;
 
         public PartnersController(IUnitOfWork unitOfWork)
         {

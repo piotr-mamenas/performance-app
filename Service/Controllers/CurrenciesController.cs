@@ -18,7 +18,7 @@ namespace Service.Controllers
     [RoutePrefix("api/currencies")]
     public class CurrenciesController : ApiController
     {
-        private readonly ICurrencyRepository _repository;
+        private readonly ICurrencyRepository<Currency> _repository;
         private readonly IComplete _unitOfWork;
 
         public CurrenciesController(IUnitOfWork unitOfWork)

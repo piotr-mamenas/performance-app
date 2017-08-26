@@ -4,7 +4,7 @@ using Core.Domain.Institutions;
 
 namespace Core.Domain.Partners
 {
-    public class BasePartner<T> : BaseEntity<T> where T: BasePartner<T>, new()
+    public abstract class BasePartner<T> : BaseEntity<T> where T: BasePartner<T>, new()
     {
         public string Name { get; set; }
 

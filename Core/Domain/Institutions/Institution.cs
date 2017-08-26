@@ -1,6 +1,8 @@
-﻿namespace Core.Domain.Institutions
+﻿using Core.Interfaces;
+
+namespace Core.Domain.Institutions
 {
-    public class Institution : BaseInstitution<Institution>
+    public class Institution : BaseInstitution<Institution>, IEntityRoot
     {
     }
 }

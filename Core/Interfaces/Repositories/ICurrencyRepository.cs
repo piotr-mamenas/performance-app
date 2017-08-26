@@ -2,7 +2,7 @@
 
 namespace Core.Interfaces.Repositories
 {
-    public interface ICurrencyRepository : IRepository<Currency>
+    public interface ICurrencyRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot, new()
     {
     }
 }

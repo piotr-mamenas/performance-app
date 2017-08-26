@@ -2,7 +2,7 @@
 using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Currencies;
 
-namespace Infrastructure.EntityConfigurations
+namespace Infrastructure.EntityConfigurations.CurrencyConfigurations
 {
     public class CurrencyConfiguration : EntityTypeConfiguration<Currency>
     {

@@ -1,6 +1,8 @@
-﻿namespace Core.Domain.Accounts
+﻿using Core.Interfaces;
+
+namespace Core.Domain.Accounts
 {
-    public class Account : BaseAccount<Account>
+    public class Account : BaseAccount<Account>, IEntityRoot
     {
     }
 }

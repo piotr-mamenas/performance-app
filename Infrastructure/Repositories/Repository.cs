@@ -12,7 +12,7 @@ namespace Infrastructure.Repositories
     /// 
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class 
     {
         protected readonly DbContext Context;
         private readonly DbSet<TEntity> _entities;

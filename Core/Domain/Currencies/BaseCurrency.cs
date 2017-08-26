@@ -1,6 +1,6 @@
 ﻿namespace Core.Domain.Currencies
 {
-    public class BaseCurrency<T> : BaseEntity<T> where T : BaseCurrency<T>, new()
+    public abstract class BaseCurrency<T> : BaseEntity<T> where T : BaseCurrency<T>, new()
     {
         public string Name { get; set; }
 

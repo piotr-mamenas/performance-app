@@ -1,11 +1,12 @@
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using Core.Domain.Identity;
+using Core.Domain.Contacts;
+using Core.Domain.Countries;
+using Core.Domain.Currencies;
+using Core.Domain.Institutions;
+using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure;
 using Infrastructure.Repositories;
-using Ninject.Activation;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Service.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Service.App_Start.NinjectWebCommon), "Stop")]
@@ -71,14 +72,14 @@ namespace Service.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<DbContext>().To<PerformanceContext>().InRequestScope();
-            kernel.Bind<DbContext>().ToSelf().InRequestScope();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
-            kernel.Bind<IContactRepository>().To<ContactRepository>().InRequestScope();
-            kernel.Bind<ICurrencyRepository>().To<CurrencyRepository>().InRequestScope();
-            kernel.Bind<ICountryRepository>().To<CountryRepository>().InRequestScope();
-            kernel.Bind<IPartnerRepository>().To<PartnerRepository>().InRequestScope();
-            kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
+            kernel.Bind<IContactRepository<Contact>>().To<ContactRepository<Contact>>().InRequestScope();
+            kernel.Bind<ICurrencyRepository<Currency>>().To<CurrencyRepository<Currency>>().InRequestScope();
+            kernel.Bind<ICountryRepository<Country>>().To<CountryRepository<Country>>().InRequestScope();
+            kernel.Bind<IPartnerRepository<Partner>>().To<PartnerRepository<Partner>>().InRequestScope();
+            kernel.Bind<IPartnerRepository<AssetManager>>().To<PartnerRepository<AssetManager>>().InRequestScope();
+            kernel.Bind<IInstitutionRepository<Institution>>().To<InstitutionRepository<Institution>>().InRequestScope();
+            kernel.Bind<IInstitutionRepository<Bank>>().To<InstitutionRepository<Bank>>().InRequestScope();
         }        
     }
 }

@@ -1,6 +1,8 @@
-﻿namespace Core.Domain.Countries
+﻿using Core.Interfaces;
+
+namespace Core.Domain.Countries
 {
-    public class Country : BaseCountry<Country>
+    public class Country : BaseCountry<Country>, IEntityRoot
     {
     }
 }

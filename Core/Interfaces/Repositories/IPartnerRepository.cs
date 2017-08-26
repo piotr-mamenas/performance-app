@@ -1,9 +1,8 @@
-﻿using Core.Domain.Institutions;
-using Core.Domain.Partners;
+﻿using Core.Domain;
 
 namespace Core.Interfaces.Repositories
 {
-    public interface IPartnerRepository : IRepository<Partner>
+    public interface IPartnerRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot, new()
     {
     }
 }

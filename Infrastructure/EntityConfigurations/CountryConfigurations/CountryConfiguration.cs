@@ -2,7 +2,7 @@
 using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Countries;
 
-namespace Infrastructure.EntityConfigurations
+namespace Infrastructure.EntityConfigurations.CountryConfigurations
 {
     public class CountryConfiguration : EntityTypeConfiguration<Country>
     {

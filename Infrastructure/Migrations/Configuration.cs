@@ -1,5 +1,6 @@
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Linq;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
@@ -148,15 +149,19 @@ namespace Infrastructure.Migrations
             set.AddOrUpdate(i => i.Id,
                 new Institution
                 {
-                    Id = 1,
-                    Bic = "CRESCHZZ80A",
-                    Name = "Credit Suisse"
-                },
-                new Institution
-                {
                     Id = 2,
                     Name = "European Union"
                 });
+
+            set.AddOrUpdate(i => i.Id,
+                new Bank
+                {
+                    Id = 1,
+                    Bic = "CRESCHZZ80A",
+                    Name = "Credit Suisse"
+                });
+
+
         }
     }
 }

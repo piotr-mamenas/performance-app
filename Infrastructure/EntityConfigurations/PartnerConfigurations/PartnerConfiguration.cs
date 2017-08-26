@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Partners;
-using Core.Enums;
 using Core.Enums.Domain;
 
-namespace Infrastructure.EntityConfigurations
+namespace Infrastructure.EntityConfigurations.PartnerConfigurations
 {
     public class PartnerConfiguration : EntityTypeConfiguration<Partner>
     {

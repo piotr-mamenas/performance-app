@@ -2,5 +2,6 @@
 {
     public class Bank : Institution
     {
+        public string Bic { get; set; }
     }
 }

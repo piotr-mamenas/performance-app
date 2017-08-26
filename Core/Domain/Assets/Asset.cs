@@ -1,6 +1,8 @@
-﻿namespace Core.Domain.Assets
+﻿using Core.Interfaces;
+
+namespace Core.Domain.Assets
 {
-    public class Asset : BaseAsset<Asset>
+    public class Asset : BaseAsset<Asset>, IEntityRoot
     {
     }
 }

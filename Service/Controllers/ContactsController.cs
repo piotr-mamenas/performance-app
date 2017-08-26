@@ -22,7 +22,7 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ContactsController : ApiController
     {
-        private readonly IContactRepository _repository;
+        private readonly IContactRepository<Contact> _repository;
         private readonly IComplete _unitOfWork;
 
         public ContactsController(IUnitOfWork unitOfWork)
@@ -91,7 +91,7 @@ namespace Service.Controllers
             {
                 return NotFound();
             }
-
+            
             _repository.Add(contact.Map<Contact>());
 
             await _unitOfWork.CompleteAsync();
