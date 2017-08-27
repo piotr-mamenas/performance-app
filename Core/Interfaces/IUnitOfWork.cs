@@ -19,5 +19,7 @@ namespace Core.Interfaces
         ICurrencyRepository<Currency> Currencies { get; }
         ICountryRepository<Country> Countries { get; }
         Task<int> CompleteAsync();
+
+        //Repository.Query("SELECT @ FROM PARTNER");
     }
 }

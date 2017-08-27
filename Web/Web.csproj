@@ -178,6 +178,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\app\app.js" />
+    <Content Include="Content\app\controllers\contactController.js" />
+    <Content Include="Content\app\services\contactService.js" />
     <Content Include="Content\vendor\styles\datatables\css\autoFill.bootstrap.css" />
     <Content Include="Content\vendor\styles\datatables\css\autoFill.bootstrap.min.css" />
     <Content Include="Content\vendor\styles\datatables\css\autoFill.dataTables.css" />

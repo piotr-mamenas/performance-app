@@ -65,6 +65,9 @@
     <Compile Include="Domain\Accounts\BaseAccount.cs" />
     <Compile Include="Domain\Assets\Asset.cs" />
     <Compile Include="Domain\Assets\BaseAsset.cs" />
+    <Compile Include="Domain\Assets\Bond.cs" />
+    <Compile Include="Domain\Assets\Equity.cs" />
+    <Compile Include="Domain\Assets\LiquidAsset.cs" />
     <Compile Include="Domain\BaseEntity.cs" />
     <Compile Include="Domain\Contacts\BaseContact.cs" />
     <Compile Include="Domain\Contacts\Contact.cs" />

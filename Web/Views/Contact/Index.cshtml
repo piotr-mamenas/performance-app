@@ -8,38 +8,8 @@
 
 @section scripts{
     <script>
-        $(document).ready(function() {
-            $('#contactTable').DataTable({
-                ajax: {
-                    url: '@Html.GetWebServerUri()' + 'api/contacts',
-                    type: 'GET',
-                    dataSrc: '',
-                    dataType: 'json'
-                },
-                columns: [
-                    {
-                        data: 'Name'
-                    },
-                    {
-                        data: 'FirstName'
-                    },
-                    {
-                        data: 'LastName'
-                    },
-                    {
-                        data: 'Email'
-                    },
-                    {
-                        data: 'PhoneNumber'
-                    },
-                    {
-                        data: 'Partner.Name'
-                    }
-                ],
-                language: {
-                    emptyTable: "No records at present."
-                }
-            });
+        $(document).ready(function () {
+            ContactController.init('@Html.GetWebServerUri()');
         });
     </script>
 }
