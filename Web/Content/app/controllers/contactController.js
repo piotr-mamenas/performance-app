@@ -11,10 +11,20 @@
         });
     }
 
-    var switchToDetailview = function () {
-        $("div#contactDetailview").show();
-        console.log($("#contactDetailview").find("input#firstName.form-control").innerHTML);
+    var showDetailview = function () {
+        $("div#contactDetailview").slideDown(1000, function () {
+            detailviewActive = true;
+        });
     }
+
+    var onHideDetailviewButtonClick = function () {
+        $("button#hideButton").click(function() {
+            $("div#contactDetailview").slideUp(1000,function() {
+                detailviewActive = false;
+            });
+        });
+    }
+
     var onRowClick = function () {
         $("#contactTable tbody").on("click", "tr", function () {
             console.log("onRow");
@@ -24,7 +34,7 @@
             if (editClicked) {
                 detailviewActive = true;
                 editClicked = false;
-                switchToDetailview();
+                showDetailview();
             }
         });
     }
@@ -70,6 +80,7 @@
         startDatatable(request);
         onEditButtonClick();
         onRowClick();
+        onHideDetailviewButtonClick();
     }
 
     return {

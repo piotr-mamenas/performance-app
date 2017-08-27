@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="contactDetailview" style="margin-bottom: 100px;">
+<div id="contactDetailview" style="margin-bottom: 100px; padding: 30px;">
     <h3>Contact</h3>
     <form class="form-horizontal">
         <div class="form-group">
@@ -27,7 +27,9 @@
             <label for="phoneNumber">Contact Person Phone Number</label>
             <input type="text" class="form-control" id="phoneNumber" />
         </div>
-        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+
+        <button type="button" class="btn btn-primary pull-right">Submit</button>
+        <button type="button" id="hideButton" class="btn btn-default pull-right">Hide</button>     
     </form>
 </div>
 
