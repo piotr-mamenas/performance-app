@@ -4,6 +4,33 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div id="contactDetailview" style="margin-bottom: 100px;">
+    <h3>Contact</h3>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="contactName">Contact Name</label>
+            <input type="text" class="form-control" id="contactName" />
+        </div>
+        <div class="form-group">
+            <label for="firstName">Contact Person First Name</label>
+            <input type="text" class="form-control" id="firstName"/>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Contact Person Last Name</label>
+            <input type="text" class="form-control" id="lastName"/>
+        </div>
+        <div class="form-group">
+            <label for="email">Contact Person Email</label>
+            <input type="text" class="form-control" id="email"/>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Contact Person Phone Number</label>
+            <input type="text" class="form-control" id="phoneNumber" />
+        </div>
+        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+    </form>
+</div>
+
 @Html.WithCustomColumn(7,"Edit").TableFor(typeof(ContactDto), "contactTable")
 
 @section scripts{

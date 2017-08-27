@@ -1,12 +1,34 @@
 ﻿var ContactController = function (service) {
 
     var tableObject;
+    var clickedRowData;
+    var detailviewActive = false;
+    var editClicked = false;
 
-    var renderButton = function () {
-        $("#contactTable tbody").on("click", "tr", function () {
-            console.log(tableObject.row(this).data());
+    var onEditButtonClick = function () {
+        $("#contactTable tbody").on("click", "tr .btn", function () {
+            editClicked = true;
         });
     }
+
+    var switchToDetailview = function () {
+        $("div#contactDetailview").show();
+        console.log($("#contactDetailview").find("input#firstName.form-control").innerHTML);
+    }
+    var onRowClick = function () {
+        $("#contactTable tbody").on("click", "tr", function () {
+            console.log("onRow");
+            clickedRowData = tableObject.row(this).data();
+            console.log(tableObject.row(this).data());
+
+            if (editClicked) {
+                detailviewActive = true;
+                editClicked = false;
+                switchToDetailview();
+            }
+        });
+    }
+
     var startDatatable = function(request) {
         tableObject = $("#contactTable").DataTable({
             ajax: request,
@@ -43,9 +65,11 @@
     }
 
     var init = function (webServiceUri) {
+        $("div#contactDetailview").hide();
         var request = service.getContacts(webServiceUri);
         startDatatable(request);
-        renderButton();
+        onEditButtonClick();
+        onRowClick();
     }
 
     return {
