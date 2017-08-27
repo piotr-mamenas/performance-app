@@ -1,8 +1,8 @@
 ﻿var ContactController = function (service) {
 
-    var startDatatable = function(tableData) {
+    var startDatatable = function(request) {
         $('#contactTable').DataTable({
-            data: tableData,
+            ajax: request,
             columns: [
                 {
                     data: 'Name'
@@ -30,17 +30,9 @@
     }
 
     var init = function (webServiceUri) {
-        var contacts = service.getContacts(webServiceUri);
-        startDatatable(contacts);
+        var request = service.getContacts(webServiceUri);
+        startDatatable(request);
     }
-
-    var done = function() {
-
-    };
-
-    var fail = function() {
-
-    };
 
     return {
         init: init

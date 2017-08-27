@@ -14,6 +14,12 @@ namespace Web
         {
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Content/app/app.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/app/services").IncludeDirectory(
+                "~/Content/app/services","*Service.js",searchSubdirectories: true));
+
+            bundles.Add(new ScriptBundle("~/bundles/app/controllers").IncludeDirectory(
+                "~/Content/app/controllers", "*Controller.js", searchSubdirectories: true));
         }
 
         private static void RegisterVendorBundles(BundleCollection bundles)
