@@ -2,7 +2,7 @@
 
     var tableObject;
     var clickedRowData;
-    var detailviewActive = false;
+    var detailviewActive;
     var editClicked = false;
 
     var onEditButtonClick = function () {
