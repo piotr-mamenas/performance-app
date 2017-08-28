@@ -8,6 +8,8 @@ namespace Infrastructure.EntityConfigurations.ContactConfigurations
     {
         public ContactConfiguration()
         {
+            Property(c => c.IsDeleted).HasColumnName("IsDeleted");
+
             HasKey(c => c.Id);
 
             ToTable("tbl_Contact");

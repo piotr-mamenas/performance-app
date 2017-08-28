@@ -1,6 +1,8 @@
+using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using Core.Domain.Accounts;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
@@ -18,12 +20,25 @@ namespace Infrastructure.Migrations
 
         protected override void Seed(PerformanceContext context)
         {
+            SeedAccount(context.Accounts);
             SeedCountry(context.Countries);
             SeedContact(context.Contacts);
             SeedPartner(context.Partners);
             SeedCurrency(context.Currencies);
             SeedInstitution(context.Institutions);
             context.SaveChanges();
+        }
+
+        private static void SeedAccount(IDbSet<Account> set)
+        {
+            set.AddOrUpdate(a => a.Id,
+                new Account
+                {
+                    Id = 1,
+                    DateCreated = DateTime.Now,
+                    Name = "Account",
+                    Number = "ABC010203"
+                });
         }
 
         private static void SeedCountry(IDbSet<Country> set)

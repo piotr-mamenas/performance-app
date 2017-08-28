@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Linq;
+using Core.Domain.Accounts;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
@@ -7,6 +8,7 @@ using Core.Domain.Identity;
 using Core.Domain.Institutions;
 using Core.Domain.Partners;
 using Infrastructure.EntityConfigurations;
+using Infrastructure.EntityConfigurations.AccountConfiguration;
 using Infrastructure.EntityConfigurations.ContactConfigurations;
 using Infrastructure.EntityConfigurations.CountryConfigurations;
 using Infrastructure.EntityConfigurations.CurrencyConfigurations;
@@ -19,6 +21,7 @@ namespace Infrastructure
     public class PerformanceContext : ApplicationDbContext
     {
         public DbSet<Institution> Institutions { get; set; }
+        public DbSet<Account> Accounts { get; set; }
         public DbSet<Partner> Partners { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Currency> Currencies { get; set; }
@@ -35,6 +38,8 @@ namespace Infrastructure
         {
             modelBuilder.Configurations.Add(new InstitutionConfiguration());
             modelBuilder.Configurations.Add(new BankConfiguration());
+
+            modelBuilder.Configurations.Add(new AccountConfiguration());
 
             modelBuilder.Configurations.Add(new PartnerConfiguration());
             modelBuilder.Configurations.Add(new AssetManagerConfiguration());

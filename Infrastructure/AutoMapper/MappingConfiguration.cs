@@ -7,7 +7,8 @@ namespace Infrastructure.AutoMapper
     {
         public static void InitializeMapper()
         {
-            Mapper.Initialize(cfg => cfg.AddProfiles(typeof(ContactProfile), 
+            Mapper.Initialize(cfg => cfg.AddProfiles(typeof(AccountProfile),
+                typeof(ContactProfile), 
                 typeof(CountryProfile), 
                 typeof(PartnerProfile), 
                 typeof(InstitutionProfile), 

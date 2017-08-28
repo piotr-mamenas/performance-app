@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Core.Domain.Accounts;
 using Core.Domain.Contacts;
 using Core.Domain.Institutions;
 
@@ -13,5 +14,7 @@ namespace Core.Domain.Partners
         public ICollection<Institution> Organizations { get; set; }
 
         public ICollection<Contact> Contacts { get; set; }
+
+        public ICollection<Account> Accounts { get; set; }
     }
 }

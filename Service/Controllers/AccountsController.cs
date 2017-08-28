@@ -5,52 +5,44 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
-using Core.Domain.Contacts;
+using Core.Domain.Accounts;
 using Core.Dtos;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure.Extensions;
-using Infrastructure.Serialization.JsonContractResolvers;
-using Newtonsoft.Json;
 
 namespace Service.Controllers
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    [RoutePrefix("api/contacts")]
+    [RoutePrefix("api/accounts")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class ContactsController : ApiController
+    public class AccountsController : ApiController
     {
-        private readonly IContactRepository<Contact> _repository;
+        private readonly IAccountRepository<Account> _repository;
         private readonly IComplete _unitOfWork;
 
-        public ContactsController(IUnitOfWork unitOfWork)
+        public AccountsController(IUnitOfWork unitOfWork)
         {
-            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
-            json.SerializerSettings.ContractResolver = new ContactContractResolver();
-
             _unitOfWork = (IComplete)unitOfWork;
-            _repository = unitOfWork.Contacts;
+            _repository = unitOfWork.Accounts;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        [ResponseType(typeof(ICollection<ContactDto>))]
+        [ResponseType(typeof(ICollection<AccountDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var contacts = await _repository.GetAll()
-                .Include(p => p.Partner)
+            var accounts = await _repository.GetAll()
+                .Include(a => a.Partners)
                 .ToListAsync();
 
-            if (contacts == null)
+            if (accounts == null)
             {
                 return NotFound();
             }
-            return Ok(contacts.Map<ICollection<ContactDto>>());
+            return Ok(accounts.Map<ICollection<AccountDto>>());
         }
 
         /// <summary>
@@ -58,41 +50,41 @@ namespace Service.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [ResponseType(typeof(ContactDto))]
+        [ResponseType(typeof(AccountDto))]
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            var contact = await _repository.GetAsync(id);
+            var account = await _repository.GetAsync(id);
 
-            if (contact == null)
+            if (account == null)
             {
                 return NotFound();
             }
-            return Ok(contact.Map<ContactDto>());
+            return Ok(account.Map<AccountDto>());
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="contact"></param>
+        /// <param name="account"></param>
         /// <returns></returns>
         [HttpPut, Route("{id}")]
-        public async Task<IHttpActionResult> UpdateAsync(int id, ContactDto contact)
+        public async Task<IHttpActionResult> UpdateAsync(int id, AccountDto account)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            var contactInDb = await _repository.GetAsync(id);
+            var accountInDb = await _repository.GetAsync(id);
 
-            if (contactInDb == null)
+            if (accountInDb == null)
             {
                 return NotFound();
             }
-            
-            _repository.Add(contact.Map<Contact>());
+
+            _repository.Add(account.Map<Account>());
 
             await _unitOfWork.CompleteAsync();
 
@@ -102,21 +94,21 @@ namespace Service.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="contact"></param>
+        /// <param name="account"></param>
         /// <returns></returns>
         [HttpPost, Route("")]
-        public async Task<IHttpActionResult> CreateAsync(ContactDto contact)
+        public async Task<IHttpActionResult> CreateAsync(AccountDto account)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            _repository.Add(contact.Map<Contact>());
+            _repository.Add(account.Map<Account>());
 
             await _unitOfWork.CompleteAsync();
 
-            return Created(new Uri(Request.RequestUri + "/" + contact.Id), contact);
+            return Created(new Uri(Request.RequestUri + "/" + account.Id), account);
         }
 
         /// <summary>
@@ -127,14 +119,14 @@ namespace Service.Controllers
         [HttpDelete, Route("{id}")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            var contact = await _repository.GetAsync(id);
+            var account = await _repository.GetAsync(id);
 
-            if (contact == null)
+            if (account == null)
             {
                 return NotFound();
             }
 
-            _repository.Remove(contact);
+            _repository.Remove(account);
 
             await _unitOfWork.CompleteAsync();
 

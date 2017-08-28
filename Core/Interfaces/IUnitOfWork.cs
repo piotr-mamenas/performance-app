@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Core.Domain.Accounts;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
@@ -11,6 +12,7 @@ namespace Core.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
+        IAccountRepository<Account> Accounts { get; }
         IPartnerRepository<Partner> Partners { get; }
         IPartnerRepository<AssetManager> AssetManagers { get; }
         IInstitutionRepository<Institution> Institutions { get; }

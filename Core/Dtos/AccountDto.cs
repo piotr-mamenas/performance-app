@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Core.Dtos
 {
@@ -11,5 +13,13 @@ namespace Core.Dtos
 
         [DisplayName("Account Number")]
         public string Number { get; set; }
+
+        [DisplayName("Opened Date")]
+        public DateTime DateCreated { get; set; }
+
+        [DisplayName("Closed Date")]
+        public DateTime DateClosed { get; set; }
+        
+        public virtual ICollection<PartnerDto> Partners { get; set; }
     }
 }

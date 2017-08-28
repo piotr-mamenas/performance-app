@@ -1,5 +1,6 @@
 ﻿using System;
 using Core.Domain.Assets;
+using Core.Domain.Currencies;
 
 namespace Core.Domain.Position
 {
@@ -7,8 +8,10 @@ namespace Core.Domain.Position
     {
         public decimal Amount { get; set; }
 
-        public DateTime Timestamp { get; set; }
+        public Currency Currency { get; set; }
 
         public Asset Asset { get; set; }
+
+        public DateTime Timestamp { get; set; }
     }
 }

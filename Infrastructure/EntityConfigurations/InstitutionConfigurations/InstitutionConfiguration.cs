@@ -9,6 +9,8 @@ namespace Infrastructure.EntityConfigurations.InstitutionConfigurations
     {
         public InstitutionConfiguration()
         {
+            Property(c => c.IsDeleted).HasColumnName("IsDeleted");
+
             HasKey(o => o.Id);
 
             ToTable("tbl_Institution");

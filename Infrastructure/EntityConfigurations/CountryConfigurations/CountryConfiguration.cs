@@ -8,6 +8,8 @@ namespace Infrastructure.EntityConfigurations.CountryConfigurations
     {
         public CountryConfiguration()
         {
+            Property(c => c.IsDeleted).HasColumnName("IsDeleted");
+
             HasKey(c => c.Id);
 
             ToTable("tbl_Country");

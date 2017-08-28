@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Core.Domain.Accounts;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
@@ -17,6 +18,7 @@ namespace Infrastructure
         public UnitOfWork(PerformanceContext context)
         {
             _context = context;
+            Accounts = new AccountRepository<Account>(_context);
             Partners = new PartnerRepository<Partner>(_context);
             AssetManagers = new PartnerRepository<AssetManager>(_context);
             Institutions = new InstitutionRepository<Institution>(_context);
@@ -26,6 +28,7 @@ namespace Infrastructure
             Countries = new CountryRepository<Country>(_context);
         }
 
+        public IAccountRepository<Account> Accounts { get; }
         public IPartnerRepository<Partner> Partners { get; }
         public IPartnerRepository<AssetManager> AssetManagers { get; }
         public IInstitutionRepository<Institution> Institutions { get; }

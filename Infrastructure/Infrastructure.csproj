@@ -54,11 +54,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapper\MappingConfiguration.cs" />
+    <Compile Include="AutoMapper\Profiles\AccountProfile.cs" />
     <Compile Include="AutoMapper\Profiles\ContactProfile.cs" />
     <Compile Include="AutoMapper\Profiles\CountryProfile.cs" />
     <Compile Include="AutoMapper\Profiles\CurrencyProfile.cs" />
     <Compile Include="AutoMapper\Profiles\InstitutionProfile.cs" />
     <Compile Include="AutoMapper\Profiles\PartnerProfile.cs" />
+    <Compile Include="EntityConfigurations\AccountConfiguration\AccountConfiguration.cs" />
     <Compile Include="EntityConfigurations\CountryConfigurations\CountryConfiguration.cs" />
     <Compile Include="EntityConfigurations\CurrencyConfigurations\CurrencyConfiguration.cs" />
     <Compile Include="EntityConfigurations\InstitutionConfigurations\BankConfiguration.cs" />
@@ -75,6 +77,22 @@
     <Compile Include="Migrations\201708260013457_InitialDatabaseModel1.Designer.cs">
       <DependentUpon>201708260013457_InitialDatabaseModel1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708282228328_AddLogicalDeletionMigration.cs" />
+    <Compile Include="Migrations\201708282228328_AddLogicalDeletionMigration.Designer.cs">
+      <DependentUpon>201708282228328_AddLogicalDeletionMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708282246115_AddAccountMigration.cs" />
+    <Compile Include="Migrations\201708282246115_AddAccountMigration.Designer.cs">
+      <DependentUpon>201708282246115_AddAccountMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708282328590_MinorRefactoringAndRenames.cs" />
+    <Compile Include="Migrations\201708282328590_MinorRefactoringAndRenames.Designer.cs">
+      <DependentUpon>201708282328590_MinorRefactoringAndRenames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708282336133_AdjustDatetimeFieldTypeMigration.cs" />
+    <Compile Include="Migrations\201708282336133_AdjustDatetimeFieldTypeMigration.Designer.cs">
+      <DependentUpon>201708282336133_AdjustDatetimeFieldTypeMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PerformanceContext.cs" />
     <Compile Include="ApplicationUserStore.cs" />
@@ -87,6 +105,7 @@
     <Compile Include="EntityConfigurations\PartnerConfigurations\PartnerConfiguration.cs" />
     <Compile Include="EntityConfigurations\InstitutionConfigurations\InstitutionConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AccountRepository.cs" />
     <Compile Include="Repositories\ContactRepository.cs" />
     <Compile Include="Repositories\CountryRepository.cs" />
     <Compile Include="Repositories\CurrencyRepository.cs" />
@@ -102,6 +121,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708260013457_InitialDatabaseModel1.resx">
       <DependentUpon>201708260013457_InitialDatabaseModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708282228328_AddLogicalDeletionMigration.resx">
+      <DependentUpon>201708282228328_AddLogicalDeletionMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708282246115_AddAccountMigration.resx">
+      <DependentUpon>201708282246115_AddAccountMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708282328590_MinorRefactoringAndRenames.resx">
+      <DependentUpon>201708282328590_MinorRefactoringAndRenames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708282336133_AdjustDatetimeFieldTypeMigration.resx">
+      <DependentUpon>201708282336133_AdjustDatetimeFieldTypeMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

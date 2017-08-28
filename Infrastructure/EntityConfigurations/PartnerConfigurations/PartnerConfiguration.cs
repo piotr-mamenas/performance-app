@@ -9,6 +9,8 @@ namespace Infrastructure.EntityConfigurations.PartnerConfigurations
     {
         public PartnerConfiguration()
         {
+            Property(c => c.IsDeleted).HasColumnName("IsDeleted");
+
             HasKey(p => p.Id);
 
             ToTable("tbl_Partner");
@@ -35,6 +37,10 @@ namespace Infrastructure.EntityConfigurations.PartnerConfigurations
                 .WithRequired(c => c.Partner)
                 .HasForeignKey(c => c.PartnerId)
                 .WillCascadeOnDelete(false);
+
+            HasMany(p => p.Accounts)
+                .WithMany(a => a.Partners)
+                .Map(m => m.ToTable("tbl_PartnerAccounts").MapLeftKey("PartnerId").MapRightKey("AccountId"));
 
             Map<AssetManager>(p => p.Requires("PartnerType").HasValue((int)PartnerType.AssetManager));
         }

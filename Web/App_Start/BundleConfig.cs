@@ -30,7 +30,8 @@ namespace Web
                 "~/Content/vendor/scripts/respond/respond.js",
                 "~/Content/vendor/scripts/bootbox/bootbox.js",
                 "~/Content/vendor/scripts/datatables/jquery.datatables.js",
-                "~/Content/vendor/scripts/datatables/datatables.bootstrap.js"));
+                "~/Content/vendor/scripts/datatables/datatables.bootstrap.js",
+                "~/Content/vendor/scripts/underscore/underscore.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/vendor/jqueryval").Include(
                 "~/Content/vendor/scripts/jquery/jquery.unobtrusive*",

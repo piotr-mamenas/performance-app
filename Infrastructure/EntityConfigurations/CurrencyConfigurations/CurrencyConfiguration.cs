@@ -8,6 +8,8 @@ namespace Infrastructure.EntityConfigurations.CurrencyConfigurations
     {
         public CurrencyConfiguration()
         {
+            Property(c => c.IsDeleted).HasColumnName("IsDeleted");
+
             HasKey(c => c.Id);
 
             ToTable("tbl_Currency");
