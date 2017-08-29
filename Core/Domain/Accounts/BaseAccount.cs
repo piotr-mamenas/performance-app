@@ -38,6 +38,7 @@ namespace Core.Domain.Accounts
         #endregion
 
         #region Constructor
+
         protected BaseAccount()
         {
             Partners = null;

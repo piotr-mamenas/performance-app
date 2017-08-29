@@ -1,3 +1,4 @@
+using Core.Domain.Accounts;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
@@ -73,6 +74,7 @@ namespace Service.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
+            kernel.Bind<IAccountRepository<Account>>().To<AccountRepository<Account>>().InRequestScope();
             kernel.Bind<IContactRepository<Contact>>().To<ContactRepository<Contact>>().InRequestScope();
             kernel.Bind<ICurrencyRepository<Currency>>().To<CurrencyRepository<Currency>>().InRequestScope();
             kernel.Bind<ICountryRepository<Country>>().To<CountryRepository<Country>>().InRequestScope();

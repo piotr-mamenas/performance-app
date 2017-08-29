@@ -14,7 +14,5 @@ namespace Core.Dtos
         public string Number { get; set; }
 
         public ICollection<InstitutionDto> Organizations { get; set; }
-
-        public virtual ICollection<ContactDto> Contacts { get; set; }
     }
 }

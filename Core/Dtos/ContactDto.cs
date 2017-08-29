@@ -6,6 +6,8 @@ namespace Core.Dtos
     {
         public int Id { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         [DisplayName("Contact Name")]
         public string Name { get; set; }
 
@@ -24,7 +26,7 @@ namespace Core.Dtos
         [DisplayName("Contact Partner")]
         public virtual PartnerDto Partner { get; set; }
 
-        [DisplayName("Partner Name")]
+        [DisplayName("Partner Id")]
         public int PartnerId { get; set; }
     }
 }
