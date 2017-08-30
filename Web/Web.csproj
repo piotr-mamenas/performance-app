@@ -167,9 +167,9 @@
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\Templates\BaseController.cs" />
+    <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions\NavigationHelper.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions\TableForHelper.cs" />
-    <Compile Include="Extensions\UrlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

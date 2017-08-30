@@ -12,8 +12,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskServer", "TaskServer\TaskServer.csproj", "{B8A7E029-2EE5-4F2F-AD36-E397D4FCD02A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{699CF2C5-9BCD-430C-AFFC-BBB005512975}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Service", "Tests.Service\Tests.Service.csproj", "{3239C36A-B75A-4C8E-9C4E-F6C5E84221AB}"
 EndProject
 Global
@@ -42,10 +40,6 @@ Global
 		{B8A7E029-2EE5-4F2F-AD36-E397D4FCD02A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8A7E029-2EE5-4F2F-AD36-E397D4FCD02A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8A7E029-2EE5-4F2F-AD36-E397D4FCD02A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{699CF2C5-9BCD-430C-AFFC-BBB005512975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{699CF2C5-9BCD-430C-AFFC-BBB005512975}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{699CF2C5-9BCD-430C-AFFC-BBB005512975}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{699CF2C5-9BCD-430C-AFFC-BBB005512975}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3239C36A-B75A-4C8E-9C4E-F6C5E84221AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3239C36A-B75A-4C8E-9C4E-F6C5E84221AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3239C36A-B75A-4C8E-9C4E-F6C5E84221AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
