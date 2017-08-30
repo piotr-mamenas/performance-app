@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using System.Web.Mvc;
 
-namespace Web.Extensions.HtmlHelpers
+namespace Web.Extensions.HtmlHelperExtensions
 {
     public static class ConfigurationHelper
     {

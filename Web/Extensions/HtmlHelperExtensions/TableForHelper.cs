@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Infrastructure.Helpers;
 
-namespace Web.Extensions.HtmlHelpers
+namespace Web.Extensions.HtmlHelperExtensions
 {
     /// <summary>
     /// MEMO: Approach used is not thread safe
