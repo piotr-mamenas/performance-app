@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using Ninject.Activation;
 
 namespace Web.Extensions
 {

@@ -25,7 +25,9 @@ namespace Web.Extensions.HtmlHelperExtensions
                 navbarStringBuilder.AppendLine(GetNavigationItem(siteMapRoot));
             }
 
-            foreach (var navbarLinkNode in sitemap.Descendants().Where(x => (string) x.Attribute("navigation") == "SubNavbar").ToList())
+            foreach (var navbarLinkNode in sitemap.Descendants()
+                .Where(x => (string) x.Attribute("navigation") == "SubNavbar")
+                .ToList())
             {
                 navbarStringBuilder.AppendLine(GetNavigationItem(navbarLinkNode));
             }
@@ -35,7 +37,7 @@ namespace Web.Extensions.HtmlHelperExtensions
 
         public static string GetNavigationItem(XElement node)
         {
-            var title = node.Attribute("title")?.Value;
+            var display = node.Attribute("display")?.Value;
             var action = node.Attribute("action")?.Value;
             var controller = node.Attribute("controller")?.Value;
             var cssClass = node.Attribute("cssClass")?.Value;
@@ -43,7 +45,7 @@ namespace Web.Extensions.HtmlHelperExtensions
             var urlHelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
             var url = urlHelper.AbsoluteAction(action, controller);
 
-            return "<li><a href=\"" + url + "\" class=\"" + cssClass + "\">" + title + "</a></li>";
+            return "<li><a href=\"" + url + "\" class=\"" + cssClass + "\">" + display + "</a></li>";
         }
     }
 }
