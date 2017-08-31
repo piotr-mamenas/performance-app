@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode title="Home" controller="Home" action="Index" description="" class="navbar-brand">
-    <siteMapNode title=" Partners" controller="Partner" action="Index" description="" cssClass="fa fa-users" />
-    <siteMapNode title=" Contacts" controller="Contact" action="Index" description="" cssClass="fa fa-address-card-o" />
-    <siteMapNode title=" Accounts" controller="Account" action="Index" description="" cssClass="fa fa-university" />
-    <siteMapNode title=" Portfolios" controller="Portfolio" action="Index" description="" cssClass="fa fa-book" />
-    <siteMapNode title=" Reports" controller="Report" action="Index" description="" cssClass="fa fa-bar-chart" />
-    <siteMapNode title=" Tasks" controller="Task" action="Index" description="" cssClass="fa fa-bar-tasks" />
-    <siteMapNode title=" Terminal" controller="Home" action="Index" description="" cssClass="fa fa-terminal" />
-    <siteMapNode title=" Search" controller="Home" action="Index" description="" cssClass="fa fa-search" />
+  <siteMapNode navigation="Navbar" display="Home" controller="Home" action="Index" description="" class="navbar-brand">
+    <siteMapNode navigation="SubNavbar" display=" Partners" controller="Partner" action="Index" cssClass="fa fa-users" />
+    <siteMapNode navigation="SubNavbar" display=" Contacts" controller="Contact" action="Index" cssClass="fa fa-address-card-o" />
+    <siteMapNode navigation="SubNavbar" display=" Accounts" controller="Account" action="Index" cssClass="fa fa-university" />
+    <siteMapNode navigation="SubNavbar" display=" Portfolios" controller="Portfolio" action="Index" cssClass="fa fa-book" />
+    <siteMapNode navigation="SubNavbar" display=" Reports" controller="Report" action="Index" cssClass="fa fa-bar-chart" />
+    <siteMapNode navigation="SubNavbar" display=" Tasks" controller="Task" action="Index" cssClass="fa fa-bar-tasks" />
+    <siteMapNode navigation="SubNavbar" display=" Terminal" controller="Home" action="Index" cssClass="fa fa-terminal" />
+    <siteMapNode navigation="SubNavbar" display=" Search" controller="Home" action="Index" cssClass="fa fa-search" />
   </siteMapNode>  
 </siteMap>

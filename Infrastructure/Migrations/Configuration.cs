@@ -1,7 +1,6 @@
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using System.Linq;
 using Core.Domain.Accounts;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;

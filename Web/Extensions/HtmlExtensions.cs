@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Ninject.Activation;
 
 namespace Web.Extensions
 {
@@ -7,8 +8,8 @@ namespace Web.Extensions
         public static string AbsoluteAction(this UrlHelper url, string action, string controller)
         {
             var requestUrl = url.RequestContext.HttpContext.Request.Url;
-
-            return $"{requestUrl.Scheme}://{requestUrl.Authority}{url.Action(action, controller)}";
+            
+            return $"{requestUrl?.Scheme}://{requestUrl?.Authority}{url.Action(action, controller)}";
         }
     }
 }

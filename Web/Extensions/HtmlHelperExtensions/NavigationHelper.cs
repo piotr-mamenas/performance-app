@@ -1,9 +1,9 @@
-﻿using System.Security.Policy;
+﻿using System;
+using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml.Linq;
-using Microsoft.Owin.Security.Provider;
 
 namespace Web.Extensions.HtmlHelperExtensions
 {
@@ -19,12 +19,13 @@ namespace Web.Extensions.HtmlHelperExtensions
             var sitemap = XDocument.Load(HttpContext.Current.Server.MapPath("~/Web.sitemap"));
             var navbarStringBuilder = new StringBuilder();
 
-            if (sitemap.Root != null)
+            var siteMapRoot = sitemap.Root;
+            if (siteMapRoot != null)
             {
-                navbarStringBuilder.AppendLine(GetNavigationItem(sitemap.Root));
+                navbarStringBuilder.AppendLine(GetNavigationItem(siteMapRoot));
             }
 
-            foreach (var navbarLinkNode in sitemap.Elements("SiteMapNode/SiteMapNode"))
+            foreach (var navbarLinkNode in sitemap.Descendants().Where(x => (string) x.Attribute("navigation") == "SubNavbar").ToList())
             {
                 navbarStringBuilder.AppendLine(GetNavigationItem(navbarLinkNode));
             }
@@ -39,7 +40,8 @@ namespace Web.Extensions.HtmlHelperExtensions
             var controller = node.Attribute("controller")?.Value;
             var cssClass = node.Attribute("cssClass")?.Value;
 
-            var url = new UrlHelper().AbsoluteAction(action,controller);
+            var urlHelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
+            var url = urlHelper.AbsoluteAction(action, controller);
 
             return "<li><a href=\"" + url + "\" class=\"" + cssClass + "\">" + title + "</a></li>";
         }
