@@ -34,7 +34,7 @@ namespace Infrastructure.Migrations
                 new Account
                 {
                     Id = 1,
-                    DateCreated = DateTime.Now,
+                    OpenedDate = DateTime.Now,
                     Name = "Account",
                     Number = "ABC010203"
                 });

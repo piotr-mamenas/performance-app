@@ -26,11 +26,11 @@ namespace Infrastructure.EntityConfigurations.AccountConfiguration
                 .HasColumnName("AccountNumber")
                 .HasMaxLength(127);
 
-            Property(a => a.DateCreated)
+            Property(a => a.OpenedDate)
                 .HasColumnType("datetime2")
                 .IsRequired();
 
-            Property(a => a.DateClosed)
+            Property(a => a.ClosedDate)
                 .HasColumnType("datetime2")
                 .IsOptional();
         }

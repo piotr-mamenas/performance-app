@@ -93,6 +93,10 @@
     <Compile Include="Migrations\201708282336133_AdjustDatetimeFieldTypeMigration.Designer.cs">
       <DependentUpon>201708282336133_AdjustDatetimeFieldTypeMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709010644048_ChangeToAccountAndDomainMethodsMigration.cs" />
+    <Compile Include="Migrations\201709010644048_ChangeToAccountAndDomainMethodsMigration.Designer.cs">
+      <DependentUpon>201709010644048_ChangeToAccountAndDomainMethodsMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PerformanceContext.cs" />
     <Compile Include="ApplicationUserStore.cs" />
@@ -133,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708282336133_AdjustDatetimeFieldTypeMigration.resx">
       <DependentUpon>201708282336133_AdjustDatetimeFieldTypeMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709010644048_ChangeToAccountAndDomainMethodsMigration.resx">
+      <DependentUpon>201709010644048_ChangeToAccountAndDomainMethodsMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

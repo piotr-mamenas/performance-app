@@ -58,6 +58,7 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
@@ -66,8 +67,8 @@
     <Compile Include="Domain\Assets\Asset.cs" />
     <Compile Include="Domain\Assets\BaseAsset.cs" />
     <Compile Include="Domain\Assets\Bond.cs" />
+    <Compile Include="Domain\ComplexTypes\BondCoupon.cs" />
     <Compile Include="Domain\Assets\Equity.cs" />
-    <Compile Include="Domain\Assets\LiquidAsset.cs" />
     <Compile Include="Domain\BaseEntity.cs" />
     <Compile Include="Domain\Contacts\BaseContact.cs" />
     <Compile Include="Domain\Contacts\Contact.cs" />

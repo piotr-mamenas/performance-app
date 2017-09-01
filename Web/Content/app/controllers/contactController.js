@@ -1,89 +1,72 @@
 ﻿var ContactController = function (service) {
+    var editButtonClicked = false;
+    var contactDetailView;
+    var contactListView;
 
-    var tableObject;
-    var clickedRowData;
-    var detailviewActive;
-    var editClicked = false;
+    var setColumns = function () {
+        return [
+            {
+                data: "Name"
+            },
+            {
+                data: "FirstName"
+            },
+            {
+                data: "LastName"
+            },
+            {
+                data: "Email"
+            },
+            {
+                data: "PhoneNumber"
+            },
+            {
+                data: "Partner.Name"
+            },
+            {
+                data: name,
+                render: function () {
+                    return "<div class=\"btn btn-default\">Edit</div>";
+                }
+            }
+        ];
+    }
 
     var onEditButtonClick = function () {
-        $("#contactTable tbody").on("click", "tr .btn", function () {
-            editClicked = true;
-        });
-    }
-
-    var showDetailview = function () {
-        $("div#contactDetailview").slideDown(1000, function () {
-            detailviewActive = true;
-        });
-    }
-
-    var onHideDetailviewButtonClick = function () {
-        $("button#hideButton").click(function() {
-            $("div#contactDetailview").slideUp(1000,function() {
-                detailviewActive = false;
-            });
+        $(listviewSelector + "tbody").on("click", "tr .btn", function () {
+            editButtonClicked = true;
+            if (detailViewVisible === false) {
+                contactDetailView.showDetailView();
+                contactDetailView.detailViewVisible = true;
+            }
         });
     }
 
     var onRowClick = function () {
-        $("#contactTable tbody").on("click", "tr", function () {
-            console.log("onRow");
-            clickedRowData = tableObject.row(this).data();
-            console.log(tableObject.row(this).data());
-
-            if (editClicked) {
-                detailviewActive = true;
-                editClicked = false;
-                showDetailview();
-            }
+        $(listviewSelector + "tbody").on("click", "tr", function () {
+            if (editButtonClicked && contactDetailView.detailViewVisible === true) {
+                contactDetailView.detailViewVisible = true;
+                editButtonClicked = false;
+                contactDetailView.showDetailView();
+            }        
         });
     }
-
-    var startDatatable = function(request) {
-        tableObject = $("#contactTable").DataTable({
-            ajax: request,
-            columns: [
-                {
-                    data: "Name"
-                },
-                {
-                    data: "FirstName"
-                },
-                {
-                    data: "LastName"
-                },
-                {
-                    data: "Email"
-                },
-                {
-                    data: "PhoneNumber"
-                },
-                {
-                    data: "Partner.Name"
-                },
-                {
-                    data: name,
-                    render: function() {
-                        return "<div class=\"btn btn-default\">Edit</div>";
-                    }
-                }
-            ],
-            language: {
-                emptyTable: "No records at present."
-            }
-        });
-    }
-
+    
     var init = function (webServiceUri) {
-        $("div#contactDetailview").hide();
-        var request = service.getContacts(webServiceUri);
-        startDatatable(request);
+        
+        var requestedData = service.getContacts(webServiceUri);
+        contactListView = listViewComponent;
+        contactListView.init("#contactTable", setColumns(), requestedData);
+
+        contactDetailView = detailViewComponent;
+        contactDetailView.init("div#contactDetailview","button#hideButton");
+
         onEditButtonClick();
         onRowClick();
-        onHideDetailviewButtonClick();
     }
 
     return {
         init: init
     };
+
 }(ContactService);

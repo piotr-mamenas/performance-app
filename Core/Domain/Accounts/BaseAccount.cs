@@ -24,12 +24,12 @@ namespace Core.Domain.Accounts
         /// <summary>
         /// 
         /// </summary>
-        public DateTime DateCreated { get; set; }
+        public DateTime OpenedDate { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public DateTime DateClosed { get; set; }
+        public DateTime ClosedDate { get; set; }
 
         /// <summary>
         /// 
@@ -44,7 +44,7 @@ namespace Core.Domain.Accounts
             Partners = null;
         }
 
-        public void OpenAccount(string name, string number, Partner partner)
+        public void OpenNewAccount(string name, string number, Partner partner)
         {
             if (name == null || number == null || partner == null)
             {
@@ -53,6 +53,7 @@ namespace Core.Domain.Accounts
 
             Name = name;
             Number = number;
+            OpenedDate = DateTime.Today;
             Partners.Add(partner);
         }
         #endregion
