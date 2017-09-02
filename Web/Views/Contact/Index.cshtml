@@ -6,7 +6,7 @@
 
 <div class="row" style="margin-bottom: 100px;">
     <h3>Contact</h3>
-    <div id="contactDetailview" class="col-md-8">
+    <div id="contactDetailView" class="col-md-8">
         <form class="form-horizontal" style="padding-left: 30px; padding-right: 30px;">
             <div class="form-group">
                 <label for="contactName">Contact Name</label>
@@ -43,7 +43,7 @@
 @section scripts{
     <script>
         $(document).ready(function () {
-            ContactController.init('@Html.GetWebServerUri()');
+            contactController.init('@Html.GetWebServerUri()');
         });
     </script>
 }

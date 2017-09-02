@@ -1,7 +1,5 @@
-﻿var ContactController = function (service) {
+﻿var contactController = function (service, contactListView, contactDetailView) {
     var editButtonClicked = false;
-    var contactDetailView;
-    var contactListView;
 
     var setColumns = function () {
         return [
@@ -26,47 +24,48 @@
             {
                 data: name,
                 render: function () {
-                    return "<div class=\"btn btn-default\">Edit</div>";
+                    return "<div id=\"hideButton\" class=\"btn btn-default\">Edit</div>";
                 }
             }
         ];
     }
 
-    var onEditButtonClick = function () {
-        $(listviewSelector + "tbody").on("click", "tr .btn", function () {
+    var onEditButtonClick = function (editButtonSelector) {
+        $(editButtonSelector).on("click", "tr .btn", function () {
             editButtonClicked = true;
-            if (detailViewVisible === false) {
+            if (contactDetailView.detailViewVisible === false) {
                 contactDetailView.showDetailView();
                 contactDetailView.detailViewVisible = true;
             }
+            console.log(editButtonSelector);
         });
     }
 
-    var onRowClick = function () {
-        $(listviewSelector + "tbody").on("click", "tr", function () {
-            if (editButtonClicked && contactDetailView.detailViewVisible === true) {
+    var onRowClick = function (rowSelector) {
+        $(rowSelector).on("click", "tr", function () {
+            if (editButtonClicked) {
                 contactDetailView.detailViewVisible = true;
                 editButtonClicked = false;
                 contactDetailView.showDetailView();
-            }        
+            }
+            console.log(rowSelector);
         });
     }
     
     var init = function (webServiceUri) {
         
         var requestedData = service.getContacts(webServiceUri);
-        contactListView = listViewComponent;
+
         contactListView.init("#contactTable", setColumns(), requestedData);
+        contactDetailView.init("div#contactDetailView", "button#hideButton");
 
-        contactDetailView = detailViewComponent;
-        contactDetailView.init("div#contactDetailview","button#hideButton");
-
-        onEditButtonClick();
-        onRowClick();
+        onEditButtonClick("#contactTable tbody");
+        onRowClick("#contactTable tbody");
+        
     }
 
     return {
         init: init
     };
 
-}(ContactService);
+}(contactService, listViewComponent, detailViewComponent)

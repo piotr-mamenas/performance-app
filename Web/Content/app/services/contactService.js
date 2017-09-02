@@ -1,4 +1,4 @@
-﻿var ContactService = function() {
+﻿var contactService = function() {
     var getContacts = function (webServerUri) {
         return {
             url: webServerUri + "api/contacts",
