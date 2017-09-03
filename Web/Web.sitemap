@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode navigation="Navbar" display="Home" controller="Home" action="Index" description="" class="navbar-brand">
+  <siteMapNode navigation="Navbar" display="Home" controller="Home" action="Index" class="navbar-brand">
     <siteMapNode navigation="SubNavbar" display="Partners" controller="Partner" action="Index" cssClass="fa fa-users" />
     <siteMapNode navigation="SubNavbar" display="Contacts" controller="Contact" action="Index" cssClass="fa fa-address-card-o" />
     <siteMapNode navigation="SubNavbar" display="Accounts" controller="Account" action="Index" cssClass="fa fa-university" />

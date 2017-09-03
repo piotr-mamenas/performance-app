@@ -20,12 +20,6 @@ namespace Web.Extensions.HtmlHelperExtensions
             var sitemap = XDocument.Load(HttpContext.Current.Server.MapPath("~/Web.sitemap"));
             var navbarStringBuilder = new StringBuilder();
 
-            var siteMapRoot = sitemap.Root;
-            if (siteMapRoot != null)
-            {
-                navbarStringBuilder.AppendLine(GetNavigationItem(siteMapRoot));
-            }
-
             foreach (var navbarLinkNode in sitemap.Descendants()
                 .Where(x => (string) x.Attribute("navigation") == "SubNavbar")
                 .ToList())
