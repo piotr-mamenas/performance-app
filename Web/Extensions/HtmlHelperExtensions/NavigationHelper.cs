@@ -21,7 +21,7 @@ namespace Web.Extensions.HtmlHelperExtensions
             var navbarStringBuilder = new StringBuilder();
 
             foreach (var navbarLinkNode in sitemap.Descendants()
-                .Where(x => (string) x.Attribute("navigation") == "SubNavbar")
+                .Where(x => (string) x.Attribute("navigation") == "navbar")
                 .ToList())
             {
                 navbarStringBuilder.AppendLine(GetNavigationItem(navbarLinkNode));

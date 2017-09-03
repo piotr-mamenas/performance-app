@@ -184,6 +184,7 @@
     <Content Include="Content\app\components\detailViewComponent.js" />
     <Content Include="Content\app\components\listViewComponent.js" />
     <Content Include="Content\app\controllers\contactController.js" />
+    <Content Include="Content\app\controllers\selectionController.js" />
     <Content Include="Content\app\services\contactService.js" />
     <Content Include="Content\vendor\scripts\underscore\underscore.js" />
     <Content Include="Content\vendor\scripts\underscore\underscore.min.js" />
@@ -414,6 +415,7 @@
     <Content Include="Views\Portfolio\Index.cshtml" />
     <Content Include="Views\Report\Index.cshtml" />
     <Content Include="Views\Task\Index.cshtml" />
+    <Content Include="Views\Shared\Selection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

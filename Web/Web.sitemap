@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode navigation="Navbar" display="Home" controller="Home" action="Index" class="navbar-brand">
-    <siteMapNode navigation="SubNavbar" display="Partners" controller="Partner" action="Index" cssClass="fa fa-users" />
-    <siteMapNode navigation="SubNavbar" display="Contacts" controller="Contact" action="Index" cssClass="fa fa-address-card-o" />
-    <siteMapNode navigation="SubNavbar" display="Accounts" controller="Account" action="Index" cssClass="fa fa-university" />
-    <siteMapNode navigation="SubNavbar" display="Portfolios" controller="Portfolio" action="Index" cssClass="fa fa-book" />
-    <siteMapNode navigation="SubNavbar" display="Reports" controller="Report" action="Index" cssClass="fa fa-bar-chart" />
-    <siteMapNode navigation="SubNavbar" display="Tasks" controller="Task" action="Index" cssClass="fa fa-tasks" />
-    <siteMapNode navigation="SubNavbar" display="Compliance" controller="Home" action="Index" cssClass="fa fa-gavel" />
-    <siteMapNode navigation="SubNavbar" display="Search" controller="Home" action="Index" cssClass="fa fa-search" />
-  </siteMapNode>  
+  <siteMapNode navigation="page" display="Home" controller="Home" action="Index" class="navbar-brand">
+    <siteMapNode navigation="navbar" display="Partners" controller="Partner" action="Index" cssClass="fa fa-users" />
+    <siteMapNode navigation="navbar" display="Contacts" controller="Contact" action="Index" cssClass="fa fa-address-card-o" />
+    <siteMapNode navigation="navbar" display="Accounts" controller="Account" action="Index" cssClass="fa fa-university" />
+    <siteMapNode navigation="navbar" display="Portfolios" controller="Portfolio" action="Index" cssClass="fa fa-book" />
+    <siteMapNode navigation="navbar" display="Reports" controller="Report" action="Index" cssClass="fa fa-bar-chart" />
+    <siteMapNode navigation="navbar" display="Tasks" controller="Task" action="Index" cssClass="fa fa-tasks" />
+    <siteMapNode navigation="navbar" display="Compliance" controller="Home" action="Index" cssClass="fa fa-gavel" />
+    <siteMapNode navigation="navbar" display="Search" controller="Home" action="Index" cssClass="fa fa-search" />
+  </siteMapNode>
 </siteMap>
