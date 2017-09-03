@@ -155,7 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Caching\" />
-    <Folder Include="Validations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

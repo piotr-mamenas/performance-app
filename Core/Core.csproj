@@ -111,6 +111,10 @@
     <Compile Include="Interfaces\Repositories\IInstitutionRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interfaces\Validation\IValidatable.cs" />
+    <Compile Include="Interfaces\Validation\IValidator.cs" />
+    <Compile Include="Validation\ValidationRule.cs" />
+    <Compile Include="Validation\Validators\OpenNewAccountValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6">
@@ -130,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\Services\" />
+    <Folder Include="Specification\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

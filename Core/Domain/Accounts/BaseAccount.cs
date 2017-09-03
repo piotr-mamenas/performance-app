@@ -43,19 +43,6 @@ namespace Core.Domain.Accounts
         {
             Partners = null;
         }
-
-        public void OpenNewAccount(string name, string number, Partner partner)
-        {
-            if (name == null || number == null || partner == null)
-            {
-                throw new ArgumentException();
-            }
-
-            Name = name;
-            Number = number;
-            OpenedDate = DateTime.Today;
-            Partners.Add(partner);
-        }
         #endregion
     }
 }
