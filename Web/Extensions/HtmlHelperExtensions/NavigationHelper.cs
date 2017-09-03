@@ -1,5 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -7,6 +7,7 @@ using System.Xml.Linq;
 
 namespace Web.Extensions.HtmlHelperExtensions
 {
+    // TODO: The generator is inserting self link as first item on navbar, also gotta fix css for icon display
     public static class NavigationHelper
     {
         public static IHtmlString GenerateRibbon(this HtmlHelper helper)
@@ -45,7 +46,7 @@ namespace Web.Extensions.HtmlHelperExtensions
             var urlHelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
             var url = urlHelper.AbsoluteAction(action, controller);
 
-            return "<li><a href=\"" + url + "\" class=\"" + cssClass + "\">" + display + "</a></li>";
+            return "<li><a href=\"" + url + "\"><span style=\"margin-right:5px;\" class=\"" + cssClass + "\"></span>" + display + "</a></li>";
         }
     }
 }

@@ -8,17 +8,25 @@ namespace Tests.Service.Controllers
     [TestFixture]
     public class ContactsControllerTests
     {
+        private ContactsController _contactsController;
+
         [SetUp]
         public void TestConfiguration()
         {
-            var unitOfWorkFake = new Mock<IUnitOfWork>();
-            var controller = new ContactsController(unitOfWorkFake.Object);
+            var mockUnitOfWork = new Mock<IUnitOfWork>();
+            _contactsController = new ContactsController(mockUnitOfWork.Object);
         }
 
         [Test]
         public void Test()
         {
             
+        }
+
+        [OneTimeTearDown]
+        public void DisposeAllObjects()
+        {
+            _contactsController = null;
         }
     }
 }

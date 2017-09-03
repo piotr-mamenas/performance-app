@@ -26,25 +26,32 @@
             </div>
     </div>
         <div class="row">
-            <div class="col-md-2" style="padding-left: 40px;">
-                <table id="primaryLeftPanel" class="table table-bordered table-hover">
-                    <tbody>
-                    <tr>
-                        <td>Option</td>
-                    </tr>
-                    <tr>
-                        <td>Option</td>
-                    </tr>
-                    <tr>
-                        <td>Option</td>
-                    </tr>
-                    <tr>
-                        <td>Option</td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="col-md-3" style="padding-left: 40px;">
+                <!-- TODO: Create a helper for selection generation, bootbox popup will be added for selection -->
+                <div id="primaryLeftPanel" class="panel panel-default">
+                    <div class="panel-heading"><span class="fa fa-gears" style="margin-right: 5px;"></span>Selection
+                    </div>
+                    <div class="panel-body">
+                        <ul class="nav nav-justified">
+                            <li class="active"><a href="#"><span class="fa fa-users" style="margin-right: 5px;"></span>By Partners</a></li>
+                            <li><a href="#"><span class="fa fa-book" style="margin-right: 5px;"></span>By Portfolios</a></li>
+                            <li><a href="#"><span class="fa fa-folder-o" style="margin-right: 5px;"></span>By Containers</a></li>
+                        </ul>
+                        <div class="form-horizontal" style="padding: 30px;">
+                            <div class="form-group">
+                                <label for="partnerName">Partner Name</label>
+                                <input type="text" class="form-control" id="partnerName"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="partnerNumber">Partner Number</label>
+                                <input type="text" class="form-control" id="partnerNumber"/>
+                            </div>
+                            <button type="button" class="btn btn-primary pull-right">Search</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="primaryRightPanel" class="col-md-10" style="padding-right: 40px;">
+            <div id="primaryRightPanel" class="col-md-9" style="padding-right: 40px;">
                 @RenderBody()
             </div>
         </div>
