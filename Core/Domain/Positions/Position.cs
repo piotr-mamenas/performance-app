@@ -1,6 +1,6 @@
 ﻿using Core.Interfaces;
 
-namespace Core.Domain.Position
+namespace Core.Domain.Positions
 {
     public class Position : BasePosition<Position>, IEntityRoot
     {

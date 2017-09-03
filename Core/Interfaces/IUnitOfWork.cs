@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Core.Domain.Accounts;
+using Core.Domain.Assets;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
@@ -13,6 +14,8 @@ namespace Core.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         IAccountRepository<Account> Accounts { get; }
+        IAssetRepository<Asset> Assets { get; }
+        IAssetRepository<Bond> Bonds { get; }
         IPartnerRepository<Partner> Partners { get; }
         IPartnerRepository<AssetManager> AssetManagers { get; }
         IInstitutionRepository<Institution> Institutions { get; }
@@ -21,7 +24,5 @@ namespace Core.Interfaces
         ICurrencyRepository<Currency> Currencies { get; }
         ICountryRepository<Country> Countries { get; }
         Task<int> CompleteAsync();
-
-        //Repository.Query("SELECT @ FROM PARTNER");
     }
 }

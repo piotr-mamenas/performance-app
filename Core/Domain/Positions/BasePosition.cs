@@ -2,7 +2,7 @@
 using Core.Domain.Assets;
 using Core.Domain.Currencies;
 
-namespace Core.Domain.Position
+namespace Core.Domain.Positions
 {
     public abstract class BasePosition<T> : BaseEntity<T> where T : BaseEntity<T>, new()
     {

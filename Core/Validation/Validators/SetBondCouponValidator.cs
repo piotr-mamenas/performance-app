@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
-using Core.Domain.Accounts;
+using Core.Domain.Assets;
 using Core.Interfaces.Validation;
 
 namespace Core.Validation.Validators
 {
-    public class OpenNewAccountValidator : IValidator
+    public class SetBondCouponValidator : IValidator
     {
-        public OpenNewAccountValidator(Account account)
+        public SetBondCouponValidator(BondCoupon bondCoupon)
         {
-            AccountValidated = account;
+            BondCouponValidated = bondCoupon;
         }
 
         public ICollection<ValidationRule> BrokenRules => GetBrokenRules();
-        public Account AccountValidated { get; set; }
+        public BondCoupon BondCouponValidated { get; set; }
 
         public bool IsValid()
         {
@@ -24,21 +24,30 @@ namespace Core.Validation.Validators
         /// <returns></returns>
         public ICollection<ValidationRule> GetBrokenRules()
         {
-            if (string.IsNullOrEmpty(AccountValidated.Name))
+            if (BondCouponValidated.Rate < 0 || BondCouponValidated.Rate > 1)
             {
                 BrokenRules.Add(new ValidationRule
                 {
                     Name = "",
-                    Message = "Please specify the Name of this Account"
+                    Message = "Bond Coupon Rate must be positive"
                 });
             }
 
-            if (AccountValidated.Partners.Count <= 0)
+            if (BondCouponValidated.Rate > 1)
             {
                 BrokenRules.Add(new ValidationRule
                 {
                     Name = "",
-                    Message = "The Account must belong to at least one Partner"
+                    Message = "Bond Coupon Rate may not be higher than 100%"
+                });
+            }
+
+            if (BondCouponValidated.Amount < 0)
+            {
+                BrokenRules.Add(new ValidationRule
+                {
+                    Name = "",
+                    Message = "A bond payable amount cannot be less than 0"
                 });
             }
 

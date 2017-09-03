@@ -1,6 +1,4 @@
-﻿using Core.Domain.Countries;
-
-namespace Core.Interfaces.Repositories
+﻿namespace Core.Interfaces.Repositories
 {
     public interface ICountryRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot, new()
     {

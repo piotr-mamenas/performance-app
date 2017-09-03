@@ -37,7 +37,6 @@
                 contactDetailView.showDetailView();
                 contactDetailView.detailViewVisible = true;
             }
-            console.log(editButtonSelector);
         });
     }
 
@@ -48,7 +47,6 @@
                 editButtonClicked = false;
                 contactDetailView.showDetailView();
             }
-            console.log(rowSelector);
         });
     }
     

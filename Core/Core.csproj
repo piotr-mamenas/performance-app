@@ -67,7 +67,7 @@
     <Compile Include="Domain\Assets\Asset.cs" />
     <Compile Include="Domain\Assets\BaseAsset.cs" />
     <Compile Include="Domain\Assets\Bond.cs" />
-    <Compile Include="Domain\ComplexTypes\BondCoupon.cs" />
+    <Compile Include="Domain\Assets\BondCoupon.cs" />
     <Compile Include="Domain\Assets\Equity.cs" />
     <Compile Include="Domain\BaseEntity.cs" />
     <Compile Include="Domain\Contacts\BaseContact.cs" />
@@ -87,14 +87,16 @@
     <Compile Include="Domain\Partners\AssetManager.cs" />
     <Compile Include="Domain\Partners\BasePartner.cs" />
     <Compile Include="Domain\Partners\Partner.cs" />
-    <Compile Include="Domain\Position\BasePosition.cs" />
-    <Compile Include="Domain\Position\Position.cs" />
+    <Compile Include="Domain\Positions\BasePosition.cs" />
+    <Compile Include="Domain\Positions\Position.cs" />
     <Compile Include="Dtos\AccountDto.cs" />
+    <Compile Include="Dtos\AssetDto.cs" />
     <Compile Include="Dtos\ContactDto.cs" />
     <Compile Include="Dtos\CountryDto.cs" />
     <Compile Include="Dtos\CurrencyDto.cs" />
     <Compile Include="Dtos\InstitutionDto.cs" />
     <Compile Include="Dtos\PartnerDto.cs" />
+    <Compile Include="Enums\Domain\AssetClass.cs" />
     <Compile Include="Enums\Domain\ContactType.cs" />
     <Compile Include="Enums\Domain\CountryType.cs" />
     <Compile Include="Enums\Domain\CurrencyType.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="Interfaces\IEntityRoot.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Repositories\IAccountRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAssetRepository.cs" />
     <Compile Include="Interfaces\Repositories\IContactRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICountryRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICurrencyRepository.cs" />
@@ -115,6 +118,7 @@
     <Compile Include="Interfaces\Validation\IValidator.cs" />
     <Compile Include="Validation\ValidationRule.cs" />
     <Compile Include="Validation\Validators\OpenNewAccountValidator.cs" />
+    <Compile Include="Validation\Validators\SetBondCouponValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6">
@@ -133,6 +137,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Domain\Prices\" />
     <Folder Include="Interfaces\Services\" />
     <Folder Include="Specification\" />
   </ItemGroup>
