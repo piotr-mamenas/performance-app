@@ -1,45 +1,40 @@
 ﻿var selectionController = function () {
 
-    var displaySelectByPartnerSearch = function () {
+    var activateTab = function (buttonSelector, tabSelector) {
+        if (!$(tabSelector).is(":animated")) {
+            $("#js-select-partner").parent("li").removeClass("active");
+            $("#js-select-portfolio").parent("li").removeClass("active");
+            $("#js-select-container").parent("li").removeClass("active");
+
+            $(buttonSelector).parent("li").addClass("active");
+
+            $("div#byPartner").slideUp().hide();
+            $("div#byPortfolio").slideUp().hide();
+            $("div#byContainer").slideUp().hide();
+
+            $(tabSelector).slideDown(400).show();
+        }
+    }
+
+    var displaySelectionByPartner = function () {
         $("#js-select-partner").click(function () {
-            $("div#byPortfolio").slideUp(500);
-            $("div#byContainer").slideUp(500);
-            $("div#byPartner").slideDown(1000);
-
-            $("#js-select-partner").parent("li").addClass("active");
-            $("#js-select-portfolio").parent("li").removeClass("active");
-            $("#js-select-container").parent("li").removeClass("active");
+            activateTab("#js-select-partner", "div#byPartner");
         });
-    }
+    }();
 
-    var displaySelectByPortfolioSearch = function () {
+    var displaySelectionByPortfolio = function () {
         $("#js-select-portfolio").click(function () {
-            $("div#byPartner").slideUp(500);
-            $("div#byContainer").slideUp(500);
-            $("div#byPortfolio").slideDown(1000);
-
-            $("#js-select-partner").parent("li").removeClass("active");
-            $("#js-select-portfolio").parent("li").addClass("active");
-            $("#js-select-container").parent("li").removeClass("active");
+            activateTab("#js-select-portfolio", "div#byPortfolio");
         });
-    }
+    }();
 
-    var displaySelectByContainerSearch = function () {
-        $("#js-select-container").click(function () {
-            $("div#byPartner").slideUp(500);
-            $("div#byPortfolio").slideUp(500);
-            $("div#byContainer").slideDown(1000);
-            
-            $("#js-select-partner").parent("li").removeClass("active");
-            $("#js-select-portfolio").parent("li").removeClass("active");
-            $("#js-select-container").parent("li").addClass("active");
+    var displaySelectionByContainer = function() {
+        $("#js-select-container").click(function() {
+            activateTab("#js-select-container","div#byContainer");
         });
-    }
+    }();
 
-    var init = function() {
-        displaySelectByPartnerSearch();
-        displaySelectByPortfolioSearch();
-        displaySelectByContainerSearch();
+    var init = function () {
     }
 
    return {
