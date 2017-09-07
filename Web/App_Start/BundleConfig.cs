@@ -23,6 +23,9 @@ namespace Web
 
             bundles.Add(new ScriptBundle("~/bundles/app/controllers").IncludeDirectory(
                 "~/Content/app/controllers", "*Controller.js", searchSubdirectories: true));
+
+            bundles.Add(new StyleBundle("~/bundles/app/styles").IncludeDirectory(
+                "~/Content/app/styles","*.css", searchSubdirectories: true));
         }
 
         private static void RegisterVendorBundles(BundleCollection bundles)

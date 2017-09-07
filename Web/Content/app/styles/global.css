@@ -1,0 +1,21 @@
+﻿/*#siteBody {
+    background: url(/Content/app/images/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
+
+.navbar {
+    margin-bottom:-1px;
+    border-radius:0;
+}
+
+#submenu {
+    background-color: #e7e7e7;
+    margin-bottom:20px;
+}
+
+.collapsing {
+    display:none;
+}

@@ -180,12 +180,15 @@
     <Compile Include="ViewModels\AccountViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\app\controllers\navbarController.js" />
+    <Content Include="Content\app\images\background.jpg" />
     <Content Include="Content\app\app.js" />
     <Content Include="Content\app\components\detailViewComponent.js" />
     <Content Include="Content\app\components\listViewComponent.js" />
     <Content Include="Content\app\controllers\contactController.js" />
     <Content Include="Content\app\controllers\selectionController.js" />
     <Content Include="Content\app\services\contactService.js" />
+    <Content Include="Content\app\styles\global.css" />
     <Content Include="Content\vendor\scripts\underscore\underscore.js" />
     <Content Include="Content\vendor\scripts\underscore\underscore.min.js" />
     <Content Include="Content\vendor\styles\datatables\css\autoFill.bootstrap.css" />
