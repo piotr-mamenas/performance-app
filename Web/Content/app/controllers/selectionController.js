@@ -1,7 +1,7 @@
 ﻿var selectionController = function () {
 
     var activateTab = function (buttonSelector, tabSelector) {
-        if (!$(tabSelector).is(":animated")) {
+        if (!$(tabSelector).is(":animated") && $(tabSelector).is(":hidden")) {
             $("#js-select-partner").parent("li").removeClass("active");
             $("#js-select-portfolio").parent("li").removeClass("active");
             $("#js-select-container").parent("li").removeClass("active");
