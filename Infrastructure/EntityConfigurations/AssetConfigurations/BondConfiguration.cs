@@ -11,11 +11,11 @@ namespace Infrastructure.EntityConfigurations.AssetConfigurations
             Property(b => b.IssueDate)
                 .HasColumnName("BondIssueDate")
                 .IsRequired()
-                .HasColumnType("datetime2");
+                .HasColumnType(DatabaseVendorTypes.TimestampField);
 
             Property(b => b.MaturityDate)
                 .HasColumnName("BondMaturityDate")
-                .HasColumnType("datetime2")
+                .HasColumnType(DatabaseVendorTypes.TimestampField)
                 .IsRequired();
 
             HasRequired(b => b.Currency).WithRequiredDependent();

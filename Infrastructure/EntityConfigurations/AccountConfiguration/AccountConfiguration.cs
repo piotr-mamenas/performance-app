@@ -27,11 +27,11 @@ namespace Infrastructure.EntityConfigurations.AccountConfiguration
                 .HasMaxLength(127);
 
             Property(a => a.OpenedDate)
-                .HasColumnType("datetime2")
+                .HasColumnType(DatabaseVendorTypes.TimestampField)
                 .IsRequired();
 
             Property(a => a.ClosedDate)
-                .HasColumnType("datetime2")
+                .HasColumnType(DatabaseVendorTypes.TimestampField)
                 .IsOptional();
         }
     }
