@@ -14,7 +14,7 @@ namespace Infrastructure.EntityConfigurations
                 {
                     return "datetime2";
                 }
-                return null;
+                return "datetime2";
             }
         }
     }

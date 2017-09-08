@@ -74,41 +74,13 @@
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Helpers\AttributeHelper.cs" />
     <Compile Include="Helpers\ReflectionHelper.cs" />
-    <Compile Include="Migrations\201708252157188_InitialDatabaseModel.cs" />
-    <Compile Include="Migrations\201708252157188_InitialDatabaseModel.Designer.cs">
-      <DependentUpon>201708252157188_InitialDatabaseModel.cs</DependentUpon>
+    <Compile Include="Migrations\201709082141401_InitialMigration.cs" />
+    <Compile Include="Migrations\201709082141401_InitialMigration.Designer.cs">
+      <DependentUpon>201709082141401_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708260013457_InitialDatabaseModel1.cs" />
-    <Compile Include="Migrations\201708260013457_InitialDatabaseModel1.Designer.cs">
-      <DependentUpon>201708260013457_InitialDatabaseModel1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708282228328_AddLogicalDeletionMigration.cs" />
-    <Compile Include="Migrations\201708282228328_AddLogicalDeletionMigration.Designer.cs">
-      <DependentUpon>201708282228328_AddLogicalDeletionMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708282246115_AddAccountMigration.cs" />
-    <Compile Include="Migrations\201708282246115_AddAccountMigration.Designer.cs">
-      <DependentUpon>201708282246115_AddAccountMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708282328590_MinorRefactoringAndRenames.cs" />
-    <Compile Include="Migrations\201708282328590_MinorRefactoringAndRenames.Designer.cs">
-      <DependentUpon>201708282328590_MinorRefactoringAndRenames.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708282336133_AdjustDatetimeFieldTypeMigration.cs" />
-    <Compile Include="Migrations\201708282336133_AdjustDatetimeFieldTypeMigration.Designer.cs">
-      <DependentUpon>201708282336133_AdjustDatetimeFieldTypeMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709010644048_ChangeToAccountAndDomainMethodsMigration.cs" />
-    <Compile Include="Migrations\201709010644048_ChangeToAccountAndDomainMethodsMigration.Designer.cs">
-      <DependentUpon>201709010644048_ChangeToAccountAndDomainMethodsMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709031750016_AssetAndBondAddedMigration.cs" />
-    <Compile Include="Migrations\201709031750016_AssetAndBondAddedMigration.Designer.cs">
-      <DependentUpon>201709031750016_AssetAndBondAddedMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709031753298_AddDiscriminatorColumnValueForBondMigration.cs" />
-    <Compile Include="Migrations\201709031753298_AddDiscriminatorColumnValueForBondMigration.Designer.cs">
-      <DependentUpon>201709031753298_AddDiscriminatorColumnValueForBondMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201709082146026_InitialMigration1.cs" />
+    <Compile Include="Migrations\201709082146026_InitialMigration1.Designer.cs">
+      <DependentUpon>201709082146026_InitialMigration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PerformanceContext.cs" />
@@ -134,32 +106,11 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708252157188_InitialDatabaseModel.resx">
-      <DependentUpon>201708252157188_InitialDatabaseModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709082141401_InitialMigration.resx">
+      <DependentUpon>201709082141401_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708260013457_InitialDatabaseModel1.resx">
-      <DependentUpon>201708260013457_InitialDatabaseModel1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708282228328_AddLogicalDeletionMigration.resx">
-      <DependentUpon>201708282228328_AddLogicalDeletionMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708282246115_AddAccountMigration.resx">
-      <DependentUpon>201708282246115_AddAccountMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708282328590_MinorRefactoringAndRenames.resx">
-      <DependentUpon>201708282328590_MinorRefactoringAndRenames.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708282336133_AdjustDatetimeFieldTypeMigration.resx">
-      <DependentUpon>201708282336133_AdjustDatetimeFieldTypeMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709010644048_ChangeToAccountAndDomainMethodsMigration.resx">
-      <DependentUpon>201709010644048_ChangeToAccountAndDomainMethodsMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709031750016_AssetAndBondAddedMigration.resx">
-      <DependentUpon>201709031750016_AssetAndBondAddedMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709031753298_AddDiscriminatorColumnValueForBondMigration.resx">
-      <DependentUpon>201709031753298_AddDiscriminatorColumnValueForBondMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709082146026_InitialMigration1.resx">
+      <DependentUpon>201709082146026_InitialMigration1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
