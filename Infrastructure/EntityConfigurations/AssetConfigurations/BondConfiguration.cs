@@ -5,7 +5,6 @@ namespace Infrastructure.EntityConfigurations.AssetConfigurations
 {
     public class BondConfiguration : EntityTypeConfiguration<Bond>
     {
-        // TODO: Must figure out something with the hardcoded datetime2 for sql server, tight coupling with sqlserver
         public BondConfiguration()
         {
             Property(b => b.IssueDate)

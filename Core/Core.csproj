@@ -89,6 +89,10 @@
     <Compile Include="Domain\Partners\Partner.cs" />
     <Compile Include="Domain\Positions\BasePosition.cs" />
     <Compile Include="Domain\Positions\Position.cs" />
+    <Compile Include="Domain\Prices\BasePrice.cs" />
+    <Compile Include="Domain\Prices\Price.cs" />
+    <Compile Include="Domain\Selections\BaseSelection.cs" />
+    <Compile Include="Domain\Selections\Selection.cs" />
     <Compile Include="Dtos\AccountDto.cs" />
     <Compile Include="Dtos\AssetDto.cs" />
     <Compile Include="Dtos\ContactDto.cs" />
@@ -137,7 +141,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Domain\Prices\" />
+    <Folder Include="Domain\Benchmarks\" />
+    <Folder Include="Domain\Portfolios\" />
+    <Folder Include="Domain\Strategies\" />
+    <Folder Include="Domain\Volatilities\" />
     <Folder Include="Interfaces\Services\" />
     <Folder Include="Specification\" />
   </ItemGroup>

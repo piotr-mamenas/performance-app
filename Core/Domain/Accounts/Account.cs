@@ -8,6 +8,9 @@ using Core.Validation.Validators;
 
 namespace Core.Domain.Accounts
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Account : BaseAccount<Account>, IEntityRoot, IValidatable
     {
         private IEnumerable<ValidationRule> _brokenRules;

@@ -19,8 +19,6 @@ namespace Core.Domain.Assets
 
         public decimal FaceValue { get; set; }
 
-        private IEnumerable<ValidationRule> _brokenRules;
-
         public IEnumerable<ValidationRule> SetCoupon(decimal amount, decimal rate)
         {
             var newCoupon = new BondCoupon
@@ -29,7 +27,7 @@ namespace Core.Domain.Assets
                 Amount = amount
             };
 
-            if (Validate(new SetBondCouponValidator(newCoupon),out _brokenRules))
+            if (Validate(new SetBondCouponValidator(newCoupon),out IEnumerable<ValidationRule> brokenRules))
             {
                 Coupon = new BondCoupon
                 {
@@ -37,13 +35,7 @@ namespace Core.Domain.Assets
                     Amount = amount
                 };
             }
-            return _brokenRules;
-        }
-
-        public bool Validate(IValidator validator, out IEnumerable<ValidationRule> brokenRules)
-        {
-            brokenRules = validator.GetBrokenRules();
-            return validator.IsValid();
+            return brokenRules;
         }
     }
 }
