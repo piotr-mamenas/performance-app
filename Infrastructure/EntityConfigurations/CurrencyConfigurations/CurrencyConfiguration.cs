@@ -12,7 +12,7 @@ namespace Infrastructure.EntityConfigurations.CurrencyConfigurations
 
             HasKey(c => c.Id);
 
-            ToTable("tbl_Currency");
+            ToTable("Currency");
 
             Property(c => c.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)

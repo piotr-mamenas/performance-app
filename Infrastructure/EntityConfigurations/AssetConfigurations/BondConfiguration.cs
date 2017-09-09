@@ -9,8 +9,8 @@ namespace Infrastructure.EntityConfigurations.AssetConfigurations
         {
             Property(b => b.IssueDate)
                 .HasColumnName("BondIssueDate")
-                .IsRequired()
-                .HasColumnType(DatabaseVendorTypes.TimestampField);
+                .HasColumnType(DatabaseVendorTypes.TimestampField)
+                .IsRequired();
 
             Property(b => b.MaturityDate)
                 .HasColumnName("BondMaturityDate")

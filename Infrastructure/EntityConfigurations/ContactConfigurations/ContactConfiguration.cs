@@ -12,7 +12,7 @@ namespace Infrastructure.EntityConfigurations.ContactConfigurations
 
             HasKey(c => c.Id);
 
-            ToTable("tbl_Contact");
+            ToTable("Contact");
 
             Property(c => c.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)

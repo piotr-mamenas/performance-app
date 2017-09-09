@@ -13,7 +13,7 @@ namespace Infrastructure.EntityConfigurations.AssetConfigurations
 
             HasKey(a => a.Id);
 
-            ToTable("tbl_Asset");
+            ToTable("Asset");
 
             Property(a => a.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
@@ -26,7 +26,8 @@ namespace Infrastructure.EntityConfigurations.AssetConfigurations
             Property(a => a.Isin)
                 .HasColumnName("AssetISIN");
 
-            Map<Bond>(p => p.Requires("AssetType").HasValue((int)AssetClass.Bond));
+            Map<Bond>(p => p.Requires("AssetClass").HasValue((int)AssetClass.Bond));
+            Map<Equity>(p => p.Requires("AssetClass").HasValue((int)AssetClass.Equity));
         }
     }
 }

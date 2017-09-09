@@ -13,7 +13,7 @@ namespace Infrastructure.EntityConfigurations.PartnerConfigurations
 
             HasKey(p => p.Id);
 
-            ToTable("tbl_Partner");
+            ToTable("Partner");
 
             Property(o => o.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
@@ -31,7 +31,9 @@ namespace Infrastructure.EntityConfigurations.PartnerConfigurations
 
             HasMany(p => p.Organizations)
                 .WithMany(o => o.Partners)
-                .Map(m => m.ToTable("tbl_InstitutionPartners").MapLeftKey("PartnerId").MapRightKey("InstitutionId"));
+                .Map(m => m.ToTable("PartnersInstitutions")
+                .MapLeftKey("PartnerId")
+                .MapRightKey("InstitutionId"));
 
             HasMany(p => p.Contacts)
                 .WithRequired(c => c.Partner)
@@ -40,7 +42,9 @@ namespace Infrastructure.EntityConfigurations.PartnerConfigurations
 
             HasMany(p => p.Accounts)
                 .WithMany(a => a.Partners)
-                .Map(m => m.ToTable("tbl_PartnerAccounts").MapLeftKey("PartnerId").MapRightKey("AccountId"));
+                .Map(m => m.ToTable("PartnersAccounts")
+                .MapLeftKey("PartnerId")
+                .MapRightKey("AccountId"));
 
             Map<AssetManager>(p => p.Requires("PartnerType").HasValue((int)PartnerType.AssetManager));
         }

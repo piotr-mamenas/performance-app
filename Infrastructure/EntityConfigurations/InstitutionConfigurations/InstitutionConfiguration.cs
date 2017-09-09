@@ -13,7 +13,7 @@ namespace Infrastructure.EntityConfigurations.InstitutionConfigurations
 
             HasKey(o => o.Id);
 
-            ToTable("tbl_Institution");
+            ToTable("Institution");
 
             Property(o => o.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)

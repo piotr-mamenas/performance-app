@@ -9,7 +9,7 @@ namespace Infrastructure.EntityConfigurations.IdentityConfigurations
         {
             Map(c =>
             {
-                c.ToTable("tbl_Roles");
+                c.ToTable("Roles");
                 c.Property(p => p.Id).HasColumnName("RoleId");
                 c.Properties(p => new
                 {

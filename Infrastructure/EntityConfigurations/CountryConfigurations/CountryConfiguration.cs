@@ -12,7 +12,7 @@ namespace Infrastructure.EntityConfigurations.CountryConfigurations
 
             HasKey(c => c.Id);
 
-            ToTable("tbl_Country");
+            ToTable("Country");
 
             Property(c => c.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)

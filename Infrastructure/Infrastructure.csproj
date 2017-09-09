@@ -65,6 +65,7 @@
     <Compile Include="EntityConfigurations\AccountConfiguration\AccountConfiguration.cs" />
     <Compile Include="EntityConfigurations\AssetConfigurations\AssetConfiguration.cs" />
     <Compile Include="EntityConfigurations\AssetConfigurations\BondConfiguration.cs" />
+    <Compile Include="EntityConfigurations\AssetConfigurations\EquityConfiguration.cs" />
     <Compile Include="EntityConfigurations\CountryConfigurations\CountryConfiguration.cs" />
     <Compile Include="EntityConfigurations\CurrencyConfigurations\CurrencyConfiguration.cs" />
     <Compile Include="EntityConfigurations\DatabaseVendorTypes.cs" />
@@ -81,6 +82,18 @@
     <Compile Include="Migrations\201709082146026_InitialMigration1.cs" />
     <Compile Include="Migrations\201709082146026_InitialMigration1.Designer.cs">
       <DependentUpon>201709082146026_InitialMigration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709090053589_MinorChangesToAsset.cs" />
+    <Compile Include="Migrations\201709090053589_MinorChangesToAsset.Designer.cs">
+      <DependentUpon>201709090053589_MinorChangesToAsset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709091310067_AttemptToFixDiscriminator.cs" />
+    <Compile Include="Migrations\201709091310067_AttemptToFixDiscriminator.Designer.cs">
+      <DependentUpon>201709091310067_AttemptToFixDiscriminator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709091329578_RemovingTablePrefixMigration.cs" />
+    <Compile Include="Migrations\201709091329578_RemovingTablePrefixMigration.Designer.cs">
+      <DependentUpon>201709091329578_RemovingTablePrefixMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PerformanceContext.cs" />
@@ -111,6 +124,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709082146026_InitialMigration1.resx">
       <DependentUpon>201709082146026_InitialMigration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709090053589_MinorChangesToAsset.resx">
+      <DependentUpon>201709090053589_MinorChangesToAsset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709091310067_AttemptToFixDiscriminator.resx">
+      <DependentUpon>201709091310067_AttemptToFixDiscriminator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709091329578_RemovingTablePrefixMigration.resx">
+      <DependentUpon>201709091329578_RemovingTablePrefixMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

@@ -1,7 +1,9 @@
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Runtime.CompilerServices;
 using Core.Domain.Accounts;
+using Core.Domain.Assets;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;

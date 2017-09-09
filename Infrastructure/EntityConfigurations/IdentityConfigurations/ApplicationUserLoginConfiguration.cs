@@ -9,7 +9,7 @@ namespace Infrastructure.EntityConfigurations.IdentityConfigurations
         {
             Map(c =>
             {
-                c.ToTable("tbl_UserLogins");
+                c.ToTable("UserLogins");
                 c.Properties(p => new
                 {
                     p.LoginProvider,

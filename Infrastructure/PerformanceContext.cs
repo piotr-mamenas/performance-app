@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using System.Linq;
 using Core.Domain.Accounts;
 using Core.Domain.Assets;
 using Core.Domain.Contacts;
@@ -9,7 +8,6 @@ using Core.Domain.Identity;
 using Core.Domain.Institutions;
 using Core.Domain.Partners;
 using Infrastructure.ComplexTypesConfigurations;
-using Infrastructure.EntityConfigurations;
 using Infrastructure.EntityConfigurations.AccountConfiguration;
 using Infrastructure.EntityConfigurations.AssetConfigurations;
 using Infrastructure.EntityConfigurations.ContactConfigurations;

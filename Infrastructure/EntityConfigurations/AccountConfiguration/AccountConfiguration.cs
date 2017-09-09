@@ -12,7 +12,7 @@ namespace Infrastructure.EntityConfigurations.AccountConfiguration
 
             HasKey(a => a.Id);
 
-            ToTable("tbl_Account");
+            ToTable("Account");
 
             Property(a => a.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)

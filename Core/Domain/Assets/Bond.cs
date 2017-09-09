@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Domain.Currencies;
-using Core.Interfaces.Validation;
 using Core.Validation;
 using Core.Validation.Validators;
 
