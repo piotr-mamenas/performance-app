@@ -79,10 +79,6 @@
     <Compile Include="Migrations\201709082141401_InitialMigration.Designer.cs">
       <DependentUpon>201709082141401_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709082146026_InitialMigration1.cs" />
-    <Compile Include="Migrations\201709082146026_InitialMigration1.Designer.cs">
-      <DependentUpon>201709082146026_InitialMigration1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201709090053589_MinorChangesToAsset.cs" />
     <Compile Include="Migrations\201709090053589_MinorChangesToAsset.Designer.cs">
       <DependentUpon>201709090053589_MinorChangesToAsset.cs</DependentUpon>
@@ -121,9 +117,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709082141401_InitialMigration.resx">
       <DependentUpon>201709082141401_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709082146026_InitialMigration1.resx">
-      <DependentUpon>201709082146026_InitialMigration1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709090053589_MinorChangesToAsset.resx">
       <DependentUpon>201709090053589_MinorChangesToAsset.cs</DependentUpon>

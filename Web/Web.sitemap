@@ -1,13 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode navigation="page" display="Home" controller="Home" action="Index" class="navbar-brand">
-    <siteMapNode navigation="navbar" display="Partners" controller="Partner" action="Index" cssClass="fa fa-users" />
-    <siteMapNode navigation="navbar" display="Contacts" controller="Contact" action="Index" cssClass="fa fa-address-card-o" />
-    <siteMapNode navigation="navbar" display="Accounts" controller="Account" action="Index" cssClass="fa fa-university" />
-    <siteMapNode navigation="navbar" display="Portfolios" controller="Portfolio" action="Index" cssClass="fa fa-book" />
-    <siteMapNode navigation="navbar" display="Reports" controller="Report" action="Index" cssClass="fa fa-bar-chart" />
-    <siteMapNode navigation="navbar" display="Tasks" controller="Task" action="Index" cssClass="fa fa-tasks" />
-    <siteMapNode navigation="navbar" display="Compliance" controller="Home" action="Index" cssClass="fa fa-gavel" />
-    <siteMapNode navigation="navbar" display="Search" controller="Home" action="Index" cssClass="fa fa-search" />
+  <siteMapNode navigation="page" display="Emperors Lantern" controller="Home" action="Index" class="navbar-brand">
+    <siteMapNode navigation="navbar" display="Partners" controller="Partner" action="Index" navId="PartnerNav" cssClass="fa fa-users">
+      <siteMapNode navigation="subNav" display="List" controller="Partner" action="Index" cssClass="fa fa-list"/>
+      <siteMapNode navigation="subNav" display="New Partner" controller="Partner" action="Index" cssClass="fa fa-file"/>
+      <siteMapNode navigation="subNav" display="Partner Contacts" controller="Partner" action="Index" cssClass="fa fa-address-card-o"/>
+    </siteMapNode>
+    <siteMapNode navigation="navbar" display="Contacts" controller="Contact" action="Index" navId="ContactNav" cssClass="fa fa-address-card-o">
+      <siteMapNode navigation="subNav" display="List" controller="Contact" action="Index" cssClass="fa fa-list"/>
+      <siteMapNode navigation="subNav" display="New Contact" controller="Contact" action="Index" cssClass="fa fa-file"/>
+    </siteMapNode>
+    <siteMapNode navigation="navbar" display="Accounts" controller="Account" action="Index" navId="AccountNav" cssClass="fa fa-university">
+      <siteMapNode navigation="subNav" display="List" controller="Account" action="Index" cssClass="fa fa-list"/>
+      <siteMapNode navigation="subNav" display="New Account" controller="Account" action="Index" cssClass="fa fa-file"/>
+    </siteMapNode>
+    <siteMapNode navigation="navbar" display="Portfolios" controller="Portfolio" action="Index" navId="PortfolioNav" cssClass="fa fa-book">
+      <siteMapNode navigation="subNav" display="List" controller="Portfolio" action="Index" cssClass="fa fa-list"/>
+      <siteMapNode navigation="subNav" display="New Portfolio" controller="Portfolio" action="Index" cssClass="fa fa-file"/>
+    </siteMapNode>
+    <siteMapNode navigation="navbar" display="Reports" controller="Report" action="Index" navId="ReportNav" cssClass="fa fa-bar-chart">
+      <siteMapNode navigation="subNav" display="List" controller="Report" action="Index" cssClass="fa fa-list"/>
+      <siteMapNode navigation="subNav" display="New Report" controller="Report" action="Index" cssClass="fa fa-file"/>
+    </siteMapNode>
+    <siteMapNode navigation="navbar" display="Tasks" controller="Task" action="Index" navId="TaskNav" cssClass="fa fa-tasks">
+      <siteMapNode navigation="subNav" display="List" controller="Home" action="Index" cssClass="fa fa-list"/>
+      <siteMapNode navigation="subNav" display="New Task" controller="Home" action="Index" cssClass="fa fa-file"/>
+    </siteMapNode>
+    <siteMapNode navigation="navbar" display="Compliance" controller="Home" action="Index" navId="Compliance" cssClass="fa fa-gavel">
+    </siteMapNode>
+    <siteMapNode navigation="navbar" display="Search" controller="Home" action="Index" navId="Search" cssClass="fa fa-search">
+    </siteMapNode>
   </siteMapNode>
 </siteMap>

@@ -10,21 +10,7 @@
     @Scripts.Render("~/bundles/vendor/modernizr")
 </head>
 <body>
-<div class="navbar navbar-default">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        @Html.ActionLink("Kings Lantern", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-    </div>
-    <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-            @Html.GenerateRibbon();
-        </ul>
-    </div>
-</div>
+    @Html.GenerateRibbon()
 <div id="siteBody">
     <div class="row">
         <div class="col-md-3" style="padding-left: 40px;">
