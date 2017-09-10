@@ -65,5 +65,21 @@ namespace Infrastructure.Helpers
 
             return null;
         }
+
+        public static string GetPropertyDisplayName(PropertyInfo property)
+        {
+            if (property == null) throw new ArgumentNullException(nameof(property), @"Property does not have [Display Name] defined");
+
+            var isDisplayNameAttributeDefined = Attribute.IsDefined(property, typeof(DisplayNameAttribute));
+
+            if (isDisplayNameAttributeDefined)
+            {
+                return property.GetCustomAttributes(typeof(DisplayNameAttribute), true)
+                    .Cast<DisplayNameAttribute>()
+                    .Single()
+                    .DisplayName;
+            }
+            return null;
+        }
     }
 }

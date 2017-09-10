@@ -131,7 +131,6 @@
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\CurrenciesController.cs" />
-    <Compile Include="Controllers\CustomControllers\CrudApiController.cs" />
     <Compile Include="Controllers\InstitutionsController.cs" />
     <Compile Include="Controllers\PartnersController.cs" />
     <Compile Include="Global.asax.cs">

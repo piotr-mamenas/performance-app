@@ -168,8 +168,9 @@
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\Templates\BaseController.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
-    <Compile Include="Extensions\HtmlHelperExtensions\NavigationHelper.cs" />
-    <Compile Include="Extensions\HtmlHelperExtensions\SiteMapXmlHelper.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions\DetailViewForHelper.cs" />
+    <Compile Include="Extensions\SitemapExtensions\NavigationHelper.cs" />
+    <Compile Include="Extensions\SitemapExtensions\SiteMapXmlHelper.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions\TableForHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

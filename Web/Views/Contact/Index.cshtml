@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!--
 <div class="row" style="margin-bottom: 100px;">
     <h3>Contact</h3>
     <div id="contactDetailView" class="col-md-8">
@@ -33,6 +34,11 @@
             <button type="button" id="hideButton" class="btn btn-default pull-right">Hide</button>
         </form>
     </div>
+</div>
+-->
+<div class="row" style="margin-bottom: 100px;">
+    <h3>Contact</h3>
+    @Html.WithButton("hideButton","Hide").DetailViewFor(typeof(ContactDto),"contactDetailView","Submit");
 </div>
 
 <div class="row">

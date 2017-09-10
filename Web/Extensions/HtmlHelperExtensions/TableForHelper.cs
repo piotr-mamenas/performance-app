@@ -56,8 +56,8 @@ namespace Web.Extensions.HtmlHelperExtensions
 
                 if (!prop.IsPropertyACollection() && !prop.PropertyType.IsPrimitive)
                 {
-                    var displayName = GetDisplayName(prop) ?? prop.Name;
-                    builder.Append("<th>" + displayName + "</th>");
+                    var displayName = AttributeHelper.GetPropertyDisplayName(prop) ?? prop.Name;
+                    builder.Append($"<th>{displayName}</th>");
                 }
                 currentColumnIndex++;
             }
@@ -92,22 +92,6 @@ namespace Web.Extensions.HtmlHelperExtensions
             var customColumn = new KeyValuePair<int, string>(atIndex, "<th>" + customInnerHtml + "</th>");
             _customColumnsList.Add(customColumn);
             return helper;
-        }
-
-        private static string GetDisplayName(PropertyInfo property)
-        {
-            if (property == null) throw new ArgumentNullException(nameof(property), @"Property does not have [Display Name] defined");
-
-            var isDisplayNameAttributeDefined = Attribute.IsDefined(property, typeof(DisplayNameAttribute));
-
-            if (isDisplayNameAttributeDefined)
-            {
-                return property.GetCustomAttributes(typeof(DisplayNameAttribute), true)
-                    .Cast<DisplayNameAttribute>()
-                    .Single()
-                    .DisplayName;
-            }
-            return null;
         }
     }
 }

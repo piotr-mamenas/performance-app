@@ -3,9 +3,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Xml.Linq;
 
-namespace Web.Extensions.HtmlHelperExtensions
+namespace Web.Extensions.SitemapExtensions
 {
-    // TODO: The generator is inserting self link as first item on navbar, also gotta fix css for icon display
+    // TODO: Temporary string appends, will rework to string.Format
     public static class NavigationHelper
     {
         /// <summary>
@@ -18,6 +18,11 @@ namespace Web.Extensions.HtmlHelperExtensions
             return helper.Raw(GetNavbar());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
         private static string GetNavbarHeader(XDocument node)
         {
             var sitemapNode = new SiteMapNode(node.GetHeaderXmlElement());
@@ -31,10 +36,8 @@ namespace Web.Extensions.HtmlHelperExtensions
             headerStringBuilder.AppendLine("<a href=\"" + url + "\" class=\"navbar-brand\">" + sitemapNode.Display + "</a>");
             headerStringBuilder.AppendLine("</div>");
             return headerStringBuilder.ToString();
-            //< div class="navbar-header">
-            //   @Html.ActionLink("Emperors Lantern", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            //   </div>
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -68,10 +71,6 @@ namespace Web.Extensions.HtmlHelperExtensions
         {
             var siteMapNode = new SiteMapNode(node);
 
-            //var urlHelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
-            //var url = urlHelper.AbsoluteAction(siteMapNode.Action, siteMapNode.Controller);
-            //return "<li><a href=\"" + url + "\"><span style=\"margin-right:5px;\" class=\"" + cssClass + "\"></span>" + display + "</a></li>";
-            // TODO: Incorporating mobile view navbar that displays without the subnavigation items
             return "<li class=\"dropdown\">" +
                    "<a href=\"#\" data-toggle=\"collapse\" data-target=\"#" + siteMapNode.NavId + "\"><span style=\"margin-right:5px;\" class=\"" + siteMapNode.CssClass +
                    "\"></span>" + siteMapNode.Display + "</a></li>";

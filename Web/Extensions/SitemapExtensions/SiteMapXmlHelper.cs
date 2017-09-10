@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Xml.Linq;
 
-namespace Web.Extensions.HtmlHelperExtensions
+namespace Web.Extensions.SitemapExtensions
 {
     public static class SiteMapXmlHelper
     {
