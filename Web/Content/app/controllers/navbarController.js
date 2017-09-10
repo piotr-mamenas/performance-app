@@ -1,22 +1,18 @@
 ﻿var navbarController = function() {
 
-    var init = function() {
+    var init = function () {
+
         $("[data-toggle=collapse]").click(function (e) {
-
             var targetSubNav = $($(this).data("target"));
-            console.log(targetSubNav);
 
-            $("#subnavbar").children("ul").slideUp(function() {
-                targetSubNav.slideDown(1000);
-            });
+                $("#subnavbar").children("ul").not(":hidden").slideUp(0).hide(0);
+                targetSubNav.show(0).slideDown(400);
+                console.log("1");
+                $("[data-toggle=collapse]").parent("li").removeClass("active");
 
-            $("[data-toggle=collapse]").parent("li").removeClass("active");
-
-            $(this).parent("li").toggleClass("active");
+                $(this).parent("li").toggleClass("active");
         });
     }
-
-    var hide
 
     return {
         init: init
