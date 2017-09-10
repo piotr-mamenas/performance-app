@@ -1,0 +1,19 @@
+﻿@using Web.Extensions.HtmlHelperExtensions
+@using Web.ViewModels.ListViews.ProductListViews
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    @Html.WithCustomColumn(6, "Select").TableFor(typeof(ContactListViewModel), "contactTable")
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            contactController.init('@Html.GetWebServerUri()');
+        });
+    </script>
+}

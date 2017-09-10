@@ -12,8 +12,14 @@ namespace Web.Controllers
         {
         }
 
-        [Route("")]
-        public ActionResult Index()
+        [Route("list")]
+        public ActionResult List()
+        {
+            return View();
+        }
+
+        [Route("new")]
+        public ActionResult NewContact()
         {
             return View();
         }

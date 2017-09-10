@@ -1,0 +1,19 @@
+﻿@using Web.Extensions.HtmlHelperExtensions
+@using Web.ViewModels.DetailViews.ProductDetailViews
+
+@{
+    ViewBag.Title = "New Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <h2>New Contact</h2>
+    @Html.WithButton("backButton", "Back").DetailViewFor(typeof(ContactDetailView), "contactDetailView", "Submit")
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            contactController.init('@Html.GetWebServerUri()');
+        });
+    </script>
+}

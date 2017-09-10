@@ -15,7 +15,7 @@ namespace Web.Extensions.HtmlHelperExtensions
     /// </summary>
     public static class TableForHelper
     {
-        private static IDictionary<int,string> _customColumnsList = new Dictionary<int, string>();
+        private static readonly IDictionary<int,string> CustomColumnsList = new Dictionary<int, string>();
 
         public static IHtmlString TableFor(this HtmlHelper helper, Type typeOf, string tableId)
         {
@@ -30,8 +30,6 @@ namespace Web.Extensions.HtmlHelperExtensions
             builder.AppendLine(GetTableHeader(typeOf));
             builder.AppendLine(GetTableBody());
             builder.AppendLine("</table>");
-
-            _customColumnsList = new Dictionary<int, string>();
             return builder.ToString();
         }
 
@@ -46,7 +44,7 @@ namespace Web.Extensions.HtmlHelperExtensions
 
             foreach (var prop in typeOf.GetProperties())
             {
-                foreach (var customColumn in _customColumnsList)
+                foreach (var customColumn in CustomColumnsList)
                 {
                     if (currentColumnIndex == customColumn.Key)
                     {
@@ -82,15 +80,21 @@ namespace Web.Extensions.HtmlHelperExtensions
         /// <param name="customInnerHtml"></param>
         public static HtmlHelper WithCustomColumn(this HtmlHelper helper, int atIndex, string customClass, string customInnerHtml)
         {
-            var customColumn = new KeyValuePair<int,string>(atIndex,"<th class='" + customClass + "'>" + customInnerHtml + "</th>");
-            _customColumnsList.Add(customColumn);
+            if (!CustomColumnsList.ContainsKey(atIndex))
+            {
+                var customColumn = new KeyValuePair<int, string>(atIndex, "<th class='" + customClass + "'>" + customInnerHtml + "</th>");
+                CustomColumnsList.Add(customColumn);
+            }
             return helper;
         }
 
         public static HtmlHelper WithCustomColumn(this HtmlHelper helper, int atIndex, string customInnerHtml)
         {
-            var customColumn = new KeyValuePair<int, string>(atIndex, "<th>" + customInnerHtml + "</th>");
-            _customColumnsList.Add(customColumn);
+            if (!CustomColumnsList.ContainsKey(atIndex))
+            {
+                var customColumn = new KeyValuePair<int, string>(atIndex, "<th>" + customInnerHtml + "</th>");
+                CustomColumnsList.Add(customColumn);
+            }
             return helper;
         }
     }

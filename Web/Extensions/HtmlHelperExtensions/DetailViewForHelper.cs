@@ -88,8 +88,11 @@ namespace Web.Extensions.HtmlHelperExtensions
         /// <returns></returns>
         public static HtmlHelper WithButton(this HtmlHelper helper, string buttonId, string buttonDisplayText)
         {
-            var customButton = new KeyValuePair<string, string>(buttonId,buttonDisplayText);
-            ButtonList.Add(customButton);
+            if (!ButtonList.ContainsKey(buttonId))
+            {
+                var customButton = new KeyValuePair<string, string>(buttonId, buttonDisplayText);
+                ButtonList.Add(customButton);
+            }
             return helper;
         }
 
@@ -102,8 +105,11 @@ namespace Web.Extensions.HtmlHelperExtensions
         /// <returns></returns>
         public static HtmlHelper WithCustomHtml(this HtmlHelper helper, int atIndex, string customInnerHtml)
         {
-            var customHtml = new KeyValuePair<int, string>(atIndex, customInnerHtml);
-            CustomHtmlList.Add(customHtml);
+            if (!CustomHtmlList.ContainsKey(atIndex))
+            {
+                var customHtml = new KeyValuePair<int, string>(atIndex, customInnerHtml);
+                CustomHtmlList.Add(customHtml);
+            }
             return helper;
         }
     }
