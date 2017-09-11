@@ -13,11 +13,11 @@
     @Html.GenerateRibbon()
 <div id="app-body">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
+        <div class="row" style="height: 800px;">
+            <div class="col-md-3" style="height: 100%;">
                 @RenderPage("Selection.cshtml")
             </div>
-            <div class="panel panel-default col-md-9" style="padding-left: 40px;">
+            <div class="col-md-9" style="height: 100%;">
                 @RenderBody()
             </div>
         </div>        

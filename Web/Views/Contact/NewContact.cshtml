@@ -6,10 +6,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New Contact</h2>
-<div class="row">
-    @Html.WithButton("backButton", "Back").DetailViewFor(typeof(ContactDetailViewModel), "contactDetailView", "Save")
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span class="fa fa-address-card-o" style="margin-right: 5px;"></span>New Contact
+    </div>
+    <div class="panel-body">
+        @Html.WithButton("backButton", "Back").DetailViewFor(typeof(ContactDetailViewModel), "contactDetailView", "Save")
+    </div>
 </div>
+
 @section scripts{
     <script>
         var currentPage = "#ContactNav";
