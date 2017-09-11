@@ -3,7 +3,7 @@ using Core.Dtos;
 
 namespace Web.ViewModels.DetailViews.ProductDetailViews
 {
-    public class ContactDetailView
+    public class ContactDetailViewModel
     {
         [DisplayName("Contact Name")]
         public string Name { get; set; }

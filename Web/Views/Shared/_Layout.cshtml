@@ -1,5 +1,4 @@
-﻿@using Web.Extensions.HtmlHelperExtensions
-@using Web.Extensions.SitemapExtensions
+﻿@using Web.Extensions.SitemapExtensions
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +11,17 @@
 </head>
 <body>
     @Html.GenerateRibbon()
-<div id="siteBody">
-    <div class="row">
-        <div class="col-md-3" style="padding-left: 40px;">
-            @RenderPage("Selection.cshtml")
-        </div>
-        <div id="primaryRightPanel" class="col-md-9" style="padding-right: 40px;">
-            @RenderBody()
-        </div>
-    </div>    
+<div id="app-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                @RenderPage("Selection.cshtml")
+            </div>
+            <div class="panel panel-default col-md-9" style="padding-left: 40px;">
+                @RenderBody()
+            </div>
+        </div>        
+    </div>
 </div>
 
 
@@ -35,7 +36,7 @@
 <script>
     $(document).ready(function () {
         selectionController.init();
-        navbarController.init();
+        navbarController.init(currentPage);
     });
 </script>
 

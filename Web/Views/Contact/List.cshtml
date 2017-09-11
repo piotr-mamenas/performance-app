@@ -2,18 +2,20 @@
 @using Web.ViewModels.ListViews.ProductListViews
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "List Contacts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row">
-    @Html.WithCustomColumn(6, "Select").TableFor(typeof(ContactListViewModel), "contactTable")
+    @Html.WithCustomColumn(6, "Edit").TableFor(typeof(ContactListViewModel), "contactTable")
 </div>
 
 @section scripts{
     <script>
+        var currentPage = "#ContactNav";
+
         $(document).ready(function () {
-            contactController.init('@Html.GetWebServerUri()');
+            contactController.init('@Html.GetWebServerUri()','@Url.Action("EditContact","Contact")');
         });
     </script>
 }

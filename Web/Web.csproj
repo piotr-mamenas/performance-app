@@ -180,14 +180,13 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountBindingModels.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
-    <Compile Include="ViewModels\DetailViews\ProductDetailViews\ContactDetailView.cs" />
+    <Compile Include="ViewModels\DetailViews\ProductDetailViews\ContactDetailViewModel.cs" />
     <Compile Include="ViewModels\ListViews\ProductListViews\ContactListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\app\controllers\navbarController.js" />
     <Content Include="Content\app\images\background.jpg" />
     <Content Include="Content\app\app.js" />
-    <Content Include="Content\app\components\detailViewComponent.js" />
     <Content Include="Content\app\components\listViewComponent.js" />
     <Content Include="Content\app\controllers\contactController.js" />
     <Content Include="Content\app\controllers\selectionController.js" />
@@ -424,6 +423,7 @@
     <Content Include="Views\Shared\Selection.cshtml" />
     <Content Include="Views\Contact\List.cshtml" />
     <Content Include="Views\Contact\NewContact.cshtml" />
+    <Content Include="Views\Contact\EditContact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

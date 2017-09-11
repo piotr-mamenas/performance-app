@@ -1,14 +1,15 @@
 ﻿@using Web.Extensions.HtmlHelperExtensions
 @using Web.ViewModels.DetailViews.ProductDetailViews
 
+@model ContactDetailViewModel
 @{
-    ViewBag.Title = "New Contact";
+    ViewBag.Title = "Edit Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New Contact</h2>
 <div class="row">
-    @Html.WithButton("backButton", "Back").DetailViewFor(typeof(ContactDetailViewModel), "contactDetailView", "Save")
+    <h2>New Contact</h2>
+    @Html.WithButton("backButton", "Back").DetailViewFor(typeof(ContactDetailViewModel), "contactDetailView", "Submit")
 </div>
 @section scripts{
     <script>

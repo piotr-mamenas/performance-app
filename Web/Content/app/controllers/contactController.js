@@ -1,7 +1,7 @@
-﻿var contactController = function (service, contactListView, contactDetailView) {
+﻿var contactController = function (service, contactListView) {
     var editButtonClicked = false;
 
-    var setColumns = function () {
+    var setColumns = function (editUrl) {
         return [
             {
                 data: "Name"
@@ -22,9 +22,9 @@
                 data: "Partner.Name"
             },
             {
-                data: name,
-                render: function () {
-                    return "<div id=\"hideButton\" class=\"btn btn-default\">Edit</div>";
+                data: "Id",
+                render: function (data) {
+                    return "<a href=\"" + editUrl + "/" + data + "\" class=\"btn btn-default\">Edit</div>";
                 }
             }
         ];
@@ -33,29 +33,23 @@
     var onEditButtonClick = function (editButtonSelector) {
         $(editButtonSelector).on("click", "tr .btn", function () {
             editButtonClicked = true;
-            if (contactDetailView.detailViewVisible === false) {
-                contactDetailView.showDetailView();
-                contactDetailView.detailViewVisible = true;
-            }
         });
     }
 
     var onRowClick = function (rowSelector) {
         $(rowSelector).on("click", "tr", function () {
             if (editButtonClicked) {
-                contactDetailView.detailViewVisible = true;
                 editButtonClicked = false;
-                contactDetailView.showDetailView();
             }
         });
     }
-    
-    var init = function (webServiceUri) {
+
+    //TODO: Incorporate the EditURL
+    var init = function (webServiceUri, editUrl) {
         
         var requestedData = service.getContacts(webServiceUri);
 
-        contactListView.init("#contactTable", setColumns(), requestedData);
-        contactDetailView.init("div#contactDetailView", "button#hideButton");
+        contactListView.init("#contactTable", setColumns(editUrl), requestedData);
 
         onEditButtonClick("#contactTable tbody");
         onRowClick("#contactTable tbody");
@@ -66,4 +60,4 @@
         init: init
     };
 
-}(contactService, listViewComponent, detailViewComponent)
+}(contactService, listViewComponent)

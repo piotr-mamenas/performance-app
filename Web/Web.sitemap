@@ -20,7 +20,7 @@
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Reports" controller="Report" action="Index" navId="ReportNav" cssClass="fa fa-bar-chart">
       <siteMapNode navigation="subNav" display="List" controller="Report" action="Index" cssClass="fa fa-list"/>
-      <siteMapNode navigation="subNav" display="New Report" controller="Report" action="Index" cssClass="fa fa-file"/>
+      <siteMapNode navigation="subNav" display="New Report" controller="Report" action="Index" cssClass="fa fa-file-pdf-o"/>
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Tasks" controller="Task" action="Index" navId="TaskNav" cssClass="fa fa-tasks">
       <siteMapNode navigation="subNav" display="List" controller="Home" action="Index" cssClass="fa fa-list"/>
@@ -28,7 +28,9 @@
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Compliance" controller="Home" action="Index" navId="Compliance" cssClass="fa fa-gavel">
     </siteMapNode>
-    <siteMapNode navigation="navbar" display="Search" controller="Home" action="Index" navId="Search" cssClass="fa fa-search">
+    <siteMapNode navigation="navbar" display="Market Data" controller="Home" action="Index" navId="MarketNav" cssClass="fa fa-globe">
+      <siteMapNode navigation="subNav" display="Prices" controller="Home" action="Index" cssClass="fa fa-money"/>
+      <siteMapNode navigation="subNav" display="Exchange Rates" controller="Home" action="Index" cssClass="fa fa-exchange"/>
     </siteMapNode>
   </siteMapNode>
 </siteMap>

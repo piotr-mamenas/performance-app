@@ -36,7 +36,7 @@ namespace Web.Extensions.HtmlHelperExtensions
         {
            var detailViewBuilder = new StringBuilder();
 
-            detailViewBuilder.AppendLine($"<div id =\"{detailViewId}\" class=\"col-md-8\">");
+            detailViewBuilder.AppendLine($"<div id =\"{detailViewId}\" class=\"col-md-12\">");
             detailViewBuilder.AppendLine("<form class=\"form-horizontal\" style=\"padding-left-30px; padding-right:30px;\">");
 
             var currentFormIndex = 0;
@@ -58,21 +58,22 @@ namespace Web.Extensions.HtmlHelperExtensions
 
                     detailViewBuilder.AppendLine("<div class=\"form-group\">");
                     detailViewBuilder.AppendLine($"<label for=\"{controlId}\">{displayName}</label>");
-                    detailViewBuilder.AppendLine($"<input type=\"test\" class=\"form-control\" id=\"{controlId}\"/>");
+                    detailViewBuilder.AppendLine($"<input type=\"text\" class=\"form-control\" id=\"{controlId}\"/>");
                     detailViewBuilder.AppendLine("</div>");
                 }
 
                 currentFormIndex++;
             }
 
-            detailViewBuilder.AppendLine($"<button type=\"button\" class=\"btn btn-primary pull-right\">{detailViewAction}</button>");
+            detailViewBuilder.AppendLine("<div style=\"margin-top:50px;\">");
+            detailViewBuilder.AppendLine($"<button type=\"submit\" class=\"btn btn-primary pull-right\">{detailViewAction}</button>");
 
             foreach (var additionalButton in ButtonList)
             {
                 detailViewBuilder.AppendLine(
                     $"<button type=\"button\" class=\"btn btn-default pull-right\" id=\"{additionalButton.Key}\">{additionalButton.Value}</button>");
             }
-
+            detailViewBuilder.AppendLine("</div");
             detailViewBuilder.AppendLine("</form>");
             detailViewBuilder.AppendLine("</div>");
 
