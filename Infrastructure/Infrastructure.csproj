@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -54,13 +51,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoMapper\MappingConfiguration.cs" />
-    <Compile Include="AutoMapper\Profiles\AccountProfile.cs" />
-    <Compile Include="AutoMapper\Profiles\ContactProfile.cs" />
-    <Compile Include="AutoMapper\Profiles\CountryProfile.cs" />
-    <Compile Include="AutoMapper\Profiles\CurrencyProfile.cs" />
-    <Compile Include="AutoMapper\Profiles\InstitutionProfile.cs" />
-    <Compile Include="AutoMapper\Profiles\PartnerProfile.cs" />
     <Compile Include="ComplexTypesConfigurations\BondCouponConfiguration.cs" />
     <Compile Include="EntityConfigurations\AccountConfiguration\AccountConfiguration.cs" />
     <Compile Include="EntityConfigurations\AssetConfigurations\AssetConfiguration.cs" />
@@ -72,7 +62,6 @@
     <Compile Include="EntityConfigurations\InstitutionConfigurations\BankConfiguration.cs" />
     <Compile Include="EntityConfigurations\PartnerConfigurations\AssetManagerConfiguration.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
-    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Helpers\AttributeHelper.cs" />
     <Compile Include="Helpers\ReflectionHelper.cs" />
     <Compile Include="Migrations\201709082141401_InitialMigration.cs" />

@@ -8,6 +8,7 @@ using Core.Domain.Partners;
 using Core.Dtos;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
+using Infrastructure.AutoMapper;
 using Infrastructure.Extensions;
 
 namespace Service.Controllers

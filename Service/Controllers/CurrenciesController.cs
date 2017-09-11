@@ -9,6 +9,7 @@ using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure.Extensions;
 using Core.Domain.Currencies;
+using Infrastructure.AutoMapper;
 
 namespace Service.Controllers
 {

@@ -143,6 +143,10 @@
       <Project>{9be4c39d-6c17-4d22-8a87-b1639fc8d371}</Project>
       <Name>Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.AutoMapper\Infrastructure.AutoMapper.csproj">
+      <Project>{8fb3a646-466f-46ac-b1c5-5af85991a139}</Project>
+      <Name>Infrastructure.AutoMapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{b2ce8a5c-043c-4ea9-bcd3-402b9c1891de}</Project>
       <Name>Infrastructure</Name>

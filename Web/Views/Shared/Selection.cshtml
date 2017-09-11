@@ -5,11 +5,11 @@
     </div>
     <div class="panel-body">
         <ul class="nav nav-pills nav-justified">
-            <li class="active"><a id="js-select-partner"><span class="fa fa-users" style="margin-right: 5px;"></span>By Partners</a></li>
-            <li><a id="js-select-portfolio"><span class="fa fa-book" style="margin-right: 5px;"></span>By Portfolios</a></li>
-            <li><a id="js-select-container"><span class="fa fa-folder" style="margin-right: 5px;"></span>By Containers</a></li>
+            <li class="active"><a id="selection-js-select-partner"><span class="fa fa-users" style="margin-right: 5px;"></span>By Partners</a></li>
+            <li><a id="selection-js-select-portfolio"><span class="fa fa-book" style="margin-right: 5px;"></span>By Portfolios</a></li>
+            <li><a id="selection-js-select-container"><span class="fa fa-folder" style="margin-right: 5px;"></span>By Containers</a></li>
         </ul>
-        <div id="byPartner" class="form-horizontal" style="padding: 30px;">
+        <div id="selection-by-partner" class="form-horizontal" style="padding: 30px;">
             <div class="form-group">
                 <label for="partnerName">Partner Name</label>
                 <input type="text" class="form-control" id="partnerName" />
@@ -18,10 +18,9 @@
                 <label for="partnerNumber">Partner Number</label>
                 <input type="text" class="form-control" id="partnerNumber" />
             </div>
-            <button type="button" class="btn btn-primary pull-right">Search</button>
         </div>
 
-        <div id="byPortfolio" class="form-horizontal" style="padding: 30px; display: none;">
+        <div id="selection-by-portfolio" class="form-horizontal" style="padding: 30px; display: none;">
             <div class="form-group">
                 <label for="portfolioName">Portfolio Name</label>
                 <input type="text" class="form-control" id="portfolioName" />
@@ -30,10 +29,9 @@
                 <label for="portfolioNumber">Portfolio Number</label>
                 <input type="text" class="form-control" id="portfolioNumber" />
             </div>
-            <button type="button" class="btn btn-primary pull-right">Search</button>
         </div>
 
-        <div id="byContainer" class="form-horizontal" style="padding: 30px; display: none;">
+        <div id="selection-by-container" class="form-horizontal" style="padding: 30px; display: none;">
             <div class="form-group">
                 <label for="containerName">Container Name</label>
                 <input type="text" class="form-control" id="containerName" />
@@ -42,7 +40,7 @@
                 <label for="containerNumber">Container Number</label>
                 <input type="text" class="form-control" id="containerNumber" />
             </div>
-            <button type="button" class="btn btn-primary pull-right">Search</button>
         </div>
+        <button id="selection-search-button" type="button" class="btn btn-primary pull-right" style="margin: 20px;">Search</button>
     </div>
 </div>

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 
-namespace Infrastructure.Extensions
+namespace Infrastructure.AutoMapper
 {
-    public static class ObjectExtensions
+    public static class MapperExtensions
     {
         public static T Map<T>(this object source)
         {

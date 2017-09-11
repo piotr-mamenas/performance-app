@@ -9,6 +9,7 @@ using Core.Domain.Contacts;
 using Core.Dtos;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
+using Infrastructure.AutoMapper;
 using Infrastructure.Extensions;
 using Infrastructure.Serialization.JsonContractResolvers;
 using Newtonsoft.Json;

@@ -2,35 +2,41 @@
 
     var activateTab = function (buttonSelector, tabSelector) {
         if (!$(tabSelector).is(":animated") && $(tabSelector).is(":hidden")) {
-            $("#js-select-partner").parent("li").removeClass("active");
-            $("#js-select-portfolio").parent("li").removeClass("active");
-            $("#js-select-container").parent("li").removeClass("active");
+            $("#selection-js-select-partner").parent("li").removeClass("active");
+            $("#selection-js-select-portfolio").parent("li").removeClass("active");
+            $("#selection-js-select-container").parent("li").removeClass("active");
 
             $(buttonSelector).parent("li").addClass("active");
 
-            $("div#byPartner").slideUp().hide();
-            $("div#byPortfolio").slideUp().hide();
-            $("div#byContainer").slideUp().hide();
+            $("div#selection-by-partner").slideUp().hide();
+            $("div#selection-by-portfolio").slideUp().hide();
+            $("div#selection-by-container").slideUp().hide();
 
             $(tabSelector).slideDown(400).show();
         }
     }
 
     var displaySelectionByPartner = function () {
-        $("#js-select-partner").click(function () {
-            activateTab("#js-select-partner", "div#byPartner");
+        $("#selection-js-select-partner").click(function () {
+            activateTab("#selection-js-select-partner", "div#selection-by-partner");
         });
     }();
 
     var displaySelectionByPortfolio = function () {
-        $("#js-select-portfolio").click(function () {
-            activateTab("#js-select-portfolio", "div#byPortfolio");
+        $("#selection-js-select-portfolio").click(function () {
+            activateTab("#selection-js-select-portfolio", "div#selection-by-portfolio");
         });
     }();
 
-    var displaySelectionByContainer = function() {
-        $("#js-select-container").click(function() {
-            activateTab("#js-select-container","div#byContainer");
+    var displaySelectionByContainer = function () {
+        $("#selection-js-select-container").click(function() {
+            activateTab("#selection-js-select-container","div#selection-by-container");
+        });
+    }();
+
+    var onSearchButtonClick = function() {
+        $("#selection-search-button").click(function () {
+            console.log("hello");
         });
     }();
 

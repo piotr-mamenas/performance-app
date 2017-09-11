@@ -48,7 +48,7 @@
     var init = function (webServiceUri, editUrl) {
         
         var requestedData = service.getContacts(webServiceUri);
-
+        console.log(editUrl);
         contactListView.init("#contactTable", setColumns(editUrl), requestedData);
 
         onEditButtonClick("#contactTable tbody");
