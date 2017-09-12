@@ -1,30 +1,27 @@
 ﻿var newContactWizardController = function() {
     var getCurrentStep = function () {
-        return $("#contact-newcontact-currentstep").data("current-step");
+        return $(".contact-newcontact-currentstep").data("current-step");
     }
 
     var setCurrentStep = function (step) {
-        if ($("#contact-newcontact-form").valid()) {
-            $("#contact-newcontact-form").children("fieldset").hide();
+        if ($(".contact-newcontact-form").valid()) {
+            $(".contact-newcontact-form").children("fieldset").hide();
             switch (Number(step)) {
-            case 1:
-                $("#contact-newcontact-firststep").show();
-                console.log("1");
-                break;
-            case 2:
-                $("#contact-newcontact-secondstep").show();
-                console.log("2");
-                break;
-            case 3:
-                $("#contact-newcontact-finalstep").show();
-                console.log("3");
+                case 1:
+                    $(".contact-newcontact-firststep").show();
+                    break;
+                case 2:
+                    $(".contact-newcontact-secondstep").show();
+                    break;
+                case 3:
+                    $(".contact-newcontact-finalstep").show();
                 break;
             }
-            $("#contact-newcontact-currentstep").data("current-step", step);
+            $(".contact-newcontact-currentstep").data("current-step", step);
         }
     }
 
-    $("#contact-newcontact-previousstep").click(function () {
+    $(".contact-newcontact-previousstep").click(function () {
 
         switch (Number(getCurrentStep())) {
             case 2:
@@ -36,7 +33,7 @@
         }
     });
 
-    $("#contact-newcontact-nextstep").click(function () {
+    $(".contact-newcontact-nextstep").click(function () {
         // validate if correct
         // change step label
         // hide current step
@@ -47,18 +44,20 @@
                 break;
             case 2:
                 setCurrentStep(3);
+                $(".contact-newcontact-submitbutton").show();
+                $(".contact-newcontact-wizardcontrol").hide();
                 break;
         }
 
     });
 
-    $("form input").on("keyup", function (e) {
+    $(".contact-newcontact-form").on("keypress", function (e) {
         return e.which !== 13;
     });
 
     var init = function() {
-        $("#contact-newcontact-currentstep").data("current-step", 1);
-        $.validator.unobtrusive.parse($("#contact-newcontact-form"));
+        $(".contact-newcontact-currentstep").data("current-step", 1);
+        $.validator.unobtrusive.parse($(".contact-newcontact-form"));
     }
 
     return {

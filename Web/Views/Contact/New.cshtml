@@ -10,13 +10,13 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
         <span class="fa fa-address-card-o" style="margin-right: 5px;"></span>New Contact
-        <p id="contact-newcontact-currentstep" data-current-step="1" class="pull-right"></p>
+        <p data-current-step="1" class="pull-right contact-newcontact-currentstep"></p>
     </div>
     <div class="panel-body">
         @Html.AntiForgeryToken()
-        @using (Html.BeginForm("Edit", "Contact", FormMethod.Post, new { @id = "contact-newcontact-form", @class = "form-horizontal center-block", @style = "height: 700px; margin-top:20px; padding-left: 30px; padding-right: 30px;" }))
+        @using (Html.BeginForm("New", "Contact", FormMethod.Post, new { @class = "form-horizontal center-block contact-newcontact-form", @style = "height: 700px; margin-top:20px; padding-left: 30px; padding-right: 30px;" }))
         {
-            <fieldset id="contact-newcontact-firststep">
+            <fieldset class="contact-newcontact-firststep">
                 @Html.HiddenFor(c => Model.Id)
                 <div class="form-group">
                     @Html.LabelFor(c => Model.Name, new { @class = "label label-primary" })
@@ -51,21 +51,21 @@
                 </div>
             </fieldset>
 
-            <fieldset id="contact-newcontact-secondstep" style="display: none;">
+            <fieldset class="contact-newcontact-secondstep" style="display: none;">
                 Second Step
             </fieldset>
 
-            <fieldset id="contact-newcontact-finalstep" style="display: none;">
+            <fieldset class="contact-newcontact-finalstep" style="display: none;">
                 Third Step
             </fieldset>
 
             <br />
 
-            <div class="form-group button-group pull-right">
-                <button type="button" id="contact-newcontact-previousstep" class="btn btn-default" data-enabled="false"><i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Back</button>
-                <button type="button" id="contact-newcontact-nextstep" class="btn btn-primary" data-enabled="false">Next<i class="fa fa-arrow-right" style="margin-left: 5px;"></i></button>
+            <div class="form-group button-group pull-right contact-newcontact-wizardcontrol">
+                <button type="button" class="btn btn-default contact-newcontact-previousstep"><i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Back</button>
+                <button type="button" class="btn btn-primary contact-newcontact-nextstep">Next<i class="fa fa-arrow-right" style="margin-left: 5px;"></i></button>
             </div>
-            <div class="form-group" style="display: none">
+            <div class="form-group contact-newcontact-submitbutton" style="display: none">
                 <input id="Save" type="submit" class="btn btn-primary pull-right" value="Submit" />
             </div>
         }
