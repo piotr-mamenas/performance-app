@@ -37,13 +37,14 @@
     }
 
     $("#contactTable tbody").on("click", "tr .btn", function () {
-            editButtonClicked = true;
+        editButtonClicked = true;
     });
 
     $("#contactTable tbody").on("click", "tr", function () {
-            if (editButtonClicked) {
-                editButtonClicked = false;
-            }
+        if (editButtonClicked) {
+            editButtonClicked = false;
+        }
+
     });
 
     var init = function (webServiceUri, editUrl) {

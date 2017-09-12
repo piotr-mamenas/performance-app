@@ -2,16 +2,11 @@
 
     var activateTab = function (buttonSelector, tabSelector) {
         if (!$(tabSelector).is(":animated") && $(tabSelector).is(":hidden")) {
-            $("#selection-js-select-partner").parent("li").removeClass("active");
-            $("#selection-js-select-portfolio").parent("li").removeClass("active");
-            $("#selection-js-select-container").parent("li").removeClass("active");
 
+            $(buttonSelector).parent("li").parent("ul").children("li").removeClass("active");
             $(buttonSelector).parent("li").addClass("active");
 
-            $("div#selection-by-partner").slideUp().hide();
-            $("div#selection-by-portfolio").slideUp().hide();
-            $("div#selection-by-container").slideUp().hide();
-
+            $(tabSelector).parent("div").children("div").slideUp().hide();
             $(tabSelector).slideDown(400).show();
         }
     }
