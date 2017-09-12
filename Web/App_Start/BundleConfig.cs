@@ -15,9 +15,6 @@ namespace Web
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Content/app/app.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/app/components").IncludeDirectory(
-                "~/Content/app/components", "*Component.js", searchSubdirectories: true));
-
             bundles.Add(new ScriptBundle("~/bundles/app/services").IncludeDirectory(
                 "~/Content/app/services","*Service.js",searchSubdirectories: true));
 
@@ -41,7 +38,8 @@ namespace Web
 
             bundles.Add(new ScriptBundle("~/bundles/vendor/jqueryval").Include(
                 "~/Content/vendor/scripts/jquery/jquery.unobtrusive*",
-                "~/Content/vendor/scripts/jquery/jquery.validate*"));
+                "~/Content/vendor/scripts/jquery/jquery.validate*",
+                "~/Content/vendor/scripts/jquery/jquery.override*"));
 
             bundles.Add(new ScriptBundle("~/bundles/vendor/modernizr").Include(
                 "~/Content/vendor/scripts/modernizr/modernizr-*"));

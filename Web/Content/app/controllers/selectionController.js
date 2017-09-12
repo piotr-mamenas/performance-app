@@ -16,29 +16,21 @@
         }
     }
 
-    var displaySelectionByPartner = function () {
-        $("#selection-js-select-partner").click(function () {
+    $("#selection-js-select-partner").click(function () {
             activateTab("#selection-js-select-partner", "div#selection-by-partner");
-        });
-    }();
+    });
 
-    var displaySelectionByPortfolio = function () {
-        $("#selection-js-select-portfolio").click(function () {
+    $("#selection-js-select-portfolio").click(function () {
             activateTab("#selection-js-select-portfolio", "div#selection-by-portfolio");
-        });
-    }();
+    });
 
-    var displaySelectionByContainer = function () {
-        $("#selection-js-select-container").click(function() {
+    $("#selection-js-select-container").click(function() {
             activateTab("#selection-js-select-container","div#selection-by-container");
-        });
-    }();
+    });
 
-    var onSearchButtonClick = function() {
-        $("#selection-search-button").click(function () {
+    $("#selection-search-button").click(function () {
             console.log("hello");
-        });
-    }();
+    });
 
     var init = function () {
     }

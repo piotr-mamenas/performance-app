@@ -14,10 +14,10 @@
 <div id="app-body">
     <div class="container-fluid">
         <div class="row" style="height: 800px;">
-            <div class="col-md-3" style="height: 100%;">
+            <div class="col-md-3">
                 @RenderPage("Selection.cshtml")
             </div>
-            <div class="col-md-9" style="height: 100%;">
+            <div class="col-md-9">
                 @RenderBody()
             </div>
         </div>        
@@ -26,6 +26,7 @@
 
 
 @Scripts.Render("~/bundles/vendor/lib")
+@Scripts.Render("~/bundles/vendor/jqueryval")
 @Scripts.Render("~/bundles/app/components")
 @Scripts.Render("~/bundles/app")
 @Scripts.Render("~/bundles/app/services")
@@ -35,6 +36,7 @@
     
 <script>
     $(document).ready(function () {
+        app.init();
         selectionController.init();
         navbarController.init(currentPage);
     });

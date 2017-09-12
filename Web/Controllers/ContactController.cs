@@ -49,6 +49,20 @@ namespace Web.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("new")]
+        public ActionResult New()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("new")]
+        public ActionResult New(NewContactViewModel contactViewModel)
+        {
+            return View();
+        }
+
         /*
         [Route("edit/{id}")]
         public async Task<ActionResult> Edit(int id)

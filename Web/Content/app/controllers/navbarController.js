@@ -11,8 +11,7 @@
         }
     };
 
-    var onTabClick = function () {
-        $("[data-toggle=collapse]").click(function () {
+    $("[data-toggle=collapse]").click(function () {
             var targetSubNav = $($(this).data("target"));
 
             $("#subnavbar").children("ul").not(":hidden").slideUp(0).hide(0);
@@ -20,8 +19,7 @@
             $("[data-toggle=collapse]").parent("li").removeClass("active");
 
             $(this).parent("li").toggleClass("active");
-        });
-    }();
+    });
 
     var init = function (currentPage) {
         presetNavbar(currentPage);
