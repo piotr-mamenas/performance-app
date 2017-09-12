@@ -56,8 +56,8 @@ namespace Web.Extensions.HtmlHelperExtensions
                 {
                     var displayName = AttributeHelper.GetPropertyDisplayName(prop) ?? prop.Name;
                     builder.Append($"<th>{displayName}</th>");
+                    currentColumnIndex++;
                 }
-                currentColumnIndex++;
             }
 
             builder.AppendLine("</tr>")

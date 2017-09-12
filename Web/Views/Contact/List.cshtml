@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="panel panel-default">
+<div class="panel panel-primary">
     <div class="panel-heading">
         <span class="fa fa-address-card-o" style="margin-right: 5px;"></span>Contact List
     </div>
@@ -20,7 +20,7 @@
         var currentPage = "#ContactNav";
 
         $(document).ready(function () {
-            contactController.init('@Html.GetWebServerUri()','@Url.Action("EditContact","Contact")');
+            contactController.init('@Html.GetWebServerUri()','@Url.Action("Edit","Contact")');
         });
     </script>
 }

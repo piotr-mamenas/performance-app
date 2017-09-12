@@ -8,7 +8,7 @@
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Contacts" controller="Contact" action="Index" navId="ContactNav" cssClass="fa fa-address-card-o">
       <siteMapNode navigation="subNav" display="List" controller="Contact" action="List" cssClass="fa fa-list"/>
-      <siteMapNode navigation="subNav" display="New Contact" controller="Contact" action="NewContact" cssClass="fa fa-file"/>
+      <siteMapNode navigation="subNav" display="New Contact" controller="Contact" action="Edit" cssClass="fa fa-file"/>
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Accounts" controller="Account" action="Index" navId="AccountNav" cssClass="fa fa-university">
       <siteMapNode navigation="subNav" display="List" controller="Account" action="Index" cssClass="fa fa-list"/>

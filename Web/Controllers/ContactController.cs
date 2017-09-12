@@ -3,10 +3,9 @@ using System.Web.Mvc;
 using Core.Domain.Contacts;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
-using Infrastructure.Serialization.JsonContractResolvers;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
-using Web.ViewModels.DetailViews.ProductDetailViews;
+using Web.ViewModels.Contact;
 
 namespace Web.Controllers
 {
@@ -23,20 +22,36 @@ namespace Web.Controllers
             _repository = unitOfWork.Contacts;
         }
 
+
+        [Route("")]
+        public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
+
         [Route("list")]
         public ActionResult List()
         {
             return View();
         }
 
-        [Route("new")]
-        public ActionResult NewContact()
+        [HttpGet]
+        [Route("edit")]
+        public ActionResult Edit()
         {
             return View();
         }
 
+        [HttpPost]
+        [Route("edit")]
+        public ActionResult Edit(NewContactViewModel contactViewModel)
+        {
+            return View();
+        }
+
+        /*
         [Route("edit/{id}")]
-        public async Task<ActionResult> EditContact(int id)
+        public async Task<ActionResult> Edit(int id)
         {
             var contactInDb = await _repository.GetAsync(id);
 
@@ -47,7 +62,7 @@ namespace Web.Controllers
 
             // Temporary solution before I move automapper to a separate assembly, atm adjusting mapper would cause circular
             // dependency infra <=> web
-            var temporaryContactDetailViewModel = new ContactDetailViewModel
+            var temporaryContactDetailViewModel = new NewContactViewModel
             {
                 Email = contactInDb.Email,
                 FirstName = contactInDb.FirstName,
@@ -56,7 +71,8 @@ namespace Web.Controllers
                 PhoneNumber = contactInDb.PhoneNumber
             };
 
-            return View(temporaryContactDetailViewModel);
+            return View();
         }
+        */
     }
 }

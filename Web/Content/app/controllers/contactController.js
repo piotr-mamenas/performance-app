@@ -2,6 +2,7 @@
     var editButtonClicked = false;
 
     var setColumns = function (editUrl) {
+        
         return [
             {
                 data: "Name"
@@ -30,6 +31,14 @@
         ];
     }
 
+    var onBackButtonClick = $("#contact-newcontact-previousstep").click(function() {
+            console.log("Previous");
+    });
+
+    var onBackButtonClick = $("#contact-newcontact-nextstep").click(function () {
+        console.log("Next");
+    });
+
     var onEditButtonClick = function (editButtonSelector) {
         $(editButtonSelector).on("click", "tr .btn", function () {
             editButtonClicked = true;
@@ -44,7 +53,6 @@
         });
     }
 
-    //TODO: Incorporate the EditURL
     var init = function (webServiceUri, editUrl) {
         
         var requestedData = service.getContacts(webServiceUri);

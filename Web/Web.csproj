@@ -180,7 +180,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountBindingModels.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
-    <Compile Include="ViewModels\DetailViews\ProductDetailViews\ContactDetailViewModel.cs" />
+    <Compile Include="ViewModels\Contact\NewContactViewModel.cs" />
     <Compile Include="ViewModels\ListViews\ProductListViews\ContactListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -422,8 +422,8 @@
     <Content Include="Views\Task\Index.cshtml" />
     <Content Include="Views\Shared\Selection.cshtml" />
     <Content Include="Views\Contact\List.cshtml" />
-    <Content Include="Views\Contact\NewContact.cshtml" />
-    <Content Include="Views\Contact\EditContact.cshtml" />
+    <Content Include="Views\Contact\Edit.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
