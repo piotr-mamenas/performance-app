@@ -1,0 +1,16 @@
+﻿@using Core.Dtos
+@using Web.Extensions.HtmlHelperExtensions
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.TableFor(typeof(PartnerDto), "table")
+
+@section scripts{
+    <script>
+        var currentPage = "#PartnerNav";
+
+        $(document).ready(function() {
+        });
+    </script>
+}

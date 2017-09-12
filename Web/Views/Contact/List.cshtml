@@ -1,19 +1,12 @@
 ﻿@using Web.Extensions.HtmlHelperExtensions
-@using Web.ViewModels.ListViews.ProductListViews
+@using Web.ViewModels.Tables.ProductTables
 
 @{
     ViewBag.Title = "List Contacts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <span class="fa fa-address-card-o" style="margin-right: 5px;"></span>Contact List
-    </div>
-    <div class="panel-body">
-        @Html.WithCustomColumn(6, "Edit").TableFor(typeof(ContactListViewModel), "contactTable")
-    </div>
-</div>
+@Html.WithCustomColumn(6, "Edit").TableFor(typeof(ContactTableViewModel), "contactTable")
 
 @section scripts{
     <script>

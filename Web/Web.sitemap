@@ -11,15 +11,15 @@
       <siteMapNode navigation="subNav" display="New Contact" controller="Contact" action="New" cssClass="fa fa-file"/>
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Accounts" controller="Account" action="Index" navId="AccountNav" cssClass="fa fa-university">
-      <siteMapNode navigation="subNav" display="List" controller="Account" action="Index" cssClass="fa fa-list"/>
+      <siteMapNode navigation="subNav" display="List" controller="Account" action="List" cssClass="fa fa-list"/>
       <siteMapNode navigation="subNav" display="New Account" controller="Account" action="Index" cssClass="fa fa-file"/>
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Portfolios" controller="Portfolio" action="Index" navId="PortfolioNav" cssClass="fa fa-book">
-      <siteMapNode navigation="subNav" display="List" controller="Portfolio" action="Index" cssClass="fa fa-list"/>
+      <siteMapNode navigation="subNav" display="List" controller="Portfolio" action="List" cssClass="fa fa-list"/>
       <siteMapNode navigation="subNav" display="New Portfolio" controller="Portfolio" action="Index" cssClass="fa fa-file"/>
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Reports" controller="Report" action="Index" navId="ReportNav" cssClass="fa fa-bar-chart">
-      <siteMapNode navigation="subNav" display="List" controller="Report" action="Index" cssClass="fa fa-list"/>
+      <siteMapNode navigation="subNav" display="List" controller="Report" action="List" cssClass="fa fa-list"/>
       <siteMapNode navigation="subNav" display="New Report" controller="Report" action="Index" cssClass="fa fa-file-pdf-o"/>
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Tasks" controller="Task" action="Index" navId="TaskNav" cssClass="fa fa-tasks">

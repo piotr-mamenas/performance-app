@@ -181,17 +181,30 @@
     <Compile Include="ViewModels\AccountBindingModels.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\Contact\NewContactViewModel.cs" />
-    <Compile Include="ViewModels\ListViews\ProductListViews\ContactListViewModel.cs" />
+    <Compile Include="ViewModels\Tables\ProductTables\AccountTableViewModel.cs" />
+    <Compile Include="ViewModels\Tables\ProductTables\ContactTableViewModel.cs" />
+    <Compile Include="ViewModels\Tables\ProductTables\ReportTableViewModel.cs" />
+    <Compile Include="ViewModels\Tables\ProductTables\TaskTableViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\app\controllers\contact\newContactWizardController.js" />
-    <Content Include="Content\app\controllers\navbarController.js" />
-    <Content Include="Content\app\images\background.jpg" />
-    <Content Include="Content\app\app.js" />
-    <Content Include="Content\app\controllers\contact\contactTableController.js" />
-    <Content Include="Content\app\controllers\selectionController.js" />
-    <Content Include="Content\app\services\contactService.js" />
-    <Content Include="Content\app\styles\global.css" />
+    <Content Include="Content\App\Controllers\Account\AccountTableController.js" />
+    <Content Include="Content\App\Controllers\Contact\NewContactWizardController.js" />
+    <Content Include="Content\App\Controllers\NavbarController.js" />
+    <Content Include="Content\App\Controllers\Partner\PartnerTableController.js" />
+    <Content Include="Content\App\Controllers\Portfolio\PortfolioTableController.js" />
+    <Content Include="Content\App\Controllers\Report\ReportTableController.js" />
+    <Content Include="Content\App\Controllers\Task\TaskTableController.js" />
+    <Content Include="Content\App\Images\background.jpg" />
+    <Content Include="Content\App\App.js" />
+    <Content Include="Content\App\Controllers\Contact\ContactTableController.js" />
+    <Content Include="Content\App\Controllers\SelectionController.js" />
+    <Content Include="Content\App\Services\AccountService.js" />
+    <Content Include="Content\App\Services\ContactService.js" />
+    <Content Include="Content\App\Services\PartnerService.js" />
+    <Content Include="Content\App\Services\PortfolioService.js" />
+    <Content Include="Content\App\Services\ReportService.js" />
+    <Content Include="Content\App\Services\TaskService.js" />
+    <Content Include="Content\App\Styles\global.css" />
     <Content Include="Content\vendor\scripts\jquery\jquery.override.js" />
     <Content Include="Content\vendor\scripts\underscore\underscore.js" />
     <Content Include="Content\vendor\scripts\underscore\underscore.min.js" />
@@ -426,6 +439,11 @@
     <Content Include="Views\Contact\Edit.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\New.cshtml" />
+    <Content Include="Views\Account\List.cshtml" />
+    <Content Include="Views\Partner\List.cshtml" />
+    <Content Include="Views\Report\List.cshtml" />
+    <Content Include="Views\Task\List.cshtml" />
+    <Content Include="Views\Portfolio\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

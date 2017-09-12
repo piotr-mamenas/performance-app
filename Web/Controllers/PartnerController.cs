@@ -15,6 +15,12 @@ namespace Web.Controllers
         [Route("")]
         public ActionResult Index()
         {
+            return RedirectToAction("List");
+        }
+
+        [Route("list")]
+        public ActionResult List()
+        {
             return View();
         }
     }

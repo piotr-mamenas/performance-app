@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using Core.Dtos;
 
-namespace Web.ViewModels.ListViews.ProductListViews
+namespace Web.ViewModels.Tables.ProductTables
 {
-    public class ContactListViewModel
+    public class ContactTableViewModel
     {
         [DisplayName("Contact Name")]
         public string Name { get; set; }

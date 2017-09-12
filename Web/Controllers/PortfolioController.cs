@@ -11,9 +11,15 @@ namespace Web.Controllers
             : base(logger)
         {    
         }
-        
+
         [Route("")]
         public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
+
+        [Route("list")]
+        public ActionResult List()
         {
             return View();
         }
