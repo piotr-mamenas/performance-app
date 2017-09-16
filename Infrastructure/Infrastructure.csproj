@@ -64,21 +64,9 @@
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Helpers\AttributeHelper.cs" />
     <Compile Include="Helpers\ReflectionHelper.cs" />
-    <Compile Include="Migrations\201709082141401_InitialMigration.cs" />
-    <Compile Include="Migrations\201709082141401_InitialMigration.Designer.cs">
-      <DependentUpon>201709082141401_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709090053589_MinorChangesToAsset.cs" />
-    <Compile Include="Migrations\201709090053589_MinorChangesToAsset.Designer.cs">
-      <DependentUpon>201709090053589_MinorChangesToAsset.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709091310067_AttemptToFixDiscriminator.cs" />
-    <Compile Include="Migrations\201709091310067_AttemptToFixDiscriminator.Designer.cs">
-      <DependentUpon>201709091310067_AttemptToFixDiscriminator.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709091329578_RemovingTablePrefixMigration.cs" />
-    <Compile Include="Migrations\201709091329578_RemovingTablePrefixMigration.Designer.cs">
-      <DependentUpon>201709091329578_RemovingTablePrefixMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201709161318324_Initial.cs" />
+    <Compile Include="Migrations\201709161318324_Initial.Designer.cs">
+      <DependentUpon>201709161318324_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PerformanceContext.cs" />
@@ -104,17 +92,8 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709082141401_InitialMigration.resx">
-      <DependentUpon>201709082141401_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709090053589_MinorChangesToAsset.resx">
-      <DependentUpon>201709090053589_MinorChangesToAsset.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709091310067_AttemptToFixDiscriminator.resx">
-      <DependentUpon>201709091310067_AttemptToFixDiscriminator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709091329578_RemovingTablePrefixMigration.resx">
-      <DependentUpon>201709091329578_RemovingTablePrefixMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709161318324_Initial.resx">
+      <DependentUpon>201709161318324_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

@@ -16,6 +16,8 @@ namespace Core.Domain.Assets
 
         public Currency Currency { get; set; }
 
+        public int CurrencyId { get; set; }
+
         public decimal FaceValue { get; set; }
 
         public IEnumerable<ValidationRule> SetCoupon(decimal amount, decimal rate)

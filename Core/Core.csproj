@@ -142,10 +142,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Domain\Benchmarks\" />
     <Folder Include="Domain\Portfolios\" />
-    <Folder Include="Domain\Strategies\" />
-    <Folder Include="Domain\Volatilities\" />
     <Folder Include="Interfaces\Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

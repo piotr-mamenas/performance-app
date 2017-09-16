@@ -1,9 +1,7 @@
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using System.Runtime.CompilerServices;
 using Core.Domain.Accounts;
-using Core.Domain.Assets;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
@@ -22,10 +20,11 @@ namespace Infrastructure.Migrations
         protected override void Seed(PerformanceContext context)
         {
             SeedAccount(context.Accounts);
-            SeedCountry(context.Countries);
             SeedContact(context.Contacts);
             SeedPartner(context.Partners);
             SeedCurrency(context.Currencies);
+            context.SaveChanges();
+            SeedCountry(context.Countries);
             SeedInstitution(context.Institutions);
             context.SaveChanges();
         }
@@ -50,6 +49,7 @@ namespace Infrastructure.Migrations
                     Id = 1,
                     Name = "Poland",
                     Code = "PL",
+                    CurrencyId = 2,
                     IsEnabled = true
                 },
                 new Country
@@ -57,13 +57,7 @@ namespace Infrastructure.Migrations
                     Id = 2,
                     Name = "Switzerland",
                     Code = "CH",
-                    IsEnabled = true
-                },
-                new Country
-                {
-                    Id = 3,
-                    Name = "United Kingdom",
-                    Code = "UK",
+                    CurrencyId = 1,
                     IsEnabled = true
                 },
                 new Country
@@ -71,13 +65,7 @@ namespace Infrastructure.Migrations
                     Id = 4,
                     Name = "Germany",
                     Code = "DE",
-                    IsEnabled = true
-                },
-                new Country
-                {
-                    Id = 5,
-                    Name = "Russia",
-                    Code = "RU",
+                    CurrencyId = 3,
                     IsEnabled = true
                 });
         }

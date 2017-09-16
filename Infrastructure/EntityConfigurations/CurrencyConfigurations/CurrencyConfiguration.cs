@@ -29,6 +29,16 @@ namespace Infrastructure.EntityConfigurations.CurrencyConfigurations
 
             Property(c => c.IsEnabled)
                 .HasColumnName("CurrencyEnabled");
+
+            HasMany(c => c.Countries)
+                .WithRequired(c => c.Currency)
+                .HasForeignKey(c => c.CurrencyId)
+                .WillCascadeOnDelete(false);
+
+            HasMany(c => c.Bonds)
+                .WithRequired(b => b.Currency)
+                .HasForeignKey(b => b.CurrencyId)
+                .WillCascadeOnDelete(false);
         }
     }
 }

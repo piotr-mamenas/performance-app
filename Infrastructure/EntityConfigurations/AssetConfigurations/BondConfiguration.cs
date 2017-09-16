@@ -17,7 +17,9 @@ namespace Infrastructure.EntityConfigurations.AssetConfigurations
                 .HasColumnType(DatabaseVendorTypes.TimestampField)
                 .IsRequired();
 
-            HasRequired(b => b.Currency).WithRequiredDependent();
+            HasRequired(b => b.Currency)
+                .WithMany(c => c.Bonds)
+                .WillCascadeOnDelete(false);
 
             Property(b => b.Coupon.Rate);
 

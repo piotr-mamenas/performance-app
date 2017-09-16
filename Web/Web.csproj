@@ -183,6 +183,7 @@
     <Compile Include="ViewModels\Contact\NewContactViewModel.cs" />
     <Compile Include="ViewModels\Tables\ProductTables\AccountTableViewModel.cs" />
     <Compile Include="ViewModels\Tables\ProductTables\ContactTableViewModel.cs" />
+    <Compile Include="ViewModels\Tables\ProductTables\PartnerTableViewModel.cs" />
     <Compile Include="ViewModels\Tables\ProductTables\ReportTableViewModel.cs" />
     <Compile Include="ViewModels\Tables\ProductTables\TaskTableViewModel.cs" />
   </ItemGroup>
@@ -198,6 +199,7 @@
     <Content Include="Content\App\App.js" />
     <Content Include="Content\App\Controllers\Contact\ContactTableController.js" />
     <Content Include="Content\App\Controllers\SelectionController.js" />
+    <Content Include="Content\App\Routes.js" />
     <Content Include="Content\App\Services\AccountService.js" />
     <Content Include="Content\App\Services\ContactService.js" />
     <Content Include="Content\App\Services\PartnerService.js" />

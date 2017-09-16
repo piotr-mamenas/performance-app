@@ -27,6 +27,10 @@ namespace Infrastructure.EntityConfigurations.CountryConfigurations
                 .HasMaxLength(2)
                 .HasColumnName("CountryCode");
 
+            HasRequired(b => b.Currency)
+                .WithMany(c => c.Countries)
+                .WillCascadeOnDelete(false);
+
             Property(c => c.IsEnabled)
                 .HasColumnName("CountryEnabled");
         }

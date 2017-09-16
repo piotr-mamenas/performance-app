@@ -26,7 +26,7 @@
             {
                 data: "Id",
                 render: function (data) {
-                    return "<a href=\"" + editButtonUrl + "/" + data + "\" class=\"btn btn-default\">Edit</div>";
+                    return "<a href=\"" + editButtonUrl + "/" + data + "\" class=\"btn btn-default btn-block\">Edit</div>";
                 }
             }
         ],

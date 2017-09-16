@@ -60,7 +60,7 @@ namespace Web.Controllers
         [Route("new")]
         public ActionResult New(NewContactViewModel contactViewModel)
         {
-            return View();
+            return RedirectToAction("List");
         }
 
         /*

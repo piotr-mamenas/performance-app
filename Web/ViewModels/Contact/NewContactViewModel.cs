@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Web.ModelBinding;
 using Core.Dtos;
 
 namespace Web.ViewModels.Contact
@@ -22,12 +23,14 @@ namespace Web.ViewModels.Contact
 
         [Required]
         [DisplayName("Email")]
+        [EmailAddress]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Required]
         [DisplayName("Phone Number")]
         [DataType(DataType.PhoneNumber)]
+        [Phone]
         public string PhoneNumber { get; set; }
 
         [Required]
