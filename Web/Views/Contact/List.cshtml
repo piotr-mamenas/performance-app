@@ -1,12 +1,23 @@
-﻿@using Web.Extensions.HtmlHelperExtensions
-@using Web.ViewModels.Tables.ProductTables
-
-@{
+﻿@{
     ViewBag.Title = "List Contacts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.WithCustomColumn(6, "Edit").TableFor(typeof(ContactTableViewModel), "contactTable")
+<table id="contactTable" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Contact Name</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Contract Partner</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 
 @section scripts {
     routing.setCurrentPage("#ContactNav");

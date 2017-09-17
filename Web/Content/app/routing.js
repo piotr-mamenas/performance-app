@@ -1,5 +1,16 @@
 ﻿var routing = function () {
 
+    var mvc = [
+        {
+            Name: "Partner",
+            Uri: "partners/"
+        },
+        {
+            Name: "Contact",
+            Uri: "contacts/"
+        }
+    ];
+
     var api = [
         {
             Name: "Partner",
@@ -8,6 +19,10 @@
         {
             Name: "Contact",
             Uri: "api/contacts/"
+        },
+        {
+            Name: "Account",
+            Uri: "api/accounts/"
         }
     ];
 
@@ -23,9 +38,17 @@
         return _.findWhere(api, { Name: service })["Uri"];
     };
 
+    var getMvcUri = function (service) {
+        return _.findWhere(mvc, { Name: service })["Uri"];
+    };
+    
     var buildUris = function (webServerUrl) {
         _.map(api, function (element, index) {
             api[index]["Uri"] = webServerUrl + element["Uri"];
+        });
+
+        _.map(mvc, function (element, index) {
+            mvc[index]["Uri"] = webServerUrl + element["Uri"];
         });
     }
 
@@ -36,6 +59,7 @@
     return {
         init: init,
         getApiUri: getApiUri,
+        getMvcUri: getMvcUri,
         getCurrentPage: getCurrentPage,
         setCurrentPage: setCurrentPage
     };

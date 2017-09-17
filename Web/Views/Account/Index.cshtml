@@ -1,10 +1,6 @@
-﻿@using Core.Dtos
-@using Web.Extensions.HtmlHelperExtensions
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@Html.TableFor(typeof(AccountDto), "table")
 
 @section scripts{
     routing.setCurrentPage("#AccountNav");

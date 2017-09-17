@@ -1,7 +1,7 @@
-﻿var partnerTableController = function (service) {
+﻿var accountTableController = function (service) {
 
     var initializeDatatable = function (result) {
-        $("#partnerTable").DataTable({
+        $("#accountTable").DataTable({
             data: result,
             columns: [
                 {
@@ -9,6 +9,12 @@
                 },
                 {
                     data: "Number"
+                },
+                {
+                    data: "DateOpened"
+                },
+                {
+                    data: "DateClosed"
                 }
             ],
             language: {
@@ -18,11 +24,11 @@
     }
 
     var init = function () {
-        service.getPartners(initializeDatatable, initializeDatatable);
+        service.getAccounts(initializeDatatable, initializeDatatable);
     }
 
     return {
         init: init
     };
 
-}(partnerService)
+}(accountService)

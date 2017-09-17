@@ -1,5 +1,4 @@
-﻿var contactTableController = function (service) {
-    var editButtonClicked = false;
+﻿var contactTableController = function (service, routing) {
 
     var initializeDatatable = function (result) {
         $("#contactTable").DataTable({
@@ -26,7 +25,13 @@
             {
                 data: "Id",
                 render: function (data) {
-                    return "<a href=\"" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-pencil'></span></div>";
+                    return "<a href=\"" + routing.getMvcUri("Contact") + "edit/" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-pencil'></span></div>";
+                }
+            },
+            {
+                data: "Id",
+                render: function(data) {
+                    return "<a href=\"" + routing.getApiUri("Contact") + "delete/" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-trash'></span></div>";
                 }
             }
         ],
@@ -36,26 +41,12 @@
         });
     }
 
-    $("#contactTable tbody").on("click", "tr .btn", function () {
-        editButtonClicked = true;
-    });
-
-    $("#contactTable tbody").on("click", "tr", function () {
-        if (editButtonClicked) {
-            editButtonClicked = false;
-        }
-
-    });
-
     var init = function () {
-        service.getContacts(initializeDatatable, function() {
-            console.log("Failed");
-        });
-        //initializeDatatable(service.getContacts());
+        service.getContacts(initializeDatatable, initializeDatatable);
     }
 
     return {
         init: init
     };
 
-}(contactService)
+}(contactService, routing)

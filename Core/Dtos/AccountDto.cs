@@ -15,7 +15,7 @@ namespace Core.Dtos
         public string Number { get; set; }
 
         [DisplayName("Opened Date")]
-        public DateTime DateCreated { get; set; }
+        public DateTime DateOpened { get; set; }
 
         [DisplayName("Closed Date")]
         public DateTime DateClosed { get; set; }

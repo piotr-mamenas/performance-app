@@ -85,6 +85,13 @@ namespace Web.Extensions.HtmlHelperExtensions
             return helper;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="helper"></param>
+        /// <param name="atIndex"></param>
+        /// <param name="customInnerHtml"></param>
+        /// <returns></returns>
         public static HtmlHelper WithCustomColumn(this HtmlHelper helper, int atIndex, string customInnerHtml)
         {
             if (!CustomColumnsList.ContainsKey(atIndex))

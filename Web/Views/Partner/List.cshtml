@@ -1,11 +1,18 @@
-﻿@using Core.Dtos
-@using Web.Extensions.HtmlHelperExtensions
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.TableFor(typeof(PartnerDto), "table")
+<table id="partnerTable" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Number</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 
 @section scripts{
     routing.setCurrentPage("#PartnerNav");
+    partnerTableController.init();
 }
