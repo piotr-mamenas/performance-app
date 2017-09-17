@@ -54,11 +54,28 @@
             </fieldset>
 
             <fieldset class="contact-newcontact-secondstep" style="display: none;">
-                Select Partners
+                <h3>Select Partners:</h3>
+                <table id="partnerSelectionTable" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
             </fieldset>
 
             <fieldset class="contact-newcontact-finalstep" style="display: none;">
-                Select Institutions
+                <h3>Select Institutions:</h3>
+                <table id="institutionSelectionTable" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
             </fieldset>
 
             <br />
@@ -78,4 +95,6 @@
 @section scripts{
     routing.setCurrentPage("#ContactNav");
     newContactWizardController.init();
+    partnerSelectionTableController.init();
+    institutionSelectionTableController.init();
 }

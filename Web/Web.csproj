@@ -195,9 +195,11 @@
     <Content Include="Content\app\routing.js" />
     <Content Include="Content\app\services\accountService.js" />
     <Content Include="Content\app\services\contactService.js" />
+    <Content Include="Content\app\services\institutionService.js" />
     <Content Include="Content\app\services\partnerService.js" />
     <Content Include="Content\app\styles\global.css" />
     <Content Include="Content\vendor\scripts\jquery\jquery.override.js" />
+    <Content Include="Content\vendor\scripts\moment\moment.js" />
     <Content Include="Content\vendor\scripts\underscore\underscore.js" />
     <Content Include="Content\vendor\scripts\underscore\underscore.min.js" />
     <Content Include="Content\vendor\styles\datatables\css\autoFill.bootstrap.css" />

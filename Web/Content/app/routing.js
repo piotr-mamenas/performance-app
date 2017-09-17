@@ -23,6 +23,10 @@
         {
             Name: "Account",
             Uri: "api/accounts/"
+        },
+        {
+            Name: "Institution",
+            Uri: "api/institutions/"
         }
     ];
 
