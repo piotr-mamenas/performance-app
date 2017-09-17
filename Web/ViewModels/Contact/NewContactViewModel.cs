@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Web.ModelBinding;
 using Core.Dtos;
 
 namespace Web.ViewModels.Contact
@@ -30,7 +29,7 @@ namespace Web.ViewModels.Contact
         [Required]
         [DisplayName("Phone Number")]
         [DataType(DataType.PhoneNumber)]
-        [Phone]
+        [Phone(ErrorMessage = "Please enter valid phone no.")]
         public string PhoneNumber { get; set; }
 
         [Required]

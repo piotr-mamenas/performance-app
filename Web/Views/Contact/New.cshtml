@@ -77,11 +77,6 @@
 </div>
 
 @section scripts{
-    <script>
-        var currentPage = "#ContactNav";
-
-        $(document).ready(function () {
-            newContactWizardController.init();
-        });
-    </script>
+    routing.setCurrentPage("#ContactNav");
+    newContactWizardController.init();
 }

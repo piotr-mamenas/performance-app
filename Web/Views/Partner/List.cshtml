@@ -7,10 +7,5 @@
 @Html.TableFor(typeof(PartnerDto), "table")
 
 @section scripts{
-    <script>
-        var currentPage = "#PartnerNav";
-
-        $(document).ready(function() {
-        });
-    </script>
+    routing.setCurrentPage("#PartnerNav");
 }

@@ -7,11 +7,5 @@
 @Html.TableFor(typeof(AccountDto), "table")
 
 @section scripts{
-    <script>
-        var currentPage = "#AccountNav";
-
-        $(document).ready(function() {
-            
-        });
-    </script>
+    routing.setCurrentPage("#AccountNav");
 }

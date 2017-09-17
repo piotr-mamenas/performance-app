@@ -4,7 +4,6 @@
     <siteMapNode navigation="navbar" display="Partners" controller="Partner" action="Index" navId="PartnerNav" cssClass="fa fa-users">
       <siteMapNode navigation="subNav" display="List" controller="Partner" action="Index" cssClass="fa fa-list"/>
       <siteMapNode navigation="subNav" display="New Partner" controller="Partner" action="Index" cssClass="fa fa-user"/>
-      <siteMapNode navigation="subNav" display="Partner Contacts" controller="Partner" action="Index" cssClass="fa fa-address-card-o"/>
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Contacts" controller="Contact" action="Index" navId="ContactNav" cssClass="fa fa-address-card-o">
       <siteMapNode navigation="subNav" display="List" controller="Contact" action="List" cssClass="fa fa-list"/>

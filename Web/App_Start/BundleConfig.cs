@@ -13,7 +13,8 @@ namespace Web
         private static void RegisterAppBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                "~/Content/app/app.js"));
+                "~/Content/app/app.js",
+                "~/Content/app/routing.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app/services").IncludeDirectory(
                 "~/Content/app/services","*Service.js",searchSubdirectories: true));

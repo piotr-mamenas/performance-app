@@ -8,12 +8,7 @@
 
 @Html.WithCustomColumn(6, "Edit").TableFor(typeof(ContactTableViewModel), "contactTable")
 
-@section scripts{
-    <script>
-        var currentPage = "#ContactNav";
-
-        $(document).ready(function () {
-            contactTableController.init('@Html.GetWebServerUri()','@Url.Action("Edit","Contact")');
-        });
-    </script>
+@section scripts {
+    routing.setCurrentPage("#ContactNav");
+    contactTableController.init();
 }

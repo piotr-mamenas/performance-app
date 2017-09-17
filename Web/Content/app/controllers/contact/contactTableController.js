@@ -1,9 +1,9 @@
 ﻿var contactTableController = function (service) {
     var editButtonClicked = false;
 
-    var initializeDatatable = function (uri, editButtonUrl) {
+    var initializeDatatable = function (result) {
         $("#contactTable").DataTable({
-        ajax: service.getContacts(uri),
+        data: result,
         columns: [
             {
                 data: "Name"
@@ -26,7 +26,7 @@
             {
                 data: "Id",
                 render: function (data) {
-                    return "<a href=\"" + editButtonUrl + "/" + data + "\" class=\"btn btn-default btn-block\">Edit</div>";
+                    return "<a href=\"" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-pencil'></span></div>";
                 }
             }
         ],
@@ -47,8 +47,11 @@
 
     });
 
-    var init = function (webServiceUri, editUrl) {
-        initializeDatatable(webServiceUri, editUrl);
+    var init = function () {
+        service.getContacts(initializeDatatable, function() {
+            console.log("Failed");
+        });
+        //initializeDatatable(service.getContacts());
     }
 
     return {

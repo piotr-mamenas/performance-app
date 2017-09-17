@@ -7,12 +7,6 @@
         if ($(".contact-newcontact-form").valid()) {
             $(".contact-newcontact-form").children("fieldset").hide();
 
-            console.log("first step: " + $(".contact-newcontact-firststep"));
-            console.log("second step: " + $(".contact-newcontact-secondstep"));
-            console.log("third step: " + $(".contact-newcontact-finalstep"));
-            console.log("previousstep: " + $(".contact-newcontact-previousstep"));
-            console.log("nextstep: " + $(".contact-newcontact-nextstep"));
-
             switch (Number(step)) {
                 case 1:
                     $(".contact-newcontact-secondstep").hide();
