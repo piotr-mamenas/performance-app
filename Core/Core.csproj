@@ -95,6 +95,7 @@
     <Compile Include="Domain\Selections\Selection.cs" />
     <Compile Include="Dtos\AccountDto.cs" />
     <Compile Include="Dtos\AssetDto.cs" />
+    <Compile Include="Dtos\BondCouponDto.cs" />
     <Compile Include="Dtos\ContactDto.cs" />
     <Compile Include="Dtos\CountryDto.cs" />
     <Compile Include="Dtos\CurrencyDto.cs" />

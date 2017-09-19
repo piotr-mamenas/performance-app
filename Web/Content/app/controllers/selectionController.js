@@ -11,19 +11,19 @@
         }
     }
 
-    $("#selection-js-select-partner").click(function () {
+    $("#selection-js-select-partner").on("click", function () {
             activateTab("#selection-js-select-partner", "div#selection-by-partner");
     });
 
-    $("#selection-js-select-portfolio").click(function () {
+    $("#selection-js-select-portfolio").on("click", function () {
             activateTab("#selection-js-select-portfolio", "div#selection-by-portfolio");
     });
 
-    $("#selection-js-select-container").click(function() {
+    $("#selection-js-select-container").on("click", function() {
             activateTab("#selection-js-select-container","div#selection-by-container");
     });
 
-    $("#selection-search-button").click(function () {
+    $("#selection-search-button").on("click", function () {
             console.log("hello");
     });
 

@@ -2,6 +2,7 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using Core.Domain.Accounts;
+using Core.Domain.Assets;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
@@ -26,7 +27,34 @@ namespace Infrastructure.Migrations
             context.SaveChanges();
             SeedCountry(context.Countries);
             SeedInstitution(context.Institutions);
+            SeedAsset(context.Assets);
             context.SaveChanges();
+        }
+
+        private static void SeedAsset(IDbSet<Asset> set)
+        {
+            set.AddOrUpdate(a => a.Id,
+                new Equity
+                {
+                    Id = 1,
+                    Name = "Apple Stock",
+                    Isin = "US0378331005"
+                });
+
+            set.AddOrUpdate(a => a.Id,
+                new Bond
+                {
+                    CurrencyId = 1,
+                    FaceValue = 100,
+                    IssueDate = DateTime.Now,
+                    MaturityDate = DateTime.Today,
+                    Name = "US Standard Bond",
+                    Coupon = new BondCoupon
+                    {
+                        Amount = 200,
+                        Rate = new decimal(0.04)
+                    }
+                });
         }
 
         private static void SeedAccount(IDbSet<Account> set)
