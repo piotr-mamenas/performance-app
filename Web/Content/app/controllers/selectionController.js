@@ -11,26 +11,47 @@
         }
     }
 
-    $("#selection-js-select-partner").on("click", function () {
-            activateTab("#selection-js-select-partner", "div#selection-by-partner");
-    });
+    var displayPartnerSelection = function () {
+        activateTab("#selection-js-select-partner", "div#selection-by-partner");
+    };
 
-    $("#selection-js-select-portfolio").on("click", function () {
-            activateTab("#selection-js-select-portfolio", "div#selection-by-portfolio");
-    });
+    var displayPortfolioSelection = function () {
+        activateTab("#selection-js-select-portfolio", "div#selection-by-portfolio");
+    };
 
-    $("#selection-js-select-container").on("click", function() {
-            activateTab("#selection-js-select-container","div#selection-by-container");
-    });
+    var displayContainerSelection = function () {
+        activateTab("#selection-js-select-container", "div#selection-by-container");
+    };
 
-    $("#selection-search-button").on("click", function () {
-            console.log("hello");
-    });
-
-    var init = function () {
+    var showSelectionPopup = function () {
+        bootbox.dialog({
+            title: "Selection Dialog",
+            message: "<p>Not Yet Implemented</p>",
+            buttons: {
+                cancel: {
+                    label: "<i class='fa fa-times'></i> Cancel",
+                    className: "btn btn-default",
+                    callback: function () {
+                    }
+                },
+                ok: {
+                    label: "<i class='fa fa-check'></i> OK",
+                    className: "btn btn-primary",
+                    callback: function () {
+                    }
+                }
+            }
+        });
     }
 
-   return {
+    var init = function() {
+        $("#selection-search-button").on("click", showSelectionPopup);
+        $("#selection-js-select-container").on("click", displayContainerSelection);
+        $("#selection-js-select-portfolio").on("click", displayPortfolioSelection);
+        $("#selection-js-select-partner").on("click", displayPartnerSelection);
+    }
+
+    return {
        init: init
    } 
 }()

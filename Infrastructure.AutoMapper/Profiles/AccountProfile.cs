@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Core.Domain.Accounts;
-using Core.Domain.Contacts;
 using Core.Dtos;
 
 namespace Infrastructure.AutoMapper.Profiles
