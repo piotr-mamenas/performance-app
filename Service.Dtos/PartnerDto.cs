@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace Core.Dtos
+namespace Service.Dtos
 {
     public class PartnerDto
     {
@@ -13,6 +13,6 @@ namespace Core.Dtos
         [DisplayName("Partner Number")]
         public string Number { get; set; }
 
-        public ICollection<InstitutionDto> Organizations { get; set; }
+        public ICollection<InstitutionDto> Institutions { get; set; }
     }
 }

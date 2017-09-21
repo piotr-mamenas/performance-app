@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using AutoMapper;
+﻿using AutoMapper;
 using Core.Domain.Contacts;
-using Core.Dtos;
+using Service.Dtos;
 
 namespace Infrastructure.AutoMapper.Profiles
 {

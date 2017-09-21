@@ -1,6 +1,6 @@
-﻿namespace Core.Dtos
+﻿namespace Service.Dtos
 {
-    public class CountryDto
+    public class CurrencyDto
     {
         public int Id { get; set; }
 

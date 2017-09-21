@@ -152,6 +152,10 @@
       <Project>{b2ce8a5c-043c-4ea9-bcd3-402b9c1891de}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Service.Dtos\Service.Dtos.csproj">
+      <Project>{36743a08-08ab-4a51-beda-1c638b889361}</Project>
+      <Name>Service.Dtos</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

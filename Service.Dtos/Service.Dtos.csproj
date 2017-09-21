@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8FB3A646-466F-46AC-B1C5-5AF85991A139}</ProjectGuid>
+    <ProjectGuid>{36743A08-08AB-4A51-BEDA-1C638B889361}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Infrastructure.AutoMapper</RootNamespace>
-    <AssemblyName>Infrastructure.AutoMapper</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>Service.Dtos</RootNamespace>
+    <AssemblyName>Service.Dtos</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,41 +30,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MappingConfiguration.cs" />
-    <Compile Include="ObjectExtensions.cs" />
-    <Compile Include="Profiles\AccountProfile.cs" />
-    <Compile Include="Profiles\ContactProfile.cs" />
-    <Compile Include="Profiles\CountryProfile.cs" />
-    <Compile Include="Profiles\CurrencyProfile.cs" />
-    <Compile Include="Profiles\InstitutionProfile.cs" />
-    <Compile Include="Profiles\PartnerProfile.cs" />
+    <Compile Include="AccountDto.cs" />
+    <Compile Include="AssetDto.cs" />
+    <Compile Include="BondCouponDto.cs" />
+    <Compile Include="ContactDto.cs" />
+    <Compile Include="CountryDto.cs" />
+    <Compile Include="CurrencyDto.cs" />
+    <Compile Include="InstitutionDto.cs" />
+    <Compile Include="PartnerDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{9be4c39d-6c17-4d22-8a87-b1639fc8d371}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Service.Dtos\Service.Dtos.csproj">
-      <Project>{36743a08-08ab-4a51-beda-1c638b889361}</Project>
-      <Name>Service.Dtos</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

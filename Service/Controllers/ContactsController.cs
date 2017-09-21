@@ -6,13 +6,11 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Contacts;
-using Core.Dtos;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure.AutoMapper;
-using Infrastructure.Extensions;
 using Infrastructure.Serialization.JsonContractResolvers;
-using Newtonsoft.Json;
+using Service.Dtos;
 
 namespace Service.Controllers
 {

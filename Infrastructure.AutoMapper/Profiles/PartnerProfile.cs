@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Core.Domain.Partners;
-using Core.Dtos;
+using Service.Dtos;
 
 namespace Infrastructure.AutoMapper.Profiles
 {

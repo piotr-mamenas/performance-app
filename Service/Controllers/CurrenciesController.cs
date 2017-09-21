@@ -4,12 +4,11 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Core.Dtos;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
-using Infrastructure.Extensions;
 using Core.Domain.Currencies;
 using Infrastructure.AutoMapper;
+using Service.Dtos;
 
 namespace Service.Controllers
 {

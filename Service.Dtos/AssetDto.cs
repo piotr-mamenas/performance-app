@@ -1,8 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
-using Core.Domain.Currencies;
 
-namespace Core.Dtos
+namespace Service.Dtos
 {
     public class AssetDto
     {
@@ -23,7 +22,7 @@ namespace Core.Dtos
         public BondCouponDto Coupon { get; set; }
 
         [DisplayName("Currency")]
-        public Currency Currency { get; set; }
+        public CurrencyDto Currency { get; set; }
 
         public int CurrencyId { get; set; }
 

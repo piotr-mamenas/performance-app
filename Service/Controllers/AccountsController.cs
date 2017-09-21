@@ -6,11 +6,11 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Accounts;
-using Core.Dtos;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure.AutoMapper;
 using Infrastructure.Extensions;
+using Service.Dtos;
 
 namespace Service.Controllers
 {

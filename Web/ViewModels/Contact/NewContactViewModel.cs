@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using Core.Dtos;
+using Core.Domain.Partners;
 
 namespace Web.ViewModels.Contact
 {
@@ -34,7 +34,7 @@ namespace Web.ViewModels.Contact
 
         [Required]
         [DisplayName("Contact Partner")]
-        public virtual PartnerDto Partner { get; set; }
+        public virtual Partner Partner { get; set; }
 
         [DisplayName("Partner Id")]
         public int PartnerId { get; set; }

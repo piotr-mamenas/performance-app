@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Core.Dtos
+namespace Service.Dtos
 {
     public class InstitutionDto
     {

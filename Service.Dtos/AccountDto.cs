@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace Core.Dtos
+namespace Service.Dtos
 {
     public class AccountDto
     {
