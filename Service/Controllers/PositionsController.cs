@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
-using Core.Domain.Accounts;
+using Core.Domain.Positions;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure.AutoMapper;
@@ -13,78 +13,64 @@ using Service.Dtos;
 
 namespace Service.Controllers
 {
-    [RoutePrefix("api/accounts")]
+    [RoutePrefix("api/positions")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class AccountsController : ApiController
+    public class PositionsController : ApiController
     {
-        private readonly IAccountRepository<Account> _repository;
+        private readonly IPositionRepository<Position> _repository;
         private readonly IComplete _unitOfWork;
 
-        public AccountsController(IUnitOfWork unitOfWork)
+        public PositionsController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = (IComplete)unitOfWork;
-            _repository = unitOfWork.Accounts;
+            _repository = unitOfWork.Positions;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        [ResponseType(typeof(ICollection<AccountDto>))]
+        [ResponseType(typeof(ICollection<PositionDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var accounts = await _repository.GetAll()
-                .Include(a => a.Partners)
+            var positions = await _repository.GetAll()
+                .Include(p => p.Asset)
+                .Include(p => p.Currency)
                 .ToListAsync();
 
-            if (accounts == null)
+            if (positions == null)
             {
                 return NotFound();
             }
-            return Ok(accounts.Map<ICollection<AccountDto>>());
+            return Ok(positions.Map<ICollection<PositionDto>>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [ResponseType(typeof(AccountDto))]
+        [ResponseType(typeof(PositionDto))]
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            var account = await _repository.GetAsync(id);
+            var position = await _repository.GetAsync(id);
 
-            if (account == null)
+            if (position == null)
             {
                 return NotFound();
             }
-            return Ok(account.Map<AccountDto>());
+            return Ok(position.Map<PositionDto>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="account"></param>
-        /// <returns></returns>
         [HttpPut, Route("{id}")]
-        public async Task<IHttpActionResult> UpdateAsync(int id, AccountDto account)
+        public async Task<IHttpActionResult> UpdateAsync(int id, PositionDto position)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            var accountInDb = await _repository.GetAsync(id);
+            var positionInDb = await _repository.GetAsync(id);
 
-            if (accountInDb == null)
+            if (positionInDb == null)
             {
                 return NotFound();
             }
 
-            _repository.Add(account.Map<Account>());
+            _repository.Add(position.Map<Position>());
 
             await _unitOfWork.CompleteAsync();
 
@@ -94,21 +80,21 @@ namespace Service.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="account"></param>
+        /// <param name="position"></param>
         /// <returns></returns>
         [HttpPost, Route("")]
-        public async Task<IHttpActionResult> CreateAsync(AccountDto account)
+        public async Task<IHttpActionResult> CreateAsync(PositionDto position)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            _repository.Add(account.Map<Account>());
+            _repository.Add(position.Map<Position>());
 
             await _unitOfWork.CompleteAsync();
 
-            return Created(new Uri(Request.RequestUri + "/" + account.Id), account);
+            return Created(new Uri(Request.RequestUri + "/" + position.Id), position);
         }
 
         /// <summary>
@@ -119,14 +105,14 @@ namespace Service.Controllers
         [HttpDelete, Route("{id}")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            var account = await _repository.GetAsync(id);
+            var position = await _repository.GetAsync(id);
 
-            if (account == null)
+            if (position == null)
             {
                 return NotFound();
             }
 
-            _repository.Remove(account);
+            _repository.Remove(position);
 
             await _unitOfWork.CompleteAsync();
 

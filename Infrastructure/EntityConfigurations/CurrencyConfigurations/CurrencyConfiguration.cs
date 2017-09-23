@@ -35,6 +35,11 @@ namespace Infrastructure.EntityConfigurations.CurrencyConfigurations
                 .HasForeignKey(c => c.CurrencyId)
                 .WillCascadeOnDelete(false);
 
+            HasMany(c => c.Positions)
+                .WithRequired(p => p.Currency)
+                .HasForeignKey(p => p.CurrencyId)
+                .WillCascadeOnDelete(false);
+
             HasMany(c => c.Bonds)
                 .WithRequired(b => b.Currency)
                 .HasForeignKey(b => b.CurrencyId)

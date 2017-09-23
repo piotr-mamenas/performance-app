@@ -6,6 +6,7 @@ using Core.Domain.Countries;
 using Core.Domain.Currencies;
 using Core.Domain.Institutions;
 using Core.Domain.Partners;
+using Core.Domain.Positions;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure.Repositories;
@@ -29,6 +30,7 @@ namespace Infrastructure
             Contacts = new ContactRepository<Contact>(_context);
             Currencies = new CurrencyRepository<Currency>(_context);
             Countries = new CountryRepository<Country>(_context);
+            Positions = new PositionRepository<Position>(_context);
         }
 
         public IAccountRepository<Account> Accounts { get; }
@@ -41,6 +43,7 @@ namespace Infrastructure
         public IContactRepository<Contact> Contacts { get; }
         public ICurrencyRepository<Currency> Currencies { get; }
         public ICountryRepository<Country> Countries { get; }
+        public IPositionRepository<Position> Positions { get; }
 
         public async Task<int> CompleteAsync()
         {

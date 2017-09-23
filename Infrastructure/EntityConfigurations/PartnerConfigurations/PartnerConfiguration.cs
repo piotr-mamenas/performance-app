@@ -29,7 +29,7 @@ namespace Infrastructure.EntityConfigurations.PartnerConfigurations
                 .HasMaxLength(30)
                 .HasColumnName("PartnerNumber");
 
-            HasMany(p => p.Organizations)
+            HasMany(p => p.Institutions)
                 .WithMany(o => o.Partners)
                 .Map(m => m.ToTable("PartnersInstitutions")
                 .MapLeftKey("PartnerId")

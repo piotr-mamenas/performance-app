@@ -9,8 +9,10 @@ namespace Core.Domain.Positions
         public decimal Amount { get; set; }
 
         public Currency Currency { get; set; }
+        public int CurrencyId { get; set; }
 
         public Asset Asset { get; set; }
+        public int AssetId { get; set; }
 
         public DateTime Timestamp { get; set; }
     }

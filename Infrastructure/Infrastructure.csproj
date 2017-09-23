@@ -61,12 +61,21 @@
     <Compile Include="EntityConfigurations\DatabaseVendorTypes.cs" />
     <Compile Include="EntityConfigurations\InstitutionConfigurations\BankConfiguration.cs" />
     <Compile Include="EntityConfigurations\PartnerConfigurations\AssetManagerConfiguration.cs" />
+    <Compile Include="EntityConfigurations\PositionConfigurations\PositionConfiguration.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Helpers\AttributeHelper.cs" />
     <Compile Include="Helpers\ReflectionHelper.cs" />
     <Compile Include="Migrations\201709161318324_Initial.cs" />
     <Compile Include="Migrations\201709161318324_Initial.Designer.cs">
       <DependentUpon>201709161318324_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709231210116_AddPositionMigration.cs" />
+    <Compile Include="Migrations\201709231210116_AddPositionMigration.Designer.cs">
+      <DependentUpon>201709231210116_AddPositionMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709231243054_SlightCorrectionToForeignKeyMigration.cs" />
+    <Compile Include="Migrations\201709231243054_SlightCorrectionToForeignKeyMigration.Designer.cs">
+      <DependentUpon>201709231243054_SlightCorrectionToForeignKeyMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PerformanceContext.cs" />
@@ -87,6 +96,7 @@
     <Compile Include="Repositories\CurrencyRepository.cs" />
     <Compile Include="Repositories\PartnerRepository.cs" />
     <Compile Include="Repositories\InstitutionRepository.cs" />
+    <Compile Include="Repositories\PositionRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Serialization\JsonContractResolvers\ContactContractResolver.cs" />
     <Compile Include="UnitOfWork.cs" />
@@ -94,6 +104,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709161318324_Initial.resx">
       <DependentUpon>201709161318324_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709231210116_AddPositionMigration.resx">
+      <DependentUpon>201709231210116_AddPositionMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709231243054_SlightCorrectionToForeignKeyMigration.resx">
+      <DependentUpon>201709231243054_SlightCorrectionToForeignKeyMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

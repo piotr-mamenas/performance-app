@@ -10,8 +10,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{18E9E3F3-7F32-46D2-8612-A4645AE8B142}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskServer", "TaskServer\TaskServer.csproj", "{B8A7E029-2EE5-4F2F-AD36-E397D4FCD02A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Service", "Tests.Service\Tests.Service.csproj", "{3239C36A-B75A-4C8E-9C4E-F6C5E84221AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.AutoMapper", "Infrastructure.AutoMapper\Infrastructure.AutoMapper.csproj", "{8FB3A646-466F-46AC-B1C5-5AF85991A139}"
@@ -40,10 +38,6 @@ Global
 		{18E9E3F3-7F32-46D2-8612-A4645AE8B142}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18E9E3F3-7F32-46D2-8612-A4645AE8B142}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18E9E3F3-7F32-46D2-8612-A4645AE8B142}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8A7E029-2EE5-4F2F-AD36-E397D4FCD02A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8A7E029-2EE5-4F2F-AD36-E397D4FCD02A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8A7E029-2EE5-4F2F-AD36-E397D4FCD02A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8A7E029-2EE5-4F2F-AD36-E397D4FCD02A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3239C36A-B75A-4C8E-9C4E-F6C5E84221AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3239C36A-B75A-4C8E-9C4E-F6C5E84221AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3239C36A-B75A-4C8E-9C4E-F6C5E84221AB}.Release|Any CPU.ActiveCfg = Release|Any CPU

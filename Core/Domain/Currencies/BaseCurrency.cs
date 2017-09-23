@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.Domain.Assets;
 using Core.Domain.Countries;
+using Core.Domain.Positions;
 
 namespace Core.Domain.Currencies
 {
@@ -15,5 +16,7 @@ namespace Core.Domain.Currencies
         public ICollection<Country> Countries { get; set; }
 
         public ICollection<Bond> Bonds { get; set; }
+
+        public ICollection<Position> Positions { get; set; }
     }
 }

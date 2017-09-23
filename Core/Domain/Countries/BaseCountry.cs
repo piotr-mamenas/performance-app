@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Core.Domain.Currencies;
+﻿using Core.Domain.Currencies;
 
 namespace Core.Domain.Countries
 {

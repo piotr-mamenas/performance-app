@@ -26,6 +26,11 @@ namespace Infrastructure.EntityConfigurations.AssetConfigurations
             Property(a => a.Isin)
                 .HasColumnName("AssetISIN");
 
+            HasMany(c => c.Positions)
+                .WithRequired(p => p.Asset)
+                .HasForeignKey(p => p.AssetId)
+                .WillCascadeOnDelete(false);
+
             Map<Bond>(p => p.Requires("AssetClass").HasValue((int)AssetClass.Bond));
             Map<Equity>(p => p.Requires("AssetClass").HasValue((int)AssetClass.Equity));
         }

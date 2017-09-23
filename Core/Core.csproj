@@ -99,6 +99,7 @@
     <Compile Include="Enums\Domain\CurrencyType.cs" />
     <Compile Include="Enums\Domain\InstitutionType.cs" />
     <Compile Include="Enums\Domain\PartnerType.cs" />
+    <Compile Include="Enums\Domain\PositionType.cs" />
     <Compile Include="Interfaces\IComplete.cs" />
     <Compile Include="Interfaces\IEntityRoot.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Interfaces\Repositories\ICurrencyRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPartnerRepository.cs" />
     <Compile Include="Interfaces\Repositories\IInstitutionRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPositionRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interfaces\Validation\IValidatable.cs" />

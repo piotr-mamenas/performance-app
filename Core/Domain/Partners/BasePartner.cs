@@ -11,7 +11,7 @@ namespace Core.Domain.Partners
 
         public string Number { get; set; }
 
-        public ICollection<Institution> Organizations { get; set; }
+        public ICollection<Institution> Institutions { get; set; }
 
         public ICollection<Contact> Contacts { get; set; }
 
