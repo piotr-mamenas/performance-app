@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Web.ViewModels
+namespace Web.Presentation.ViewModels
 {
     // Models used as parameters to AccountController actions.
 

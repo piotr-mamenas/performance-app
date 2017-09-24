@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using Core.Domain.Partners;
 
-namespace Web.ViewModels.Contact
+namespace Web.Presentation.ViewModels.Contact
 {
     public class ContactViewModel
     {
@@ -31,10 +30,6 @@ namespace Web.ViewModels.Contact
         [DataType(DataType.PhoneNumber)]
         [Phone(ErrorMessage = "Please enter valid phone no.")]
         public string PhoneNumber { get; set; }
-
-        [Required]
-        [DisplayName("Contact Partner")]
-        public virtual Partner Partner { get; set; }
 
         [DisplayName("Partner Id")]
         public int PartnerId { get; set; }

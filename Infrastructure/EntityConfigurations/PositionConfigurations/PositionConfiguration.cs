@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using System.Data.Entity.SqlServer;
 using Core.Domain.Positions;
 
 namespace Infrastructure.EntityConfigurations.PositionConfigurations

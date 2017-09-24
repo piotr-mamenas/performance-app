@@ -177,9 +177,6 @@
     <Compile Include="Extensions\HtmlHelperExtensions\ConfigurationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\AccountBindingModels.cs" />
-    <Compile Include="ViewModels\AccountViewModels.cs" />
-    <Compile Include="ViewModels\Contact\ContactViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\app\controllers\account\accountTableController.js" />
@@ -438,6 +435,7 @@
     <Content Include="Views\Task\List.cshtml" />
     <Content Include="Views\Portfolio\List.cshtml" />
     <Content Include="Views\Contact\Edit.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -464,6 +462,10 @@
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{b2ce8a5c-043c-4ea9-bcd3-402b9c1891de}</Project>
       <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web.Presentation\Web.Presentation.csproj">
+      <Project>{599e6cd3-9de4-4c0f-a6e2-6c4fc37874de}</Project>
+      <Name>Web.Presentation</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

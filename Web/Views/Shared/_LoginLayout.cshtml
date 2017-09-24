@@ -1,0 +1,34 @@
+﻿@using Web.Extensions.HtmlHelperExtensions
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/bundles/vendor/styles")
+    @Styles.Render("~/bundles/app/styles")
+    @Scripts.Render("~/bundles/vendor/modernizr")
+</head>
+<body>
+<div id="app-body" data-current-page="">
+    <div class="container-fluid">
+        <div class="row" style="height: 800px;">
+            @RenderBody()
+        </div>        
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/vendor/lib")
+@Scripts.Render("~/bundles/vendor/jqueryval")
+@Scripts.Render("~/bundles/app")
+@Scripts.Render("~/bundles/app/services")
+@Scripts.Render("~/bundles/app/controllers")
+
+<script>
+    $(document).ready(function() {
+        @RenderSection("scripts", false)
+    });
+</script>
+
+</body>
+</html>

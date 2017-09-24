@@ -1,12 +1,11 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
 using Core.Domain.Contacts;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
-using Web.ViewModels.Contact;
+using Web.Presentation.ViewModels.Contact;
 
 namespace Web.Controllers
 {
