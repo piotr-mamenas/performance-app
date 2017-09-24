@@ -81,14 +81,15 @@ namespace Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                contactVm.PartnerNumberSelection = GetPartnerSelection();
+                return View(contactVm);
             }
 
             _contacts.Add(contactVm.Map<Contact>());
 
             await _unitOfWork.CompleteAsync();
 
-            return View("List");
+            return RedirectToAction("List");
         }
 
         /// <summary>
@@ -126,7 +127,7 @@ namespace Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                return View(contactVm);
             }
 
             var contactInDb = await _contacts.GetAsync(id);
@@ -140,7 +141,7 @@ namespace Web.Controllers
 
             await _unitOfWork.CompleteAsync();
 
-            return View("List");
+            return RedirectToAction("List");
         }
 
         /// <summary>
