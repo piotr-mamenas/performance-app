@@ -25,7 +25,7 @@
             {
                 data: "Id",
                 render: function (data) {
-                    return "<a href=\"" + "edit/" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-pencil'></span></div>";
+                    return "<a href=\"" + "update/" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-pencil'></span></div>";
                 }
             },
             {

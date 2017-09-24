@@ -1,11 +1,14 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+using Core.Domain.Partners;
 
-namespace Web.Presentation.ViewModels.Contact
+namespace Web.Presentation.ViewModels.ContactViewModels
 {
     public class ContactViewModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [Required]
         [DisplayName("Contact Name")]
@@ -31,7 +34,9 @@ namespace Web.Presentation.ViewModels.Contact
         [Phone(ErrorMessage = "Please enter valid phone no.")]
         public string PhoneNumber { get; set; }
 
-        [DisplayName("Partner Id")]
-        public int PartnerId { get; set; }
+        [DisplayName("Related Partner")]
+        public int SelectedPartnerId { get; set; }
+        
+        public IEnumerable<SelectListItem> PartnerNumberSelection { get; set; }
     }
 }

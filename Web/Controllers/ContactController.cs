@@ -1,94 +1,162 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using Core.Domain.Contacts;
+using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
+using Infrastructure.AutoMapper;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
-using Web.Presentation.ViewModels.Contact;
+using Web.Presentation.ViewModels.ContactViewModels;
 
 namespace Web.Controllers
 {
     [RoutePrefix("contacts")]
     public class ContactController : BaseController
     {
-        private readonly IContactRepository<Contact> _repository;
+        private readonly IContactRepository<Contact> _contacts;
+        private readonly IPartnerRepository<Partner> _partners;
         private readonly IComplete _unitOfWork;
 
+        /// <summary>
+        /// Default constructor with injected components
+        /// </summary>
+        /// <param name="unitOfWork"></param>
+        /// <param name="logger"></param>
         public ContactController(IUnitOfWork unitOfWork, ILogger logger)
             : base(logger)
         {
             _unitOfWork = (IComplete)unitOfWork;
-            _repository = unitOfWork.Contacts;
+            _contacts = unitOfWork.Contacts;
+            _partners = unitOfWork.Partners;
         }
 
-
+        /// <summary>
+        /// Index present for compatibility, it will automatically redirect to List
+        /// </summary>
+        /// <returns></returns>
         [Route("")]
         public ActionResult Index()
         {
             return RedirectToAction("List");
         }
 
+        /// <summary>
+        /// Method listing the contacts in a datatable, load is handled with ajax hence no return
+        /// </summary>
+        /// <returns></returns>
         [Route("list")]
         public ActionResult List()
         {
             return View();
         }
 
+        /// <summary>
+        /// Method will return a clean create contact view
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        [Route("edit/{id}")]
-        public async Task<ActionResult> Edit(int id)
+        [Route("create")]
+        public ActionResult CreateContact()
         {
-            var contact = await _repository.GetAsync(id);
-            
-            return View(contact);
+            var viewModel = new ContactViewModel
+            {
+                PartnerNumberSelection = GetPartnerSelection()
+            };
+
+            return View(viewModel);
         }
 
+        /// <summary>
+        /// Method will create a new contact with the signature of contactVm
+        /// </summary>
+        /// <param name="contactVm">The contact to create</param>
+        /// <returns></returns>
         [HttpPost]
-        [Route("edit")]
-        public ActionResult Edit(ContactViewModel contactViewModel)
+        [Route("create")]
+        public async Task<ActionResult> CreateContact(ContactViewModel contactVm)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            _contacts.Add(contactVm.Map<Contact>());
+
+            await _unitOfWork.CompleteAsync();
+
+            return View("List");
         }
 
+        /// <summary>
+        /// Method will display the contact which needs to be updated
+        /// </summary>
+        /// <param name="id">Id of the contact to be updated</param>
+        /// <returns></returns>
         [HttpGet]
-        [Route("new")]
-        public ActionResult New()
+        [Route("update/{id}")]
+        public async Task<ActionResult> UpdateContact(int id)
         {
-            return View();
-        }
-
-        [HttpPost]
-        [Route("new")]
-        public ActionResult New(ContactViewModel contactViewModel)
-        {
-            return RedirectToAction("List");
-        }
-
-        /*
-        [Route("edit/{id}")]
-        public async Task<ActionResult> Edit(int id)
-        {
-            var contactInDb = await _repository.GetAsync(id);
+            var contactInDb = await _contacts.GetAsync(id);
 
             if (contactInDb == null)
             {
-                return RedirectToAction("List");
+                return View("List");
             }
 
-            // Temporary solution before I move automapper to a separate assembly, atm adjusting mapper would cause circular
-            // dependency infra <=> web
-            var temporaryContactDetailViewModel = new ContactViewModel
-            {
-                Email = contactInDb.Email,
-                FirstName = contactInDb.FirstName,
-                LastName = contactInDb.LastName,
-                Name = contactInDb.Name,
-                PhoneNumber = contactInDb.PhoneNumber
-            };
+            var contactVm = contactInDb.Map<ContactViewModel>();
 
-            return View();
+            contactVm.PartnerNumberSelection = GetPartnerSelection();
+
+            return View(contactVm);
         }
-        */
+
+        /// <summary>
+        /// Method will update a previously selected contact
+        /// </summary>
+        /// <param name="contactVm">Contact to be updated</param>
+        /// <param name="id">Id of the updated contact</param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("update/{id}")]
+        public async Task<ActionResult> UpdateContact(int id, ContactViewModel contactVm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var contactInDb = await _contacts.GetAsync(id);
+
+            if (contactInDb == null)
+            {
+                return View();
+            }
+
+            _contacts.Add(contactVm.Map<Contact>());
+
+            await _unitOfWork.CompleteAsync();
+
+            return View("List");
+        }
+
+        /// <summary>
+        /// Returns a list of partners available to be linked to the contact
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerable<SelectListItem> GetPartnerSelection()
+        {
+            var partners = _partners.GetAll()
+                .Select(p => new SelectListItem
+                {
+                    Value = p.Id.ToString(),
+                    Text = p.Number
+                });
+
+            return new SelectList(partners, "Value", "Text");
+        }
     }
 }

@@ -3,7 +3,7 @@ using Moq;
 using NUnit.Framework;
 using Service.Controllers;
 
-namespace Tests.Service.Controllers
+namespace Service.Tests.Controllers
 {
     [TestFixture]
     public class ContactsControllerTests

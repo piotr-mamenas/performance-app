@@ -428,14 +428,15 @@
     <Content Include="Views\Shared\Selection.cshtml" />
     <Content Include="Views\Contact\List.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
-    <Content Include="Views\Contact\New.cshtml" />
+    <Content Include="Views\Unused\Wizard.cshtml" />
     <Content Include="Views\Account\List.cshtml" />
     <Content Include="Views\Partner\List.cshtml" />
     <Content Include="Views\Report\List.cshtml" />
     <Content Include="Views\Task\List.cshtml" />
     <Content Include="Views\Portfolio\List.cshtml" />
-    <Content Include="Views\Contact\Edit.cshtml" />
+    <Content Include="Views\Contact\UpdateContact.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Contact\CreateContact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

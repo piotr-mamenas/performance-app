@@ -1,8 +1,7 @@
-﻿using System.Runtime.Remoting.Channels;
-using AutoMapper;
+﻿using AutoMapper;
 using Core.Domain.Contacts;
 using Service.Dtos;
-using Web.Presentation.ViewModels.Contact;
+using Web.Presentation.ViewModels.ContactViewModels;
 
 namespace Infrastructure.AutoMapper.Profiles
 {
@@ -25,7 +24,7 @@ namespace Infrastructure.AutoMapper.Profiles
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.LastName))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
                 .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.PhoneNumber))
-                .ForMember(dest => dest.PartnerId, opt => opt.MapFrom(src => src.PartnerId))
+                .ForMember(dest => dest.SelectedPartnerId, opt => opt.MapFrom(src => src.PartnerId))
                 .ReverseMap();
         }
     }
