@@ -3,9 +3,9 @@ using Core.Domain.Identity;
 
 namespace Infrastructure.EntityConfigurations.IdentityConfigurations
 {
-    public class ApplicationUserClaimConfiguration : EntityTypeConfiguration<ApplicationUserClaim>
+    public class UserClaimConfiguration : EntityTypeConfiguration<UserClaim>
     {
-        public ApplicationUserClaimConfiguration()
+        public UserClaimConfiguration()
         {
             Map(c =>
             {

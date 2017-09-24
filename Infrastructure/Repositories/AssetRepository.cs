@@ -5,11 +5,9 @@ namespace Infrastructure.Repositories
 {
     public class AssetRepository<TSpecificEntity> : Repository<TSpecificEntity>, IAssetRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot, new()
     {
-        public AssetRepository(PerformanceContext context)
+        public AssetRepository(ApplicationDbContext context)
             : base(context)
         {
         }
-
-        public PerformanceContext PerformanceContext => Context as PerformanceContext;
     }
 }

@@ -179,7 +179,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountBindingModels.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
-    <Compile Include="ViewModels\Contact\NewContactViewModel.cs" />
+    <Compile Include="ViewModels\Contact\ContactViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\app\controllers\account\accountTableController.js" />
@@ -437,12 +437,14 @@
     <Content Include="Views\Report\List.cshtml" />
     <Content Include="Views\Task\List.cshtml" />
     <Content Include="Views\Portfolio\List.cshtml" />
+    <Content Include="Views\Contact\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\app\controllers\portfolio\" />
     <Folder Include="Content\app\controllers\report\" />
     <Folder Include="Content\app\controllers\task\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

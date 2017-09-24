@@ -2,8 +2,8 @@
 
 namespace Core.Domain.Identity
 {
-    public class ApplicationUserClaim : IdentityUserClaim
+    public class UserRole : IdentityUserRole
     {
-
+        
     }
 }

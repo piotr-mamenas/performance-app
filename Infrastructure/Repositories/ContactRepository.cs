@@ -5,12 +5,10 @@ namespace Infrastructure.Repositories
 {
     public class ContactRepository<TSpecificEntity> : Repository<TSpecificEntity>, IContactRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot, new()
     {
-        public ContactRepository(PerformanceContext context)
+        public ContactRepository(ApplicationDbContext context)
             : base(context)
         {
             
         }
-
-        public PerformanceContext PerformanceContext => Context as PerformanceContext;
     }
 }

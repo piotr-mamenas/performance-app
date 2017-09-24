@@ -2,7 +2,8 @@
 
 namespace Core.Domain.Identity
 {
-    public class ApplicationUserLogin : IdentityUserLogin
+    public class Role : IdentityRole<string, UserRole>
     {
+
     }
 }

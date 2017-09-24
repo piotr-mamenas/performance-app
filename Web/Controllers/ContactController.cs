@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using Core.Domain.Contacts;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
@@ -36,15 +37,17 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        [Route("edit")]
-        public ActionResult Edit()
+        [Route("edit/{id}")]
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            var contact = await _repository.GetAsync(id);
+            
+            return View(contact);
         }
 
         [HttpPost]
         [Route("edit")]
-        public ActionResult Edit(NewContactViewModel contactViewModel)
+        public ActionResult Edit(ContactViewModel contactViewModel)
         {
             return View();
         }
@@ -58,7 +61,7 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("new")]
-        public ActionResult New(NewContactViewModel contactViewModel)
+        public ActionResult New(ContactViewModel contactViewModel)
         {
             return RedirectToAction("List");
         }
@@ -76,7 +79,7 @@ namespace Web.Controllers
 
             // Temporary solution before I move automapper to a separate assembly, atm adjusting mapper would cause circular
             // dependency infra <=> web
-            var temporaryContactDetailViewModel = new NewContactViewModel
+            var temporaryContactDetailViewModel = new ContactViewModel
             {
                 Email = contactInDb.Email,
                 FirstName = contactInDb.FirstName,

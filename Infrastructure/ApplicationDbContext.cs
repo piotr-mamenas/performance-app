@@ -18,10 +18,11 @@ using Infrastructure.EntityConfigurations.IdentityConfigurations;
 using Infrastructure.EntityConfigurations.InstitutionConfigurations;
 using Infrastructure.EntityConfigurations.PartnerConfigurations;
 using Infrastructure.EntityConfigurations.PositionConfigurations;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Infrastructure
 {
-    public class PerformanceContext : ApplicationDbContext
+    public class ApplicationDbContext : IdentityDbContext<User, Role, string, UserLogin, UserRole, UserClaim>
     {
         public DbSet<Institution> Institutions { get; set; }
         public DbSet<Asset> Assets { get; set; }
@@ -32,7 +33,7 @@ namespace Infrastructure
         public DbSet<Country> Countries { get; set; }
         public DbSet<Position> Positions { get; set; }
 
-        public PerformanceContext()
+        public ApplicationDbContext()
             : base("PerformanceApp")
         {
             Configuration.ProxyCreationEnabled = false;
@@ -61,13 +62,16 @@ namespace Infrastructure
 
             modelBuilder.Configurations.Add(new PositionConfiguration());
 
-            modelBuilder.Configurations.Add(new ApplicationRoleConfiguration());
-            modelBuilder.Configurations.Add(new ApplicationUserClaimConfiguration());
-            modelBuilder.Configurations.Add(new ApplicationUserConfiguration());
-            modelBuilder.Configurations.Add(new ApplicationUserLoginConfiguration());
-            modelBuilder.Configurations.Add(new ApplicationUserRoleConfiguration());
+            modelBuilder.Configurations.Add(new RoleConfiguration());
+            modelBuilder.Configurations.Add(new UserClaimConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new UserLoginConfiguration());
+            modelBuilder.Configurations.Add(new UserRoleConfiguration());
         }
 
-
+        public static ApplicationDbContext Create()
+        {
+            return new ApplicationDbContext();
+        }
     }
 }

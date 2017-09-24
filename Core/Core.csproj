@@ -76,11 +76,11 @@
     <Compile Include="Domain\Countries\Country.cs" />
     <Compile Include="Domain\Currencies\BaseCurrency.cs" />
     <Compile Include="Domain\Currencies\Currency.cs" />
-    <Compile Include="Domain\Identity\ApplicationRole.cs" />
-    <Compile Include="Domain\Identity\ApplicationUserClaim.cs" />
-    <Compile Include="Domain\Identity\ApplicationUserLogin.cs" />
-    <Compile Include="Domain\Identity\ApplicationUserRole.cs" />
-    <Compile Include="Domain\Identity\IdentityModels.cs" />
+    <Compile Include="Domain\Identity\Role.cs" />
+    <Compile Include="Domain\Identity\UserClaim.cs" />
+    <Compile Include="Domain\Identity\UserLogin.cs" />
+    <Compile Include="Domain\Identity\UserRole.cs" />
+    <Compile Include="Domain\Identity\User.cs" />
     <Compile Include="Domain\Institutions\Bank.cs" />
     <Compile Include="Domain\Institutions\BaseInstitution.cs" />
     <Compile Include="Domain\Institutions\Institution.cs" />

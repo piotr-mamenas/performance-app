@@ -15,9 +15,9 @@ namespace Infrastructure
 {
     public class UnitOfWork : IUnitOfWork, IComplete
     {
-        private readonly PerformanceContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public UnitOfWork(PerformanceContext context)
+        public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
             Accounts = new AccountRepository<Account>(_context);

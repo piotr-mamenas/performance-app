@@ -5,8 +5,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Infrastructure
 {
-    public class ApplicationUserStore : UserStore<ApplicationUser, ApplicationRole, string, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>,
-        IUserStore<ApplicationUser>
+    public class ApplicationUserStore : UserStore<User, Role, string, UserLogin, UserRole, UserClaim>,
+        IUserStore<User>
     {
         public ApplicationUserStore(DbContext context)
             : base(context) { }

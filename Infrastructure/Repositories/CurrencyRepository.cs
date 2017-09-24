@@ -5,11 +5,9 @@ namespace Infrastructure.Repositories
 {
     public class CurrencyRepository<TSpecificEntity> : Repository<TSpecificEntity>, ICurrencyRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot, new()
     {
-        public CurrencyRepository(PerformanceContext context)
+        public CurrencyRepository(ApplicationDbContext context)
             : base(context)
         {
         }
-
-        public PerformanceContext PerformanceContext => Context as PerformanceContext;
     }
 }

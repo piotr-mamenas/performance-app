@@ -11,14 +11,14 @@ using Core.Domain.Partners;
 
 namespace Infrastructure.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<PerformanceContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(PerformanceContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
             SeedAccount(context.Accounts);
             SeedContact(context.Contacts);

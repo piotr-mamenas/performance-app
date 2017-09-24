@@ -4,7 +4,7 @@ using Core.Domain.Partners;
 
 namespace Web.ViewModels.Contact
 {
-    public class NewContactViewModel
+    public class ContactViewModel
     {
         public int Id { get; set; }
 

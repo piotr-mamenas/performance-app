@@ -3,9 +3,9 @@ using Core.Domain.Identity;
 
 namespace Infrastructure.EntityConfigurations.IdentityConfigurations
 {
-    public class ApplicationUserLoginConfiguration : EntityTypeConfiguration<ApplicationUserLogin>
+    public class UserLoginConfiguration : EntityTypeConfiguration<UserLogin>
     {
-        public ApplicationUserLoginConfiguration()
+        public UserLoginConfiguration()
         {
             Map(c =>
             {

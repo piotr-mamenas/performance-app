@@ -78,14 +78,14 @@
       <DependentUpon>201709231243054_SlightCorrectionToForeignKeyMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="PerformanceContext.cs" />
+    <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="ApplicationUserStore.cs" />
     <Compile Include="EntityConfigurations\ContactConfigurations\ContactConfiguration.cs" />
-    <Compile Include="EntityConfigurations\IdentityConfigurations\ApplicationRoleConfiguration.cs" />
-    <Compile Include="EntityConfigurations\IdentityConfigurations\ApplicationUserClaimConfiguration.cs" />
-    <Compile Include="EntityConfigurations\IdentityConfigurations\ApplicationUserConfiguration.cs" />
-    <Compile Include="EntityConfigurations\IdentityConfigurations\ApplicationUserLoginConfiguration.cs" />
-    <Compile Include="EntityConfigurations\IdentityConfigurations\ApplicationUserRoleConfiguration.cs" />
+    <Compile Include="EntityConfigurations\IdentityConfigurations\RoleConfiguration.cs" />
+    <Compile Include="EntityConfigurations\IdentityConfigurations\UserClaimConfiguration.cs" />
+    <Compile Include="EntityConfigurations\IdentityConfigurations\UserConfiguration.cs" />
+    <Compile Include="EntityConfigurations\IdentityConfigurations\UserLoginConfiguration.cs" />
+    <Compile Include="EntityConfigurations\IdentityConfigurations\UserRoleConfiguration.cs" />
     <Compile Include="EntityConfigurations\PartnerConfigurations\PartnerConfiguration.cs" />
     <Compile Include="EntityConfigurations\InstitutionConfigurations\InstitutionConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
