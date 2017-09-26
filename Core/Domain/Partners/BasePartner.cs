@@ -16,5 +16,12 @@ namespace Core.Domain.Partners
         public ICollection<Contact> Contacts { get; set; }
 
         public ICollection<Account> Accounts { get; set; }
+
+        protected BasePartner()
+        {
+            Institutions = null;
+            Contacts = null;
+            Accounts = null;
+        }
     }
 }

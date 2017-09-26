@@ -8,5 +8,10 @@ namespace Core.Domain.Institutions
         public string Name { get; set; }
 
         public ICollection<Partner> Partners { get; set; }
+
+        protected BaseInstitution()
+        {
+            Partners = null;
+        }
     }
 }

@@ -10,5 +10,10 @@ namespace Core.Domain.Assets
         public string Isin { get; set; }
 
         public ICollection<Position> Positions { get; set; }
+
+        protected BaseAsset()
+        {
+            Positions = null;
+        }
     }
 }

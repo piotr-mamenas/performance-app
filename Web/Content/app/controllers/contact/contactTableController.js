@@ -1,4 +1,5 @@
 ﻿var contactTableController = function (service, routing) {
+    var button;
 
     var initializeDatatable = function (result) {
         $("#contactTable").DataTable({
@@ -31,7 +32,7 @@
             {
                 data: "Id",
                 render: function(data) {
-                    return "<a href=\"" + routing.getApiUri("Contact") + "delete/" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-trash'></span></div>";
+                    return "<a href=\"#\" data-contact-id=\"" + data + "\" class=\"btn btn-default btn-block js-delete-contact\"><span class='fa fa-trash'></span></div>";
                 }
             }
         ],
@@ -41,8 +42,16 @@
         });
     }
 
+    var deleteSelectedRow = function (e) {
+        button = $(e.target);
+
+        var contactId = button.attr("data-contact-id");
+
+        console.log("hello " + contactId);
+    }
     var init = function () {
         service.getContacts(initializeDatatable, initializeDatatable);
+        $(".js-delete-contact").on("click", deleteSelectedRow);
     }
 
     return {

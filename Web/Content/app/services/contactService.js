@@ -10,7 +10,16 @@
           .fail(fail);
     };
 
+    var deleteContact = function(contactId, done, fail) {
+        $.ajax({
+                url: routing.getApiUri("Contact") + "delete/" + contactId,
+                method: "DELETE"
+            }).done(done)
+              .fail(fail);
+    }
+
     return {
-        getContacts: getContacts
+        getContacts: getContacts,
+        deleteContact: deleteContact
     }
 }(routing);

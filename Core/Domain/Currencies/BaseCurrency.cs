@@ -18,5 +18,12 @@ namespace Core.Domain.Currencies
         public ICollection<Bond> Bonds { get; set; }
 
         public ICollection<Position> Positions { get; set; }
+
+        protected BaseCurrency()
+        {
+            Countries = null;
+            Bonds = null;
+            Positions = null;
+        }
     }
 }
