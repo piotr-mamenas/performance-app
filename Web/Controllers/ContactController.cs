@@ -137,7 +137,9 @@ namespace Web.Controllers
                 return View();
             }
 
-            _contacts.Add(contactVm.Map<Contact>());
+            contactInDb = contactVm.Map<Contact>();
+
+            _contacts.Add(contactInDb);
 
             await _unitOfWork.CompleteAsync();
 

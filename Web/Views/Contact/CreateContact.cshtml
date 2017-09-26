@@ -14,7 +14,6 @@
         @using (Html.BeginForm("CreateContact", "Contact", FormMethod.Post, new { @class = "form-horizontal col-xs-6", @style = "height: 700px; margin-top:20px; padding-left: 30px; padding-right: 30px;" }))
         {
             <fieldset>
-                @Html.HiddenFor(c => Model.Id)
                 <div class="form-group">
                     @Html.LabelFor(c => Model.Name)
                     @Html.TextBoxFor(c => Model.Name, new { @class = "form-control" })
