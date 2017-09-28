@@ -1,8 +1,9 @@
-﻿var contactTableController = function (service, routing) {
+﻿var contactTableController = function (service) {
     var button;
+    var table;
 
     var initializeDatatable = function (result) {
-        $("#contactTable").DataTable({
+        table = $("#contactTable").DataTable({
         data: result,
         columns: [
             {
@@ -26,13 +27,13 @@
             {
                 data: "Id",
                 render: function (data) {
-                    return "<a href=\"" + "update/" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-pencil'></span></div>";
+                    return "<a href=\"" + "update/" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-pencil'></span>";
                 }
             },
             {
                 data: "Id",
                 render: function(data) {
-                    return "<a href=\"#\" data-contact-id=\"" + data + "\" class=\"btn btn-default btn-block js-delete-contact\"><span class='fa fa-trash'></span></div>";
+                    return "<button href=\"#\" data-contact-id=\"" + data + "\" class=\"btn btn-default btn-block contact-delete-contact\"><span class='fa fa-trash'></span></button>";
                 }
             }
         ],
@@ -47,15 +48,28 @@
 
         var contactId = button.attr("data-contact-id");
 
-        console.log("hello " + contactId);
-    }
+        service.deleteContact(contactId,
+            function() {
+                table.row(button.parents("tr"))
+                    .remove()
+                    .draw();
+            },
+            function() {
+                alert("Something went wrong");
+            });
+    };
+
     var init = function () {
-        service.getContacts(initializeDatatable, initializeDatatable);
-        $(".js-delete-contact").on("click", deleteSelectedRow);
+
+        var loadDatatable = function (result) {
+            initializeDatatable(result);
+            $(".contact-delete-contact").on("click", deleteSelectedRow);
+        }
+        service.getContacts(loadDatatable, loadDatatable);
     }
 
     return {
         init: init
     };
 
-}(contactService, routing)
+}(contactService)

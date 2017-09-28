@@ -10,7 +10,9 @@
           .fail(fail);
     };
 
-    var deleteContact = function(contactId, done, fail) {
+    var deleteContact = function (contactId, done, fail) {
+        this.contactId = contactId;
+
         $.ajax({
                 url: routing.getApiUri("Contact") + "delete/" + contactId,
                 method: "DELETE"
