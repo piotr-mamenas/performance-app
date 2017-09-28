@@ -14,8 +14,10 @@
         this.contactId = contactId;
 
         $.ajax({
-                url: routing.getApiUri("Contact") + "delete/" + contactId,
-                method: "DELETE"
+            url: routing.getApiUri("Contact") + contactId + "/delete",
+            type: "POST",
+            method: "DELETE",
+            contentType: "text/plain"
             }).done(done)
               .fail(fail);
     }

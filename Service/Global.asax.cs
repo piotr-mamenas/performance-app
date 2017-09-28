@@ -15,6 +15,10 @@ namespace Service
 
         protected void Application_BeginRequest()
         {
+            if (Request.HttpMethod == "OPTIONS")
+            {
+                Response.Flush();
+            }
         }
     }
 }

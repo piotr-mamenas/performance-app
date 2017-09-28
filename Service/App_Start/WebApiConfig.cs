@@ -13,7 +13,11 @@ namespace Service
         public static void Register(HttpConfiguration config)
         {
             config.MapHttpAttributeRoutes();
-
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{id}/{controller}",
+                defaults: new {id = RouteParameter.Optional}
+            );
             config.Formatters.Add(new BrowserJsonFormatter());
         }
     }

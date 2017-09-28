@@ -35,6 +35,7 @@
 <script>
     $(document).ready(function() {
         app.init();
+        $.support.cors = true;
         routing.init('@Html.GetWebServerUri()');
         selectionController.init();
 
