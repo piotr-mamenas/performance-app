@@ -46,9 +46,7 @@
     var deleteSelectedRow = function (e) {
         button = $(e.target);
 
-        var contactId = button.attr("data-contact-id");
-
-        service.deleteContact(contactId,
+        service.deleteContact(button.attr("data-contact-id"),
             function() {
                 table.row(button.parents("tr"))
                     .remove()
