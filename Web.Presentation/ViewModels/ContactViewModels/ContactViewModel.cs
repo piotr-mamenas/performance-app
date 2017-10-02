@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
-using Core.Domain.Partners;
 
 namespace Web.Presentation.ViewModels.ContactViewModels
 {
@@ -31,7 +30,7 @@ namespace Web.Presentation.ViewModels.ContactViewModels
         [Required]
         [DisplayName("Phone Number")]
         [DataType(DataType.PhoneNumber)]
-        [Phone(ErrorMessage = "Please enter valid phone no.")]
+        [RegularExpression(@"\+?[0-9]{10}", ErrorMessage = "Please provide a valid phone number")]
         public string PhoneNumber { get; set; }
 
         [DisplayName("Related Partner")]
