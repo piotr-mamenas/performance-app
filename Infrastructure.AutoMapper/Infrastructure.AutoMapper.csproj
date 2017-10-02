@@ -40,6 +40,7 @@
     <Compile Include="MappingConfiguration.cs" />
     <Compile Include="ObjectExtensions.cs" />
     <Compile Include="Profiles\AccountProfile.cs" />
+    <Compile Include="Profiles\AssetProfile.cs" />
     <Compile Include="Profiles\ContactProfile.cs" />
     <Compile Include="Profiles\CountryProfile.cs" />
     <Compile Include="Profiles\CurrencyProfile.cs" />

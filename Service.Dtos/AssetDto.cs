@@ -19,11 +19,7 @@ namespace Service.Dtos
         [DisplayName("Maturity Date")]
         public DateTime MaturityDate { get; set; }
 
-        public BondCouponDto Coupon { get; set; }
-
         [DisplayName("Currency")]
-        public CurrencyDto Currency { get; set; }
-
         public int CurrencyId { get; set; }
 
         [DisplayName("Face Value")]

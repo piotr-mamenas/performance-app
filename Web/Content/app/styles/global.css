@@ -13,3 +13,9 @@
 .collapsing {
     display:none;
 }
+
+.modal-open .modal {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
