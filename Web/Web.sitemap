@@ -11,7 +11,7 @@
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Accounts" controller="Account" action="Index" navId="AccountNav" cssClass="fa fa-suitcase">
       <siteMapNode navigation="subNav" display="List" controller="Account" action="List" cssClass="fa fa-list"/>
-      <siteMapNode navigation="subNav" display="New Account" controller="Account" action="Index" cssClass="fa fa-suitcase"/>
+      <siteMapNode navigation="subNav" display="Open Account" controller="Account" action="OpenAccount" cssClass="fa fa-suitcase"/>
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Portfolios" controller="Portfolio" action="Index" navId="PortfolioNav" cssClass="fa fa-book">
       <siteMapNode navigation="subNav" display="List" controller="Portfolio" action="List" cssClass="fa fa-list"/>

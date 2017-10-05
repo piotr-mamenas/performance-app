@@ -436,6 +436,8 @@
     <Content Include="Views\Contact\UpdateContact.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Contact\CreateContact.cshtml" />
+    <Content Include="Views\Account\OpenAccount.cshtml" />
+    <Content Include="Views\Account\UpdateAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
