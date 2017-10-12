@@ -11,7 +11,7 @@
     </div>
     <div class="panel-body">
         @Html.AntiForgeryToken()
-        @using (Html.BeginForm("UpdateContact", "Contact", FormMethod.Post, new { @class = "form-horizontal col-xs-6", @style = "height: 700px; margin-top:20px; padding-left: 30px; padding-right: 30px;" }))
+        @using (Html.BeginForm("Update", "Contact", FormMethod.Post, new { @class = "form-horizontal col-xs-6", @style = "height: 700px; margin-top:20px; padding-left: 30px; padding-right: 30px;" }))
         {
             <fieldset>
                 @Html.HiddenFor(c => Model.Id)

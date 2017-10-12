@@ -7,11 +7,11 @@
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Contacts" controller="Contact" action="Index" navId="ContactNav" cssClass="fa fa-address-card-o">
       <siteMapNode navigation="subNav" display="List" controller="Contact" action="List" cssClass="fa fa-list"/>
-      <siteMapNode navigation="subNav" display="New Contact" controller="Contact" action="CreateContact" cssClass="fa fa-address-card-o"/>
+      <siteMapNode navigation="subNav" display="New Contact" controller="Contact" action="Create" cssClass="fa fa-address-card-o"/>
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Accounts" controller="Account" action="Index" navId="AccountNav" cssClass="fa fa-suitcase">
       <siteMapNode navigation="subNav" display="List" controller="Account" action="List" cssClass="fa fa-list"/>
-      <siteMapNode navigation="subNav" display="Open Account" controller="Account" action="OpenAccount" cssClass="fa fa-suitcase"/>
+      <siteMapNode navigation="subNav" display="Open Account" controller="Account" action="Open" cssClass="fa fa-suitcase"/>
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Portfolios" controller="Portfolio" action="Index" navId="PortfolioNav" cssClass="fa fa-book">
       <siteMapNode navigation="subNav" display="List" controller="Portfolio" action="List" cssClass="fa fa-list"/>

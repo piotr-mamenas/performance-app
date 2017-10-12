@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -7,7 +6,6 @@ using Core.Domain.Accounts;
 using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
-using Infrastructure.AutoMapper;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
 using Web.Presentation.ViewModels.ContactViewModels;
@@ -42,7 +40,7 @@ namespace Web.Controllers
         }
 
         [Route("create")]
-        public ActionResult OpenAccount()
+        public ActionResult Open()
         {
             var partnerNumberSelection = new AccountViewModel
             {
@@ -53,7 +51,7 @@ namespace Web.Controllers
         }
 
         [HttpPost, Route("create")]
-        public async Task<ActionResult> OpenAccount(AccountViewModel accountVm)
+        public async Task<ActionResult> Open(AccountViewModel accountVm)
         {
             if (!ModelState.IsValid)
             {

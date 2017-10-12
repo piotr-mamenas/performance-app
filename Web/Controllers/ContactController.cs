@@ -60,7 +60,7 @@ namespace Web.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("create")]
-        public ActionResult CreateContact()
+        public ActionResult Create()
         {
             var viewModel = new ContactViewModel
             {
@@ -77,7 +77,7 @@ namespace Web.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("create")]
-        public async Task<ActionResult> CreateContact(ContactViewModel contactVm)
+        public async Task<ActionResult> Create(ContactViewModel contactVm)
         {
             if (!ModelState.IsValid)
             {
@@ -99,7 +99,7 @@ namespace Web.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("update/{id}")]
-        public async Task<ActionResult> UpdateContact(int id)
+        public async Task<ActionResult> Update(int id)
         {
             var contactInDb = await _contacts.GetAsync(id);
 
@@ -123,7 +123,7 @@ namespace Web.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("update/{id}")]
-        public async Task<ActionResult> UpdateContact(int id, ContactViewModel contactVm)
+        public async Task<ActionResult> Update(int id, ContactViewModel contactVm)
         {
             if (!ModelState.IsValid)
             {
