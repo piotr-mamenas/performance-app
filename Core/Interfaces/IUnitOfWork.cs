@@ -6,6 +6,7 @@ using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
 using Core.Domain.Institutions;
+using Core.Domain.Message;
 using Core.Domain.Partners;
 using Core.Domain.Positions;
 using Core.Interfaces.Repositories;
@@ -25,6 +26,7 @@ namespace Core.Interfaces
         ICurrencyRepository<Currency> Currencies { get; }
         ICountryRepository<Country> Countries { get; }
         IPositionRepository<Position> Positions { get; }
+        IMessageRepository<Message> Messages { get; }
         Task<int> CompleteAsync();
     }
 }

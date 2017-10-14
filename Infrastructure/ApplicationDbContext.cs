@@ -6,6 +6,7 @@ using Core.Domain.Countries;
 using Core.Domain.Currencies;
 using Core.Domain.Identity;
 using Core.Domain.Institutions;
+using Core.Domain.Message;
 using Core.Domain.Partners;
 using Core.Domain.Positions;
 using Infrastructure.ComplexTypesConfigurations;
@@ -16,6 +17,7 @@ using Infrastructure.EntityConfigurations.CountryConfigurations;
 using Infrastructure.EntityConfigurations.CurrencyConfigurations;
 using Infrastructure.EntityConfigurations.IdentityConfigurations;
 using Infrastructure.EntityConfigurations.InstitutionConfigurations;
+using Infrastructure.EntityConfigurations.MessageConfigurations;
 using Infrastructure.EntityConfigurations.PartnerConfigurations;
 using Infrastructure.EntityConfigurations.PositionConfigurations;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -32,6 +34,7 @@ namespace Infrastructure
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<Position> Positions { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         public ApplicationDbContext()
             : base("PerformanceApp")
@@ -67,6 +70,8 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new UserLoginConfiguration());
             modelBuilder.Configurations.Add(new UserRoleConfiguration());
+
+            modelBuilder.Configurations.Add(new MessageConfiguration());
         }
 
         public static ApplicationDbContext Create()

@@ -85,6 +85,7 @@
     <Compile Include="Domain\Institutions\BaseInstitution.cs" />
     <Compile Include="Domain\Institutions\Institution.cs" />
     <Compile Include="Domain\Message\BaseMessage.cs" />
+    <Compile Include="Domain\Message\Message.cs" />
     <Compile Include="Domain\Partners\AssetManager.cs" />
     <Compile Include="Domain\Partners\BasePartner.cs" />
     <Compile Include="Domain\Partners\Partner.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Interfaces\Repositories\IContactRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICountryRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICurrencyRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMessageRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPartnerRepository.cs" />
     <Compile Include="Interfaces\Repositories\IInstitutionRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPositionRepository.cs" />
