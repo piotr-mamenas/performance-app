@@ -1,17 +1,16 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    ViewBag.Title = "Error - Unauthorized";
+    Layout = "~/Views/Shared/_ErrorLayout.cshtml";
 }
 
-<!DOCTYPE html>
+<div class="row">
+    <i class="fa fa-exclamation-triangle"></i>
+</div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Unauthorized</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>
+<div class="row">
+    Not Authorized! <br />
+
+    I don't you should be here.
+</div>
+
+

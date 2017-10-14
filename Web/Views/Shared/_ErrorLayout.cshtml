@@ -1,0 +1,45 @@
+﻿@using Web.Extensions.HtmlHelperExtensions
+@using Web.Extensions.SitemapExtensions
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/bundles/vendor/styles")
+    @Styles.Render("~/bundles/app/styles")
+    @Scripts.Render("~/bundles/vendor/modernizr")
+</head>
+<body>
+@Html.GenerateRibbon()
+<div id="app-body" data-current-page="">
+    <div class="container-fluid">
+        <div class="row" style="height: 800px;">
+            <div class="col-md-10 alert alert-danger" style="text-align: center">
+                @RenderBody()
+            </div>
+        </div>        
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/vendor/lib")
+@Scripts.Render("~/bundles/vendor/jqueryval")
+@Scripts.Render("~/bundles/app")
+@Scripts.Render("~/bundles/app/services")
+@Scripts.Render("~/bundles/app/controllers")
+
+<script>
+    $(document).ready(function() {
+        app.init();
+        $.support.cors = true;
+        routing.init('@Html.GetWebServerUri()');
+        selectionController.init();
+
+        routing.setCurrentPage("#PartnerNav");
+
+        navbarController.init();
+    });
+</script>
+
+</body>
+</html>
