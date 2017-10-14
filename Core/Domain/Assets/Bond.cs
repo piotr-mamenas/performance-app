@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Domain.Currencies;
-using Core.Validation;
-using Core.Validation.Validators;
 
 namespace Core.Domain.Assets
 {
@@ -20,23 +18,18 @@ namespace Core.Domain.Assets
 
         public decimal FaceValue { get; set; }
 
-        public IEnumerable<ValidationRule> SetCoupon(decimal amount, decimal rate)
+        public void SetCoupon(decimal amount, decimal rate)
         {
-            var newCoupon = new BondCoupon
+            if (rate < 0 || rate > 1)
+            {
+                
+            }
+
+            Coupon = new BondCoupon
             {
                 Rate = rate,
                 Amount = amount
             };
-
-            if (Validate(new SetBondCouponValidator(newCoupon),out IEnumerable<ValidationRule> brokenRules))
-            {
-                Coupon = new BondCoupon
-                {
-                    Rate = rate,
-                    Amount = amount
-                };
-            }
-            return brokenRules;
         }
     }
 }

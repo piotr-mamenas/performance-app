@@ -84,6 +84,7 @@
     <Compile Include="Domain\Institutions\Bank.cs" />
     <Compile Include="Domain\Institutions\BaseInstitution.cs" />
     <Compile Include="Domain\Institutions\Institution.cs" />
+    <Compile Include="Domain\Message\BaseMessage.cs" />
     <Compile Include="Domain\Partners\AssetManager.cs" />
     <Compile Include="Domain\Partners\BasePartner.cs" />
     <Compile Include="Domain\Partners\Partner.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Enums\Domain\InstitutionType.cs" />
     <Compile Include="Enums\Domain\PartnerType.cs" />
     <Compile Include="Enums\Domain\PositionType.cs" />
+    <Compile Include="Enums\Language.cs" />
     <Compile Include="Interfaces\IComplete.cs" />
     <Compile Include="Interfaces\IEntityRoot.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
@@ -113,11 +115,6 @@
     <Compile Include="Interfaces\Repositories\IPositionRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Interfaces\Validation\IValidatable.cs" />
-    <Compile Include="Interfaces\Validation\IValidator.cs" />
-    <Compile Include="Validation\ValidationRule.cs" />
-    <Compile Include="Validation\Validators\OpenNewAccountValidator.cs" />
-    <Compile Include="Validation\Validators\SetBondCouponValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6">

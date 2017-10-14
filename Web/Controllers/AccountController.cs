@@ -61,13 +61,7 @@ namespace Web.Controllers
             var account = new Account();
             var partner = await _partners.GetAsync(accountVm.SelectedPartnerId);
 
-            var validationResult = account.OpenNewAccount(accountVm.Name, accountVm.Number, partner);
-
-            // TODO: Add validation message display for complex validation
-            if (validationResult.Any())
-            {
-                return View();
-            }
+            account.OpenNewAccount(accountVm.Name, accountVm.Number, partner);
 
             _accounts.Add(account);
 
