@@ -11,7 +11,7 @@
     </div>
     <div class="panel-body">
         @Html.AntiForgeryToken()
-        @using (Html.BeginForm("Update", "Contact", FormMethod.Post, new { @class = "form-horizontal col-xs-6", @style = "height: 700px; margin-top:20px; padding-left: 30px; padding-right: 30px;" }))
+        @using (Html.BeginForm("Update", "Contact", FormMethod.Post, new { @class = "form-horizontal", @style = "height: 360px; margin-top:20px; padding-left: 30px; padding-right: 30px;" }))
         {
             <fieldset>
                 @Html.HiddenFor(c => Model.Id)
@@ -35,24 +35,24 @@
                         @Html.ValidationMessageFor(c => Model.LastName, null, new { @class = "label label-danger pull-right" })
                         <br />
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(c => Model.PhoneNumber)
-                        @Html.TextBoxFor(c => Model.PhoneNumber, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(c => Model.PhoneNumber, null, new { @class = "label label-danger pull-right" })
-                        <br />
-                    </div>
                 </div>
                 <div class="col-md-4" style="margin-left: 40px;">
                     <div class="form-group">
+                        @Html.LabelFor(c => Model.PhoneNumber)
+                        @Html.TextBoxFor(c => Model.PhoneNumber, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(c => Model.PhoneNumber, null, new {@class = "label label-danger pull-right"})
+                        <br/>
+                    </div>
+                    <div class="form-group">
                         @Html.LabelFor(c => Model.Email)
-                        @Html.TextBoxFor(c => Model.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(c => Model.Email, null, new { @class = "label label-danger pull-right" })
-                        <br />
+                        @Html.TextBoxFor(c => Model.Email, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(c => Model.Email, null, new {@class = "label label-danger pull-right"})
+                        <br/>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(c => c.SelectedPartnerId)
-                        @Html.DropDownListFor(c => c.SelectedPartnerId, Model.PartnerNumberSelection, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(c => c.SelectedPartnerId, null, new { @class = "label label-danger pull-right" })
+                        @Html.DropDownListFor(c => c.SelectedPartnerId, Model.PartnerNumberSelection, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(c => c.SelectedPartnerId, null, new {@class = "label label-danger pull-right"})
                         <br/>
                     </div>
                 </div>

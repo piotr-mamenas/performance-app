@@ -1,8 +1,18 @@
-﻿using Core.Interfaces;
+﻿using System.Collections.Generic;
+using Core.Domain.Partners;
+using Core.Interfaces;
 
 namespace Core.Domain.Institutions
 {
-    public class Institution : BaseInstitution<Institution>, IEntityRoot
+    public class Institution : Entity<Institution>, IEntityRoot
     {
+        public string Name { get; set; }
+
+        public ICollection<Partner> Partners { get; set; }
+
+        public Institution()
+        {
+            Partners = null;
+        }
     }
 }
