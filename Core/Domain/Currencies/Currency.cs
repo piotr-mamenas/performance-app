@@ -6,7 +6,7 @@ using Core.Interfaces;
 
 namespace Core.Domain.Currencies
 {
-    public class Currency : Entity<Currency>, IEntityRoot
+    public class Currency : BaseEntity<Currency>, IEntityRoot
     {
         public string Name { get; set; }
 

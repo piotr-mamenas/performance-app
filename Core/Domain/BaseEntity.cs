@@ -2,6 +2,8 @@
 {
     public class BaseEntity<T> where T : BaseEntity<T>, new()
     {
+        public int Id { get; set; }
 
+        public bool IsDeleted { get; set; }
     }
 }

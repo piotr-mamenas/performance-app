@@ -5,7 +5,7 @@ using Core.Interfaces;
 
 namespace Core.Domain.Positions
 {
-    public class Position : Entity<Position>, IEntityRoot
+    public class Position : BaseEntity<Position>, IEntityRoot
     {
         public decimal Amount { get; set; }
 

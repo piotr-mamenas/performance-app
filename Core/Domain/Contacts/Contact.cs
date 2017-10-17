@@ -3,7 +3,7 @@ using Core.Interfaces;
 
 namespace Core.Domain.Contacts
 {
-    public class Contact : Entity<Contact>, IEntityRoot
+    public class Contact : BaseEntity<Contact>, IEntityRoot
     {
         public string Name { get; set; }
 

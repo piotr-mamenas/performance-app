@@ -2,7 +2,7 @@
 
 namespace Core.Domain.Prices
 {
-    public class Price : Entity<Price>, IEntityRoot
+    public class Price : BaseEntity<Price>, IEntityRoot
     {
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Core.Domain.Currencies;
 
 namespace Core.Domain.Assets
@@ -22,7 +21,7 @@ namespace Core.Domain.Assets
         {
             if (rate < 0 || rate > 1)
             {
-                
+                throw new InvalidOperationException("Rate cannot be smaller than 0% or larger than 100%");
             }
 
             Coupon = new BondCoupon

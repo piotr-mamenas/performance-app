@@ -4,7 +4,7 @@ using Core.Interfaces;
 
 namespace Core.Domain.Institutions
 {
-    public class Institution : Entity<Institution>, IEntityRoot
+    public class Institution : BaseEntity<Institution>, IEntityRoot
     {
         public string Name { get; set; }
 

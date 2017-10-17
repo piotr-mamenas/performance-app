@@ -2,7 +2,7 @@
 
 namespace Core.Domain.Selections
 {
-    public class Selection : Entity<Selection>, IEntityRoot
+    public class Selection : BaseEntity<Selection>, IEntityRoot
     {
     }
 }

@@ -3,7 +3,7 @@ using Core.Interfaces;
 
 namespace Core.Domain.Countries
 {
-    public class Country : Entity<Country>, IEntityRoot
+    public class Country : BaseEntity<Country>, IEntityRoot
     {
         public string Name { get; set; }
 
