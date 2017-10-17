@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Countries;
 using Core.Interfaces;
@@ -16,6 +17,7 @@ namespace Service.Controllers
     /// 
     /// </summary>
     [RoutePrefix("api/countries")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CountriesController : ApiController
     {
         private readonly IComplete _unitOfWork;

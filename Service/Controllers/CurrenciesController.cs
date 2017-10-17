@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
@@ -16,6 +17,7 @@ namespace Service.Controllers
     /// 
     /// </summary>
     [RoutePrefix("api/currencies")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CurrenciesController : ApiController
     {
         private readonly ICurrencyRepository<Currency> _repository;
