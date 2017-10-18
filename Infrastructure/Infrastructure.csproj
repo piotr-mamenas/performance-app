@@ -104,6 +104,7 @@
     <Compile Include="Repositories\PositionRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Serialization\JsonContractResolvers\ContactContractResolver.cs" />
+    <Compile Include="Services\LocalizationService.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

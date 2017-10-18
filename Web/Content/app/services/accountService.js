@@ -7,10 +7,23 @@
                 dataSrc: "",
                 dataType: "json"
             }).done(done)
-            .fail(fail);
+              .fail(fail);
     };
 
+    var deleteAccount = function (accountId, done, fail) {
+        this.accountId = accountId;
+
+        $.ajax({
+                url: routing.getApiUri("Account") + accountId + "/delete",
+                type: "POST",
+                method: "DELETE",
+                contentType: "text/plain"
+            }).done(done)
+              .fail(fail);
+    }
+
     return {
-        getAccounts: getAccounts
+        getAccounts: getAccounts,
+        deleteAccount: deleteAccount
     }
 }(routing);

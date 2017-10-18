@@ -1,8 +1,50 @@
-﻿
+﻿@model Web.Presentation.ViewModels.ContactViewModels.AccountViewModel
+
 @{
-    ViewBag.Title = "UpdateAccount";
+    ViewBag.Title = "Update Account";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>UpdateAccount</h2>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <span class="fa fa-address-card-o" style="margin-right: 5px;"></span>Open Account
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        @using (Html.BeginForm("Update", "Account", FormMethod.Post, new { @class = "form-horizontal", @style = "height: 360px; margin-top:20px; padding-left: 30px; padding-right: 30px;" }))
+        {
+            <fieldset>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(c => Model.Name)
+                        @Html.TextBoxFor(c => Model.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => Model.Name, null, new { @class = "label label-danger pull-right" })
+                        <br />
+                    </div>
 
+                    <div class="form-group">
+                        @Html.LabelFor(c => Model.Number)
+                        @Html.TextBoxFor(c => Model.Number, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => Model.Number, null, new { @class = "label label-danger pull-right" })
+                        <br />
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.SelectedPartnerId)
+                        @Html.DropDownListFor(c => c.SelectedPartnerId, Model.PartnerNumberSelection, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => c.SelectedPartnerId, null, new { @class = "label label-danger pull-right" })
+                        <br />
+                    </div>
+                </div>
+            </fieldset>
+
+            <br />
+            <div class="form-group pull-right">
+                <input id="Save" type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;" value="Save" />
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts{
+    routing.setCurrentPage("#AccountNav");
+}
