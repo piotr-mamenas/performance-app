@@ -195,6 +195,7 @@
     <Content Include="Content\app\services\institutionService.js" />
     <Content Include="Content\app\services\partnerService.js" />
     <Content Include="Content\app\styles\global.css" />
+    <Content Include="Content\vendor\scripts\moment\datetime.js" />
     <Content Include="Content\vendor\scripts\jquery\jquery.override.js" />
     <Content Include="Content\vendor\scripts\moment\moment.js" />
     <Content Include="Content\vendor\scripts\underscore\underscore.js" />

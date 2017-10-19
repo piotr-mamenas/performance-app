@@ -13,10 +13,12 @@
                     data: "Number"
                 },
                 {
-                    data: "DateOpened"
+                    data: "DateOpened",
+                    render: $.fn.dataTable.render.moment("Do MMM YYYYY")
                 },
                 {
-                    data: "DateClosed"
+                    data: "DateClosed",
+                    render: $.fn.dataTable.render.moment("Do MMM YYYYY")
                 },
                 {
                     data: "Id",
