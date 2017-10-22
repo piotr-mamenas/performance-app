@@ -49,7 +49,6 @@ namespace Web
 
             bundles.Add(new StyleBundle("~/bundles/vendor/styles").Include(
                 "~/Content/vendor/styles/bootstrap/bootstrap.css",
-                "~/Content/vendor/styles/bootstrap/bootstrap-theme.css",
                 "~/Content/vendor/styles/font-awesome/font-awesome.css",
                 "~/Content/vendor/styles/datatables/css/datatables.bootstrap.css",
                 "~/Content/vendor/styles/datatables/css/dataTables.fontAwesome.css"));

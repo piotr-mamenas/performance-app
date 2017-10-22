@@ -308,8 +308,6 @@
     <Content Include="Content\vendor\styles\datatables\images\sort_desc.png" />
     <Content Include="Content\vendor\styles\datatables\images\sort_desc_disabled.png" />
     <Content Include="Content\vendor\styles\datatables\swf\flashExport.swf" />
-    <Content Include="Content\vendor\styles\bootstrap\bootstrap-theme.css" />
-    <Content Include="Content\vendor\styles\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\vendor\styles\font-awesome\font-awesome.css" />
     <Content Include="Content\vendor\styles\font-awesome\font-awesome.min.css" />
     <Content Include="Content\vendor\styles\bootstrap\bootstrap.css" />
