@@ -50,6 +50,7 @@ namespace Web.Controllers
         [Route("list")]
         public ActionResult List()
         {
+            // Minor change to test gitbash connectivity
             return View();
         }
 
