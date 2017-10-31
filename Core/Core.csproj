@@ -104,6 +104,7 @@
     <Compile Include="Interfaces\Repositories\IMessageRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPartnerRepository.cs" />
     <Compile Include="Interfaces\Repositories\IInstitutionRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPortfolioRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPositionRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

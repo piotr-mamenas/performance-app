@@ -102,6 +102,7 @@
     <Compile Include="Repositories\MessageRepository.cs" />
     <Compile Include="Repositories\PartnerRepository.cs" />
     <Compile Include="Repositories\InstitutionRepository.cs" />
+    <Compile Include="Repositories\PortfolioRepository.cs" />
     <Compile Include="Repositories\PositionRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Serialization\JsonContractResolvers\ContactContractResolver.cs" />

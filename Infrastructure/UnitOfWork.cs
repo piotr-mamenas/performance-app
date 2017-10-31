@@ -7,6 +7,7 @@ using Core.Domain.Currencies;
 using Core.Domain.Institutions;
 using Core.Domain.Message;
 using Core.Domain.Partners;
+using Core.Domain.Portfolios;
 using Core.Domain.Positions;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
@@ -21,6 +22,7 @@ namespace Infrastructure
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
+
             Accounts = new AccountRepository<Account>(_context);
             Assets = new AssetRepository<Asset>(_context);
             Bonds = new AssetRepository<Bond>(_context);
@@ -33,6 +35,7 @@ namespace Infrastructure
             Countries = new CountryRepository<Country>(_context);
             Positions = new PositionRepository<Position>(_context);
             Messages = new MessageRepository<Message>(_context);
+            Portfolios = new PortfolioRepository<Portfolio>(_context);
         }
 
         public IAccountRepository<Account> Accounts { get; }
@@ -47,6 +50,7 @@ namespace Infrastructure
         public ICountryRepository<Country> Countries { get; }
         public IPositionRepository<Position> Positions { get; }
         public IMessageRepository<Message> Messages { get; }
+        public IPortfolioRepository<Portfolio> Portfolios { get; }
 
         public async Task<int> CompleteAsync()
         {
