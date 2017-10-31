@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Partners;
+using Core.Domain.Portfolios;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure.AutoMapper;
@@ -13,37 +14,34 @@ using Service.Dtos;
 
 namespace Service.Controllers
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    [RoutePrefix("api/partners")]
+    [RoutePrefix("api/portfolios")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class PartnersController : ApiController
+    public class PortfoliosController : ApiController
     {
+        private readonly IPortfolioRepository<Portfolio> _repository;
         private readonly IComplete _unitOfWork;
-        private readonly IPartnerRepository<Partner> _repository;
 
-        public PartnersController(IUnitOfWork unitOfWork)
+        public PortfoliosController(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = (IComplete) unitOfWork;
-            _repository = unitOfWork.Partners;
+            _unitOfWork = (IComplete)unitOfWork;
+            _repository = unitOfWork.Portfolios;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        [ResponseType(typeof(ICollection<PartnerDto>))]
+        [ResponseType(typeof(ICollection<PortfolioDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var partners = await _repository.GetAll().ToListAsync();
+            var portfolios = await _repository.GetAll().ToListAsync();
 
-            if (partners == null)
+            if (portfolios == null)
             {
                 return NotFound();
             }
-            return Ok(partners.Map<ICollection<PartnerDto>>());
+            return Ok(portfolios.Map<ICollection<PortfolioDto>>());
         }
 
         /// <summary>
@@ -51,42 +49,42 @@ namespace Service.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [ResponseType(typeof(PartnerDto))]
+        [ResponseType(typeof(PortfolioDto))]
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            var partner = await _repository.GetAsync(id);
+            var portfolio = await _repository.GetAsync(id);
 
-            if (partner == null)
+            if (portfolio == null)
             {
-                return NotFound();    
+                return NotFound();
             }
 
-            return Ok(partner.Map<PartnerDto>());
+            return Ok(portfolio.Map<PortfolioDto>());
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="partner"></param>
+        /// <param name="portfolio"></param>
         /// <returns></returns>
         [HttpPut, Route("")]
-        public async Task<IHttpActionResult> UpdateAsync(int id, PartnerDto partner)
+        public async Task<IHttpActionResult> UpdateAsync(int id, PortfolioDto portfolio)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            var partnerInDb = await _repository.GetAsync(id);
+            var portfolioInDb = await _repository.GetAsync(id);
 
-            if (partnerInDb == null)
+            if (portfolioInDb == null)
             {
                 return NotFound();
             }
 
-            _repository.Add(partner.Map<Partner>());
+            _repository.Add(portfolio.Map<Portfolio>());
 
             await _unitOfWork.CompleteAsync();
 
@@ -96,21 +94,20 @@ namespace Service.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="partner"></param>
         /// <returns></returns>
         [HttpPost, Route("")]
-        public async Task<IHttpActionResult> CreateAsync(PartnerDto partner)
+        public async Task<IHttpActionResult> CreateAsync(PortfolioDto portfolio)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            _repository.Add(partner.Map<Partner>());
+            _repository.Add(portfolio.Map<Portfolio>());
 
             await _unitOfWork.CompleteAsync();
 
-            return Created(new Uri(Request.RequestUri + "/" + partner.Id), partner);
+            return Created(new Uri(Request.RequestUri + "/" + portfolio.Id), portfolio);
         }
 
         /// <summary>
@@ -121,14 +118,14 @@ namespace Service.Controllers
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            var partner = await _repository.GetAsync(id);
+            var portfolio = await _repository.GetAsync(id);
 
-            if (partner == null)
+            if (portfolio == null)
             {
                 return NotFound();
             }
 
-            _repository.Remove(partner);
+            _repository.Remove(portfolio);
 
             await _unitOfWork.CompleteAsync();
 

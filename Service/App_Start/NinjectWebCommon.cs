@@ -4,6 +4,7 @@ using Core.Domain.Countries;
 using Core.Domain.Currencies;
 using Core.Domain.Institutions;
 using Core.Domain.Partners;
+using Core.Domain.Portfolios;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure;
@@ -82,6 +83,7 @@ namespace Service.App_Start
             kernel.Bind<IPartnerRepository<AssetManager>>().To<PartnerRepository<AssetManager>>().InRequestScope();
             kernel.Bind<IInstitutionRepository<Institution>>().To<InstitutionRepository<Institution>>().InRequestScope();
             kernel.Bind<IInstitutionRepository<Bank>>().To<InstitutionRepository<Bank>>().InRequestScope();
+            kernel.Bind<IPortfolioRepository<Portfolio>>().To<PortfolioRepository<Portfolio>>().InRequestScope();
         }        
     }
 }

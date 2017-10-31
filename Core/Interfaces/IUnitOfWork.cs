@@ -8,6 +8,7 @@ using Core.Domain.Currencies;
 using Core.Domain.Institutions;
 using Core.Domain.Message;
 using Core.Domain.Partners;
+using Core.Domain.Portfolios;
 using Core.Domain.Positions;
 using Core.Interfaces.Repositories;
 
@@ -27,6 +28,7 @@ namespace Core.Interfaces
         ICountryRepository<Country> Countries { get; }
         IPositionRepository<Position> Positions { get; }
         IMessageRepository<Message> Messages { get; }
+        IPortfolioRepository<Portfolio> Portfolios { get; }
         Task<int> CompleteAsync();
     }
 }

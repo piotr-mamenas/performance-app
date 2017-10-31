@@ -82,6 +82,10 @@
     <Compile Include="Migrations\201710141316352_AddMessagesDomainModelAndRepository.Designer.cs">
       <DependentUpon>201710141316352_AddMessagesDomainModelAndRepository.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710312208554_PortfolioEntityAddedMigration.cs" />
+    <Compile Include="Migrations\201710312208554_PortfolioEntityAddedMigration.Designer.cs">
+      <DependentUpon>201710312208554_PortfolioEntityAddedMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="ApplicationUserStore.cs" />
@@ -121,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710141316352_AddMessagesDomainModelAndRepository.resx">
       <DependentUpon>201710141316352_AddMessagesDomainModelAndRepository.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710312208554_PortfolioEntityAddedMigration.resx">
+      <DependentUpon>201710312208554_PortfolioEntityAddedMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

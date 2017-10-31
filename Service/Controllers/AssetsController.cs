@@ -115,7 +115,7 @@ namespace Service.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete, Route("{id}")]
+        [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
             var asset = await _repository.GetAsync(id);

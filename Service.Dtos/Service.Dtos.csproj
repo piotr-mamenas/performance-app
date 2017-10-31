@@ -42,6 +42,7 @@
     <Compile Include="CurrencyDto.cs" />
     <Compile Include="InstitutionDto.cs" />
     <Compile Include="PartnerDto.cs" />
+    <Compile Include="PortfolioDto.cs" />
     <Compile Include="PositionDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

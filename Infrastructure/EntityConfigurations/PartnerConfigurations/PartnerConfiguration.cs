@@ -31,7 +31,7 @@ namespace Infrastructure.EntityConfigurations.PartnerConfigurations
 
             HasMany(p => p.Institutions)
                 .WithMany(o => o.Partners)
-                .Map(m => m.ToTable("PartnersInstitutions")
+                .Map(m => m.ToTable("PartnerInstitutions")
                 .MapLeftKey("PartnerId")
                 .MapRightKey("InstitutionId"));
 
@@ -42,13 +42,13 @@ namespace Infrastructure.EntityConfigurations.PartnerConfigurations
 
             HasMany(p => p.Accounts)
                 .WithMany(a => a.Partners)
-                .Map(m => m.ToTable("PartnersAccounts")
+                .Map(m => m.ToTable("PartnerAccounts")
                 .MapLeftKey("PartnerId")
                 .MapRightKey("AccountId"));
 
             HasMany(p => p.Portfolios)
                 .WithMany(a => a.Partners)
-                .Map(m => m.ToTable("PartnersPortfolios")
+                .Map(m => m.ToTable("PartnerPortfolios")
                 .MapLeftKey("PartnerId")
                 .MapRightKey("PortfolioId"));
 

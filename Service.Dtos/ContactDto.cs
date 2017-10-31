@@ -6,8 +6,6 @@ namespace Service.Dtos
     {
         public int Id { get; set; }
 
-        public bool IsDeleted { get; set; }
-
         [DisplayName("Contact Name")]
         public string Name { get; set; }
 

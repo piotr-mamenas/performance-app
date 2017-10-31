@@ -134,6 +134,7 @@
     <Compile Include="Controllers\CurrenciesController.cs" />
     <Compile Include="Controllers\InstitutionsController.cs" />
     <Compile Include="Controllers\PartnersController.cs" />
+    <Compile Include="Controllers\PortfoliosController.cs" />
     <Compile Include="Controllers\PositionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
