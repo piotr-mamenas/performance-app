@@ -46,6 +46,12 @@ namespace Infrastructure.EntityConfigurations.PartnerConfigurations
                 .MapLeftKey("PartnerId")
                 .MapRightKey("AccountId"));
 
+            HasMany(p => p.Portfolios)
+                .WithMany(a => a.Partners)
+                .Map(m => m.ToTable("PartnersPortfolios")
+                .MapLeftKey("PartnerId")
+                .MapRightKey("PortfolioId"));
+
             Map<AssetManager>(p => p.Requires("PartnerType").HasValue((int)PartnerType.AssetManager));
         }
     }

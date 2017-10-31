@@ -35,6 +35,7 @@ namespace Core.Domain.Accounts
         /// The partners which hold the right to the account
         /// </summary>
         public ICollection<Partner> Partners { get; set; }
+
         #endregion
 
         #region Constructor

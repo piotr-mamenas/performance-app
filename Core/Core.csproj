@@ -81,6 +81,7 @@
     <Compile Include="Domain\Message\Message.cs" />
     <Compile Include="Domain\Partners\AssetManager.cs" />
     <Compile Include="Domain\Partners\Partner.cs" />
+    <Compile Include="Domain\Portfolios\Portfolio.cs" />
     <Compile Include="Domain\Positions\Position.cs" />
     <Compile Include="Domain\Prices\Price.cs" />
     <Compile Include="Domain\Selections\Selection.cs" />

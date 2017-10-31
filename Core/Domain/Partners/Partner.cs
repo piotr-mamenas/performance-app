@@ -2,6 +2,7 @@
 using Core.Domain.Accounts;
 using Core.Domain.Contacts;
 using Core.Domain.Institutions;
+using Core.Domain.Portfolios;
 using Core.Interfaces;
 
 namespace Core.Domain.Partners
@@ -18,11 +19,14 @@ namespace Core.Domain.Partners
 
         public ICollection<Account> Accounts { get; set; }
 
+        public ICollection<Portfolio> Portfolios { get; set; }
+
         public Partner()
         {
             Institutions = null;
             Contacts = null;
             Accounts = null;
+            Portfolios = null;
         }
     }
 }

@@ -61,6 +61,7 @@
     <Compile Include="EntityConfigurations\InstitutionConfigurations\BankConfiguration.cs" />
     <Compile Include="EntityConfigurations\MessageConfigurations\MessageConfiguration.cs" />
     <Compile Include="EntityConfigurations\PartnerConfigurations\AssetManagerConfiguration.cs" />
+    <Compile Include="EntityConfigurations\PortfolioConfigurations\PortfolioConfiguration.cs" />
     <Compile Include="EntityConfigurations\PositionConfigurations\PositionConfiguration.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Helpers\AttributeHelper.cs" />
