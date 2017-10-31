@@ -86,6 +86,10 @@
     <Compile Include="Migrations\201710312208554_PortfolioEntityAddedMigration.Designer.cs">
       <DependentUpon>201710312208554_PortfolioEntityAddedMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710312233451_SlightCorrectionsToNamingMigration.cs" />
+    <Compile Include="Migrations\201710312233451_SlightCorrectionsToNamingMigration.Designer.cs">
+      <DependentUpon>201710312233451_SlightCorrectionsToNamingMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="ApplicationUserStore.cs" />
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710312208554_PortfolioEntityAddedMigration.resx">
       <DependentUpon>201710312208554_PortfolioEntityAddedMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710312233451_SlightCorrectionsToNamingMigration.resx">
+      <DependentUpon>201710312233451_SlightCorrectionsToNamingMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
