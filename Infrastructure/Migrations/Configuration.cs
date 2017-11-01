@@ -8,6 +8,7 @@ using Core.Domain.Countries;
 using Core.Domain.Currencies;
 using Core.Domain.Institutions;
 using Core.Domain.Partners;
+using Core.Domain.Portfolios;
 
 namespace Infrastructure.Migrations
 {
@@ -28,9 +29,27 @@ namespace Infrastructure.Migrations
             SeedCountry(context.Countries);
             SeedInstitution(context.Institutions);
             SeedAsset(context.Assets);
+            SeedPortfolio(context.Portfolios);
             context.SaveChanges();
         }
 
+        private static void SeedPortfolio(IDbSet<Portfolio> set)
+        {
+            set.AddOrUpdate(p => p.Id,
+                new Portfolio
+                {
+                    Id = 1,
+                    Name = "Standard Portfolio",
+                    Number = "KKY10934747"
+                },
+                new Portfolio
+                {
+                    Id = 2,
+                    Name = "Benchmark Portfolio",
+                    Number = "KKZ97147473"
+                });
+        }
+            
         private static void SeedAsset(IDbSet<Asset> set)
         {
             set.AddOrUpdate(a => a.Id,

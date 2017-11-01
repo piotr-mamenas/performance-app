@@ -183,6 +183,7 @@
     <Content Include="Content\app\controllers\contact\newContactWizardController.js" />
     <Content Include="Content\app\controllers\navbarController.js" />
     <Content Include="Content\app\controllers\partner\partnerTableController.js" />
+    <Content Include="Content\app\controllers\portfolio\portfolioTableController.js" />
     <Content Include="Content\app\controllers\shared\institutionSelectionTableController.js" />
     <Content Include="Content\app\controllers\shared\partnerSelectionTableController.js" />
     <Content Include="Content\app\images\background.jpg" />
@@ -194,6 +195,7 @@
     <Content Include="Content\app\services\contactService.js" />
     <Content Include="Content\app\services\institutionService.js" />
     <Content Include="Content\app\services\partnerService.js" />
+    <Content Include="Content\app\services\portfolioService.js" />
     <Content Include="Content\app\styles\global.css" />
     <Content Include="Content\vendor\scripts\moment\datetime.js" />
     <Content Include="Content\vendor\scripts\jquery\jquery.override.js" />
@@ -445,7 +447,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\app\controllers\portfolio\" />
     <Folder Include="Content\app\controllers\report\" />
     <Folder Include="Content\app\controllers\task\" />
     <Folder Include="Views\User\" />

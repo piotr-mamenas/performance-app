@@ -13,7 +13,8 @@ namespace Infrastructure.AutoMapper
                 typeof(PartnerProfile), 
                 typeof(InstitutionProfile), 
                 typeof(CurrencyProfile),
-                typeof(AssetProfile)));
+                typeof(AssetProfile),
+                typeof(PortfolioProfile)));
         }
     }
 }
