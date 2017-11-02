@@ -39,7 +39,7 @@ namespace Infrastructure.Migrations
                 new Portfolio
                 {
                     Id = 1,
-                    Name = "Standard Portfolio",
+                    Name = "Benchmark Portfolio",
                     Number = "KKY10934747"
                 },
                 new Portfolio
@@ -56,13 +56,26 @@ namespace Infrastructure.Migrations
                 new Equity
                 {
                     Id = 1,
-                    Name = "Apple Stock",
+                    Name = "Apple",
                     Isin = "US0378331005"
+                },
+                new Equity
+                {
+                    Id = 2,
+                    Name = "Accenture",
+                    Isin = "IE00B4BNMY34"
+                },
+                new Equity
+                {
+                    Id = 3,
+                    Name = "UBS",
+                    Isin = "CH0244767585"
                 });
 
             set.AddOrUpdate(a => a.Id,
                 new Bond
                 {
+                    Id = 4,
                     CurrencyId = 1,
                     FaceValue = 100,
                     IssueDate = DateTime.Now,
@@ -83,8 +96,22 @@ namespace Infrastructure.Migrations
                 {
                     Id = 1,
                     OpenedDate = DateTime.Now,
-                    Name = "Account",
-                    Number = "ABC010203"
+                    Name = "Private WM Account",
+                    Number = "CH470217"
+                },
+                new Account
+                {
+                    Id = 2,
+                    OpenedDate = DateTime.Now,
+                    Name = "Private WM Account",
+                    Number = "GB076919"
+                },
+                new Account
+                {
+                    Id = 3,
+                    OpenedDate = DateTime.Now,
+                    Name = "Private Speculation Account",
+                    Number = "CH011137"
                 });
         }
 
@@ -109,10 +136,26 @@ namespace Infrastructure.Migrations
                 },
                 new Country
                 {
-                    Id = 4,
+                    Id = 3,
                     Name = "Germany",
                     Code = "DE",
                     CurrencyId = 3,
+                    IsEnabled = true
+                },
+                new Country
+                {
+                    Id = 4,
+                    Name = "Great Britain",
+                    Code = "GB",
+                    CurrencyId = 4,
+                    IsEnabled = true
+                },
+                new Country
+                {
+                    Id = 5,
+                    Name = "United States",
+                    Code = "US",
+                    CurrencyId = 5,
                     IsEnabled = true
                 });
         }
@@ -128,7 +171,7 @@ namespace Infrastructure.Migrations
                     LastName = "Gekko",
                     Name = "Gordon Gekko",
                     PartnerId = 1,
-                    PhoneNumber = "+41 111 111 111"
+                    PhoneNumber = "+01111111111"
                 },
                 new Contact
                 {
@@ -138,7 +181,7 @@ namespace Infrastructure.Migrations
                     LastName = "Mamenas",
                     Name = "Piotr Mamenas",
                     PartnerId = 1,
-                    PhoneNumber = "+41 222 222 222"
+                    PhoneNumber = "+4822222222"
                 },
                 new Contact
                 {
@@ -148,7 +191,7 @@ namespace Infrastructure.Migrations
                     LastName = "Belfort",
                     Name = "Jordan Belfort",
                     PartnerId = 2,
-                    PhoneNumber = "+41 333 333 333"
+                    PhoneNumber = "+4133333333"
                 });
         }
 
@@ -159,13 +202,13 @@ namespace Infrastructure.Migrations
                 {
                     Id = 1,
                     Name = "OCPD Trading Company",
-                    Number = "LX249"
+                    Number = "PL1249"
                 },
                 new Partner
                 {
                     Id = 2,
-                    Name = "Buffet Investments",
-                    Number = "LX249"
+                    Name = "Dr. Wyler & Co",
+                    Number = "US3450"
                 });
         }
 
@@ -184,7 +227,7 @@ namespace Infrastructure.Migrations
                     Id = 2,
                     Code = "PLN",
                     IsEnabled = true,
-                    Name = "Polish Zloty"
+                    Name = "Zloty"
                 },
                 new Currency
                 {
@@ -192,6 +235,20 @@ namespace Infrastructure.Migrations
                     Code = "EUR",
                     IsEnabled = true,
                     Name = "Euro"
+                },
+                new Currency
+                {
+                    Id = 4,
+                    Code = "GBP",
+                    IsEnabled = true,
+                    Name = "Pound"
+                },
+                new Currency
+                {
+                    Id = 5,
+                    Code = "USD",
+                    IsEnabled = true,
+                    Name = "US Dollar"
                 });
         }
 
