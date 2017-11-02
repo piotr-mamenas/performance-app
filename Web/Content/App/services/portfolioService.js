@@ -7,7 +7,7 @@
                 dataSrc: "",
                 dataType: "json"
             }).done(done)
-            .fail(fail);
+              .fail(fail);
     };
 
     return {

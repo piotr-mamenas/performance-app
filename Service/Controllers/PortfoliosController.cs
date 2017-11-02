@@ -69,7 +69,7 @@ namespace Service.Controllers
         /// <param name="id"></param>
         /// <param name="portfolio"></param>
         /// <returns></returns>
-        [HttpPut, Route("")]
+        [HttpPut, Route("{id}")]
         public async Task<IHttpActionResult> UpdateAsync(int id, PortfolioDto portfolio)
         {
             if (!ModelState.IsValid)

@@ -71,7 +71,7 @@ namespace Service.Controllers
         /// <param name="id"></param>
         /// <param name="partner"></param>
         /// <returns></returns>
-        [HttpPut, Route("")]
+        [HttpPut, Route("{id}")]
         public async Task<IHttpActionResult> UpdateAsync(int id, PartnerDto partner)
         {
             if (!ModelState.IsValid)
