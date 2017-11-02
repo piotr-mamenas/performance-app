@@ -8,5 +8,10 @@ namespace Infrastructure.AutoMapper
         {
             return Mapper.Map<T>(source);
         }
+
+        public static T Map<T, Q>(this Q source)
+        {
+            return Mapper.Map<Q, T>(source);
+        }
     }
 }

@@ -3,9 +3,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Core.Domain.Accounts;
+using Core.Domain.Contacts;
 using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
+using Infrastructure.AutoMapper;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
 using Web.Presentation.ViewModels.ContactViewModels;
@@ -69,6 +71,60 @@ namespace Web.Controllers
 
             var account = new Account(accountVm.Name, accountVm.Number, partner);
             _accounts.Add(account);
+
+            await _unitOfWork.CompleteAsync();
+
+            return RedirectToAction("List");
+        }
+
+        /// <summary>
+        /// Method will display the contact which needs to be updated
+        /// </summary>
+        /// <param name="id">Id of the contact to be updated</param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("update/{id}")]
+        public async Task<ActionResult> Update(int id)
+        {
+            var accountInDb = await _accounts.GetAsync(id);
+
+            if (accountInDb == null)
+            {
+                return View("List");
+            }
+
+            var accountVm = accountInDb.Map<AccountViewModel>();
+
+            accountVm.PartnerNumberSelection = GetPartnerSelection();
+
+            return View(accountVm);
+        }
+
+        /// <summary>
+        /// Method will update a previously selected contact
+        /// </summary>
+        /// <param name="id">Id of the updated contact</param>
+        /// <param name="accountVm">Account to be updated</param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("update/{id}")]
+        public async Task<ActionResult> Update(int id, AccountViewModel accountVm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(accountVm);
+            }
+
+            var accountInDb = await _accounts.GetAsync(id);
+
+            if (accountInDb == null)
+            {
+                return View();
+            }
+            
+            accountInDb = accountVm.Map<Account,AccountViewModel>();
+
+            _accounts.Add(accountInDb);
 
             await _unitOfWork.CompleteAsync();
 
