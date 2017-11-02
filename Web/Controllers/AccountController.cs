@@ -39,8 +39,9 @@ namespace Web.Controllers
             return View();
         }
         
+        [HttpGet]
         [Route("create")]
-        public ActionResult Open()
+        public ActionResult Create()
         {
             var partnerNumberSelection = new AccountViewModel
             {
@@ -50,19 +51,23 @@ namespace Web.Controllers
             return View(partnerNumberSelection);
         }
 
-        [HttpPost, Route("create")]
-        public async Task<ActionResult> Open(AccountViewModel accountVm)
+        [HttpPost]
+        [Route("create")]
+        public async Task<ActionResult> Create(AccountViewModel accountVm)
         {
             if (!ModelState.IsValid)
             {
                 return View(accountVm);
             }
-
-            var account = new Account();
+            
             var partner = await _partners.GetAsync(accountVm.SelectedPartnerId);
+            
+            if (partner == null)
+            {
+                return View(accountVm);
+            }
 
-            account.OpenNewAccount(accountVm.Name, accountVm.Number, partner);
-
+            var account = new Account(accountVm.Name, accountVm.Number, partner);
             _accounts.Add(account);
 
             await _unitOfWork.CompleteAsync();

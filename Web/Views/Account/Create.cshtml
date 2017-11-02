@@ -11,7 +11,7 @@
     </div>
     <div class="panel-body">
         @Html.AntiForgeryToken()
-        @using (Html.BeginForm("Open", "Account", FormMethod.Post, new { @class = "form-horizontal", @style = "height: 360px; margin-top:20px; padding-left: 30px; padding-right: 30px;" }))
+        @using (Html.BeginForm("Create", "Account", FormMethod.Post, new { @class = "form-horizontal", @style = "height: 360px; margin-top:20px; padding-left: 30px; padding-right: 30px;" }))
         {
             <fieldset>
                 <div class="col-md-4">

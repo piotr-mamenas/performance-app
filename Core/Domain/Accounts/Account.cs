@@ -44,23 +44,19 @@ namespace Core.Domain.Accounts
         {
             Partners = null;
         }
-        #endregion
 
-        #region Methods
-
-        public void OpenNewAccount(string name, string number, Partner partner)
+        public Account(string accountName, string accountNumber, Partner initialAccountOwner)
         {
-            Name = name;
-            Number = number;
+
+            Name = accountName;
+            Number = accountNumber;
             OpenedDate = DateTime.Today;
-            Partners.Add(partner);
-        }
 
-        private string GetAccountNumber(Partner partner)
-        {
-            return "";
+            Partners = new List<Partner>
+            {
+                initialAccountOwner
+            };
         }
-
         #endregion
     }
 }

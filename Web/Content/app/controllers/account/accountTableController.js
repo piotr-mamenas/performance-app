@@ -3,7 +3,7 @@
     var table;
 
     var initializeDatatable = function (result) {
-        $("#accountTable").DataTable({
+        table = $("#accountTable").DataTable({
             data: result,
             columns: [
                 {

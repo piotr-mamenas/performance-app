@@ -437,7 +437,7 @@
     <Content Include="Views\Contact\Update.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Contact\Create.cshtml" />
-    <Content Include="Views\Account\Open.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
     <Content Include="Views\Account\Update.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Forbidden.cshtml" />
