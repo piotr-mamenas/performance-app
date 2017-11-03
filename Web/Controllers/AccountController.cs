@@ -16,6 +16,7 @@ using Web.Presentation.ViewModels.ContactViewModels;
 namespace Web.Controllers
 {
     [RoutePrefix("accounts")]
+    [Authorize]
     public class AccountController : BaseController
     {
         private readonly IComplete _unitOfWork;

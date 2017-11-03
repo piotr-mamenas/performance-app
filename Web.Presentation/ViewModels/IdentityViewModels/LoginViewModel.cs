@@ -12,5 +12,8 @@ namespace Web.Presentation.ViewModels.IdentityViewModels
         [Required]
         [DisplayName("Password")]
         public string Password { get; set; }
+
+        [DisplayName("Remember Me?")]
+        public bool IsPersistent { get; set; }
     }
 }

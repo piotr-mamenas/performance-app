@@ -171,7 +171,7 @@ namespace Infrastructure.Migrations
                     LastName = "Gekko",
                     Name = "Gordon Gekko",
                     PartnerId = 1,
-                    PhoneNumber = "+01111111111"
+                    PhoneNumber = "+0111111111"
                 },
                 new Contact
                 {
@@ -181,7 +181,7 @@ namespace Infrastructure.Migrations
                     LastName = "Mamenas",
                     Name = "Piotr Mamenas",
                     PartnerId = 1,
-                    PhoneNumber = "+4822222222"
+                    PhoneNumber = "+482222222"
                 },
                 new Contact
                 {
@@ -191,7 +191,7 @@ namespace Infrastructure.Migrations
                     LastName = "Belfort",
                     Name = "Jordan Belfort",
                     PartnerId = 2,
-                    PhoneNumber = "+4133333333"
+                    PhoneNumber = "+413333333"
                 });
         }
 

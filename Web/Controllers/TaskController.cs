@@ -5,6 +5,7 @@ using Web.Controllers.Templates;
 namespace Web.Controllers
 {
     [RoutePrefix("tasks")]
+    [Authorize]
     public class TaskController : BaseController
     {
         public TaskController(ILogger logger)

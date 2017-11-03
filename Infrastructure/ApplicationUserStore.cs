@@ -9,6 +9,8 @@ namespace Infrastructure
         IUserStore<User>
     {
         public ApplicationUserStore(DbContext context)
-            : base(context) { }
+            : base(context)
+        {
+        }
     }
 }

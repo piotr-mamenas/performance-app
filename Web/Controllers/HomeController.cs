@@ -6,6 +6,7 @@ using Web.Controllers.Templates;
 namespace Web.Controllers
 {
     [RoutePrefix("")]
+    [Authorize]
     public class HomeController : BaseController
     {
         public HomeController(IUnitOfWork unitOfWork, ILogger logger)

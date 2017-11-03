@@ -14,6 +14,7 @@ using Web.Presentation.ViewModels.ContactViewModels;
 namespace Web.Controllers
 {
     [RoutePrefix("contacts")]
+    [Authorize]
     public class ContactController : BaseController
     {
         private readonly IContactRepository<Contact> _contacts;

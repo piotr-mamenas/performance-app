@@ -5,6 +5,7 @@ using Web.Controllers.Templates;
 namespace Web.Controllers
 {
     [RoutePrefix("reports")]
+    [Authorize]
     public class ReportController : BaseController
     {
         public ReportController(ILogger logger)

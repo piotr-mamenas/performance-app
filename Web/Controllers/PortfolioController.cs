@@ -5,6 +5,7 @@ using Web.Controllers.Templates;
 namespace Web.Controllers
 {
     [RoutePrefix("portfolios")]
+    [Authorize]
     public class PortfolioController : BaseController
     {
         public PortfolioController(ILogger logger)
