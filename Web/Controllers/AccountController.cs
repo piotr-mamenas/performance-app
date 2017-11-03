@@ -10,6 +10,7 @@ using Core.Interfaces.Repositories;
 using Infrastructure.AutoMapper;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
+using Web.Presentation.ViewModels.AccountViewModels;
 using Web.Presentation.ViewModels.ContactViewModels;
 
 namespace Web.Controllers

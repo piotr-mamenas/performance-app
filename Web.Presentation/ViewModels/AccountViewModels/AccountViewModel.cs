@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace Web.Presentation.ViewModels.ContactViewModels
+namespace Web.Presentation.ViewModels.AccountViewModels
 {
     public class AccountViewModel
     {

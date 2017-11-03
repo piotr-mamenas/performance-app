@@ -1,0 +1,36 @@
+﻿@model Web.Presentation.ViewModels.IdentityViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        @using (Html.BeginForm("Login", "Authentication", FormMethod.Post, new { @class = "form-horizontal", @style = "height: 200px; padding: 30px;" }))
+        {
+            <fieldset>
+                <div class="form-group">
+                    @Html.LabelFor(c => Model.Username)
+                    @Html.TextBoxFor(c => Model.Username, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(c => Model.Username, null, new { @class = "label label-danger pull-right" })
+                    <br />
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(c => Model.Password)
+                    @Html.TextBoxFor(c => Model.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(c => Model.Password, null, new { @class = "label label-danger pull-right" })
+                    <br />
+                </div>
+
+            </fieldset>
+
+            <br />
+            <div class="form-group pull-right">
+                <input id="Login" type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;" value="Login" />
+            </div>
+        }
+    </div>
+</div>
