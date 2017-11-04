@@ -18,7 +18,7 @@ namespace Web.Controllers
         [Route("")]
         public ActionResult Index()
         {
-            return Redirect("/auth/login");
+            return RedirectToAction("Login", "Authentication");
         }
     }
 }

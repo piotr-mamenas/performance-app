@@ -1,8 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
-using Infrastructure;
 using Microsoft.AspNet.Identity.Owin;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
@@ -10,9 +8,6 @@ using Web.Presentation.ViewModels.IdentityViewModels;
 
 namespace Web.Controllers
 {
-    /// <summary>
-    /// 
-    /// </summary>
     [RoutePrefix("auth")]
     public class AuthenticationController : BaseController
     {
@@ -42,6 +37,8 @@ namespace Web.Controllers
                 _signInManager = value;
             }
         }
+
+        // TODO: To consider moving the beggining file to config
         /// <summary>
         /// 
         /// </summary>
@@ -61,14 +58,8 @@ namespace Web.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="returnUrl"></param>
         /// <returns></returns>
-        [Route("")]
-        [AllowAnonymous]
-        public ActionResult Index()
-        {
-            return RedirectToAction("Login");
-        }
-        
         [Route("login")]
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -78,7 +69,8 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        [Route("")]
+        [Route("login")]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel loginVm, string returnUrl)
         {
@@ -95,14 +87,14 @@ namespace Web.Controllers
                     return RedirectToRoute(returnUrl);
 
                 case SignInStatus.LockedOut:
-                    return RedirectToAction("Login", loginVm);
+                    return View(loginVm);
 
                 case SignInStatus.Failure:
-                    return RedirectToAction("Login", loginVm);
+                    return View(loginVm);
 
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
-                    return RedirectToAction("Login", loginVm);
+                    return View(loginVm);
             }
         }
     }
