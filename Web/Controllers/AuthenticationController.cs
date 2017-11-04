@@ -87,9 +87,11 @@ namespace Web.Controllers
                     return RedirectToRoute(returnUrl);
 
                 case SignInStatus.LockedOut:
+                    ModelState.AddModelError("", "Account locked out, please contact administrator");
                     return View(loginVm);
 
                 case SignInStatus.Failure:
+                    ModelState.AddModelError("", "Username or password is incorrect");
                     return View(loginVm);
 
                 default:

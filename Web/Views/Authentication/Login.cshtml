@@ -12,19 +12,19 @@
             @Html.AntiForgeryToken()
             <fieldset>
                 <div class="form-group">
-                    @Html.LabelFor(m => Model.Username, new { @class = "control-label" })
-                    @Html.TextBoxFor(m => Model.Username, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => Model.Username, null, new { @class = "label label-danger pull-right" })
-                    <br />
+                    @Html.LabelFor(m => Model.Username, new {@class = "control-label"})
+                    @Html.TextBoxFor(m => Model.Username, new {@class = "form-control"})
+                    @Html.ValidationMessageFor(m => Model.Username, null, new {@class = "label label-danger pull-right"})
+                    <br/>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(m => Model.Password, new { @class = "control-label" })
-                    @Html.TextBoxFor(m => Model.Password, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => Model.Password, null, new { @class = "label label-danger pull-right" })
-                    <br />
+                    @Html.LabelFor(m => Model.Password, new {@class = "control-label"})
+                    @Html.PasswordFor(m => Model.Password, new {@class = "form-control"})
+                    @Html.ValidationMessageFor(m => Model.Password, null, new {@class = "label label-danger pull-right"})
+                    <br/>
                 </div>
-                
+
                 <div class="form-group">
                     @Html.CheckBoxFor(m => Model.IsPersistent)
                     @Html.LabelFor(m => Model.IsPersistent)
@@ -39,3 +39,4 @@
         }
     </div>
 </div>
+@Html.ValidationSummary(true, "", new { @class = "text-danger pull-right" })
