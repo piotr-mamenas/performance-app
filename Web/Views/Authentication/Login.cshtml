@@ -7,22 +7,27 @@
 
 <div class="panel panel-primary">
     <div class="panel-body">
-        @Html.AntiForgeryToken()
         @using (Html.BeginForm("Login", "Authentication", FormMethod.Post, new { @class = "form-horizontal", @style = "height: 200px; padding: 30px;" }))
         {
+            @Html.AntiForgeryToken()
             <fieldset>
                 <div class="form-group">
-                    @Html.LabelFor(c => Model.Username)
-                    @Html.TextBoxFor(c => Model.Username, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(c => Model.Username, null, new { @class = "label label-danger pull-right" })
+                    @Html.LabelFor(m => Model.Username, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => Model.Username, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => Model.Username, null, new { @class = "label label-danger pull-right" })
                     <br />
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(c => Model.Password)
-                    @Html.TextBoxFor(c => Model.Password, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(c => Model.Password, null, new { @class = "label label-danger pull-right" })
+                    @Html.LabelFor(m => Model.Password, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => Model.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => Model.Password, null, new { @class = "label label-danger pull-right" })
                     <br />
+                </div>
+                
+                <div class="form-group">
+                    @Html.CheckBoxFor(m => Model.IsPersistent)
+                    @Html.LabelFor(m => Model.IsPersistent)
                 </div>
 
             </fieldset>

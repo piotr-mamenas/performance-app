@@ -68,15 +68,12 @@ namespace Web.Controllers
         {
             return RedirectToAction("Login");
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        [AllowAnonymous]
+        
         [Route("login")]
-        public ActionResult Login()
+        [AllowAnonymous]
+        public ActionResult Login(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
@@ -95,17 +92,17 @@ namespace Web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToRoute("");
+                    return RedirectToRoute(returnUrl);
 
                 case SignInStatus.LockedOut:
-                    return View(loginVm);
+                    return RedirectToAction("Login", loginVm);
 
                 case SignInStatus.Failure:
-                    return View(loginVm);
+                    return RedirectToAction("Login", loginVm);
 
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(loginVm);
+                    return RedirectToAction("Login", loginVm);
             }
         }
     }

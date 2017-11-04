@@ -9,19 +9,16 @@ namespace Web.Controllers
     [Authorize]
     public class HomeController : BaseController
     {
-        public HomeController(IUnitOfWork unitOfWork, ILogger logger)
+        public HomeController(ILogger logger)
             : base(logger)
         {
-            _unitOfWork = unitOfWork;
         }
 
         [AllowAnonymous]
         [Route("")]
         public ActionResult Index()
         {
-            return View();
+            return Redirect("/auth/login");
         }
-
-        private readonly IUnitOfWork _unitOfWork;
     }
 }
