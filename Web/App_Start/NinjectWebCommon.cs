@@ -7,7 +7,6 @@ using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure;
 using Infrastructure.Repositories;
-using Ninject.Extensions.Logging;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Web.App_Start.NinjectWebCommon), "Stop")]

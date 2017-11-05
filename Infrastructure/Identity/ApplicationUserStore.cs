@@ -1,14 +1,13 @@
-﻿using System.Data.Entity;
-using Core.Domain.Identity;
+﻿using Core.Domain.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace Infrastructure
+namespace Infrastructure.Identity
 {
     public class ApplicationUserStore : UserStore<User, Role, string, UserLogin, UserRole, UserClaim>,
         IUserStore<User>
     {
-        public ApplicationUserStore(DbContext context)
+        public ApplicationUserStore(ApplicationDbContext context)
             : base(context)
         {
         }

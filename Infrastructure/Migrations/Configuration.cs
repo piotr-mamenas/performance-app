@@ -1,14 +1,18 @@
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Threading.Tasks;
 using Core.Domain.Accounts;
 using Core.Domain.Assets;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
+using Core.Domain.Identity;
 using Core.Domain.Institutions;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
+using Infrastructure.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Infrastructure.Migrations
 {
@@ -18,7 +22,7 @@ namespace Infrastructure.Migrations
         {
             AutomaticMigrationsEnabled = true;
         }
-
+        
         protected override void Seed(ApplicationDbContext context)
         {
             SeedAccount(context.Accounts);
@@ -31,6 +35,12 @@ namespace Infrastructure.Migrations
             SeedAsset(context.Assets);
             SeedPortfolio(context.Portfolios);
             context.SaveChanges();
+        }
+
+        private async Task SeedIdentityAsync(ApplicationDbContext context)
+        {
+            var userManager = new ApplicationUserManager(new ApplicationUserStore(context));
+            var roleManager = new ApplicationRoleManager(new ApplicationRoleStore(context));
         }
 
         private static void SeedPortfolio(IDbSet<Portfolio> set)

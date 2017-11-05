@@ -15,12 +15,7 @@ namespace Infrastructure.EntityConfigurations.IdentityConfigurations
                 {
                     p.AccessFailedCount,
                     p.Email,
-                    p.EmailConfirmed,
                     p.PasswordHash,
-                    p.PhoneNumber,
-                    p.PhoneNumberConfirmed,
-                    p.TwoFactorEnabled,
-                    p.SecurityStamp,
                     p.LockoutEnabled,
                     p.LockoutEndDateUtc,
                     p.UserName
