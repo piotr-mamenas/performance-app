@@ -87,7 +87,11 @@ namespace Web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToRoute(returnUrl);
+                    if (returnUrl != null)
+                    {
+                        return RedirectToRoute(returnUrl);
+                    }
+                    return RedirectToAction("Index", "Partner");
 
                 case SignInStatus.LockedOut:
                     ModelState.AddModelError("", "Account locked out, please contact administrator");
