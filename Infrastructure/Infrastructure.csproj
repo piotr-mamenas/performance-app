@@ -66,6 +66,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComplexTypesConfigurations\BondCouponConfiguration.cs" />
@@ -116,6 +117,10 @@
     <Compile Include="Migrations\201711051226126_ChangeToUserModel.Designer.cs">
       <DependentUpon>201711051226126_ChangeToUserModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711051548512_RestoringIncorrectlyRemovedFields.cs" />
+    <Compile Include="Migrations\201711051548512_RestoringIncorrectlyRemovedFields.Designer.cs">
+      <DependentUpon>201711051548512_RestoringIncorrectlyRemovedFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -164,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711051226126_ChangeToUserModel.resx">
       <DependentUpon>201711051226126_ChangeToUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711051548512_RestoringIncorrectlyRemovedFields.resx">
+      <DependentUpon>201711051548512_RestoringIncorrectlyRemovedFields.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
