@@ -11,6 +11,9 @@ changes rapidly.
 The application is configured to run with a local instance of SQL Server 2014 Express, in order to setup the database run
 update-database from the nuget commandline to run the migrations. Once the database is set up simply compile and run from Visual Studio 2017.
 
+Username: DemoUser
+Password: Secret1#
+
 ## Backend
 The backend is built according to the DDD best practices for domain modelling using ms recommended table per hierarchy (aggregate root) architecture. For data
 access the app uses entity framework 6 as the orm of choice with fluent api code first configurations. To decouple the data access from

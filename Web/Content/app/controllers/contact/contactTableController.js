@@ -44,7 +44,7 @@
     }
 
     var deleteSelectedRow = function (e) {
-        button = $(e.target);
+        button = $(e.currentTarget);
 
         service.deleteContact(button.attr("data-contact-id"),
             function () {
@@ -82,7 +82,7 @@
 
         var loadDatatable = function (result) {
             initializeDatatable(result);
-            $(".contact-delete-contact").on("click", openDeletePrompt);
+            $("button.contact-delete-contact").on("click", openDeletePrompt);
         }
         service.getContacts(loadDatatable, loadDatatable);
     };

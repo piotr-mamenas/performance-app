@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
-using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;

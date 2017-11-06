@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Core.Domain.Accounts;
-using Core.Domain.Contacts;
 using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
@@ -11,7 +10,6 @@ using Infrastructure.AutoMapper;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
 using Web.Presentation.ViewModels.AccountViewModels;
-using Web.Presentation.ViewModels.ContactViewModels;
 
 namespace Web.Controllers
 {

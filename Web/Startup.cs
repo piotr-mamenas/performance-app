@@ -1,6 +1,4 @@
-﻿using Infrastructure;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Owin;
 using Web;
 

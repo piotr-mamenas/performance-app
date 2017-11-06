@@ -1,7 +1,6 @@
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using System.Data.Entity.Validation;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Domain.Accounts;
@@ -14,7 +13,6 @@ using Core.Domain.Institutions;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Infrastructure.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Infrastructure.Migrations
 {

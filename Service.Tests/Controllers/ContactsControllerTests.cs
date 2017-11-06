@@ -1,6 +1,4 @@
 ﻿using Core.Interfaces;
-using Moq;
-using NUnit.Framework;
 using Service.Controllers;
 
 namespace Service.Tests.Controllers

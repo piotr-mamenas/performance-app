@@ -1,5 +1,4 @@
-﻿using System;
-using Core.Domain.Identity;
+﻿using Core.Domain.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;

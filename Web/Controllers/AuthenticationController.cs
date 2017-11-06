@@ -1,9 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Core.Domain.Identity;
 using Infrastructure.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;

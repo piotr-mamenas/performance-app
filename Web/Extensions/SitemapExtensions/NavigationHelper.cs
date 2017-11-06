@@ -1,7 +1,10 @@
 ﻿using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
+using System.Web.UI.WebControls;
 using System.Xml.Linq;
+using Core.Domain.Identity;
 
 namespace Web.Extensions.SitemapExtensions
 {
@@ -15,7 +18,7 @@ namespace Web.Extensions.SitemapExtensions
         /// <returns></returns>
         public static IHtmlString GenerateRibbon(this HtmlHelper helper)
         {
-            return helper.Raw(GetNavbar());
+            return helper.Raw(GetNavbar(helper));
         }
 
         /// <summary>
@@ -42,7 +45,7 @@ namespace Web.Extensions.SitemapExtensions
         /// 
         /// </summary>
         /// <returns></returns>
-        private static string GetNavbar()
+        private static string GetNavbar(HtmlHelper helper)
         {
             var sitemap = XDocument.Load(HttpContext.Current.Server.MapPath("~/Web.sitemap"));
             var navbarStringBuilder = new StringBuilder();
@@ -56,6 +59,7 @@ namespace Web.Extensions.SitemapExtensions
             }
             
             navbarStringBuilder.AppendLine("</ul>");
+            navbarStringBuilder.Append(helper.Partial("_NavbarAuth"));
             navbarStringBuilder.AppendLine("</nav>");
             navbarStringBuilder.AppendLine(GetSubNavbar(sitemap));
 
@@ -67,7 +71,7 @@ namespace Web.Extensions.SitemapExtensions
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        public static string GetNavigationItem(XElement node)
+        private static string GetNavigationItem(XElement node)
         {
             var siteMapNode = new SiteMapNode(node);
 
@@ -81,7 +85,7 @@ namespace Web.Extensions.SitemapExtensions
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        public static string GetSubNavbar(XDocument node)
+        private static string GetSubNavbar(XDocument node)
         {
             var subNavbarBuilder = new StringBuilder();
 
@@ -104,7 +108,7 @@ namespace Web.Extensions.SitemapExtensions
         /// <param name="node"></param>
         /// <param name="navId"></param>
         /// <returns></returns>
-        public static string GetSubNavigationItem(XElement node, string navId)
+        private static string GetSubNavigationItem(XElement node, string navId)
         {
             var subNavBuilder = new StringBuilder();
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Core.Domain.Currencies;
 
 namespace Core.Domain.Assets
@@ -17,11 +18,30 @@ namespace Core.Domain.Assets
 
         public decimal FaceValue { get; set; }
 
+        public Bond()
+        {
+            throw new NotSupportedException();
+        }
+
+        public Bond(BondCoupon coupon, Currency currency, decimal faceValue, DateTime issueDate, DateTime maturityDate)
+        {
+            Coupon = coupon;
+            Currency = currency;
+            FaceValue = faceValue;
+            IssueDate = issueDate;
+            MaturityDate = maturityDate;
+        }
+
         public void SetCoupon(decimal amount, decimal rate)
         {
             if (rate < 0 || rate > 1)
             {
-                throw new InvalidOperationException("Rate cannot be smaller than 0% or larger than 100%");
+                throw new ValidationException("Rate cannot be smaller than 0 or larger than 1");
+            }
+
+            if (amount <= 0)
+            {
+                throw new ValidationException("Amount cannot be negative");
             }
 
             Coupon = new BondCoupon

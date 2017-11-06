@@ -40,7 +40,7 @@
     }
 
     var deleteSelectedRow = function (e) {
-        button = $(e.target);
+        button = $(e.currentTarget);
 
         service.deleteAccount(button.attr("data-account-id"),
             function () {
