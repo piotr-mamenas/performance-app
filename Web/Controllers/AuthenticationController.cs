@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -136,8 +137,28 @@ namespace Web.Controllers
         [Route("changepassword")]
         [Authorize]
         [HttpPost]
-        public ActionResult ChangePassword(ChangePasswordViewModel viewModel)
+        public async Task<ActionResult> ChangePassword(ChangePasswordViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+
+            var user = await UserManager.FindByNameAsync(User.Identity.Name);
+
+            if (user == null)
+            {
+                return View(viewModel);
+            }
+
+            user.PasswordHash = UserManager.PasswordHasher.HashPassword(viewModel.Password);
+            var result = await UserManager.UpdateAsync(user);
+
+            if (!result.Succeeded)
+            {
+                throw new ApplicationException();
+            }
+
             return View();
         }
 

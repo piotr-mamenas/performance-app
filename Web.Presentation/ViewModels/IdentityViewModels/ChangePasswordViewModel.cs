@@ -15,7 +15,7 @@ namespace Web.Presentation.ViewModels.IdentityViewModels
 
         [Required]
         [DataType(DataType.Password)]
-        [DisplayName("Repeat Current Password")]
+        [DisplayName("Confirm Password")]
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
