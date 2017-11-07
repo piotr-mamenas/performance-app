@@ -135,7 +135,7 @@ namespace Web.Controllers
 
             if (contactInDb == null)
             {
-                return View();
+                return View(contactVm);
             }
 
             contactInDb = contactVm.Map<Contact>();

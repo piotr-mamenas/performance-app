@@ -1,7 +1,7 @@
 ﻿using Core.Enums;
 using Core.Interfaces;
 
-namespace Core.Domain.Message
+namespace Core.Domain.Messages
 {
     public class Message : BaseEntity<Message>, IEntityRoot
     {

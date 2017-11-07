@@ -81,13 +81,14 @@
     <Compile Include="Domain\Identity\User.cs" />
     <Compile Include="Domain\Institutions\Bank.cs" />
     <Compile Include="Domain\Institutions\Institution.cs" />
-    <Compile Include="Domain\Message\Message.cs" />
+    <Compile Include="Domain\Messages\Message.cs" />
     <Compile Include="Domain\Partners\AssetManager.cs" />
     <Compile Include="Domain\Partners\Partner.cs" />
     <Compile Include="Domain\Portfolios\Portfolio.cs" />
     <Compile Include="Domain\Positions\Position.cs" />
     <Compile Include="Domain\Prices\Price.cs" />
     <Compile Include="Domain\Selections\Selection.cs" />
+    <Compile Include="Domain\Tasks\Task.cs" />
     <Compile Include="Enums\Domain\AssetClass.cs" />
     <Compile Include="Enums\Domain\ContactType.cs" />
     <Compile Include="Enums\Domain\CountryType.cs" />

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Message;
+using Core.Domain.Messages;
 
 namespace Infrastructure.EntityConfigurations.MessageConfigurations
 {

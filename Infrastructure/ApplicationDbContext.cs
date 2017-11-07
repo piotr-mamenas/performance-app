@@ -6,7 +6,7 @@ using Core.Domain.Countries;
 using Core.Domain.Currencies;
 using Core.Domain.Identity;
 using Core.Domain.Institutions;
-using Core.Domain.Message;
+using Core.Domain.Messages;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Core.Domain.Positions;

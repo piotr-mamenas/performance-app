@@ -450,6 +450,8 @@
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Views\Shared\_NavbarAuth.cshtml" />
     <Content Include="Views\Authentication\ChangePassword.cshtml" />
+    <Content Include="Views\Partner\Create.cshtml" />
+    <Content Include="Views\Partner\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
