@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Infrastructure.Identity;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
@@ -39,7 +41,6 @@ namespace Web.Controllers
             }
         }
 
-        // TODO: To consider moving the beggining file to config
         /// <summary>
         /// 
         /// </summary>
@@ -69,6 +70,12 @@ namespace Web.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="loginVm"></param>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("login")]
         [AllowAnonymous]
@@ -103,6 +110,59 @@ namespace Web.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(loginVm);
             }
+        }
+
+        /// <summary>
+        /// Logs out the currently signed in User
+        /// </summary>
+        /// <returns></returns>
+        [Route("logout")]
+        [AllowAnonymous]
+        public ActionResult Logout()
+        {
+            var authenticationManager = HttpContext.GetOwinContext().Authentication;
+            authenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+
+            return RedirectToAction("Login");
+        }
+
+        [Route("changepassword")]
+        [Authorize]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [Route("changepassword")]
+        [Authorize]
+        [HttpPost]
+        public ActionResult ChangePassword(ChangePasswordViewModel viewModel)
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (_userManager != null)
+                {
+                    _userManager.Dispose();
+                    _userManager = null;
+                }
+
+                if (_signInManager != null)
+                {
+                    _signInManager.Dispose();
+                    _signInManager = null;
+                }
+            }
+
+            base.Dispose(disposing);
         }
     }
 }

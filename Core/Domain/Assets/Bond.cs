@@ -20,7 +20,6 @@ namespace Core.Domain.Assets
 
         public Bond()
         {
-            throw new NotSupportedException();
         }
 
         public Bond(BondCoupon coupon, Currency currency, decimal faceValue, DateTime issueDate, DateTime maturityDate)

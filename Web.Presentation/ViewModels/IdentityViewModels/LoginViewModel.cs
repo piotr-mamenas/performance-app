@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Web.Presentation.ViewModels.IdentityViewModels
 {
+    /// <summary>
+    /// View model used to post a login request to the application
+    /// </summary>
     public class LoginViewModel
     {
         [Required]
@@ -11,6 +14,7 @@ namespace Web.Presentation.ViewModels.IdentityViewModels
         
         [Required]
         [DisplayName("Password")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [DisplayName("Remember Me?")]
