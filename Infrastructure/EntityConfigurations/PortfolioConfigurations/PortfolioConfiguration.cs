@@ -22,6 +22,10 @@ namespace Infrastructure.EntityConfigurations.PortfolioConfigurations
                 .IsRequired()
                 .HasMaxLength(255)
                 .HasColumnName("PortfolioName");
+
+            HasRequired(b => b.Account)
+                .WithMany(c => c.Portfolios)
+                .WillCascadeOnDelete(false);
         }
     }
 }

@@ -91,13 +91,15 @@ namespace Infrastructure.Migrations
                 {
                     Id = 1,
                     Name = "Benchmark Portfolio",
-                    Number = "KKY10934747"
+                    Number = "KKY10934747",
+                    AccountId = 1
                 },
                 new Portfolio
                 {
                     Id = 2,
                     Name = "Benchmark Portfolio",
-                    Number = "KKZ97147473"
+                    Number = "KKZ97147473",
+                    AccountId = 2
                 });
         }
             

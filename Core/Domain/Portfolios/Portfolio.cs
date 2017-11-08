@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Core.Domain.Partners;
+﻿using Core.Domain.Accounts;
 using Core.Interfaces;
 
 namespace Core.Domain.Portfolios
@@ -10,6 +9,7 @@ namespace Core.Domain.Portfolios
 
         public string Name { get; set; }
 
-        public ICollection<Partner> Partners { get; set; }
+        public Account Account { get; set; }
+        public int AccountId { get; set; }
     }
 }

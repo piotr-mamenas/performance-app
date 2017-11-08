@@ -19,14 +19,11 @@ namespace Core.Domain.Partners
 
         public ICollection<Account> Accounts { get; set; }
 
-        public ICollection<Portfolio> Portfolios { get; set; }
-
         public Partner()
         {
             Institutions = null;
             Contacts = null;
             Accounts = null;
-            Portfolios = null;
         }
     }
 }

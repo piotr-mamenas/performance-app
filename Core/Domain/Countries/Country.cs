@@ -10,7 +10,6 @@ namespace Core.Domain.Countries
         public string Code { get; set; }
 
         public Currency Currency { get; set; }
-
         public int CurrencyId { get; set; }
 
         public bool IsEnabled { get; set; }

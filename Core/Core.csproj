@@ -89,6 +89,7 @@
     <Compile Include="Domain\Prices\Price.cs" />
     <Compile Include="Domain\Selections\Selection.cs" />
     <Compile Include="Domain\Tasks\Task.cs" />
+    <Compile Include="Domain\Tasks\TaskRun.cs" />
     <Compile Include="Enums\Domain\AssetClass.cs" />
     <Compile Include="Enums\Domain\ContactType.cs" />
     <Compile Include="Enums\Domain\CountryType.cs" />

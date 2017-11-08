@@ -26,6 +26,11 @@ namespace Infrastructure.EntityConfigurations.AccountConfiguration
                 .HasColumnName("AccountNumber")
                 .HasMaxLength(127);
 
+            HasMany(a => a.Portfolios)
+                .WithRequired(p => p.Account)
+                .HasForeignKey(p => p.AccountId)
+                .WillCascadeOnDelete(false);
+
             Property(a => a.OpenedDate)
                 .HasColumnType(DatabaseVendorTypes.TimestampField)
                 .IsRequired();

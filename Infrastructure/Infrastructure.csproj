@@ -89,37 +89,9 @@
     <Compile Include="Identity\ApplicationRoleStore.cs" />
     <Compile Include="Identity\ApplicationSignInManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
-    <Compile Include="Migrations\201709161318324_Initial.cs" />
-    <Compile Include="Migrations\201709161318324_Initial.Designer.cs">
-      <DependentUpon>201709161318324_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709231210116_AddPositionMigration.cs" />
-    <Compile Include="Migrations\201709231210116_AddPositionMigration.Designer.cs">
-      <DependentUpon>201709231210116_AddPositionMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709231243054_SlightCorrectionToForeignKeyMigration.cs" />
-    <Compile Include="Migrations\201709231243054_SlightCorrectionToForeignKeyMigration.Designer.cs">
-      <DependentUpon>201709231243054_SlightCorrectionToForeignKeyMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710141316352_AddMessagesDomainModelAndRepository.cs" />
-    <Compile Include="Migrations\201710141316352_AddMessagesDomainModelAndRepository.Designer.cs">
-      <DependentUpon>201710141316352_AddMessagesDomainModelAndRepository.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710312208554_PortfolioEntityAddedMigration.cs" />
-    <Compile Include="Migrations\201710312208554_PortfolioEntityAddedMigration.Designer.cs">
-      <DependentUpon>201710312208554_PortfolioEntityAddedMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710312233451_SlightCorrectionsToNamingMigration.cs" />
-    <Compile Include="Migrations\201710312233451_SlightCorrectionsToNamingMigration.Designer.cs">
-      <DependentUpon>201710312233451_SlightCorrectionsToNamingMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711051226126_ChangeToUserModel.cs" />
-    <Compile Include="Migrations\201711051226126_ChangeToUserModel.Designer.cs">
-      <DependentUpon>201711051226126_ChangeToUserModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711051548512_RestoringIncorrectlyRemovedFields.cs" />
-    <Compile Include="Migrations\201711051548512_RestoringIncorrectlyRemovedFields.Designer.cs">
-      <DependentUpon>201711051548512_RestoringIncorrectlyRemovedFields.cs</DependentUpon>
+    <Compile Include="Migrations\201711081001305_Initial.cs" />
+    <Compile Include="Migrations\201711081001305_Initial.Designer.cs">
+      <DependentUpon>201711081001305_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
@@ -149,29 +121,8 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709161318324_Initial.resx">
-      <DependentUpon>201709161318324_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709231210116_AddPositionMigration.resx">
-      <DependentUpon>201709231210116_AddPositionMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709231243054_SlightCorrectionToForeignKeyMigration.resx">
-      <DependentUpon>201709231243054_SlightCorrectionToForeignKeyMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710141316352_AddMessagesDomainModelAndRepository.resx">
-      <DependentUpon>201710141316352_AddMessagesDomainModelAndRepository.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710312208554_PortfolioEntityAddedMigration.resx">
-      <DependentUpon>201710312208554_PortfolioEntityAddedMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710312233451_SlightCorrectionsToNamingMigration.resx">
-      <DependentUpon>201710312233451_SlightCorrectionsToNamingMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711051226126_ChangeToUserModel.resx">
-      <DependentUpon>201711051226126_ChangeToUserModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711051548512_RestoringIncorrectlyRemovedFields.resx">
-      <DependentUpon>201711051548512_RestoringIncorrectlyRemovedFields.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711081001305_Initial.resx">
+      <DependentUpon>201711081001305_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
@@ -185,6 +136,8 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="SeedData\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

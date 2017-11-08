@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Domain.Partners;
+using Core.Domain.Portfolios;
 using Core.Interfaces;
 
 namespace Core.Domain.Accounts
@@ -36,6 +37,11 @@ namespace Core.Domain.Accounts
         /// </summary>
         public ICollection<Partner> Partners { get; set; }
 
+        /// <summary>
+        /// The portfolios which belong to this account
+        /// </summary>
+        public ICollection<Portfolio> Portfolios { get; set; }
+        
         #endregion
 
         #region Constructor
@@ -43,6 +49,7 @@ namespace Core.Domain.Accounts
         public Account()
         {
             Partners = null;
+            Portfolios = null;
         }
 
         public Account(string accountName, string accountNumber, Partner initialAccountOwner)
@@ -51,6 +58,7 @@ namespace Core.Domain.Accounts
             Name = accountName;
             Number = accountNumber;
             OpenedDate = DateTime.Today;
+            Portfolios = null;
 
             Partners = new List<Partner>
             {
