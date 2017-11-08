@@ -89,6 +89,7 @@
     <Compile Include="Identity\ApplicationRoleStore.cs" />
     <Compile Include="Identity\ApplicationSignInManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
+    <Compile Include="IIdentifiable.cs" />
     <Compile Include="Migrations\201711081001305_Initial.cs" />
     <Compile Include="Migrations\201711081001305_Initial.Designer.cs">
       <DependentUpon>201711081001305_Initial.cs</DependentUpon>
@@ -116,6 +117,18 @@
     <Compile Include="Repositories\PortfolioRepository.cs" />
     <Compile Include="Repositories\PositionRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="SeedData\BaseSeeder.cs" />
+    <Compile Include="SeedData\Base\CurrencySeeder.cs" />
+    <Compile Include="SeedData\IBaseData.cs" />
+    <Compile Include="SeedData\ISeedable.cs" />
+    <Compile Include="SeedData\ITestData.cs" />
+    <Compile Include="SeedData\Test\AccountSeeder.cs" />
+    <Compile Include="SeedData\Test\AssetSeeder.cs" />
+    <Compile Include="SeedData\Base\CountrySeeder.cs" />
+    <Compile Include="SeedData\Test\ContactSeeder.cs" />
+    <Compile Include="SeedData\Test\InstitutionSeeder.cs" />
+    <Compile Include="SeedData\Test\PartnerSeeder.cs" />
+    <Compile Include="SeedData\Test\PortfolioSeeder.cs" />
     <Compile Include="Serialization\JsonContractResolvers\ContactContractResolver.cs" />
     <Compile Include="Services\LocalizationService.cs" />
     <Compile Include="UnitOfWork.cs" />
@@ -137,7 +150,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="SeedData\" />
+    <Folder Include="SeedData\Identity\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

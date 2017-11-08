@@ -88,6 +88,8 @@
     <Compile Include="Domain\Positions\Position.cs" />
     <Compile Include="Domain\Prices\Price.cs" />
     <Compile Include="Domain\Selections\Selection.cs" />
+    <Compile Include="Domain\Tasks\ExportTask.cs" />
+    <Compile Include="Domain\Tasks\ImportTask.cs" />
     <Compile Include="Domain\Tasks\Task.cs" />
     <Compile Include="Domain\Tasks\TaskRun.cs" />
     <Compile Include="Enums\Domain\AssetClass.cs" />
@@ -97,6 +99,7 @@
     <Compile Include="Enums\Domain\InstitutionType.cs" />
     <Compile Include="Enums\Domain\PartnerType.cs" />
     <Compile Include="Enums\Domain\PositionType.cs" />
+    <Compile Include="Enums\Domain\TaskType.cs" />
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Interfaces\IComplete.cs" />
     <Compile Include="Interfaces\IEntityRoot.cs" />

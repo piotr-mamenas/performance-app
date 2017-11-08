@@ -9,6 +9,8 @@ namespace Core.Domain.Tasks
 
         public string Description { get; set; }
 
+        public bool IsTemplate { get; set; }
+
         public ICollection<TaskRun> Runs { get; set; }
     }
 }
