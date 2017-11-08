@@ -12,6 +12,7 @@ using Core.Domain.Positions;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure.Repositories;
+using Infrastructure.Repositories.BaseData;
 
 namespace Infrastructure
 {

@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace Core.Domain.Tasks
+﻿namespace Core.Domain.Tasks
 {
     public class ImportTask : Task
     {

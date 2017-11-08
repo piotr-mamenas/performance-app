@@ -2,8 +2,16 @@
 
 namespace Core.Domain.Tasks
 {
+    /// <summary>
+    /// Represents a single instance of a run of a predefined task
+    /// </summary>
     public class TaskRun : BaseEntity<TaskRun>
     {
+        public string Name { get; set; }
+
+        public Task Task { get; set; }
+        public int TaskId { get; set; }
+
         public DateTime StartTimestamp { get; set; }
 
         public DateTime? EndTimestamp { get; set; }
@@ -15,7 +23,5 @@ namespace Core.Domain.Tasks
             StartTimestamp = DateTime.Now;
             Progress = 0;
         }
-
-
     }
 }

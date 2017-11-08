@@ -9,6 +9,7 @@ using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure;
 using Infrastructure.Repositories;
+using Infrastructure.Repositories.BaseData;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Service.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Service.App_Start.NinjectWebCommon), "Stop")]
