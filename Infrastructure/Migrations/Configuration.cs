@@ -1,6 +1,8 @@
 using System.Data.Entity.Migrations;
 using System.Threading.Tasks;
+using Infrastructure.SeedData.Base;
 using Infrastructure.SeedData.Identity;
+using Infrastructure.SeedData.Test;
 
 namespace Infrastructure.Migrations
 {
@@ -11,18 +13,37 @@ namespace Infrastructure.Migrations
             AutomaticMigrationsEnabled = true;
         }
         
+        /// <summary>
+        /// Temporarily implementing it with hardcoded seeders, I will expand it later with reflection once Integration Tests are needed
+        /// </summary>
+        /// <param name="context"></param>
         protected override void Seed(ApplicationDbContext context)
         {
-            //SeedAccount(context.Accounts);
-            //SeedContact(context.Contacts);
-            //SeedPartner(context.Partners);
-            //SeedCurrency(context.Currencies);
+            var accountSeeder = new AccountSeeder(context.Accounts);
+            accountSeeder.Seed();
+
+            var contactSeeder = new ContactSeeder(context.Contacts);
+            contactSeeder.Seed();
+
+            var partnerSeeder = new PartnerSeeder(context.Partners);
+            partnerSeeder.Seed();
+
+            var currencySeeder = new CurrencySeeder(context.Currencies);
+            currencySeeder.Seed();
+
             context.SaveChanges();
-            //SeedCountry(context.Countries);
-            //SeedInstitution(context.Institutions);
-            //var assetSeeder = new AssetSeeder();
-            //AssetSeeder.Seed(context.Assets);
-            //SeedPortfolio(context.Portfolios);
+
+            var countrySeeder = new CountrySeeder(context.Countries);
+            countrySeeder.Seed();
+
+            var institutionSeeder = new InstitutionSeeder(context.Institutions);
+            institutionSeeder.Seed();
+
+            var assetSeeder = new AssetSeeder(context.Assets);
+            assetSeeder.Seed();
+
+            var portfolioSeeder = new PortfolioSeeder(context.Portfolios);
+            portfolioSeeder.Seed();
 
             Task.Run(async () => { await StaticIdentitySeeder.SeedIdentityAsync(context); }).Wait();
             context.SaveChanges();

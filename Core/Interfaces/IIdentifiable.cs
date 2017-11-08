@@ -1,4 +1,4 @@
-﻿namespace Infrastructure
+﻿namespace Core.Interfaces
 {
     public interface IIdentifiable
     {

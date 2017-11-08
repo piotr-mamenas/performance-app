@@ -103,6 +103,7 @@
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Interfaces\IComplete.cs" />
     <Compile Include="Interfaces\IEntityRoot.cs" />
+    <Compile Include="Interfaces\IIdentifiable.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Repositories\IAccountRepository.cs" />
     <Compile Include="Interfaces\Repositories\IAssetRepository.cs" />

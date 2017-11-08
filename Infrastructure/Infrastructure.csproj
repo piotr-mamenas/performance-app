@@ -89,7 +89,6 @@
     <Compile Include="Identity\ApplicationRoleStore.cs" />
     <Compile Include="Identity\ApplicationSignInManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
-    <Compile Include="IIdentifiable.cs" />
     <Compile Include="Migrations\201711081001305_Initial.cs" />
     <Compile Include="Migrations\201711081001305_Initial.Designer.cs">
       <DependentUpon>201711081001305_Initial.cs</DependentUpon>

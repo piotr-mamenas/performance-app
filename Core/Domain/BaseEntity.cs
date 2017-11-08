@@ -1,6 +1,8 @@
-﻿namespace Core.Domain
+﻿using Core.Interfaces;
+
+namespace Core.Domain
 {
-    public class BaseEntity<T> where T : BaseEntity<T>, new()
+    public class BaseEntity<T> : IIdentifiable where T : BaseEntity<T>, new()
     {
         public int Id { get; set; }
 
