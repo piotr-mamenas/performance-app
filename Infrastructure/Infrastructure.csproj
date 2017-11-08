@@ -120,6 +120,7 @@
     <Compile Include="SeedData\BaseSeeder.cs" />
     <Compile Include="SeedData\Base\CurrencySeeder.cs" />
     <Compile Include="SeedData\IBaseData.cs" />
+    <Compile Include="SeedData\Identity\StaticIdentitySeeder.cs" />
     <Compile Include="SeedData\ISeedable.cs" />
     <Compile Include="SeedData\ITestData.cs" />
     <Compile Include="SeedData\Test\AccountSeeder.cs" />
@@ -149,8 +150,6 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SeedData\Identity\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
