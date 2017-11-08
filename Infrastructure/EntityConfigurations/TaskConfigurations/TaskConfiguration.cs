@@ -26,6 +26,11 @@ namespace Infrastructure.EntityConfigurations.TaskConfigurations
             Property(t => t.Description)
                 .HasColumnName("TaskDescription")
                 .HasMaxLength(1024);
+
+            HasMany(t => t.Runs)
+                .WithRequired(tr => tr.Task)
+                .HasForeignKey(tr => tr.TaskId)
+                .WillCascadeOnDelete(false);
         }
     }
 }
