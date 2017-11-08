@@ -10,6 +10,11 @@ using Core.Interfaces.Repositories;
 using Infrastructure;
 using Infrastructure.Repositories;
 using Infrastructure.Repositories.BaseData;
+using Infrastructure.Repositories.Business.Account;
+using Infrastructure.Repositories.Business.Contact;
+using Infrastructure.Repositories.Business.Institution;
+using Infrastructure.Repositories.Business.Partner;
+using Infrastructure.Repositories.Business.Portfolio;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Service.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Service.App_Start.NinjectWebCommon), "Stop")]

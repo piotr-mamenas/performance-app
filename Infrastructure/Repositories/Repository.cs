@@ -15,14 +15,14 @@ namespace Infrastructure.Repositories
     /// <typeparam name="TEntity"></typeparam>
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class 
     {
-        protected readonly DbContext Context;
+        protected readonly ApplicationDbContext Context;
         private readonly DbSet<TEntity> _entities;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="context"></param>
-        public Repository(DbContext context)
+        public Repository(ApplicationDbContext context)
         {
             Context = context;
             _entities = Context.Set<TEntity>();

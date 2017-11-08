@@ -1,6 +1,6 @@
 ﻿namespace Core.Domain.Tasks
 {
-    public class ImportTask : Task
+    public class ImportTask : ServerTask
     {
         public string Path { get; set; }
     }

@@ -9,7 +9,7 @@ namespace Core.Domain.Tasks
     {
         public string Name { get; set; }
 
-        public Task Task { get; set; }
+        public ServerTask Task { get; set; }
         public int TaskId { get; set; }
 
         public DateTime StartTimestamp { get; set; }

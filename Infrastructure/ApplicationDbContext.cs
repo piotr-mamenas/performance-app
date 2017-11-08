@@ -10,6 +10,7 @@ using Core.Domain.Messages;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Core.Domain.Positions;
+using Core.Domain.Tasks;
 using Infrastructure.ComplexTypesConfigurations;
 using Infrastructure.EntityConfigurations.AccountConfiguration;
 using Infrastructure.EntityConfigurations.AssetConfigurations;
@@ -22,6 +23,7 @@ using Infrastructure.EntityConfigurations.MessageConfigurations;
 using Infrastructure.EntityConfigurations.PartnerConfigurations;
 using Infrastructure.EntityConfigurations.PortfolioConfigurations;
 using Infrastructure.EntityConfigurations.PositionConfigurations;
+using Infrastructure.EntityConfigurations.TaskConfigurations;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Infrastructure
@@ -38,6 +40,7 @@ namespace Infrastructure
         public DbSet<Position> Positions { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Portfolio> Portfolios { get; set; }
+        public DbSet<ServerTask> Tasks { get; set; }
 
         public ApplicationDbContext()
             : base("PerformanceApp")
@@ -56,6 +59,7 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new AssetConfiguration());
             modelBuilder.Configurations.Add(new BondCouponConfiguration());
             modelBuilder.Configurations.Add(new BondConfiguration());
+            modelBuilder.Configurations.Add(new AssetPriceConfiguration());
 
             modelBuilder.Configurations.Add(new PartnerConfiguration());
             modelBuilder.Configurations.Add(new AssetManagerConfiguration());
@@ -77,6 +81,11 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new MessageConfiguration());
 
             modelBuilder.Configurations.Add(new PortfolioConfiguration());
+
+            modelBuilder.Configurations.Add(new ServerTaskConfiguration());
+            modelBuilder.Configurations.Add(new ExportTaskConfiguration());
+            modelBuilder.Configurations.Add(new ImportTaskConfiguration());
+            modelBuilder.Configurations.Add(new TaskRunConfiguration());
         }
 
         public static ApplicationDbContext Create()

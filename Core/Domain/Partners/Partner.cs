@@ -2,7 +2,6 @@
 using Core.Domain.Accounts;
 using Core.Domain.Contacts;
 using Core.Domain.Institutions;
-using Core.Domain.Portfolios;
 using Core.Interfaces;
 
 namespace Core.Domain.Partners

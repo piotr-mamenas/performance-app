@@ -1,8 +1,8 @@
 using System.Data.Entity.Migrations;
 using System.Threading.Tasks;
-using Infrastructure.SeedData.Base;
-using Infrastructure.SeedData.Identity;
-using Infrastructure.SeedData.Test;
+using Infrastructure.Seed.BaseData;
+using Infrastructure.Seed.IdentityData;
+using Infrastructure.Seed.TestData;
 
 namespace Infrastructure.Migrations
 {

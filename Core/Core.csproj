@@ -86,11 +86,11 @@
     <Compile Include="Domain\Partners\Partner.cs" />
     <Compile Include="Domain\Portfolios\Portfolio.cs" />
     <Compile Include="Domain\Positions\Position.cs" />
-    <Compile Include="Domain\Prices\Price.cs" />
+    <Compile Include="Domain\Assets\AssetPrice.cs" />
     <Compile Include="Domain\Selections\Selection.cs" />
     <Compile Include="Domain\Tasks\ExportTask.cs" />
     <Compile Include="Domain\Tasks\ImportTask.cs" />
-    <Compile Include="Domain\Tasks\Task.cs" />
+    <Compile Include="Domain\Tasks\ServerTask.cs" />
     <Compile Include="Domain\Tasks\TaskRun.cs" />
     <Compile Include="Enums\Domain\AssetClass.cs" />
     <Compile Include="Enums\Domain\ContactType.cs" />
@@ -116,6 +116,7 @@
     <Compile Include="Interfaces\Repositories\IPortfolioRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPositionRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITaskRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

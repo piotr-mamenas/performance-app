@@ -10,6 +10,7 @@ using Core.Domain.Messages;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Core.Domain.Positions;
+using Core.Domain.Tasks;
 using Core.Interfaces.Repositories;
 
 namespace Core.Interfaces
@@ -29,6 +30,7 @@ namespace Core.Interfaces
         IPositionRepository<Position> Positions { get; }
         IMessageRepository<Message> Messages { get; }
         IPortfolioRepository<Portfolio> Portfolios { get; }
+        ITaskRepository<ServerTask> Tasks { get; }
         Task<int> CompleteAsync();
     }
 }

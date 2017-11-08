@@ -12,9 +12,12 @@ namespace Core.Domain.Assets
 
         public ICollection<Position> Positions { get; set; }
 
+        public ICollection<AssetPrice> Prices { get; set; }
+
         public Asset()
         {
             Positions = null;
+            Prices = null;
         }
     }
 }

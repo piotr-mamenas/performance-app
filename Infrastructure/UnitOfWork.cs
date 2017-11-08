@@ -9,10 +9,20 @@ using Core.Domain.Messages;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Core.Domain.Positions;
+using Core.Domain.Tasks;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
 using Infrastructure.Repositories;
 using Infrastructure.Repositories.BaseData;
+using Infrastructure.Repositories.Business.Account;
+using Infrastructure.Repositories.Business.Asset;
+using Infrastructure.Repositories.Business.Contact;
+using Infrastructure.Repositories.Business.Institution;
+using Infrastructure.Repositories.Business.Partner;
+using Infrastructure.Repositories.Business.Portfolio;
+using Infrastructure.Repositories.Business.Position;
+using Infrastructure.Repositories.System.Message;
+using Infrastructure.Repositories.System.Task;
 
 namespace Infrastructure
 {
@@ -37,6 +47,7 @@ namespace Infrastructure
             Positions = new PositionRepository<Position>(_context);
             Messages = new MessageRepository<Message>(_context);
             Portfolios = new PortfolioRepository<Portfolio>(_context);
+            Tasks = new TaskRepository<ServerTask>(_context);
         }
 
         public IAccountRepository<Account> Accounts { get; }
@@ -52,6 +63,7 @@ namespace Infrastructure
         public IPositionRepository<Position> Positions { get; }
         public IMessageRepository<Message> Messages { get; }
         public IPortfolioRepository<Portfolio> Portfolios { get; }
+        public ITaskRepository<ServerTask> Tasks { get; }
 
         public async Task<int> CompleteAsync()
         {
