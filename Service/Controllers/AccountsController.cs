@@ -7,7 +7,7 @@ using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Accounts;
 using Core.Interfaces;
-using Core.Interfaces.Repositories.Account;
+using Core.Interfaces.Repositories.Accounts;
 using Infrastructure.AutoMapper;
 using Service.Dtos.Account;
 

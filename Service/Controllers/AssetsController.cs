@@ -7,7 +7,7 @@ using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Assets;
 using Core.Interfaces;
-using Core.Interfaces.Repositories.Asset;
+using Core.Interfaces.Repositories.Assets;
 using Infrastructure.AutoMapper;
 using Service.Dtos.Asset;
 

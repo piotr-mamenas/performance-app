@@ -1,6 +1,6 @@
 ﻿using Core.Interfaces;
 using Core.Interfaces.Repositories;
-using Core.Interfaces.Repositories.Task;
+using Core.Interfaces.Repositories.Tasks;
 
 namespace Infrastructure.Repositories.System.Task
 {

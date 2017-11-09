@@ -7,7 +7,7 @@ using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Partners;
 using Core.Interfaces;
-using Core.Interfaces.Repositories.Partner;
+using Core.Interfaces.Repositories.Partners;
 using Infrastructure.AutoMapper;
 using Service.Dtos.Partner;
 

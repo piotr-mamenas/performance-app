@@ -1,4 +1,4 @@
-﻿using Core.Interfaces.Repositories.Task;
+﻿using Core.Interfaces.Repositories.Tasks;
 
 namespace Infrastructure.Repositories.System.Task
 {

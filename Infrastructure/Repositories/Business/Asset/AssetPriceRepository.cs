@@ -1,4 +1,4 @@
-﻿using Core.Interfaces.Repositories.Asset;
+﻿using Core.Interfaces.Repositories.Assets;
 
 namespace Infrastructure.Repositories.Business.Asset
 {

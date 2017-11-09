@@ -1,4 +1,4 @@
-﻿using Core.Interfaces.Repositories.Partner;
+﻿using Core.Interfaces.Repositories.Partners;
 
 namespace Infrastructure.Repositories.Business.Partner
 {

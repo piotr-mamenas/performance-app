@@ -1,6 +1,6 @@
 ﻿using Core.Interfaces;
 using Core.Interfaces.Repositories;
-using Core.Interfaces.Repositories.Institution;
+using Core.Interfaces.Repositories.Institutions;
 
 namespace Infrastructure.Repositories.Business.Institution
 {
