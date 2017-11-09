@@ -4,7 +4,7 @@ using Core.Interfaces;
 
 namespace Core.Domain.Portfolios
 {
-    public class Portfolio : BaseEntity<Portfolio>, IEntityRoot
+    public class Portfolio : BaseEntity, IEntityRoot
     {
         public string Number { get; set; }
 

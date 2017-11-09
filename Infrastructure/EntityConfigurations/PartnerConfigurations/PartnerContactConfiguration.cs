@@ -1,17 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Partners;
 
-namespace Infrastructure.EntityConfigurations.ContactConfigurations
+namespace Infrastructure.EntityConfigurations.PartnerConfigurations
 {
-    public class ContactConfiguration : EntityTypeConfiguration<PartnerContact>
+    public class ContactConfiguration : BaseEntityConfiguration<PartnerContact>
     {
         public ContactConfiguration()
         {
-            Property(c => c.IsDeleted).HasColumnName("IsDeleted");
-
-            HasKey(c => c.Id);
-
             ToTable("Contact");
 
             Property(c => c.Id)

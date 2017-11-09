@@ -1,9 +1,8 @@
-﻿using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Partners;
+﻿using Core.Domain.Partners;
 
 namespace Infrastructure.EntityConfigurations.PartnerConfigurations
 {
-    public class AssetManagerConfiguration : EntityTypeConfiguration<AssetManager>
+    public class AssetManagerConfiguration : BaseEntityConfiguration<AssetManager>
     {
     }
 }

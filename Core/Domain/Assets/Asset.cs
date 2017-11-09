@@ -4,7 +4,7 @@ using Core.Interfaces;
 
 namespace Core.Domain.Assets
 {
-    public class Asset : BaseEntity<Asset>, IEntityRoot
+    public class Asset : BaseEntity, IEntityRoot
     {
         public string Name { get; set; }
 

@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using Core.Domain.Assets;
 using Core.Domain.BaseData.Countries;
+using Core.Domain.ExchangeRates;
 using Core.Domain.Portfolios;
 using Core.Interfaces;
 
 namespace Core.Domain.BaseData.Currencies
 {
-    public class Currency : BaseEntity<Currency>, IEntityRoot
+    public class Currency : BaseEntity, IEntityRoot
     {
         public string Name { get; set; }
 
@@ -20,11 +21,14 @@ namespace Core.Domain.BaseData.Currencies
 
         public ICollection<PortfolioAssetPosition> Positions { get; set; }
 
+        public ICollection<ExchangeRate> ExchangeRates { get; set; }
+
         public Currency()
         {
             Countries = null;
             Bonds = null;
             Positions = null;
+            ExchangeRates = null;
         }
     }
 }

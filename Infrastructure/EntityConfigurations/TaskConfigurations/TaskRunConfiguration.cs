@@ -1,16 +1,11 @@
-﻿using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Tasks;
+﻿using Core.Domain.Tasks;
 
 namespace Infrastructure.EntityConfigurations.TaskConfigurations
 {
-    public class TaskRunConfiguration : EntityTypeConfiguration<TaskRun>
+    public class TaskRunConfiguration : BaseEntityConfiguration<TaskRun>
     {
         public TaskRunConfiguration()
         {
-            Property(t => t.IsDeleted).HasColumnName("IsDeleted");
-
-            HasKey(t => t.Id);
-
             ToTable("TaskRun");
 
             Property(tr => tr.StartTimestamp)

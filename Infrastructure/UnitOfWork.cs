@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using Core.Domain.Accounts;
 using Core.Domain.Assets;
 using Core.Domain.BaseData.Countries;
@@ -16,6 +17,7 @@ using Core.Interfaces.Repositories.BaseData;
 using Core.Interfaces.Repositories.Institution;
 using Core.Interfaces.Repositories.Partner;
 using Core.Interfaces.Repositories.Portfolio;
+using Core.Interfaces.Repositories.Portfolios;
 using Core.Interfaces.Repositories.System;
 using Core.Interfaces.Repositories.Task;
 using Infrastructure.Repositories;
@@ -53,6 +55,7 @@ namespace Infrastructure
             Messages = new MessageRepository<Message>(_context);
             Portfolios = new PortfolioRepository<Portfolio>(_context);
             Tasks = new TaskRepository<ServerTask>(_context);
+            TaskRuns = new TaskRunRepository<TaskRun>(_context);
         }
 
         public IAccountRepository<Account> Accounts { get; }
@@ -70,6 +73,7 @@ namespace Infrastructure
         public IMessageRepository<Message> Messages { get; }
         public IPortfolioRepository<Portfolio> Portfolios { get; }
         public ITaskRepository<ServerTask> Tasks { get; }
+        public ITaskRunRepository<TaskRun> TaskRuns { get; }
 
         public async Task<int> CompleteAsync()
         {

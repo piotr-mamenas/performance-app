@@ -3,7 +3,7 @@ using Core.Interfaces;
 
 namespace Core.Domain.Messages
 {
-    public class Message : BaseEntity<Message>, IEntityRoot
+    public class Message : BaseEntity, IEntityRoot
     {
         public string Token { get; set; }
 

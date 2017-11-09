@@ -3,7 +3,7 @@ using Core.Interfaces;
 
 namespace Core.Domain.Tasks
 {
-    public class ServerTask : BaseEntity<ServerTask>, IEntityRoot
+    public class ServerTask : BaseEntity, IEntityRoot
     {
         public string Name { get; set; }
 

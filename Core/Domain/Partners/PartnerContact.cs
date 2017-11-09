@@ -1,6 +1,6 @@
 ﻿namespace Core.Domain.Partners
 {
-    public class PartnerContact : BaseEntity<PartnerContact>
+    public class PartnerContact : BaseEntity
     {
         public string Name { get; set; }
 

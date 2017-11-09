@@ -70,6 +70,7 @@
     <Compile Include="Domain\Assets\Bond.cs" />
     <Compile Include="Domain\Assets\BondCoupon.cs" />
     <Compile Include="Domain\Assets\Equity.cs" />
+    <Compile Include="Domain\ExchangeRates\ExchangeRate.cs" />
     <Compile Include="Domain\BaseEntity.cs" />
     <Compile Include="Domain\Partners\PartnerContact.cs" />
     <Compile Include="Domain\BaseData\Countries\Country.cs" />
@@ -105,19 +106,21 @@
     <Compile Include="Interfaces\IEntityRoot.cs" />
     <Compile Include="Interfaces\IIdentifiable.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Interfaces\Repositories\Account\IAccountRepository.cs" />
-    <Compile Include="Interfaces\Repositories\Asset\IAssetPriceRepository.cs" />
-    <Compile Include="Interfaces\Repositories\Asset\IAssetRepository.cs" />
-    <Compile Include="Interfaces\Repositories\Partner\IPartnerContactRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Accounts\IAccountRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Assets\IAssetPriceRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Assets\IAssetRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ExchangeRates\IExchangeRateRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Partners\IPartnerContactRepository.cs" />
     <Compile Include="Interfaces\Repositories\BaseData\ICountryRepository.cs" />
     <Compile Include="Interfaces\Repositories\BaseData\ICurrencyRepository.cs" />
     <Compile Include="Interfaces\Repositories\System\IMessageRepository.cs" />
-    <Compile Include="Interfaces\Repositories\Partner\IPartnerRepository.cs" />
-    <Compile Include="Interfaces\Repositories\Institution\IInstitutionRepository.cs" />
-    <Compile Include="Interfaces\Repositories\Portfolio\IPortfolioRepository.cs" />
-    <Compile Include="Interfaces\Repositories\Portfolio\IPortfolioAssetPositionRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Partners\IPartnerRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Institutions\IInstitutionRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Portfolios\IPortfolioRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Portfolios\IPortfolioAssetPositionRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
-    <Compile Include="Interfaces\Repositories\Task\ITaskRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Tasks\ITaskRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Tasks\ITaskRunRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

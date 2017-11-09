@@ -3,7 +3,7 @@ using Core.Domain.BaseData.Currencies;
 
 namespace Core.Domain.Assets
 {
-    public class AssetPrice : BaseEntity<AssetPrice>
+    public class AssetPrice : BaseEntity
     {
         public Asset Asset { get; set; }
         public int AssetId { get; set; }

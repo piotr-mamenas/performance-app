@@ -16,6 +16,7 @@ using Core.Interfaces.Repositories.BaseData;
 using Core.Interfaces.Repositories.Institution;
 using Core.Interfaces.Repositories.Partner;
 using Core.Interfaces.Repositories.Portfolio;
+using Core.Interfaces.Repositories.Portfolios;
 using Core.Interfaces.Repositories.System;
 using Core.Interfaces.Repositories.Task;
 
@@ -38,6 +39,7 @@ namespace Core.Interfaces
         IMessageRepository<Message> Messages { get; }
         IPortfolioRepository<Portfolio> Portfolios { get; }
         ITaskRepository<ServerTask> Tasks { get; }
+        ITaskRunRepository<TaskRun> TaskRuns { get; }
         Task<int> CompleteAsync();
     }
 }

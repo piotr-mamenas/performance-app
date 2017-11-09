@@ -5,7 +5,7 @@ using Core.Interfaces;
 
 namespace Core.Domain.Portfolios
 {
-    public class PortfolioAssetPosition : BaseEntity<PortfolioAssetPosition>, IEntityRoot
+    public class PortfolioAssetPosition : BaseEntity, IEntityRoot
     {
         /// <summary>
         /// Amount of asset at a given time

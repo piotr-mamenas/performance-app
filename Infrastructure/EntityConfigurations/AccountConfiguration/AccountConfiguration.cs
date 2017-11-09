@@ -1,17 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Accounts;
 
 namespace Infrastructure.EntityConfigurations.AccountConfiguration
 {
-    public class AccountConfiguration : EntityTypeConfiguration<Account>
+    public class AccountConfiguration : BaseEntityConfiguration<Account>
     {
         public AccountConfiguration()
         {
-            Property(a => a.IsDeleted).HasColumnName("IsDeleted");
-
-            HasKey(a => a.Id);
-
             ToTable("Account");
 
             Property(a => a.Id)

@@ -5,7 +5,7 @@ using Core.Interfaces;
 
 namespace Core.Domain.Partners
 {
-    public class Partner : BaseEntity<Partner>, IEntityRoot
+    public class Partner : BaseEntity, IEntityRoot
     {
         public string Name { get; set; }
 

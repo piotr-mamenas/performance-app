@@ -9,7 +9,7 @@ namespace Core.Domain.Accounts
     /// <summary>
     /// 
     /// </summary>
-    public class Account : BaseEntity<Account>, IEntityRoot
+    public class Account : BaseEntity, IEntityRoot
     {
         #region Properties
         /// <summary>

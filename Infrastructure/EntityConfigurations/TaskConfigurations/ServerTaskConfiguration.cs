@@ -1,18 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Tasks;
 using Core.Enums.Domain;
 
 namespace Infrastructure.EntityConfigurations.TaskConfigurations
 {
-    public class ServerTaskConfiguration : EntityTypeConfiguration<ServerTask>
+    public class ServerTaskConfiguration : BaseEntityConfiguration<ServerTask>
     {
         public ServerTaskConfiguration()
         {
-            Property(t => t.IsDeleted).HasColumnName("IsDeleted");
-
-            HasKey(t => t.Id);
-
             ToTable("Task");
 
             Property(t => t.Id)

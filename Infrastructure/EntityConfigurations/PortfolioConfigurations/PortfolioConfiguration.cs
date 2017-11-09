@@ -1,17 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Portfolios;
 
 namespace Infrastructure.EntityConfigurations.PortfolioConfigurations
 {
-    public class PortfolioConfiguration : EntityTypeConfiguration<Portfolio>
+    public class PortfolioConfiguration : BaseEntityConfiguration<Portfolio>
     {
         public PortfolioConfiguration()
         {
-            Property(p => p.IsDeleted).HasColumnName("IsDeleted");
-
-            HasKey(p => p.Id);
-
             ToTable("Portfolio");
 
             Property(p => p.Id)

@@ -2,7 +2,7 @@
 
 namespace Core.Domain
 {
-    public class BaseEntity<T> : IIdentifiable where T : BaseEntity<T>, new()
+    public class BaseEntity : IIdentifiable
     {
         public int Id { get; set; }
 

@@ -1,17 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Messages;
 
 namespace Infrastructure.EntityConfigurations.MessageConfigurations
 {
-    public class MessageConfiguration : EntityTypeConfiguration<Message>
+    public class MessageConfiguration : BaseEntityConfiguration<Message>
     {
         public MessageConfiguration()
         {
-            Property(c => c.IsDeleted).HasColumnName("IsDeleted");
-
-            HasKey(p => p.Id);
-
             ToTable("Message");
 
             Property(o => o.Id)

@@ -1,17 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration;
 using Core.Domain.BaseData.Currencies;
 
-namespace Infrastructure.EntityConfigurations.CurrencyConfigurations
+namespace Infrastructure.EntityConfigurations.BaseDataConfigurations
 {
-    public class CurrencyConfiguration : EntityTypeConfiguration<Currency>
+    public class CurrencyConfiguration : BaseEntityConfiguration<Currency>
     {
         public CurrencyConfiguration()
         {
-            Property(c => c.IsDeleted).HasColumnName("IsDeleted");
-
-            HasKey(c => c.Id);
-
             ToTable("Currency");
 
             Property(c => c.Id)
@@ -36,8 +31,8 @@ namespace Infrastructure.EntityConfigurations.CurrencyConfigurations
                 .WillCascadeOnDelete(false);
 
             HasMany(c => c.Positions)
-                .WithRequired(p => p.Currency)
-                .HasForeignKey(p => p.CurrencyId)
+                .WithRequired(pa => pa.Currency)
+                .HasForeignKey(pa => pa.CurrencyId)
                 .WillCascadeOnDelete(false);
         }
     }

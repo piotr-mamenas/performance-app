@@ -1,23 +1,18 @@
-﻿using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Assets;
+﻿using Core.Domain.Assets;
 
 namespace Infrastructure.EntityConfigurations.AssetConfigurations
 {
-    public class AssetPriceConfiguration : EntityTypeConfiguration<AssetPrice>
+    public class AssetPriceConfiguration : BaseEntityConfiguration<AssetPrice>
     {
         public AssetPriceConfiguration()
         {
-            Property(p => p.IsDeleted).HasColumnName("IsDeleted");
-
-            HasKey(p => p.Id);
-
             ToTable("AssetPrice");
 
-            Property(p => p.Timestamp)
+            Property(ap => ap.Timestamp)
                 .HasColumnType(DatabaseVendorTypes.TimestampField)
                 .IsRequired();
 
-            HasRequired(p => p.Asset)
+            HasRequired(ap => ap.Asset)
                 .WithMany(a => a.Prices)
                 .WillCascadeOnDelete(false);
         }

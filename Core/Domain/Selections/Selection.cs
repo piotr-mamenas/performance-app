@@ -5,7 +5,7 @@ using Core.Interfaces;
 
 namespace Core.Domain.Selections
 {
-    public class Selection : BaseEntity<Selection>, IEntityRoot
+    public class Selection : BaseEntity, IEntityRoot
     {
         public ICollection<Partner> SelectedPartners { get; set; }
 

@@ -1,17 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration;
 using Core.Domain.BaseData.Countries;
 
-namespace Infrastructure.EntityConfigurations.CountryConfigurations
+namespace Infrastructure.EntityConfigurations.BaseDataConfigurations
 {
-    public class CountryConfiguration : EntityTypeConfiguration<Country>
+    public class CountryConfiguration : BaseEntityConfiguration<Country>
     {
         public CountryConfiguration()
         {
-            Property(c => c.IsDeleted).HasColumnName("IsDeleted");
-
-            HasKey(c => c.Id);
-
             ToTable("Country");
 
             Property(c => c.Id)
@@ -27,7 +22,7 @@ namespace Infrastructure.EntityConfigurations.CountryConfigurations
                 .HasMaxLength(2)
                 .HasColumnName("CountryCode");
 
-            HasRequired(b => b.Currency)
+            HasRequired(c => c.Currency)
                 .WithMany(c => c.Countries)
                 .WillCascadeOnDelete(false);
 

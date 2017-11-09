@@ -1,18 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Institutions;
 using Core.Enums.Domain;
 
 namespace Infrastructure.EntityConfigurations.InstitutionConfigurations
 {
-    public class InstitutionConfiguration : EntityTypeConfiguration<Institution>
+    public class InstitutionConfiguration : BaseEntityConfiguration<Institution>
     {
         public InstitutionConfiguration()
         {
-            Property(c => c.IsDeleted).HasColumnName("IsDeleted");
-
-            HasKey(o => o.Id);
-
             ToTable("Institution");
 
             Property(o => o.Id)

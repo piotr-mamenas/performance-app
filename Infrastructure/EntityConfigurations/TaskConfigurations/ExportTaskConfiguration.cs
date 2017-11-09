@@ -1,9 +1,8 @@
-﻿using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Tasks;
+﻿using Core.Domain.Tasks;
 
 namespace Infrastructure.EntityConfigurations.TaskConfigurations
 {
-    public class ExportTaskConfiguration : EntityTypeConfiguration<ExportTask>
+    public class ExportTaskConfiguration : BaseEntityConfiguration<ExportTask>
     {
         public ExportTaskConfiguration()
         {

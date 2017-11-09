@@ -1,9 +1,8 @@
-﻿using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Institutions;
+﻿using Core.Domain.Institutions;
 
 namespace Infrastructure.EntityConfigurations.InstitutionConfigurations
 {
-    public class BankConfiguration : EntityTypeConfiguration<Bank>
+    public class BankConfiguration : BaseEntityConfiguration<Bank>
     {
         public BankConfiguration()
         {

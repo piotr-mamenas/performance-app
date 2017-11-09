@@ -1,9 +1,8 @@
-﻿using Core.Interfaces;
-using Core.Interfaces.Repositories.Portfolio;
+﻿using Core.Interfaces.Repositories.Portfolios;
 
 namespace Infrastructure.Repositories.Business.Portfolio
 {
-    public class PortfolioAssetPositionRepository<TSpecificEntity> : Repository<TSpecificEntity>, IPortfolioAssetPositionRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot, new()
+    public class PortfolioAssetPositionRepository<TSpecificEntity> : Repository<TSpecificEntity>, IPortfolioAssetPositionRepository<TSpecificEntity> where TSpecificEntity : class, new()
     {
         public PortfolioAssetPositionRepository(ApplicationDbContext context)
             : base(context)

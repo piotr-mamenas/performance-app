@@ -1,9 +1,8 @@
-﻿using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Tasks;
+﻿using Core.Domain.Tasks;
 
 namespace Infrastructure.EntityConfigurations.TaskConfigurations
 {
-    public class ImportTaskConfiguration : EntityTypeConfiguration<ImportTask>
+    public class ImportTaskConfiguration : BaseEntityConfiguration<ImportTask>
     {
         public ImportTaskConfiguration()
         {

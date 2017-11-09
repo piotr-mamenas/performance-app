@@ -1,18 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Partners;
 using Core.Enums.Domain;
 
 namespace Infrastructure.EntityConfigurations.PartnerConfigurations
 {
-    public class PartnerConfiguration : EntityTypeConfiguration<Partner>
+    public class PartnerConfiguration : BaseEntityConfiguration<Partner>
     {
         public PartnerConfiguration()
         {
-            Property(c => c.IsDeleted).HasColumnName("IsDeleted");
-
-            HasKey(p => p.Id);
-
             ToTable("Partner");
 
             Property(o => o.Id)

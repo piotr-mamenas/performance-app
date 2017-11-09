@@ -1,18 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration;
 using Core.Domain.Assets;
 using Core.Enums.Domain;
 
 namespace Infrastructure.EntityConfigurations.AssetConfigurations
 {
-    public class AssetConfiguration : EntityTypeConfiguration<Asset>
+    public class AssetConfiguration : BaseEntityConfiguration<Asset>
     {
         public AssetConfiguration()
         {
-            Property(a => a.IsDeleted).HasColumnName("IsDeleted");
-
-            HasKey(a => a.Id);
-
             ToTable("Asset");
 
             Property(a => a.Id)
@@ -31,13 +26,13 @@ namespace Infrastructure.EntityConfigurations.AssetConfigurations
                 .HasForeignKey(p => p.AssetId)
                 .WillCascadeOnDelete(false);
 
-            HasMany(c => c.Prices)
+            HasMany(a => a.Prices)
                 .WithRequired(p => p.Asset)
                 .HasForeignKey(p => p.AssetId)
                 .WillCascadeOnDelete(false);
 
-            Map<Bond>(p => p.Requires("AssetClass").HasValue((int)AssetClass.Bond));
-            Map<Equity>(p => p.Requires("AssetClass").HasValue((int)AssetClass.Equity));
+            Map<Bond>(a => a.Requires("AssetClass").HasValue((int)AssetClass.Bond));
+            Map<Equity>(a => a.Requires("AssetClass").HasValue((int)AssetClass.Equity));
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Core.Domain.Tasks
     /// <summary>
     /// Represents a single instance of a run of a predefined task
     /// </summary>
-    public class TaskRun : BaseEntity<TaskRun>
+    public class TaskRun : BaseEntity
     {
         public string Name { get; set; }
 

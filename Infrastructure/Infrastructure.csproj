@@ -74,14 +74,16 @@
     <Compile Include="EntityConfigurations\AssetConfigurations\BondConfiguration.cs" />
     <Compile Include="EntityConfigurations\AssetConfigurations\EquityConfiguration.cs" />
     <Compile Include="EntityConfigurations\AssetConfigurations\AssetPriceConfiguration.cs" />
-    <Compile Include="EntityConfigurations\CountryConfigurations\CountryConfiguration.cs" />
-    <Compile Include="EntityConfigurations\CurrencyConfigurations\CurrencyConfiguration.cs" />
+    <Compile Include="EntityConfigurations\BaseDataConfigurations\CountryConfiguration.cs" />
+    <Compile Include="EntityConfigurations\BaseDataConfigurations\CurrencyConfiguration.cs" />
     <Compile Include="EntityConfigurations\DatabaseVendorTypes.cs" />
+    <Compile Include="EntityConfigurations\BaseEntityConfiguration.cs" />
+    <Compile Include="EntityConfigurations\ExchangeRateConfiguration\ExchangeRatesConfiguration.cs" />
     <Compile Include="EntityConfigurations\InstitutionConfigurations\BankConfiguration.cs" />
     <Compile Include="EntityConfigurations\MessageConfigurations\MessageConfiguration.cs" />
     <Compile Include="EntityConfigurations\PartnerConfigurations\AssetManagerConfiguration.cs" />
     <Compile Include="EntityConfigurations\PortfolioConfigurations\PortfolioConfiguration.cs" />
-    <Compile Include="EntityConfigurations\PositionConfigurations\PositionConfiguration.cs" />
+    <Compile Include="EntityConfigurations\PortfolioConfigurations\PortfolioAssetPositionConfiguration.cs" />
     <Compile Include="EntityConfigurations\TaskConfigurations\ExportTaskConfiguration.cs" />
     <Compile Include="EntityConfigurations\TaskConfigurations\ImportTaskConfiguration.cs" />
     <Compile Include="EntityConfigurations\TaskConfigurations\ServerTaskConfiguration.cs" />
@@ -108,7 +110,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
-    <Compile Include="EntityConfigurations\ContactConfigurations\ContactConfiguration.cs" />
+    <Compile Include="EntityConfigurations\PartnerConfigurations\PartnerContactConfiguration.cs" />
     <Compile Include="EntityConfigurations\IdentityConfigurations\RoleConfiguration.cs" />
     <Compile Include="EntityConfigurations\IdentityConfigurations\UserClaimConfiguration.cs" />
     <Compile Include="EntityConfigurations\IdentityConfigurations\UserConfiguration.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="Repositories\Business\Portfolio\PortfolioAssetPositionRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\System\Task\TaskRepository.cs" />
+    <Compile Include="Repositories\System\Task\TaskRunRepository.cs" />
     <Compile Include="Seed\BaseSeeder.cs" />
     <Compile Include="Seed\BaseData\CurrencySeeder.cs" />
     <Compile Include="Seed\IBaseData.cs" />

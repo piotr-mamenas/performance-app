@@ -3,6 +3,7 @@ using Core.Domain.Accounts;
 using Core.Domain.Assets;
 using Core.Domain.BaseData.Countries;
 using Core.Domain.BaseData.Currencies;
+using Core.Domain.ExchangeRates;
 using Core.Domain.Identity;
 using Core.Domain.Institutions;
 using Core.Domain.Messages;
@@ -12,15 +13,13 @@ using Core.Domain.Tasks;
 using Infrastructure.ComplexTypesConfigurations;
 using Infrastructure.EntityConfigurations.AccountConfiguration;
 using Infrastructure.EntityConfigurations.AssetConfigurations;
-using Infrastructure.EntityConfigurations.ContactConfigurations;
-using Infrastructure.EntityConfigurations.CountryConfigurations;
-using Infrastructure.EntityConfigurations.CurrencyConfigurations;
+using Infrastructure.EntityConfigurations.BaseDataConfigurations;
+using Infrastructure.EntityConfigurations.ExchangeRateConfiguration;
 using Infrastructure.EntityConfigurations.IdentityConfigurations;
 using Infrastructure.EntityConfigurations.InstitutionConfigurations;
 using Infrastructure.EntityConfigurations.MessageConfigurations;
 using Infrastructure.EntityConfigurations.PartnerConfigurations;
 using Infrastructure.EntityConfigurations.PortfolioConfigurations;
-using Infrastructure.EntityConfigurations.PositionConfigurations;
 using Infrastructure.EntityConfigurations.TaskConfigurations;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -39,6 +38,7 @@ namespace Infrastructure
         public DbSet<Message> Messages { get; set; }
         public DbSet<Portfolio> Portfolios { get; set; }
         public DbSet<ServerTask> Tasks { get; set; }
+        public DbSet<ExchangeRate> ExchangeRates { get; set; }
 
         public ApplicationDbContext()
             : base("PerformanceApp")
@@ -68,7 +68,7 @@ namespace Infrastructure
 
             modelBuilder.Configurations.Add(new CurrencyConfiguration());
 
-            modelBuilder.Configurations.Add(new PositionConfiguration());
+            modelBuilder.Configurations.Add(new PortfolioAssetPositionConfiguration());
 
             modelBuilder.Configurations.Add(new RoleConfiguration());
             modelBuilder.Configurations.Add(new UserClaimConfiguration());
@@ -79,6 +79,8 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new MessageConfiguration());
 
             modelBuilder.Configurations.Add(new PortfolioConfiguration());
+
+            modelBuilder.Configurations.Add(new ExchangeRateConfiguration());
 
             modelBuilder.Configurations.Add(new ServerTaskConfiguration());
             modelBuilder.Configurations.Add(new ExportTaskConfiguration());
