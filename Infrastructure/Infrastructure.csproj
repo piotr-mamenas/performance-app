@@ -98,6 +98,10 @@
     <Compile Include="Migrations\201711081001305_Initial.Designer.cs">
       <DependentUpon>201711081001305_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711090850453_AddingTaskConfigurationAndAdjustingExistingConfigurations.cs" />
+    <Compile Include="Migrations\201711090850453_AddingTaskConfigurationAndAdjustingExistingConfigurations.Designer.cs">
+      <DependentUpon>201711090850453_AddingTaskConfigurationAndAdjustingExistingConfigurations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -109,6 +113,7 @@
     <Compile Include="EntityConfigurations\IdentityConfigurations\UserRoleConfiguration.cs" />
     <Compile Include="EntityConfigurations\PartnerConfigurations\PartnerConfiguration.cs" />
     <Compile Include="EntityConfigurations\InstitutionConfigurations\InstitutionConfiguration.cs" />
+    <Compile Include="MimeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Business\Account\AccountRepository.cs" />
     <Compile Include="Repositories\Business\Asset\AssetRepository.cs" />
@@ -142,6 +147,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711081001305_Initial.resx">
       <DependentUpon>201711081001305_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711090850453_AddingTaskConfigurationAndAdjustingExistingConfigurations.resx">
+      <DependentUpon>201711090850453_AddingTaskConfigurationAndAdjustingExistingConfigurations.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

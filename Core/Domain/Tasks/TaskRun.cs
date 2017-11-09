@@ -16,7 +16,7 @@ namespace Core.Domain.Tasks
 
         public DateTime? EndTimestamp { get; set; }
 
-        public decimal Progress { get; set; }
+        public int Progress { get; set; }
 
         public TaskRun()
         {

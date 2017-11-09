@@ -21,8 +21,7 @@ namespace Infrastructure.EntityConfigurations.TaskConfigurations
                 .HasColumnType(DatabaseVendorTypes.TimestampField);
 
             Property(tr => tr.Progress)
-                .HasColumnName("TaskProgress")
-                .HasPrecision(1, 2);
+                .HasColumnName("TaskProgress");
 
             HasRequired(tr => tr.Task)
                 .WithMany(t => t.Runs)
