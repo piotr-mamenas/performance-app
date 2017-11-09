@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
+using Core.Interfaces.Repositories.Partner;
 using Infrastructure.AutoMapper;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;

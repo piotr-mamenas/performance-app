@@ -8,13 +8,13 @@ namespace Infrastructure.EntityConfigurations.PortfolioConfigurations
     {
         public PortfolioConfiguration()
         {
-            Property(c => c.IsDeleted).HasColumnName("IsDeleted");
+            Property(p => p.IsDeleted).HasColumnName("IsDeleted");
 
             HasKey(p => p.Id);
 
             ToTable("Portfolio");
 
-            Property(o => o.Id)
+            Property(p => p.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("PortfolioId");
 
@@ -23,8 +23,13 @@ namespace Infrastructure.EntityConfigurations.PortfolioConfigurations
                 .HasMaxLength(255)
                 .HasColumnName("PortfolioName");
 
-            HasRequired(b => b.Account)
-                .WithMany(c => c.Portfolios)
+            HasRequired(p => p.Account)
+                .WithMany(a => a.Portfolios)
+                .WillCascadeOnDelete(false);
+
+            HasMany(c => c.Positions)
+                .WithRequired(p => p.Portfolio)
+                .HasForeignKey(p => p.PortfolioId)
                 .WillCascadeOnDelete(false);
         }
     }

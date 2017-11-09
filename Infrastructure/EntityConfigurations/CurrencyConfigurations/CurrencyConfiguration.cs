@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Currencies;
+using Core.Domain.BaseData.Currencies;
 
 namespace Infrastructure.EntityConfigurations.CurrencyConfigurations
 {

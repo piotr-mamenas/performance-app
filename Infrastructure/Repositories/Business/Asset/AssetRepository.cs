@@ -1,5 +1,6 @@
 ﻿using Core.Interfaces;
 using Core.Interfaces.Repositories;
+using Core.Interfaces.Repositories.Asset;
 
 namespace Infrastructure.Repositories.Business.Asset
 {

@@ -8,8 +8,10 @@ using System.Web.Http.Description;
 using Core.Domain.Accounts;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
+using Core.Interfaces.Repositories.Account;
 using Infrastructure.AutoMapper;
 using Service.Dtos;
+using Service.Dtos.Account;
 
 namespace Service.Controllers
 {

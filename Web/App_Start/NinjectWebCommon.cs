@@ -1,14 +1,15 @@
-using Core.Domain.Contacts;
-using Core.Domain.Countries;
-using Core.Domain.Currencies;
+using Core.Domain.BaseData.Countries;
+using Core.Domain.BaseData.Currencies;
 using Core.Domain.Institutions;
 using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
+using Core.Interfaces.Repositories.BaseData;
+using Core.Interfaces.Repositories.Institution;
+using Core.Interfaces.Repositories.Partner;
 using Infrastructure;
 using Infrastructure.Repositories;
 using Infrastructure.Repositories.BaseData;
-using Infrastructure.Repositories.Business.Contact;
 using Infrastructure.Repositories.Business.Institution;
 using Infrastructure.Repositories.Business.Partner;
 
@@ -76,7 +77,7 @@ namespace Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
-            kernel.Bind<IContactRepository<Contact>>().To<ContactRepository<Contact>>().InRequestScope();
+            kernel.Bind<IPartnerContactRepository<PartnerContact>>().To<PartnerContactRepository<PartnerContact>>().InRequestScope();
             kernel.Bind<ICurrencyRepository<Currency>>().To<CurrencyRepository<Currency>>().InRequestScope();
             kernel.Bind<ICountryRepository<Country>>().To<CountryRepository<Country>>().InRequestScope();
             kernel.Bind<IPartnerRepository<Partner>>().To<PartnerRepository<Partner>>().InRequestScope();

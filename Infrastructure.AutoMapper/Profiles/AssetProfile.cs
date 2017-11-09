@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Core.Domain.Assets;
 using Service.Dtos;
+using Service.Dtos.Asset;
 
 namespace Infrastructure.AutoMapper.Profiles
 {

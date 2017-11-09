@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Countries;
+using Core.Domain.BaseData.Countries;
 
 namespace Infrastructure.EntityConfigurations.CountryConfigurations
 {

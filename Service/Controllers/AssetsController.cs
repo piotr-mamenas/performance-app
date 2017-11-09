@@ -8,8 +8,10 @@ using System.Web.Http.Description;
 using Core.Domain.Assets;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
+using Core.Interfaces.Repositories.Asset;
 using Infrastructure.AutoMapper;
 using Service.Dtos;
+using Service.Dtos.Asset;
 
 namespace Service.Controllers
 {

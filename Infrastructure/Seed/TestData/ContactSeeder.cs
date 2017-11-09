@@ -1,14 +1,14 @@
 ﻿using System.Data.Entity;
-using Core.Domain.Contacts;
+using Core.Domain.Partners;
 
 namespace Infrastructure.Seed.TestData
 {
-    public class ContactSeeder : BaseSeeder<Contact>, ITestData
+    public class ContactSeeder : BaseSeeder<PartnerContact>, ITestData
     {
-        public ContactSeeder(IDbSet<Contact> contacts)
+        public ContactSeeder(IDbSet<PartnerContact> contacts)
             : base(contacts)
         {
-            SeededEntities.Add(new Contact
+            SeededEntities.Add(new PartnerContact
             {
                 Id = 1,
                 Email = "gordon.gekko@teldar.com",
@@ -19,7 +19,7 @@ namespace Infrastructure.Seed.TestData
                 PhoneNumber = "+0111111111"
             });
 
-            SeededEntities.Add(new Contact
+            SeededEntities.Add(new PartnerContact
             {
                 Id = 2,
                 Email = "piotr.mamenas@gmail.com",
@@ -30,7 +30,7 @@ namespace Infrastructure.Seed.TestData
                 PhoneNumber = "+482222222"
             });
 
-            SeededEntities.Add(new Contact
+            SeededEntities.Add(new PartnerContact
             {
                 Id = 3,
                 Email = "jordan.belfort@stratton.com",

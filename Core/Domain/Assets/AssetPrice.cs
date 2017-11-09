@@ -1,5 +1,5 @@
 ﻿using System;
-using Core.Domain.Currencies;
+using Core.Domain.BaseData.Currencies;
 
 namespace Core.Domain.Assets
 {

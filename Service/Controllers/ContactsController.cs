@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
-using Core.Domain.Contacts;
+using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories;
+using Core.Interfaces.Repositories.Partner;
 using Infrastructure.AutoMapper;
 using Infrastructure.Serialization.JsonContractResolvers;
 using Service.Dtos;
+using Service.Dtos.Partner;
 
 namespace Service.Controllers
 {
@@ -21,7 +23,7 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ContactsController : ApiController
     {
-        private readonly IContactRepository<Contact> _repository;
+        private readonly IPartnerContactRepository<PartnerContact> _repository;
         private readonly IComplete _unitOfWork;
 
         public ContactsController(IUnitOfWork unitOfWork)
@@ -37,7 +39,7 @@ namespace Service.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        [ResponseType(typeof(ICollection<ContactDto>))]
+        [ResponseType(typeof(ICollection<PartnerContactDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
@@ -49,7 +51,7 @@ namespace Service.Controllers
             {
                 return NotFound();
             }
-            return Ok(contacts.Map<ICollection<ContactDto>>());
+            return Ok(contacts.Map<ICollection<PartnerContactDto>>());
         }
 
         /// <summary>
@@ -57,7 +59,7 @@ namespace Service.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [ResponseType(typeof(ContactDto))]
+        [ResponseType(typeof(PartnerContactDto))]
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
@@ -67,7 +69,7 @@ namespace Service.Controllers
             {
                 return NotFound();
             }
-            return Ok(contact.Map<ContactDto>());
+            return Ok(contact.Map<PartnerContactDto>());
         }
 
         /// <summary>
@@ -77,7 +79,7 @@ namespace Service.Controllers
         /// <param name="contact"></param>
         /// <returns></returns>
         [HttpPut, Route("{id}")]
-        public async Task<IHttpActionResult> UpdateAsync(int id, ContactDto contact)
+        public async Task<IHttpActionResult> UpdateAsync(int id, PartnerContactDto contact)
         {
             if (!ModelState.IsValid)
             {
@@ -91,7 +93,7 @@ namespace Service.Controllers
                 return NotFound();
             }
             
-            _repository.Add(contact.Map<Contact>());
+            _repository.Add(contact.Map<PartnerContact>());
 
             await _unitOfWork.CompleteAsync();
 
@@ -104,14 +106,14 @@ namespace Service.Controllers
         /// <param name="contact"></param>
         /// <returns></returns>
         [HttpPost, Route("")]
-        public async Task<IHttpActionResult> CreateAsync(ContactDto contact)
+        public async Task<IHttpActionResult> CreateAsync(PartnerContactDto contact)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            _repository.Add(contact.Map<Contact>());
+            _repository.Add(contact.Map<PartnerContact>());
 
             await _unitOfWork.CompleteAsync();
 

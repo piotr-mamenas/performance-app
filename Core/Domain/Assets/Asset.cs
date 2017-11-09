@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Core.Domain.Positions;
+using Core.Domain.Portfolios;
 using Core.Interfaces;
 
 namespace Core.Domain.Assets
@@ -10,7 +10,7 @@ namespace Core.Domain.Assets
 
         public string Isin { get; set; }
 
-        public ICollection<Position> Positions { get; set; }
+        public ICollection<PortfolioAssetPosition> Positions { get; set; }
 
         public ICollection<AssetPrice> Prices { get; set; }
 

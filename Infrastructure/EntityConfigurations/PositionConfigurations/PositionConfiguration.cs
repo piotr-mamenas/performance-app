@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Positions;
+using Core.Domain.Portfolios;
 
 namespace Infrastructure.EntityConfigurations.PositionConfigurations
 {
-    public class PositionConfiguration : EntityTypeConfiguration<Position>
+    public class PositionConfiguration : EntityTypeConfiguration<PortfolioAssetPosition>
     {
         public PositionConfiguration()
         {
@@ -25,10 +25,14 @@ namespace Infrastructure.EntityConfigurations.PositionConfigurations
 
             Property(p => p.Timestamp)
                 .HasColumnType(DatabaseVendorTypes.TimestampField)
-                .HasColumnName("PositionTime")
+                .HasColumnName("PositionTimestamp")
                 .IsRequired();
 
             HasRequired(p => p.Currency)
+                .WithMany(c => c.Positions)
+                .WillCascadeOnDelete(false);
+
+            HasRequired(p => p.Portfolio)
                 .WithMany(c => c.Positions)
                 .WillCascadeOnDelete(false);
 

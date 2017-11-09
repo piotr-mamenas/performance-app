@@ -1,15 +1,13 @@
 ﻿using System.Data.Entity;
 using Core.Domain.Accounts;
 using Core.Domain.Assets;
-using Core.Domain.Contacts;
-using Core.Domain.Countries;
-using Core.Domain.Currencies;
+using Core.Domain.BaseData.Countries;
+using Core.Domain.BaseData.Currencies;
 using Core.Domain.Identity;
 using Core.Domain.Institutions;
 using Core.Domain.Messages;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
-using Core.Domain.Positions;
 using Core.Domain.Tasks;
 using Infrastructure.ComplexTypesConfigurations;
 using Infrastructure.EntityConfigurations.AccountConfiguration;
@@ -34,10 +32,10 @@ namespace Infrastructure
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Partner> Partners { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<PartnerContact> Contacts { get; set; }
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Country> Countries { get; set; }
-        public DbSet<Position> Positions { get; set; }
+        public DbSet<PortfolioAssetPosition> Positions { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Portfolio> Portfolios { get; set; }
         public DbSet<ServerTask> Tasks { get; set; }
