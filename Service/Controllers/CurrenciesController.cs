@@ -7,10 +7,8 @@ using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.BaseData.Currencies;
 using Core.Interfaces;
-using Core.Interfaces.Repositories;
 using Core.Interfaces.Repositories.BaseData;
 using Infrastructure.AutoMapper;
-using Service.Dtos;
 using Service.Dtos.BaseData;
 
 namespace Service.Controllers

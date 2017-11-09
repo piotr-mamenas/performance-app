@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Core.Domain.Portfolios;
-using Service.Dtos;
 using Service.Dtos.Portfolio;
 
 namespace Infrastructure.AutoMapper.Profiles

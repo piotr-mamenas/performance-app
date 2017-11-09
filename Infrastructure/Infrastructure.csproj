@@ -119,6 +119,7 @@
     <Compile Include="MimeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Business\Account\AccountRepository.cs" />
+    <Compile Include="Repositories\Business\Asset\AssetPriceRepository.cs" />
     <Compile Include="Repositories\Business\Asset\AssetRepository.cs" />
     <Compile Include="Repositories\Business\Partner\PartnerContactRepository.cs" />
     <Compile Include="Repositories\BaseData\CountryRepository.cs" />

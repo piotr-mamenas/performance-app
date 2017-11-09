@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Core.Domain.Partners;
-using Service.Dtos;
 using Service.Dtos.Partner;
 using Web.Presentation.ViewModels.ContactViewModels;
 

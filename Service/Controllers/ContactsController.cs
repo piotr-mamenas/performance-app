@@ -7,11 +7,9 @@ using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Partners;
 using Core.Interfaces;
-using Core.Interfaces.Repositories;
 using Core.Interfaces.Repositories.Partner;
 using Infrastructure.AutoMapper;
 using Infrastructure.Serialization.JsonContractResolvers;
-using Service.Dtos;
 using Service.Dtos.Partner;
 
 namespace Service.Controllers

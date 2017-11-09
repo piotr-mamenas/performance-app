@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Core.Domain.Institutions;
-using Service.Dtos;
 using Service.Dtos.Institution;
 
 namespace Infrastructure.AutoMapper.Profiles

@@ -106,6 +106,7 @@
     <Compile Include="Interfaces\IIdentifiable.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Repositories\Account\IAccountRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Asset\IAssetPriceRepository.cs" />
     <Compile Include="Interfaces\Repositories\Asset\IAssetRepository.cs" />
     <Compile Include="Interfaces\Repositories\Partner\IPartnerContactRepository.cs" />
     <Compile Include="Interfaces\Repositories\BaseData\ICountryRepository.cs" />

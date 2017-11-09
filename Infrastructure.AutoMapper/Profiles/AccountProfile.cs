@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Core.Domain.Accounts;
-using Service.Dtos;
 using Service.Dtos.Account;
 using Web.Presentation.ViewModels.AccountViewModels;
 

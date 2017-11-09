@@ -1,8 +1,6 @@
-﻿using Core.Interfaces;
-
-namespace Core.Domain.Partners
+﻿namespace Core.Domain.Partners
 {
-    public class PartnerContact : BaseEntity<PartnerContact>, IEntityRoot
+    public class PartnerContact : BaseEntity<PartnerContact>
     {
         public string Name { get; set; }
 
