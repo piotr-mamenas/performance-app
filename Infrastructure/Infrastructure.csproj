@@ -107,6 +107,10 @@
     <Compile Include="Migrations\201711091955524_AdjustingPortfolioToPositionAndRestructurization.Designer.cs">
       <DependentUpon>201711091955524_AdjustingPortfolioToPositionAndRestructurization.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711102208299_SimplifyingTheDomainModelAndExchangeRate.cs" />
+    <Compile Include="Migrations\201711102208299_SimplifyingTheDomainModelAndExchangeRate.Designer.cs">
+      <DependentUpon>201711102208299_SimplifyingTheDomainModelAndExchangeRate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -161,6 +165,9 @@
     <EmbeddedResource Include="Migrations\201711091955524_AdjustingPortfolioToPositionAndRestructurization.resx">
       <DependentUpon>201711091955524_AdjustingPortfolioToPositionAndRestructurization.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711102208299_SimplifyingTheDomainModelAndExchangeRate.resx">
+      <DependentUpon>201711102208299_SimplifyingTheDomainModelAndExchangeRate.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
       <SubType>Designer</SubType>
@@ -173,6 +180,8 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="EntityConfigurations\NewFolder1\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

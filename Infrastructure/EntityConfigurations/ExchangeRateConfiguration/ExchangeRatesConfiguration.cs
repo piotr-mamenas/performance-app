@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using Core.Domain.BaseData.Currencies;
 using Core.Domain.ExchangeRates;
 
 namespace Infrastructure.EntityConfigurations.ExchangeRateConfiguration
@@ -28,9 +29,13 @@ namespace Infrastructure.EntityConfigurations.ExchangeRateConfiguration
                 .IsRequired()
                 .HasColumnName("ExchangeRateRate");
 
-            HasRequired(c => c.BaseCurrency);
+            HasRequired(c => c.BaseCurrency)
+                .WithMany()
+                .WillCascadeOnDelete(false);
 
-            HasRequired(c => c.TargetCurrency);
+            HasRequired(c => c.TargetCurrency)
+                .WithMany()
+                .WillCascadeOnDelete(false);
 
             Property(e => e.Timestamp)
                 .HasColumnType(DatabaseVendorTypes.TimestampField)
