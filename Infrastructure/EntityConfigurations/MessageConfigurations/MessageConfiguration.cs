@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Core.Domain.Messages;
+using Core.Enums.Domain;
 
 namespace Infrastructure.EntityConfigurations.MessageConfigurations
 {
@@ -26,6 +27,10 @@ namespace Infrastructure.EntityConfigurations.MessageConfigurations
                 .IsRequired()
                 .HasMaxLength(255)
                 .HasColumnName("MessageContent");
+
+            Map<WarningMessage>(o => o.Requires("MessageType").HasValue((int)MessageType.WarningMessage));
+            Map<ErrorMessage>(o => o.Requires("MessageType").HasValue((int)MessageType.ErrorMessage));
+            Map<TextConstant>(o => o.Requires("MessageType").HasValue((int)MessageType.TextConstant));
         }
     }
 }

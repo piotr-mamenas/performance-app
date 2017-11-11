@@ -10,6 +10,8 @@ namespace Infrastructure.Seed
         private readonly IDbSet<T> _set;
         protected IList<T> SeededEntities { get; set; }
 
+        public int Index { get; set; }
+
         protected BaseSeeder(IDbSet<T> set)
         {
             _set = set;

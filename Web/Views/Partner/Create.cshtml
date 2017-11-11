@@ -1,4 +1,5 @@
-﻿@model Web.Presentation.ViewModels.PartnerViewModels.PartnerViewModel
+﻿@using Web.Extensions
+@model Web.Presentation.ViewModels.PartnerViewModels.PartnerViewModel
 
 @{
     ViewBag.Title = "Create Partner";
@@ -7,7 +8,7 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <span class="fa fa fa-user" style="margin-right: 5px;"></span>New Partner
+        <span class="fa fa fa-user" style="margin-right: 5px;"></span>@Html.GetLocalizedString("Web.Partner.Label.NewPartner")
     </div>
     <div class="panel-body">
         @Html.AntiForgeryToken()

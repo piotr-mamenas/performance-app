@@ -13,6 +13,7 @@ namespace Infrastructure.EntityConfigurations.IdentityConfigurations
                 c.Property(p => p.Id).HasColumnName("UserId");
                 c.Properties(p => new
                 {
+                    p.Language,
                     p.AccessFailedCount,
                     p.Email,
                     p.EmailConfirmed,

@@ -1,6 +1,7 @@
 using System.Data.Entity.Migrations;
 using System.Threading.Tasks;
 using Infrastructure.Seed.BaseData;
+using Infrastructure.Seed.BaseData.MessageSeeders;
 using Infrastructure.Seed.IdentityData;
 using Infrastructure.Seed.TestData;
 
@@ -44,6 +45,8 @@ namespace Infrastructure.Migrations
 
             var portfolioSeeder = new PortfolioSeeder(context.Portfolios);
             portfolioSeeder.Seed();
+
+            MessageSeedingRunner.Run(context.Messages);
 
             Task.Run(async () => { await StaticIdentitySeeder.SeedIdentityAsync(context); }).Wait();
             context.SaveChanges();

@@ -111,6 +111,10 @@
     <Compile Include="Migrations\201711102208299_SimplifyingTheDomainModelAndExchangeRate.Designer.cs">
       <DependentUpon>201711102208299_SimplifyingTheDomainModelAndExchangeRate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711111437008_AddingConcreteMessageTypes.cs" />
+    <Compile Include="Migrations\201711111437008_AddingConcreteMessageTypes.Designer.cs">
+      <DependentUpon>201711111437008_AddingConcreteMessageTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -138,6 +142,10 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\System\Task\TaskRepository.cs" />
     <Compile Include="Repositories\System\Task\TaskRunRepository.cs" />
+    <Compile Include="Seed\BaseData\MessageSeeders\EnglishMessageSeeder.cs" />
+    <Compile Include="Seed\BaseData\MessageSeeders\GermanMessageSeeder.cs" />
+    <Compile Include="Seed\BaseData\MessageSeeders\MessageSeedingRunner.cs" />
+    <Compile Include="Seed\BaseData\MessageSeeders\PolishMessageSeeder.cs" />
     <Compile Include="Seed\BaseSeeder.cs" />
     <Compile Include="Seed\BaseData\CurrencySeeder.cs" />
     <Compile Include="Seed\IBaseData.cs" />
@@ -168,6 +176,9 @@
     <EmbeddedResource Include="Migrations\201711102208299_SimplifyingTheDomainModelAndExchangeRate.resx">
       <DependentUpon>201711102208299_SimplifyingTheDomainModelAndExchangeRate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111437008_AddingConcreteMessageTypes.resx">
+      <DependentUpon>201711111437008_AddingConcreteMessageTypes.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
       <SubType>Designer</SubType>
@@ -180,8 +191,6 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EntityConfigurations\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

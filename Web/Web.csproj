@@ -171,6 +171,7 @@
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\Templates\BaseController.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
+    <Compile Include="Extensions\LocalizationHelper.cs" />
     <Compile Include="Extensions\SitemapExtensions\NavigationHelper.cs" />
     <Compile Include="Extensions\SitemapExtensions\SiteMapXmlHelper.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions\TableForHelper.cs" />
@@ -187,8 +188,11 @@
     <Content Include="Content\app\controllers\navbarController.js" />
     <Content Include="Content\app\controllers\partner\partnerTableController.js" />
     <Content Include="Content\app\controllers\portfolio\portfolioTableController.js" />
+    <Content Include="Content\app\controllers\report\newReportModalController.js" />
+    <Content Include="Content\app\controllers\report\reportTableController.js" />
     <Content Include="Content\app\controllers\shared\institutionSelectionTableController.js" />
     <Content Include="Content\app\controllers\shared\partnerSelectionTableController.js" />
+    <Content Include="Content\app\controllers\task\taskTableController.js" />
     <Content Include="Content\app\images\background.jpg" />
     <Content Include="Content\app\app.js" />
     <Content Include="Content\app\controllers\contact\contactTableController.js" />
@@ -199,6 +203,7 @@
     <Content Include="Content\app\services\institutionService.js" />
     <Content Include="Content\app\services\partnerService.js" />
     <Content Include="Content\app\services\portfolioService.js" />
+    <Content Include="Content\app\services\taskService.js" />
     <Content Include="Content\app\styles\global.css" />
     <Content Include="Content\vendor\scripts\moment\datetime.js" />
     <Content Include="Content\vendor\scripts\jquery\jquery.override.js" />
@@ -452,11 +457,12 @@
     <Content Include="Views\Authentication\ChangePassword.cshtml" />
     <Content Include="Views\Partner\Create.cshtml" />
     <Content Include="Views\Partner\Update.cshtml" />
+    <Content Include="Views\Portfolio\Create.cshtml" />
+    <Content Include="Views\Portfolio\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\app\controllers\report\" />
-    <Folder Include="Content\app\controllers\task\" />
+    <Folder Include="Helpers\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>

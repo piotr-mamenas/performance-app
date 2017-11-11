@@ -63,6 +63,7 @@
     <Compile Include="ViewModels\IdentityViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\IdentityViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\PartnerViewModels\PartnerViewModel.cs" />
+    <Compile Include="ViewModels\ReportViewModels\GenerateReportViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -6,5 +6,6 @@ namespace Core.Domain.Identity
     {
         public static string AdminRole = "Admin";
         public static string AssociateRole = "Associate";
+        public static string ClientRole = "Client";
     }
 }

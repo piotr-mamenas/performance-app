@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Core.Domain.Identity;
+using Core.Domain.Messages;
+using Core.Enums;
 using Core.Interfaces;
+using Core.Interfaces.Repositories;
 
 namespace Infrastructure.Services
 {
@@ -10,23 +15,33 @@ namespace Infrastructure.Services
     {
         private static IUnitOfWork UnitOfWork { get; }
 
+        private static IRepository<Message> MessageRepository { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
         static LocalizationService()
         {
             UnitOfWork = new UnitOfWork(ApplicationDbContext.Create());
+            MessageRepository = UnitOfWork.Messages;
         }
 
         /// <summary>
-        /// 
+        /// Method fetches the content of a text constant specified by the token and language provided
+        /// This method should be used for any non entity based localizations
         /// </summary>
-        /// <param name="entity"></param>
-        /// <param name="token"></param>
+        /// <param name="token">The token for which to fetch the localization constant</param>
+        /// <param name="language">Language for which to fetch the constant</param>
         /// <returns></returns>
-        public static string GetTextConstant(Type entity, string token)
+        public static async Task<string> GetTextConstantByTokenAsync(string token, Language language)
         {
-            return "Constant";
+            var textConstant = await MessageRepository.SingleOrDefaultAsync(m => m.Token == token && m.Language == language);
+
+            if (textConstant == null)
+            {
+                throw new NullReferenceException("Localization token could not be found");
+            }
+            return textConstant.Content;
         }
     }
 }
