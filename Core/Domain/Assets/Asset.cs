@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Core.Domain.Portfolios;
 using Core.Interfaces;
 
 namespace Core.Domain.Assets
@@ -10,14 +9,10 @@ namespace Core.Domain.Assets
 
         public string Isin { get; set; }
 
-        // this should point to portfolio not portfolioassetposition
-        public ICollection<PortfolioAssetPosition> Positions { get; set; }
-
         public ICollection<AssetPrice> Prices { get; set; }
 
         public Asset()
         {
-            Positions = null;
             Prices = null;
         }
     }

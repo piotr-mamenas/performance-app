@@ -10,15 +10,13 @@ namespace Infrastructure.Seed
         private readonly IDbSet<T> _set;
         protected IList<T> SeededEntities { get; set; }
 
-        public int Index { get; set; }
-
         protected BaseSeeder(IDbSet<T> set)
         {
             _set = set;
             SeededEntities = new List<T>();
         }
 
-        public void Seed()
+        public virtual void Seed()
         {
             foreach (var entity in SeededEntities)
             {

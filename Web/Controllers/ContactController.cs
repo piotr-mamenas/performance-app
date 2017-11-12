@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Core.Domain.Contacts;
 using Core.Domain.Partners;
 using Core.Interfaces;
-using Core.Interfaces.Repositories;
-using Core.Interfaces.Repositories.Partners;
+using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
@@ -17,7 +17,7 @@ namespace Web.Controllers
     [Authorize]
     public class ContactController : BaseController
     {
-        private readonly IPartnerContactRepository<PartnerContact> _contacts;
+        private readonly IContactRepository<Contact> _contacts;
         private readonly IPartnerRepository<Partner> _partners;
         private readonly IComplete _unitOfWork;
 
@@ -86,7 +86,7 @@ namespace Web.Controllers
                 return View(contactVm);
             }
 
-            _contacts.Add(contactVm.Map<PartnerContact>());
+            _contacts.Add(contactVm.Map<Contact>());
 
             await _unitOfWork.CompleteAsync();
 
@@ -138,7 +138,7 @@ namespace Web.Controllers
                 return View(contactVm);
             }
 
-            contactInDb = contactVm.Map<PartnerContact>();
+            contactInDb = contactVm.Map<Contact>();
 
             _contacts.Add(contactInDb);
 

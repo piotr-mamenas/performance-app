@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Core.Domain.Accounts;
 using Core.Domain.Assets;
+using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
 using Core.Domain.Institutions;
@@ -9,22 +10,12 @@ using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Core.Domain.Tasks;
 using Core.Interfaces;
-using Core.Interfaces.Repositories.Accounts;
-using Core.Interfaces.Repositories.Assets;
 using Core.Interfaces.Repositories.BaseData;
-using Core.Interfaces.Repositories.Institutions;
-using Core.Interfaces.Repositories.Partners;
-using Core.Interfaces.Repositories.Portfolios;
+using Core.Interfaces.Repositories.Business;
 using Core.Interfaces.Repositories.System;
-using Core.Interfaces.Repositories.Tasks;
 using Infrastructure.Repositories.BaseData;
-using Infrastructure.Repositories.Business.Account;
-using Infrastructure.Repositories.Business.Asset;
-using Infrastructure.Repositories.Business.Institution;
-using Infrastructure.Repositories.Business.Partner;
-using Infrastructure.Repositories.Business.Portfolio;
-using Infrastructure.Repositories.System.Message;
-using Infrastructure.Repositories.System.Task;
+using Infrastructure.Repositories.Business;
+using Infrastructure.Repositories.System;
 
 namespace Infrastructure
 {
@@ -39,37 +30,31 @@ namespace Infrastructure
             Accounts = new AccountRepository<Account>(_context);
             Assets = new AssetRepository<Asset>(_context);
             Bonds = new AssetRepository<Bond>(_context);
-            AssetPrices = new AssetPriceRepository<AssetPrice>(_context);
+            Contacts = new ContactRepository<Contact>(_context);
             Partners = new PartnerRepository<Partner>(_context);
             AssetManagers = new PartnerRepository<AssetManager>(_context);
             Institutions = new InstitutionRepository<Institution>(_context);
             Banks = new InstitutionRepository<Bank>(_context);
-            Contacts = new PartnerContactRepository<PartnerContact>(_context);
             Currencies = new CurrencyRepository<Currency>(_context);
             Countries = new CountryRepository<Country>(_context);
-            Positions = new PortfolioAssetPositionRepository<PortfolioAssetPosition>(_context);
             Messages = new MessageRepository<Message>(_context);
             Portfolios = new PortfolioRepository<Portfolio>(_context);
             Tasks = new TaskRepository<ServerTask>(_context);
-            TaskRuns = new TaskRunRepository<TaskRun>(_context);
         }
 
         public IAccountRepository<Account> Accounts { get; }
         public IAssetRepository<Asset> Assets { get; }
         public IAssetRepository<Bond> Bonds { get; }
-        public IAssetPriceRepository<AssetPrice> AssetPrices { get; }
         public IPartnerRepository<Partner> Partners { get; }
         public IPartnerRepository<AssetManager> AssetManagers { get; }
         public IInstitutionRepository<Institution> Institutions { get; }
         public IInstitutionRepository<Bank> Banks { get; }
-        public IPartnerContactRepository<PartnerContact> Contacts { get; }
+        public IContactRepository<Contact> Contacts { get; }
         public ICurrencyRepository<Currency> Currencies { get; }
         public ICountryRepository<Country> Countries { get; }
-        public IPortfolioAssetPositionRepository<PortfolioAssetPosition> Positions { get; }
         public IMessageRepository<Message> Messages { get; }
         public IPortfolioRepository<Portfolio> Portfolios { get; }
         public ITaskRepository<ServerTask> Tasks { get; }
-        public ITaskRunRepository<TaskRun> TaskRuns { get; }
 
         public async Task<int> CompleteAsync()
         {

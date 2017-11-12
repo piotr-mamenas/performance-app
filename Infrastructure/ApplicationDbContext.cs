@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using Core.Domain.Accounts;
 using Core.Domain.Assets;
+using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
 using Core.Domain.ExchangeRates;
@@ -11,16 +12,19 @@ using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Core.Domain.Tasks;
 using Infrastructure.ComplexTypesConfigurations;
-using Infrastructure.EntityConfigurations.AccountConfiguration;
-using Infrastructure.EntityConfigurations.AssetConfigurations;
 using Infrastructure.EntityConfigurations.BaseDataConfigurations;
-using Infrastructure.EntityConfigurations.ExchangeRateConfiguration;
-using Infrastructure.EntityConfigurations.IdentityConfigurations;
-using Infrastructure.EntityConfigurations.InstitutionConfigurations;
-using Infrastructure.EntityConfigurations.MessageConfigurations;
-using Infrastructure.EntityConfigurations.PartnerConfigurations;
-using Infrastructure.EntityConfigurations.PortfolioConfigurations;
-using Infrastructure.EntityConfigurations.TaskConfigurations;
+using Infrastructure.EntityConfigurations.BaseDataConfigurations.CountryConfigurations;
+using Infrastructure.EntityConfigurations.BaseDataConfigurations.CurrencyConfigurations;
+using Infrastructure.EntityConfigurations.BusinessConfigurations.AccountConfiguration;
+using Infrastructure.EntityConfigurations.BusinessConfigurations.AssetConfigurations;
+using Infrastructure.EntityConfigurations.BusinessConfigurations.ContactConfigurations;
+using Infrastructure.EntityConfigurations.BusinessConfigurations.ExchangeRateConfiguration;
+using Infrastructure.EntityConfigurations.BusinessConfigurations.InstitutionConfigurations;
+using Infrastructure.EntityConfigurations.BusinessConfigurations.PartnerConfigurations;
+using Infrastructure.EntityConfigurations.BusinessConfigurations.PortfolioConfigurations;
+using Infrastructure.EntityConfigurations.SystemConfigurations.IdentityConfigurations;
+using Infrastructure.EntityConfigurations.SystemConfigurations.MessageConfigurations;
+using Infrastructure.EntityConfigurations.SystemConfigurations.TaskConfigurations;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Infrastructure
@@ -31,7 +35,7 @@ namespace Infrastructure
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Partner> Partners { get; set; }
-        public DbSet<PartnerContact> Contacts { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<PortfolioAssetPosition> Positions { get; set; }
