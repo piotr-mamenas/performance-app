@@ -37,7 +37,7 @@ namespace Service.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        [ResponseType(typeof(ICollection<PartnerContactDto>))]
+        [ResponseType(typeof(ICollection<ContactDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
@@ -49,7 +49,7 @@ namespace Service.Controllers
             {
                 return NotFound();
             }
-            return Ok(contacts.Map<ICollection<PartnerContactDto>>());
+            return Ok(contacts.Map<ICollection<ContactDto>>());
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace Service.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [ResponseType(typeof(PartnerContactDto))]
+        [ResponseType(typeof(ContactDto))]
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
@@ -67,7 +67,7 @@ namespace Service.Controllers
             {
                 return NotFound();
             }
-            return Ok(contact.Map<PartnerContactDto>());
+            return Ok(contact.Map<ContactDto>());
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Service.Controllers
         /// <param name="contact"></param>
         /// <returns></returns>
         [HttpPut, Route("{id}")]
-        public async Task<IHttpActionResult> UpdateAsync(int id, PartnerContactDto contact)
+        public async Task<IHttpActionResult> UpdateAsync(int id, ContactDto contact)
         {
             if (!ModelState.IsValid)
             {
@@ -104,7 +104,7 @@ namespace Service.Controllers
         /// <param name="contact"></param>
         /// <returns></returns>
         [HttpPost, Route("")]
-        public async Task<IHttpActionResult> CreateAsync(PartnerContactDto contact)
+        public async Task<IHttpActionResult> CreateAsync(ContactDto contact)
         {
             if (!ModelState.IsValid)
             {

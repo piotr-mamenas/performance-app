@@ -35,7 +35,7 @@ namespace Service.Controllers
         public async Task<IHttpActionResult> GetAsync()
         {
             var accounts = await _repository.GetAll()
-                .Include(a => a.Partners)
+                .Include(a => a.Partner)
                 .ToListAsync();
 
             if (accounts == null)

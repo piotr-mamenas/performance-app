@@ -32,9 +32,9 @@ namespace Infrastructure.Services
         /// <param name="token">The token for which to fetch the localization constant</param>
         /// <param name="language">Language for which to fetch the constant</param>
         /// <returns></returns>
-        public static async Task<string> GetTextConstantByTokenAsync(string token, Language language)
+        public static string GetTextConstantByTokenAsync(string token, Language language)
         {
-            var textConstant = await MessageRepository.SingleOrDefaultAsync(m => m.Token == token && m.Language == language);
+            var textConstant = MessageRepository.SingleOrDefaultAsync(m => m.Token == token && m.Language == language).Result;
 
             if (textConstant == null)
             {

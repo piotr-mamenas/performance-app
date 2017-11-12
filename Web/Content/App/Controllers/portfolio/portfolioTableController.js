@@ -9,6 +9,18 @@
                 },
                 {
                     data: "Number"
+                },
+                {
+                    data: "Account.Number"
+                },
+                {
+                    data: "Account.Partner.Name"
+                },
+                {
+                    data: "Id",
+                    render: function (data) {
+                        return "<a href=\"" + "details/" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-search'></span>";
+                    }
                 }
             ],
             language: {

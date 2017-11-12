@@ -1,14 +1,13 @@
-﻿@using Web.Extensions
-@model Web.Presentation.ViewModels.PartnerViewModels.PartnerViewModel
+﻿@model Web.Presentation.ViewModels.PartnerViewModels.PartnerViewModel
 
 @{
-    ViewBag.Title = @Html.GetLocalizedString("Web.Partner.Label.NewPartner");
+    ViewBag.Title = "New Partner";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <span class="fa fa fa-user" style="margin-right: 5px;"></span>@Html.GetLocalizedString("Web.Partner.Label.NewPartner")
+        <span class="fa fa fa-user" style="margin-right: 5px;"></span>New Partner
     </div>
     <div class="panel-body">
         @Html.AntiForgeryToken()
@@ -34,7 +33,7 @@
 
             <br />
             <div class="form-group pull-right">
-                <input id="Save" type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;" value="@Html.GetLocalizedString("Global.Save")" />
+                <input id="Save" type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;" value="Save" />
             </div>
         }
     </div>

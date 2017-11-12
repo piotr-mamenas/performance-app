@@ -13,6 +13,8 @@ namespace Infrastructure.AutoMapper.Profiles
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.DateClosed, opt => opt.MapFrom(src => src.ClosedDate))
                 .ForMember(dest => dest.DateOpened, opt => opt.MapFrom(src => src.OpenedDate))
+                .ForMember(dest => dest.Partner, opt => opt.MapFrom(src => src.Partner))
+                .ForMember(dest => dest.PartnerId, opt => opt.MapFrom(src => src.PartnerId))
                 .ReverseMap();
 
             CreateMap<Account, AccountViewModel>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))

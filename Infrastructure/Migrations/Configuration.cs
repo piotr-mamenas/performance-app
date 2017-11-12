@@ -20,14 +20,14 @@ namespace Infrastructure.Migrations
         /// <param name="context"></param>
         protected override void Seed(ApplicationDbContext context)
         {
-            var accountSeeder = new AccountSeeder(context.Accounts);
-            accountSeeder.Seed();
-
             var contactSeeder = new ContactSeeder(context.Contacts);
             contactSeeder.Seed();
 
             var partnerSeeder = new PartnerSeeder(context.Partners);
             partnerSeeder.Seed();
+
+            var accountSeeder = new AccountSeeder(context.Accounts);
+            accountSeeder.Seed();
 
             var currencySeeder = new CurrencySeeder(context.Currencies);
             currencySeeder.Seed();

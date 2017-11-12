@@ -33,9 +33,10 @@ namespace Core.Domain.Accounts
         public DateTime ClosedDate { get; set; }
 
         /// <summary>
-        /// The partners which hold the right to the account
+        /// The partner which hold the right to the account
         /// </summary>
-        public ICollection<Partner> Partners { get; set; }
+        public Partner Partner { get; set; }
+        public int PartnerId { get; set; }
 
         /// <summary>
         /// The portfolios which belong to this account
@@ -48,22 +49,16 @@ namespace Core.Domain.Accounts
 
         public Account()
         {
-            Partners = null;
             Portfolios = null;
         }
 
-        public Account(string accountName, string accountNumber, Partner initialAccountOwner)
+        public Account(string accountName, string accountNumber, Partner accountOwner)
         {
-
             Name = accountName;
             Number = accountNumber;
             OpenedDate = DateTime.Today;
             Portfolios = null;
-
-            Partners = new List<Partner>
-            {
-                initialAccountOwner
-            };
+            Partner = accountOwner;
         }
         #endregion
     }

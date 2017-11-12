@@ -36,10 +36,9 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.PartnerConf
                 .WillCascadeOnDelete(false);
 
             HasMany(p => p.Accounts)
-                .WithMany(a => a.Partners)
-                .Map(m => m.ToTable("PartnerAccounts")
-                .MapLeftKey("PartnerId")
-                .MapRightKey("AccountId"));
+                .WithRequired(a => a.Partner)
+                .HasForeignKey(a => a.PartnerId)
+                .WillCascadeOnDelete(false);
 
             Map<AssetManager>(p => p.Requires("PartnerType").HasValue((int)PartnerType.AssetManager));
         }

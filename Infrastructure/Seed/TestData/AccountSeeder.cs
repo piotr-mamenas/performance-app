@@ -14,7 +14,8 @@ namespace Infrastructure.Seed.TestData
                 Id = 1,
                 OpenedDate = DateTime.Now,
                 Name = "Private WM Account",
-                Number = "CH470217"
+                Number = "CH470217",
+                PartnerId = 1
             });
 
             SeededEntities.Add(new Account
@@ -22,7 +23,8 @@ namespace Infrastructure.Seed.TestData
                 Id = 2,
                 OpenedDate = DateTime.Now,
                 Name = "Private WM Account",
-                Number = "GB076919"
+                Number = "GB076919",
+                PartnerId = 2
             });
 
             SeededEntities.Add(new Account
@@ -30,7 +32,8 @@ namespace Infrastructure.Seed.TestData
                 Id = 3,
                 OpenedDate = DateTime.Now,
                 Name = "Private Speculation Account",
-                Number = "CH011137"
+                Number = "CH011137",
+                PartnerId = 2
             });
         }
     }

@@ -26,6 +26,10 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.AccountConf
                 .HasForeignKey(p => p.AccountId)
                 .WillCascadeOnDelete(false);
 
+            HasRequired(a => a.Partner)
+                .WithMany(p => p.Accounts)
+                .WillCascadeOnDelete(false);
+
             Property(a => a.OpenedDate)
                 .HasColumnType(DatabaseVendorTypes.TimestampField)
                 .IsRequired();

@@ -95,29 +95,9 @@
     <Compile Include="Identity\ApplicationRoleStore.cs" />
     <Compile Include="Identity\ApplicationSignInManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
-    <Compile Include="Migrations\201711081001305_Initial.cs" />
-    <Compile Include="Migrations\201711081001305_Initial.Designer.cs">
-      <DependentUpon>201711081001305_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711090850453_AddingTaskConfigurationAndAdjustingExistingConfigurations.cs" />
-    <Compile Include="Migrations\201711090850453_AddingTaskConfigurationAndAdjustingExistingConfigurations.Designer.cs">
-      <DependentUpon>201711090850453_AddingTaskConfigurationAndAdjustingExistingConfigurations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711091955524_AdjustingPortfolioToPositionAndRestructurization.cs" />
-    <Compile Include="Migrations\201711091955524_AdjustingPortfolioToPositionAndRestructurization.Designer.cs">
-      <DependentUpon>201711091955524_AdjustingPortfolioToPositionAndRestructurization.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711102208299_SimplifyingTheDomainModelAndExchangeRate.cs" />
-    <Compile Include="Migrations\201711102208299_SimplifyingTheDomainModelAndExchangeRate.Designer.cs">
-      <DependentUpon>201711102208299_SimplifyingTheDomainModelAndExchangeRate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711111437008_AddingConcreteMessageTypes.cs" />
-    <Compile Include="Migrations\201711111437008_AddingConcreteMessageTypes.Designer.cs">
-      <DependentUpon>201711111437008_AddingConcreteMessageTypes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711111908094_AdjustmentsMigration.cs" />
-    <Compile Include="Migrations\201711111908094_AdjustmentsMigration.Designer.cs">
-      <DependentUpon>201711111908094_AdjustmentsMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201711122003230_Initial.cs" />
+    <Compile Include="Migrations\201711122003230_Initial.Designer.cs">
+      <DependentUpon>201711122003230_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
@@ -172,23 +152,8 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711081001305_Initial.resx">
-      <DependentUpon>201711081001305_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711090850453_AddingTaskConfigurationAndAdjustingExistingConfigurations.resx">
-      <DependentUpon>201711090850453_AddingTaskConfigurationAndAdjustingExistingConfigurations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711091955524_AdjustingPortfolioToPositionAndRestructurization.resx">
-      <DependentUpon>201711091955524_AdjustingPortfolioToPositionAndRestructurization.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711102208299_SimplifyingTheDomainModelAndExchangeRate.resx">
-      <DependentUpon>201711102208299_SimplifyingTheDomainModelAndExchangeRate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711111437008_AddingConcreteMessageTypes.resx">
-      <DependentUpon>201711111437008_AddingConcreteMessageTypes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711111908094_AdjustmentsMigration.resx">
-      <DependentUpon>201711111908094_AdjustmentsMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711122003230_Initial.resx">
+      <DependentUpon>201711122003230_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

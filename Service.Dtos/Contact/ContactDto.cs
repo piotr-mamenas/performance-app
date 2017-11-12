@@ -2,7 +2,7 @@
 
 namespace Service.Dtos.Partner
 {
-    public class PartnerContactDto
+    public class ContactDto
     {
         public int Id { get; set; }
 

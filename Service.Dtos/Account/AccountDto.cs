@@ -21,6 +21,10 @@ namespace Service.Dtos.Account
         [DisplayName("Closed Date")]
         public DateTime DateClosed { get; set; }
         
-        public virtual ICollection<PartnerDto> Partners { get; set; }
+        [DisplayName("Account Partner")]
+        public virtual PartnerDto Partner { get; set; }
+
+        [DisplayName("Partner Id")]
+        public int PartnerId { get; set; }
     }
 }

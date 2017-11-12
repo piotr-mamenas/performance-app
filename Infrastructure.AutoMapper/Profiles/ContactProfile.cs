@@ -10,7 +10,7 @@ namespace Infrastructure.AutoMapper.Profiles
     {
         public ContactProfile()
         {
-            CreateMap<Contact, PartnerContactDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+            CreateMap<Contact, ContactDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.FirstName, opt => opt.MapFrom(src => src.FirstName))
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.LastName))

@@ -2,13 +2,13 @@
 @model Web.Presentation.ViewModels.AccountViewModels.AccountViewModel
 
 @{
-    ViewBag.Title = @Html.GetLocalizedString("Web.Account.Label.UpdateAccount");
+    ViewBag.Title = "Update Account";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <span class="fa fa-address-card-o" style="margin-right: 5px;"></span>@Html.GetLocalizedString("Web.Account.Label.UpdateAccount")
+        <span class="fa fa-address-card-o" style="margin-right: 5px;"></span>Update Account
     </div>
     <div class="panel-body">
         @Html.AntiForgeryToken()
@@ -41,7 +41,7 @@
 
             <br />
             <div class="form-group pull-right">
-                <input id="Save" type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;" value="@Html.GetLocalizedString("Global.Save")" />
+                <input id="Save" type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;" value="Save" />
             </div>
         }
     </div>

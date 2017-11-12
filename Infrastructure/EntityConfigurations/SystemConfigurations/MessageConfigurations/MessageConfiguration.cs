@@ -16,7 +16,7 @@ namespace Infrastructure.EntityConfigurations.SystemConfigurations.MessageConfig
 
             Property(p => p.Token)
                 .IsRequired()
-                .HasMaxLength(30)
+                .HasMaxLength(128)
                 .HasColumnName("MessageToken");
 
             Property(p => p.Language)

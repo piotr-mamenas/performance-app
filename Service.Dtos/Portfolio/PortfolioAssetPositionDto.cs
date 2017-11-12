@@ -5,7 +5,7 @@ using Service.Dtos.BaseData;
 
 namespace Service.Dtos.Portfolio
 {
-    public class PositionDto
+    public class PortfolioAssetPositionDto
     {
         public int Id { get; set; }
 
@@ -17,6 +17,8 @@ namespace Service.Dtos.Portfolio
 
         [DisplayName("Position Asset")]
         public AssetDto Asset { get; set; }
+
+
 
         [DisplayName("Position Timestamp")]
         public DateTime Timestamp { get; set; }

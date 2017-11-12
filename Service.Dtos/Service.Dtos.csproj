@@ -37,13 +37,13 @@
     <Compile Include="Account\AccountDto.cs" />
     <Compile Include="Asset\AssetDto.cs" />
     <Compile Include="Asset\BondCouponDto.cs" />
-    <Compile Include="Partner\PartnerContactDto.cs" />
+    <Compile Include="Contact\ContactDto.cs" />
     <Compile Include="BaseData\CountryDto.cs" />
     <Compile Include="BaseData\CurrencyDto.cs" />
     <Compile Include="Institution\InstitutionDto.cs" />
     <Compile Include="Partner\PartnerDto.cs" />
     <Compile Include="Portfolio\PortfolioDto.cs" />
-    <Compile Include="Portfolio\PositionDto.cs" />
+    <Compile Include="Portfolio\PortfolioAssetPositionDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
