@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
-using Core.Domain.BaseData.Countries;
+using Core.Domain.Countries;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.BaseData;
 using Infrastructure.AutoMapper;

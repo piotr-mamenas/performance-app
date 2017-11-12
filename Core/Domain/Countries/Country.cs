@@ -1,7 +1,7 @@
-﻿using Core.Domain.BaseData.Currencies;
+﻿using Core.Domain.Currencies;
 using Core.Interfaces;
 
-namespace Core.Domain.BaseData.Countries
+namespace Core.Domain.Countries
 {
     public class Country : BaseEntity, IEntityRoot
     {

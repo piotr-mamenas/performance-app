@@ -1,6 +1,6 @@
 using Core.Domain.Accounts;
-using Core.Domain.BaseData.Countries;
-using Core.Domain.BaseData.Currencies;
+using Core.Domain.Countries;
+using Core.Domain.Currencies;
 using Core.Domain.Institutions;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;

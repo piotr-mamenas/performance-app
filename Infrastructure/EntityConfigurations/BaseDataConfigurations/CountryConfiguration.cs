@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using Core.Domain.BaseData.Countries;
+using Core.Domain.Countries;
 
 namespace Infrastructure.EntityConfigurations.BaseDataConfigurations
 {

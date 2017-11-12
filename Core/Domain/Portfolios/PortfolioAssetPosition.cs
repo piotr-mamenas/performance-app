@@ -1,6 +1,6 @@
 ﻿using System;
 using Core.Domain.Assets;
-using Core.Domain.BaseData.Currencies;
+using Core.Domain.Currencies;
 using Core.Interfaces;
 
 namespace Core.Domain.Portfolios

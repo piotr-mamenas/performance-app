@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Core.Domain.BaseData.Countries;
+using Core.Domain.Countries;
 using Service.Dtos.BaseData;
 
 namespace Infrastructure.AutoMapper.Profiles

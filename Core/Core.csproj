@@ -76,8 +76,8 @@
     <Compile Include="Domain\Messages\TextConstant.cs" />
     <Compile Include="Domain\Messages\WarningMessage.cs" />
     <Compile Include="Domain\Partners\PartnerContact.cs" />
-    <Compile Include="Domain\BaseData\Countries\Country.cs" />
-    <Compile Include="Domain\BaseData\Currencies\Currency.cs" />
+    <Compile Include="Domain\Countries\Country.cs" />
+    <Compile Include="Domain\Currencies\Currency.cs" />
     <Compile Include="Domain\Identity\Role.cs" />
     <Compile Include="Domain\Identity\UserClaim.cs" />
     <Compile Include="Domain\Identity\UserLogin.cs" />

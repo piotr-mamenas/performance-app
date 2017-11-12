@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using Core.Domain.BaseData.Currencies;
+using Core.Domain.Currencies;
 
 namespace Infrastructure.Seed.BaseData
 {

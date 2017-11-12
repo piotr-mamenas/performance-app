@@ -10,6 +10,7 @@ namespace Core.Domain.Assets
 
         public string Isin { get; set; }
 
+        // this should point to portfolio not portfolioassetposition
         public ICollection<PortfolioAssetPosition> Positions { get; set; }
 
         public ICollection<AssetPrice> Prices { get; set; }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Core.Domain.BaseData.Currencies;
+using Core.Domain.Currencies;
 using Core.Interfaces;
 
 namespace Core.Domain.ExchangeRates

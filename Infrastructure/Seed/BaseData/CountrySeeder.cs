@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using Core.Domain.BaseData.Countries;
+using Core.Domain.Countries;
 
 namespace Infrastructure.Seed.BaseData
 {

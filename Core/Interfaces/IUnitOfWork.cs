@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using Core.Domain.Accounts;
 using Core.Domain.Assets;
-using Core.Domain.BaseData.Countries;
-using Core.Domain.BaseData.Currencies;
+using Core.Domain.Countries;
+using Core.Domain.Currencies;
 using Core.Domain.Institutions;
 using Core.Domain.Messages;
 using Core.Domain.Partners;

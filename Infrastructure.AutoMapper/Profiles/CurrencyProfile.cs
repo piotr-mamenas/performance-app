@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Core.Domain.BaseData.Currencies;
+using Core.Domain.Currencies;
 using Service.Dtos.BaseData;
 
 namespace Infrastructure.AutoMapper.Profiles

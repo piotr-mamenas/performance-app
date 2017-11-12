@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using Core.Domain.BaseData.Currencies;
 using Core.Domain.ExchangeRates;
 
 namespace Infrastructure.EntityConfigurations.ExchangeRateConfiguration
