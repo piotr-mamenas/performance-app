@@ -3,7 +3,6 @@ using System.Web;
 using System.Web.Mvc;
 using Core.Domain.Identity;
 using Infrastructure.Services;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
 namespace Web.Extensions

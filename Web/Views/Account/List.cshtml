@@ -1,16 +1,17 @@
-﻿@{
+﻿@using Web.Extensions
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <table id="accountTable" class="table table-bordered table-hover">
     <thead>
     <tr>
-        <th>Account Name</th>
-        <th>Account Number</th>
-        <th>Date Opened</th>
-        <th>Date Opened</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>@Html.GetLocalizedString("Web.Account.AccountList.Label.AccountName")</th>
+        <th>@Html.GetLocalizedString("Web.Account.AccountList.Label.AccountNumber")</th>
+        <th>@Html.GetLocalizedString("Web.Account.AccountList.Label.DateOpened")</th>
+        <th>@Html.GetLocalizedString("Web.Account.AccountList.Label.DateClosed")</th>
+        <th>@Html.GetLocalizedString("Global.Edit")</th>
+        <th>@Html.GetLocalizedString("Global.Delete")</th>
     </tr>
     </thead>
     <tbody></tbody>

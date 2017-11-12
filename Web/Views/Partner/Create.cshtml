@@ -2,7 +2,7 @@
 @model Web.Presentation.ViewModels.PartnerViewModels.PartnerViewModel
 
 @{
-    ViewBag.Title = "Create Partner";
+    ViewBag.Title = @Html.GetLocalizedString("Web.Partner.Label.NewPartner");
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -34,7 +34,7 @@
 
             <br />
             <div class="form-group pull-right">
-                <input id="Save" type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;" value="Save" />
+                <input id="Save" type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;" value="@Html.GetLocalizedString("Global.Save")" />
             </div>
         }
     </div>

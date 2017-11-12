@@ -115,6 +115,10 @@
     <Compile Include="Migrations\201711111437008_AddingConcreteMessageTypes.Designer.cs">
       <DependentUpon>201711111437008_AddingConcreteMessageTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711111908094_AdjustmentsMigration.cs" />
+    <Compile Include="Migrations\201711111908094_AdjustmentsMigration.Designer.cs">
+      <DependentUpon>201711111908094_AdjustmentsMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -178,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711111437008_AddingConcreteMessageTypes.resx">
       <DependentUpon>201711111437008_AddingConcreteMessageTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111908094_AdjustmentsMigration.resx">
+      <DependentUpon>201711111908094_AdjustmentsMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
