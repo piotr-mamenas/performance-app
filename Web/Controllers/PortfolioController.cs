@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Data.Entity;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using Core.Domain.Portfolios;
 using Core.Interfaces;
@@ -40,7 +41,10 @@ namespace Web.Controllers
         [Route("details/{id}")]
         public async Task<ActionResult> Details(int id)
         {
-            var portfolioInDb = await _portfolios.GetAsync(id);
+            var portfolioInDb = await _portfolios.GetAll()
+                .Include(p => p.Account)
+                .Include(p => p.Account.Partner)
+                .SingleAsync(p => p.Id == id);
 
             if (portfolioInDb == null)
             {

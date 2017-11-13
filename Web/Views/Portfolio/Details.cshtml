@@ -1,8 +1,54 @@
-﻿
+﻿@model Web.Presentation.ViewModels.PortfolioViewModels.PortfolioDetailsViewModel
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="col-md-4">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <span class="fa fa fa-user" style="margin-right: 5px;"></span>@Html.DisplayTextFor(p => p.PortfolioName) Portfolio
+        </div>
+        <div class="panel-body">
+            <div class="col-md-6">
+                @Html.LabelFor(p => p.PortfolioId, new { @class = "label label-primary" })<br />
+                @Html.LabelFor(p => p.PortfolioName, new { @class = "label label-primary" })<br />
+                @Html.LabelFor(p => p.PortfolioNumber, new { @class = "label label-primary" })<br />
+                @Html.LabelFor(p => p.PortfolioAccountNumber, new { @class = "label label-primary" })<br />
+                @Html.LabelFor(p => p.PortfolioAccountOwner, new { @class = "label label-primary" })<br />
+            </div>
+            
+            <div class="col-md-6">
+                @Html.DisplayTextFor(p => p.PortfolioId)<br />
+                @Html.DisplayTextFor(p => p.PortfolioName)<br />
+                @Html.DisplayTextFor(p => p.PortfolioNumber)<br />
+                @Html.DisplayTextFor(p => p.PortfolioAccountNumber)<br />
+                @Html.DisplayTextFor(p => p.PortfolioAccountOwner)<br />
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            Hello
+        </div>
+    </div>
+</div>
 
+<div class="col-md-8">
+    <table id="portfolioAssetTable" class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Price</th>
+            <th>Holding Period Return</th>
+            <th>Performance</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section scripts {
+    routing.setCurrentPage("#PortfolioNav");
+}
