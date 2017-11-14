@@ -38,6 +38,24 @@ namespace Infrastructure.Seed.IdentityData
                 await userManager.AddToRoleAsync(user.Id, Role.AssociateRole);
             }
 
+            if (!userManager.Users.Any(u => u.UserName == "DemoUser"))
+            {
+                var user = new User
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Language = Language.Pl,
+                    UserName = "DemoUser",
+                    Email = "demoUser@gmail.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "+41790788495",
+                    PhoneNumberConfirmed = true
+                };
+
+                await userManager.CreateAsync(user, "Secret1#");
+                await userManager.AddToRoleAsync(user.Id, Role.AdminRole);
+                await userManager.AddToRoleAsync(user.Id, Role.AssociateRole);
+            }
+
             if (!userManager.Users.Any(u => u.UserName == "niemieckiUser"))
             {
                 var user = new User
