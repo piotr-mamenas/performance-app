@@ -195,6 +195,7 @@
     <Content Include="Content\app\controllers\navbarController.js" />
     <Content Include="Content\app\controllers\partner\partnerTableController.js" />
     <Content Include="Content\app\controllers\portfolio\portfolioAssetsTableController.js" />
+    <Content Include="Content\app\controllers\portfolio\portfolioDetailsViewController.js" />
     <Content Include="Content\app\controllers\portfolio\portfolioTableController.js" />
     <Content Include="Content\app\controllers\report\newReportModalController.js" />
     <Content Include="Content\app\controllers\report\reportTableController.js" />

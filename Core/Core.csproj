@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Domain\Accounts\Account.cs" />
     <Compile Include="Domain\Assets\Asset.cs" />
+    <Compile Include="Domain\Assets\AssetClass.cs" />
     <Compile Include="Domain\Assets\Bond.cs" />
     <Compile Include="Domain\Assets\BondCoupon.cs" />
     <Compile Include="Domain\Assets\Equity.cs" />
@@ -98,7 +99,7 @@
     <Compile Include="Domain\Tasks\TaskRun.cs" />
     <Compile Include="Domain\Workflows\Workflow.cs" />
     <Compile Include="Domain\Workflows\WorkflowTransition.cs" />
-    <Compile Include="Enums\Domain\AssetClass.cs" />
+    <Compile Include="Enums\Domain\AssetType.cs" />
     <Compile Include="Enums\Domain\ContactType.cs" />
     <Compile Include="Enums\Domain\CountryType.cs" />
     <Compile Include="Enums\Domain\CurrencyType.cs" />

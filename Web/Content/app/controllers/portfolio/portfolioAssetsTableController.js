@@ -8,7 +8,7 @@
                     data: "Name"
                 },
                 {
-                    data: "Number"
+                    data: ""
                 },
                 {
                     data: "Account.Number"

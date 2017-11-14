@@ -13,21 +13,24 @@ namespace Infrastructure.Seed.TestData
             {
                 Id = 1,
                 Name = "Apple",
-                Isin = "US0378331005"
+                Isin = "US0378331005",
+                ClassId = 2
             });
 
             SeededEntities.Add(new Equity
             {
                 Id = 2,
                 Name = "Accenture",
-                Isin = "IE00B4BNMY34"
+                Isin = "IE00B4BNMY34",
+                ClassId = 2
             });
 
             SeededEntities.Add(new Equity
             {
                 Id = 3,
                 Name = "UBS",
-                Isin = "CH0244767585"
+                Isin = "CH0244767585",
+                ClassId = 2
             });
 
             SeededEntities.Add(new Bond
@@ -41,7 +44,8 @@ namespace Infrastructure.Seed.TestData
                 {
                     Amount = 200,
                     Rate = new decimal(0.04)
-                }
+                },
+                ClassId = 1
             });
         }
     }

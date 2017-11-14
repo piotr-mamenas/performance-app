@@ -105,6 +105,7 @@ namespace Infrastructure.Migrations
                         AssetId = c.Int(nullable: false, identity: true),
                         AssetName = c.String(nullable: false),
                         AssetISIN = c.String(),
+                        ClassId = c.Int(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
                         BondIssueDate = c.DateTime(precision: 7, storeType: "datetime2"),
                         BondMaturityDate = c.DateTime(precision: 7, storeType: "datetime2"),
@@ -112,11 +113,24 @@ namespace Infrastructure.Migrations
                         BondCouponAmount = c.Decimal(precision: 18, scale: 2),
                         BondFaceValue = c.Decimal(precision: 18, scale: 2),
                         Currency_Id = c.Int(),
-                        AssetClass = c.Int(),
+                        AssetType = c.Int(),
                     })
                 .PrimaryKey(t => t.AssetId)
+                .ForeignKey("dbo.AssetClass", t => t.ClassId)
                 .ForeignKey("dbo.Currency", t => t.Currency_Id)
+                .Index(t => t.ClassId)
                 .Index(t => t.Currency_Id);
+            
+            CreateTable(
+                "dbo.AssetClass",
+                c => new
+                    {
+                        AssetClassId = c.Int(nullable: false, identity: true),
+                        AssetClassName = c.String(nullable: false),
+                        AssetClassEnabled = c.Boolean(nullable: false),
+                        IsDeleted = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.AssetClassId);
             
             CreateTable(
                 "dbo.AssetPrice",
@@ -335,6 +349,7 @@ namespace Infrastructure.Migrations
             DropForeignKey("dbo.ExchangeRate", "BaseCurrencyId", "dbo.Currency");
             DropForeignKey("dbo.Country", "CurrencyId", "dbo.Currency");
             DropForeignKey("dbo.Asset", "Currency_Id", "dbo.Currency");
+            DropForeignKey("dbo.Asset", "ClassId", "dbo.AssetClass");
             DropForeignKey("dbo.Account", "PartnerId", "dbo.Partner");
             DropForeignKey("dbo.PartnerInstitutions", "InstitutionId", "dbo.Institution");
             DropForeignKey("dbo.PartnerInstitutions", "PartnerId", "dbo.Partner");
@@ -353,6 +368,7 @@ namespace Infrastructure.Migrations
             DropIndex("dbo.AssetPrice", new[] { "CurrencyId" });
             DropIndex("dbo.AssetPrice", new[] { "AssetId" });
             DropIndex("dbo.Asset", new[] { "Currency_Id" });
+            DropIndex("dbo.Asset", new[] { "ClassId" });
             DropIndex("dbo.Position", new[] { "PortfolioId" });
             DropIndex("dbo.Position", new[] { "AssetId" });
             DropIndex("dbo.Position", new[] { "CurrencyId" });
@@ -373,6 +389,7 @@ namespace Infrastructure.Migrations
             DropTable("dbo.Country");
             DropTable("dbo.Currency");
             DropTable("dbo.AssetPrice");
+            DropTable("dbo.AssetClass");
             DropTable("dbo.Asset");
             DropTable("dbo.Position");
             DropTable("dbo.Portfolio");

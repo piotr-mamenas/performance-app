@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
+using Service.Dtos.Partner;
 
-namespace Service.Dtos.Partner
+namespace Service.Dtos.Contact
 {
     public class ContactDto
     {

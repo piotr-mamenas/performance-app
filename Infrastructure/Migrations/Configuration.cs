@@ -40,6 +40,9 @@ namespace Infrastructure.Migrations
             var institutionSeeder = new InstitutionSeeder(context.Institutions);
             institutionSeeder.Seed();
 
+            var assetClassSeeder = new AssetClassSeeder(context.AssetClasses);
+            assetClassSeeder.Seed();
+
             var assetSeeder = new AssetSeeder(context.Assets);
             assetSeeder.Seed();
 

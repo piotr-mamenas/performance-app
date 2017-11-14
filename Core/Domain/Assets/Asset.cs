@@ -9,6 +9,9 @@ namespace Core.Domain.Assets
 
         public string Isin { get; set; }
 
+        public AssetClass Class { get; set; }
+        public int ClassId { get; set; }
+
         public ICollection<AssetPrice> Prices { get; set; }
 
         public Asset()

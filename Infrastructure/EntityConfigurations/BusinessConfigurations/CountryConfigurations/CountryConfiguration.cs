@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Core.Domain.Countries;
 
-namespace Infrastructure.EntityConfigurations.BaseDataConfigurations.CountryConfigurations
+namespace Infrastructure.EntityConfigurations.BusinessConfigurations.CountryConfigurations
 {
     public class CountryConfiguration : BaseEntityConfiguration<Country>
     {

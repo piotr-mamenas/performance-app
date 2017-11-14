@@ -21,13 +21,17 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.AssetConfig
             Property(a => a.Isin)
                 .HasColumnName("AssetISIN");
 
+            HasRequired(a => a.Class)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
             HasMany(a => a.Prices)
                 .WithRequired(p => p.Asset)
                 .HasForeignKey(p => p.AssetId)
                 .WillCascadeOnDelete(false);
 
-            Map<Bond>(a => a.Requires("AssetClass").HasValue((int)AssetClass.Bond));
-            Map<Equity>(a => a.Requires("AssetClass").HasValue((int)AssetClass.Equity));
+            Map<Bond>(a => a.Requires("AssetType").HasValue((int)AssetType.Bond));
+            Map<Equity>(a => a.Requires("AssetType").HasValue((int)AssetType.Equity));
         }
     }
 }

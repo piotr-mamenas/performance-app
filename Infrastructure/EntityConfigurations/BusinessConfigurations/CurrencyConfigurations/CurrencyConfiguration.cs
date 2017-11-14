@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Core.Domain.Currencies;
 
-namespace Infrastructure.EntityConfigurations.BaseDataConfigurations.CurrencyConfigurations
+namespace Infrastructure.EntityConfigurations.BusinessConfigurations.CurrencyConfigurations
 {
     public class CurrencyConfiguration : BaseEntityConfiguration<Currency>
     {

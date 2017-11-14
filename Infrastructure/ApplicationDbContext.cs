@@ -12,12 +12,11 @@ using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Core.Domain.Tasks;
 using Infrastructure.ComplexTypesConfigurations;
-using Infrastructure.EntityConfigurations.BaseDataConfigurations;
-using Infrastructure.EntityConfigurations.BaseDataConfigurations.CountryConfigurations;
-using Infrastructure.EntityConfigurations.BaseDataConfigurations.CurrencyConfigurations;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.AccountConfiguration;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.AssetConfigurations;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.ContactConfigurations;
+using Infrastructure.EntityConfigurations.BusinessConfigurations.CountryConfigurations;
+using Infrastructure.EntityConfigurations.BusinessConfigurations.CurrencyConfigurations;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.ExchangeRateConfiguration;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.InstitutionConfigurations;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.PartnerConfigurations;
@@ -33,6 +32,7 @@ namespace Infrastructure
     {
         public DbSet<Institution> Institutions { get; set; }
         public DbSet<Asset> Assets { get; set; }
+        public DbSet<AssetClass> AssetClasses { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Partner> Partners { get; set; }
         public DbSet<Contact> Contacts { get; set; }
@@ -62,6 +62,7 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new BondCouponConfiguration());
             modelBuilder.Configurations.Add(new BondConfiguration());
             modelBuilder.Configurations.Add(new AssetPriceConfiguration());
+            modelBuilder.Configurations.Add(new AssetClassConfiguration());
 
             modelBuilder.Configurations.Add(new PartnerConfiguration());
             modelBuilder.Configurations.Add(new AssetManagerConfiguration());

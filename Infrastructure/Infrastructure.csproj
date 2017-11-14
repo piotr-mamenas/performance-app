@@ -70,12 +70,13 @@
   <ItemGroup>
     <Compile Include="ComplexTypesConfigurations\BondCouponConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\AccountConfiguration\AccountConfiguration.cs" />
+    <Compile Include="EntityConfigurations\BusinessConfigurations\AssetConfigurations\AssetClassConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\AssetConfigurations\AssetConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\AssetConfigurations\BondConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\AssetConfigurations\EquityConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\AssetConfigurations\AssetPriceConfiguration.cs" />
-    <Compile Include="EntityConfigurations\BaseDataConfigurations\CountryConfigurations\CountryConfiguration.cs" />
-    <Compile Include="EntityConfigurations\BaseDataConfigurations\CurrencyConfigurations\CurrencyConfiguration.cs" />
+    <Compile Include="EntityConfigurations\BusinessConfigurations\CountryConfigurations\CountryConfiguration.cs" />
+    <Compile Include="EntityConfigurations\BusinessConfigurations\CurrencyConfigurations\CurrencyConfiguration.cs" />
     <Compile Include="EntityConfigurations\DatabaseVendorTypes.cs" />
     <Compile Include="EntityConfigurations\BaseEntityConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ExchangeRateConfiguration\ExchangeRatesConfiguration.cs" />
@@ -95,9 +96,9 @@
     <Compile Include="Identity\ApplicationRoleStore.cs" />
     <Compile Include="Identity\ApplicationSignInManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
-    <Compile Include="Migrations\201711122003230_Initial.cs" />
-    <Compile Include="Migrations\201711122003230_Initial.Designer.cs">
-      <DependentUpon>201711122003230_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201711132359398_Initial.cs" />
+    <Compile Include="Migrations\201711132359398_Initial.Designer.cs">
+      <DependentUpon>201711132359398_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Repositories\Business\PortfolioRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\System\TaskRepository.cs" />
+    <Compile Include="Seed\BaseData\AssetClassSeeder.cs" />
     <Compile Include="Seed\BaseData\MessageSeeders\BaseLocalizationSeeder.cs" />
     <Compile Include="Seed\BaseData\MessageSeeders\English\AccountLocalizationEnglishMessageSeeder.cs" />
     <Compile Include="Seed\BaseData\MessageSeeders\English\GlobalLocalizationEnglishMessageSeeder.cs" />
@@ -152,8 +154,8 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711122003230_Initial.resx">
-      <DependentUpon>201711122003230_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711132359398_Initial.resx">
+      <DependentUpon>201711132359398_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

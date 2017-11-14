@@ -3,7 +3,7 @@ using Core.Domain.Assets;
 
 namespace Infrastructure.EntityConfigurations.BusinessConfigurations.AssetConfigurations
 {
-    public class BondConfiguration : EntityTypeConfiguration<Bond>
+    public class BondConfiguration : BaseEntityConfiguration<Bond>
     {
         public BondConfiguration()
         {
