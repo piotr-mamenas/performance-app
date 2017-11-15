@@ -14,6 +14,8 @@ namespace Infrastructure.AutoMapper.Profiles
                 .ForMember(dest => dest.Number, opt => opt.MapFrom(src => src.Number))
                 .ForMember(dest => dest.Account, opt => opt.MapFrom(src => src.Account))
                 .ForMember(dest => dest.AccountId, opt => opt.MapFrom(src => src.AccountId))
+                .ForMember(dest => dest.Assets, opt => opt.MapFrom(src => src.Assets))
+                .ForMember(dest => dest.Partners, opt => opt.MapFrom(src => src.Partners))
                 .ReverseMap();
 
             CreateMap<Portfolio, PortfolioDetailsViewModel>()

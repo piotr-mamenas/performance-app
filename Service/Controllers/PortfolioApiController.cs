@@ -37,6 +37,7 @@ namespace Service.Controllers
             var portfolios = await _repository.GetAll()
                 .Include(p => p.Account)
                 .Include(p => p.Account.Partner)
+                .Include(p => p.Assets)
                 .ToListAsync();
 
             if (portfolios == null)

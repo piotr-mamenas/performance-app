@@ -5,7 +5,7 @@
             data: result,
             columns: [
                 {
-                    data: "Name"
+                    data: "Assets."
                 },
                 {
                     data: ""

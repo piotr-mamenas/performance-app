@@ -26,6 +26,12 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.PortfolioCo
                 .WithRequired(p => p.Portfolio)
                 .HasForeignKey(p => p.PortfolioId)
                 .WillCascadeOnDelete(false);
+
+            HasMany(p => p.Assets)
+                .WithMany()
+                .Map(m => m.ToTable("PortfolioAssets")
+                .MapLeftKey("PortfolioId")
+                .MapRightKey("AssetId"));
         }
     }
 }

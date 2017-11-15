@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using Service.Dtos.Account;
+using Service.Dtos.Asset;
 using Service.Dtos.Partner;
 
 namespace Service.Dtos.Portfolio
@@ -20,6 +21,8 @@ namespace Service.Dtos.Portfolio
 
         [DisplayName("Account Id")]
         public int AccountId { get; set; }
+
+        public virtual ICollection<AssetDto> Assets { get; set; }
 
         public virtual ICollection<PartnerDto> Partners { get; set; }
     }

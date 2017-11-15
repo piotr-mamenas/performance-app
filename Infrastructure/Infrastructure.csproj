@@ -100,6 +100,10 @@
     <Compile Include="Migrations\201711132359398_Initial.Designer.cs">
       <DependentUpon>201711132359398_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711152213421_AddAssetsToPortfolio.cs" />
+    <Compile Include="Migrations\201711152213421_AddAssetsToPortfolio.Designer.cs">
+      <DependentUpon>201711152213421_AddAssetsToPortfolio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -156,6 +160,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711132359398_Initial.resx">
       <DependentUpon>201711132359398_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711152213421_AddAssetsToPortfolio.resx">
+      <DependentUpon>201711152213421_AddAssetsToPortfolio.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
