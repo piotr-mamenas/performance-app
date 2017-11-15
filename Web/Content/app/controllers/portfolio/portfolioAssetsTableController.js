@@ -1,20 +1,21 @@
 ﻿var portfolioAssetsTableController = function (service) {
+    var table;
 
     var initializeDatatable = function (result) {
-        $("#portfolioAssetsTable").DataTable({
+        table = $("#portfolioAssetsTable").DataTable({
             data: result,
             columns: [
                 {
-                    data: "Assets."
+                    data: "Assets.Name"
                 },
                 {
-                    data: ""
+                    data: "Assets.Class"
                 },
                 {
-                    data: "Account.Number"
+                    data: "Assets.Isin"
                 },
                 {
-                    data: "Account.Partner.Name"
+                    data: "Assets.CurrentPrice"
                 }
             ],
             language: {
@@ -24,7 +25,7 @@
     }
 
     var init = function () {
-        service.getPortfolioAssets(initializeDatatable, initializeDatatable);
+        service.getPortfolios(initializeDatatable, initializeDatatable);
     }
 
     return {

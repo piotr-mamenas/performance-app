@@ -13,6 +13,9 @@ namespace Service.Dtos.Asset
         [DisplayName("Asset ISIN")]
         public string Isin { get; set; }
 
+        [DisplayName("Asset Class")]
+        public string Class { get; set; }
+
         [DisplayName("Issue Date")]
         public DateTime IssueDate { get; set; }
 
@@ -21,6 +24,9 @@ namespace Service.Dtos.Asset
 
         [DisplayName("Currency")]
         public int CurrencyId { get; set; }
+
+        [DisplayName("Current Price")]
+        public decimal CurrentPrice { get; set; }
 
         [DisplayName("Face Value")]
         public decimal FaceValue { get; set; }

@@ -35,6 +35,8 @@ namespace Service.Controllers
         public async Task<IHttpActionResult> GetAsync()
         {
             var assets = await _repository.GetAll()
+                .Include(a => a.Prices)
+                .Include(a => a.Class)
                 .ToListAsync();
 
             if (assets == null)
