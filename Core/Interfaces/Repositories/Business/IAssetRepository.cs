@@ -1,6 +1,8 @@
-﻿namespace Core.Interfaces.Repositories.Business
+﻿using Core.Domain.Assets;
+
+namespace Core.Interfaces.Repositories.Business
 {
-    public interface IAssetRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot
+    public interface IAssetRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : Asset
     {
     }
 }

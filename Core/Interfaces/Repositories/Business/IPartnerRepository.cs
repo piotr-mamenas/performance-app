@@ -1,6 +1,8 @@
-﻿namespace Core.Interfaces.Repositories.Business
+﻿using Core.Domain.Partners;
+
+namespace Core.Interfaces.Repositories.Business
 {
-    public interface IPartnerRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot
+    public interface IPartnerRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : Partner
     {
     }
 }

@@ -1,6 +1,8 @@
-﻿namespace Core.Interfaces.Repositories.Business
+﻿using Core.Domain.Institutions;
+
+namespace Core.Interfaces.Repositories.Business
 {
-    public interface IInstitutionRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot
+    public interface IInstitutionRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : Institution
     {
     }
 }

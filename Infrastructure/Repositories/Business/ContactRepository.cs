@@ -1,9 +1,9 @@
-﻿using Core.Interfaces;
+﻿using Core.Domain.Contacts;
 using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class ContactRepository<TSpecificEntity> : Repository<TSpecificEntity>, IContactRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot
+    public class ContactRepository<TSpecificEntity> : Repository<TSpecificEntity>, IContactRepository<TSpecificEntity> where TSpecificEntity : Contact
     {
         public ContactRepository(ApplicationDbContext context)
             : base(context)

@@ -1,17 +1,25 @@
 ﻿var portfolioDetailsViewController = function () {
 
+    var showPortfolioAssetsTable = function () {
+        $("#portfolioAssetsTable").show();
+        $("#portfolioPartnersTable").hide();
+    }
+
+    var showPortfolioPartnersTable = function () {
+        $("#portfolioAssetsTable").hide();
+        $("#portfolioPartnersTable").show();
+    }
+
     var changeTable = function (e) {
         var selected = $(e.currentTarget).find(":selected").val();
 
         console.log(selected);
         switch(selected) {
             case "1":
-                $("#portfolioAssetsTable").show();
-                $("#portfolioPartnersTable").hide();
+                showPortfolioAssetsTable();
                 break;
             case "2":
-                $("#portfolioAssetsTable").hide();
-                $("#portfolioPartnersTable").show();
+                showPortfolioPartnersTable();
                 break;
             default:
                 alert("Unexpected error occurred");

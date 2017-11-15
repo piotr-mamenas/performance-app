@@ -1,27 +1,21 @@
-﻿var portfolioTableController = function (service) {
+﻿var portfolioPartnersTableController = function (service) {
     var table;
 
     var initializeDatatable = function (result) {
-        table = $("#portfolioTable").DataTable({
+        table = $("#portfolioPartnersTable").DataTable({
             data: result,
             columns: [
                 {
                     data: "Name"
                 },
                 {
-                    data: "Number"
+                    data: ""
                 },
                 {
                     data: "Account.Number"
                 },
                 {
                     data: "Account.Partner.Name"
-                },
-                {
-                    data: "Id",
-                    render: function (data) {
-                        return "<a href=\"" + "details/" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-search'></span>";
-                    }
                 }
             ],
             language: {
@@ -31,7 +25,7 @@
     }
 
     var init = function () {
-        service.getPortfolios(initializeDatatable, initializeDatatable);
+        service.getPortfolioPartners(initializeDatatable, initializeDatatable);
     }
 
     return {

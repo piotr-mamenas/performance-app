@@ -1,7 +1,7 @@
 ﻿var portfolioAssetsTableController = function (service) {
 
     var initializeDatatable = function (result) {
-        $("#portfolioTable").DataTable({
+        $("#portfolioAssetsTable").DataTable({
             data: result,
             columns: [
                 {
@@ -24,7 +24,7 @@
     }
 
     var init = function () {
-        service.getPortfolios(initializeDatatable, initializeDatatable);
+        service.getPortfolioAssets(initializeDatatable, initializeDatatable);
     }
 
     return {
