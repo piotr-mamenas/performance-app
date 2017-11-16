@@ -6,16 +6,16 @@
             data: result,
             columns: [
                 {
-                    data: "Assets.Name"
+                    data: "Name"
                 },
                 {
-                    data: "Assets.Class"
+                    data: "Class"
                 },
                 {
-                    data: "Assets.Isin"
+                    data: "Isin"
                 },
                 {
-                    data: "Assets.CurrentPrice"
+                    data: "CurrentPrice"
                 }
             ],
             language: {
@@ -24,12 +24,12 @@
         });
     }
 
-    var init = function () {
-        service.getPortfolios(initializeDatatable, initializeDatatable);
+    var init = function (id) {
+        service.getAssetsByPortfolios(id, initializeDatatable, initializeDatatable);
     }
 
     return {
         init: init
     };
 
-}(portfolioService)
+}(assetService)

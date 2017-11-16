@@ -210,6 +210,7 @@
     <Content Include="Content\app\controllers\selectionController.js" />
     <Content Include="Content\app\routing.js" />
     <Content Include="Content\app\services\accountService.js" />
+    <Content Include="Content\app\services\assetService.js" />
     <Content Include="Content\app\services\contactService.js" />
     <Content Include="Content\app\services\institutionService.js" />
     <Content Include="Content\app\services\partnerService.js" />

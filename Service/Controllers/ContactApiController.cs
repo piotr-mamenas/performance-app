@@ -11,7 +11,6 @@ using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Infrastructure.Serialization.JsonContractResolvers;
 using Service.Dtos.Contact;
-using Service.Dtos.Partner;
 
 namespace Service.Controllers
 {

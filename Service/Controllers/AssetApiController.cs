@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Assets;
+using Core.Enums.Domain;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
@@ -62,6 +64,26 @@ namespace Service.Controllers
                 return NotFound();
             }
             return Ok(asset.Map<AssetDto>());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [ResponseType(typeof(AssetDto))]
+        [HttpGet, Route("byportfolios/{id}")]
+        public async Task<IHttpActionResult> GetByPortfolioId(int id)
+        {
+            var assets = await _repository.GetAll()
+                .Where(a => a.Portfolios.Any(p => p.Id == id))
+                .ToListAsync();
+
+            if (assets == null)
+            {
+                return NotFound();
+            }
+            return Ok(assets.Map<ICollection<AssetDto>>());
         }
 
         /// <summary>

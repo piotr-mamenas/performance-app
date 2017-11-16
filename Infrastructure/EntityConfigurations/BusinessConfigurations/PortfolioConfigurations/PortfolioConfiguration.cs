@@ -28,7 +28,7 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.PortfolioCo
                 .WillCascadeOnDelete(false);
 
             HasMany(p => p.Assets)
-                .WithMany()
+                .WithMany(a => a.Portfolios)
                 .Map(m => m.ToTable("PortfolioAssets")
                 .MapLeftKey("PortfolioId")
                 .MapRightKey("AssetId"));
