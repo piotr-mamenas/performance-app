@@ -1,13 +1,13 @@
 ﻿var portfolioDetailsViewController = function () {
 
     var showPortfolioAssetsTable = function () {
-        $("#portfolioAssetsTable").show();
-        $("#portfolioPartnersTable").hide();
+        $("#portfolioPartnersTable").parents("div.dataTables_wrapper").first().hide();
+        $("#portfolioAssetsTable").parents("div.dataTables_wrapper").first().show();
     }
 
     var showPortfolioPartnersTable = function () {
-        $("#portfolioAssetsTable").hide();
-        $("#portfolioPartnersTable").show();
+        $("#portfolioAssetsTable").parents("div.dataTables_wrapper").first().hide();
+        $("#portfolioPartnersTable").parents("div.dataTables_wrapper").first().show();
     }
 
     var changeTable = function (e) {
@@ -26,6 +26,7 @@
     }
 
     var init = function () {
+        showPortfolioAssetsTable();
         $(".portfolio-details-view-js-select").on("change", changeTable);
     }
 

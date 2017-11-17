@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -65,6 +66,21 @@ namespace Service.Controllers
             return Ok(partner.Map<PartnerDto>());
         }
 
+        [ResponseType(typeof(PartnerDto))]
+        [HttpGet, Route("accounts/{id}")]
+        public async Task<IHttpActionResult> GetByAccountAsync(int id)
+        {
+            var partners = await _repository.GetAll()
+                .Where(a => a.Accounts.Any(p => p.Id == id))
+                .ToListAsync();
+
+            if (partners == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(partners.Map<ICollection<PartnerDto>>());
+        }
         /// <summary>
         /// 
         /// </summary>

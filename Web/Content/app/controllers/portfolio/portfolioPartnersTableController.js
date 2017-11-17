@@ -9,13 +9,7 @@
                     data: "Name"
                 },
                 {
-                    data: ""
-                },
-                {
-                    data: "Account.Number"
-                },
-                {
-                    data: "Account.Partner.Name"
+                    data: "Number"
                 }
             ],
             language: {
@@ -24,12 +18,12 @@
         });
     }
 
-    var init = function () {
-        service.getPortfolioPartners(initializeDatatable, initializeDatatable);
+    var init = function (accountId) {
+        service.getPartnersByAccounts(accountId, initializeDatatable, initializeDatatable);
     }
 
     return {
         init: init
     };
 
-}(portfolioService)
+}(partnerService)

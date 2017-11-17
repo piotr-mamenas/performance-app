@@ -1,0 +1,50 @@
+﻿@model Web.Presentation.ViewModels.PortfolioViewModels.NewPortfolioViewModel
+
+@{
+    ViewBag.Title = "New Portfolio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <span class="fa fa fa-user" style="margin-right: 5px;"></span>New Portfolio
+    </div>
+    <div class="panel-body">
+        @Html.AntiForgeryToken()
+        @using (Html.BeginForm("Create", "Portfolio", FormMethod.Post, new { @class = "form-horizontal", @style = "height: 360px; margin-top:20px; padding-left: 30px; padding-right: 30px;" }))
+        {
+            <fieldset>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(p => p.Name)
+                        @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(c => Model.Name, null, new { @class = "label label-danger pull-right" })
+                        <br />
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(p => p.Number)
+                        @Html.TextBoxFor(p => p.Number, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(p => p.Number, null, new { @class = "label label-danger pull-right" })
+                        <br />
+                    </div>
+                    
+                    <div class="form-group">
+                        @Html.HiddenFor(p => p.AccountId)
+                        @Html.LabelFor(p => p.AccountId)
+                        <button type="Button" class="btn btn-default form-control">Select Account<span class="fa fa-search"></span></button>
+                    </div>
+                </div>
+            </fieldset>
+
+            <br />
+            <div class="form-group pull-right">
+                <input id="Save" type="submit" class="btn btn-primary pull-right" style="margin-left: 5px;" value="Save" />
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts{
+    routing.setCurrentPage("#PortfolioNav");
+}

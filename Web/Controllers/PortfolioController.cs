@@ -53,5 +53,28 @@ namespace Web.Controllers
 
             return View(portfolioInDb.Map<PortfolioDetailsViewModel>());
         }
+
+        [HttpGet]
+        [Route("create")]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("create")]
+        public async Task<ActionResult> Create(NewPortfolioViewModel portfolioVm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(portfolioVm);
+            }
+
+            _portfolios.Add(portfolioVm.Map<Portfolio>());
+
+            await _unitOfWork.CompleteAsync();
+
+            return View("List");
+        }
     }
 }

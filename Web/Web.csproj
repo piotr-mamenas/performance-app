@@ -470,6 +470,7 @@
     <Content Include="Views\Partner\Create.cshtml" />
     <Content Include="Views\Partner\Update.cshtml" />
     <Content Include="Views\Portfolio\Details.cshtml" />
+    <Content Include="Views\Portfolio\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

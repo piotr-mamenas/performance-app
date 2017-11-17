@@ -10,6 +10,16 @@
               .fail(fail);
     };
 
+    var getPartnersByAccounts = function (accountId, done, fail) {
+        $.ajax({
+                url: routing.getApiUri("Partner") + "accounts/" + accountId,
+                type: "GET",
+                dataSrc: "",
+                dataType: "json"
+            }).done(done)
+            .fail(fail);
+    };
+
     var deletePartner = function (partnerId, done, fail) {
         this.partnerId = partnerId;
 
@@ -24,6 +34,7 @@
 
     return {
         getPartners: getPartners,
-        deletePartner: deletePartner
+        deletePartner: deletePartner,
+        getPartnersByAccounts: getPartnersByAccounts
     }
 }(routing);

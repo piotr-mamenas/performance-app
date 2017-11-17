@@ -1,4 +1,5 @@
-﻿@model Web.Presentation.ViewModels.PortfolioViewModels.PortfolioDetailsViewModel
+﻿@using System.ComponentModel.DataAnnotations
+@model Web.Presentation.ViewModels.PortfolioViewModels.PortfolioDetailsViewModel
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -49,21 +50,21 @@
         </tr>
         </thead>
         <tbody></tbody>
-        <tfoot></tfoot>
     </table>
     
-    <table id="portfolioPartnersTable" hidden class="table table-bordered table-hover">
+    <table id="portfolioPartnersTable" class="table table-bordered table-hover">
         <thead>
         <tr>
             <th>Name</th>
             <th>Number</th>
         </tr>
         </thead>
+        <tbody></tbody>
     </table>
 </div>
-
 @section scripts {
     routing.setCurrentPage("#PortfolioNav");
-    portfolioDetailsViewController.init();
     portfolioAssetsTableController.init(@Model.PortfolioId);
+    portfolioPartnersTableController.init(@Model.AccountId);
+    portfolioDetailsViewController.init();
 }

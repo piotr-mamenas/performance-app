@@ -22,6 +22,8 @@ namespace Web.Presentation.ViewModels.PortfolioViewModels
         [DisplayName("Owner")]
         public string PortfolioAccountOwner { get; set; }
 
+        public int AccountId { get; set; }
+
         public PortfolioAssetPositionDto Positions { get; set; }
     }
 }
