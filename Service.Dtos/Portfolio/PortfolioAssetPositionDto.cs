@@ -18,8 +18,6 @@ namespace Service.Dtos.Portfolio
         [DisplayName("Position Asset")]
         public AssetDto Asset { get; set; }
 
-
-
         [DisplayName("Position Timestamp")]
         public DateTime Timestamp { get; set; }
     }

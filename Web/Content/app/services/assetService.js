@@ -1,7 +1,7 @@
 ﻿var assetService = function (routing) {
     var getAssetsByPortfolios = function (portfolioId, done, fail) {
         $.ajax({
-            url: routing.getApiUri("Asset") + "byportfolios/" + portfolioId,
+            url: routing.getApiUri("Asset") + "portfolios/" + portfolioId,
                 type: "GET",
                 dataSrc: "",
                 dataType: "json"

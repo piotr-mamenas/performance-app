@@ -12,8 +12,7 @@
 
     var changeTable = function (e) {
         var selected = $(e.currentTarget).find(":selected").val();
-
-        console.log(selected);
+        
         switch(selected) {
             case "1":
                 showPortfolioAssetsTable();

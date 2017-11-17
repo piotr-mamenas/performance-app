@@ -72,11 +72,13 @@ namespace Service.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [ResponseType(typeof(AssetDto))]
-        [HttpGet, Route("byportfolios/{id}")]
-        public async Task<IHttpActionResult> GetByPortfolioId(int id)
+        [HttpGet, Route("portfolios/{id}")]
+        public async Task<IHttpActionResult> GetByPortfolioAsync(int id)
         {
             var assets = await _repository.GetAll()
                 .Where(a => a.Portfolios.Any(p => p.Id == id))
+                .Include(a => a.Class)
+                .Include(a => a.Prices)
                 .ToListAsync();
 
             if (assets == null)
