@@ -5,6 +5,9 @@ using Service.Dtos.Asset;
 
 namespace Infrastructure.AutoMapper.Profiles
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class AssetProfile : Profile
     {
         public AssetProfile()
@@ -14,6 +17,7 @@ namespace Infrastructure.AutoMapper.Profiles
                 .ForMember(dest => dest.Isin, opt => opt.MapFrom(src => src.Isin))
                 .ForMember(dest => dest.CurrentPrice, opt => opt.MapFrom(src => src.Prices.OrderByDescending(p => p.Timestamp).FirstOrDefault().Amount))
                 .ForMember(dest => dest.Class, opt => opt.MapFrom(src => src.Class.Name))
+                .ForMember(dest => dest.CurrencyCode, opt => opt.MapFrom(src => src.Prices.OrderByDescending(p => p.Timestamp).FirstOrDefault().Currency.Code))
                 .ReverseMap();
 
             CreateMap<Bond, AssetDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
@@ -21,6 +25,7 @@ namespace Infrastructure.AutoMapper.Profiles
                 .ForMember(dest => dest.Isin, opt => opt.MapFrom(src => src.Isin))
                 .ForMember(dest => dest.CurrentPrice, opt => opt.MapFrom(src => src.Prices.OrderByDescending(p => p.Timestamp).FirstOrDefault().Amount))
                 .ForMember(dest => dest.Class, opt => opt.MapFrom(src => src.Class.Name))
+                .ForMember(dest => dest.CurrencyCode, opt => opt.MapFrom(src => src.Prices.OrderByDescending(p => p.Timestamp).FirstOrDefault().Currency.Code))
                 .ForMember(dest => dest.FaceValue, opt => opt.MapFrom(src => src.FaceValue))
                 .ForMember(dest => dest.IssueDate, opt => opt.MapFrom(src => src.IssueDate))
                 .ForMember(dest => dest.MaturityDate, opt => opt.MapFrom(src => src.MaturityDate))
@@ -31,6 +36,7 @@ namespace Infrastructure.AutoMapper.Profiles
                 .ForMember(dest => dest.Isin, opt => opt.MapFrom(src => src.Isin))
                 .ForMember(dest => dest.CurrentPrice, opt => opt.MapFrom(src => src.Prices.OrderByDescending(p => p.Timestamp).FirstOrDefault().Amount))
                 .ForMember(dest => dest.Class, opt => opt.MapFrom(src => src.Class.Name))
+                .ForMember(dest => dest.CurrencyCode, opt => opt.MapFrom(src => src.Prices.OrderByDescending(p => p.Timestamp).FirstOrDefault().Currency.Code))
                 .ReverseMap();
         }
     }

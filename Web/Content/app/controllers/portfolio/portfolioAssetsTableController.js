@@ -16,6 +16,9 @@
                 },
                 {
                     data: "CurrentPrice"
+                },
+                {
+                    data: "CurrencyCode"
                 }
             ],
             language: {

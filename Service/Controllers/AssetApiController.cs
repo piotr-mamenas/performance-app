@@ -79,6 +79,7 @@ namespace Service.Controllers
                 .Where(a => a.Portfolios.Any(p => p.Id == id))
                 .Include(a => a.Class)
                 .Include(a => a.Prices)
+                .Include(a => a.Prices.Select(p => p.Currency))
                 .ToListAsync();
 
             if (assets == null)

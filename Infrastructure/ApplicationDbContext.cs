@@ -33,6 +33,7 @@ namespace Infrastructure
         public DbSet<Institution> Institutions { get; set; }
         public DbSet<Asset> Assets { get; set; }
         public DbSet<AssetClass> AssetClasses { get; set; }
+        public DbSet<AssetPrice> AssetPrices { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Partner> Partners { get; set; }
         public DbSet<Contact> Contacts { get; set; }

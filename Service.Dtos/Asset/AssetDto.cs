@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Service.Dtos.Asset
 {
+    // TODO: This dto will require some cleanup and consolidation
     public class AssetDto
     {
         public int Id { get; set; }
@@ -24,7 +24,7 @@ namespace Service.Dtos.Asset
         public DateTime MaturityDate { get; set; }
 
         [DisplayName("Currency")]
-        public int CurrencyId { get; set; }
+        public string CurrencyCode { get; set; }
 
         [DisplayName("Current Price")]
         public decimal CurrentPrice { get; set; }

@@ -14,7 +14,7 @@ namespace Infrastructure.Seed.TestData
                 Id = 1,
                 Name = "Apple",
                 Isin = "US0378331005",
-                ClassId = 2
+                ClassId = 2,
             });
 
             SeededEntities.Add(new Equity

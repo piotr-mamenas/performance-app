@@ -46,6 +46,9 @@ namespace Infrastructure.Migrations
             var assetSeeder = new AssetSeeder(context.Assets);
             assetSeeder.Seed();
 
+            var assetPrice = new AssetPriceSeeder(context.AssetPrices);
+            assetPrice.Seed();
+
             var portfolioSeeder = new PortfolioSeeder(context.Portfolios);
             portfolioSeeder.Seed();
 

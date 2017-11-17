@@ -147,6 +147,7 @@
     <Compile Include="Seed\ISeedable.cs" />
     <Compile Include="Seed\ITestData.cs" />
     <Compile Include="Seed\TestData\AccountSeeder.cs" />
+    <Compile Include="Seed\TestData\AssetPriceSeeder.cs" />
     <Compile Include="Seed\TestData\AssetSeeder.cs" />
     <Compile Include="Seed\BaseData\CountrySeeder.cs" />
     <Compile Include="Seed\TestData\ContactSeeder.cs" />
