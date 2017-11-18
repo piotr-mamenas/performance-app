@@ -30,7 +30,7 @@ namespace Core.Domain.Accounts
         /// <summary>
         /// The date at which the account was closed
         /// </summary>
-        public DateTime ClosedDate { get; set; }
+        public DateTime? ClosedDate { get; set; }
 
         /// <summary>
         /// The partner which hold the right to the account

@@ -16,10 +16,10 @@ namespace Service.Dtos.Account
         public string Number { get; set; }
 
         [DisplayName("Opened Date")]
-        public DateTime DateOpened { get; set; }
+        public string DateOpened { get; set; }
 
         [DisplayName("Closed Date")]
-        public DateTime DateClosed { get; set; }
+        public string DateClosed { get; set; }
         
         [DisplayName("Account Partner")]
         public virtual PartnerDto Partner { get; set; }

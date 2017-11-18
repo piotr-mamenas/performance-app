@@ -26,8 +26,7 @@
     }
 
     var init = function () {
-        showPortfolioAssetsTable();
-        $(".portfolio-details-view-js-select").on("change", changeTable);
+        $(".portfolio-details-js-selection").on("change", changeTable);
     }
 
     return {

@@ -32,7 +32,7 @@
                     <div class="form-group">
                         @Html.HiddenFor(p => p.AccountId)
                         @Html.LabelFor(p => p.AccountId)
-                        <button type="Button" class="btn btn-default form-control">Select Account<span class="fa fa-search"></span></button>
+                        <button type="Button" class="btn btn-default form-control portfolio-create-js-select-account">Select Account<span class="fa fa-search"></span></button>
                     </div>
                 </div>
             </fieldset>
@@ -47,4 +47,5 @@
 
 @section scripts{
     routing.setCurrentPage("#PortfolioNav");
+    portfolioCreateViewController.init();
 }

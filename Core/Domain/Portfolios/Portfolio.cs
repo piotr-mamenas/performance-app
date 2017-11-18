@@ -18,5 +18,11 @@ namespace Core.Domain.Portfolios
         public ICollection<Asset> Assets { get; set; }
 
         public ICollection<PortfolioAssetPosition> Positions { get; set; }
+
+        public Portfolio()
+        {
+            Assets = null;
+            Positions = null;
+        }
     }
 }
