@@ -3,9 +3,9 @@ using Core.Domain.Partners;
 
 namespace Web.Tests.FakeData
 {
-    public class FakePartnerData
+    public static class FakePartnerData
     {
-        public IList<Partner> GetList()
+        public static IList<Partner> GetList()
         {
             return new List<Partner>
             {

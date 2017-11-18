@@ -84,7 +84,6 @@
     <Compile Include="ControllerTests\AccountControllerTests.cs" />
     <Compile Include="FakeData\FakeAccountData.cs" />
     <Compile Include="FakeData\FakePartnerData.cs" />
-    <Compile Include="Fakes.cs" />
     <Compile Include="MockUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

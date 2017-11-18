@@ -4,9 +4,9 @@ using Core.Domain.Accounts;
 
 namespace Web.Tests.FakeData
 {
-    public class FakeAccountData
+    public static class FakeAccountData
     {
-        public Account GetOne()
+        public static Account GetOne()
         {
             return new Account
             {
@@ -20,7 +20,7 @@ namespace Web.Tests.FakeData
             };
         }
 
-        public IList<Account> GetList()
+        public static IList<Account> GetList()
         {
             return new List<Account>
             {
