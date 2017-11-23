@@ -68,7 +68,7 @@ namespace Service.Controllers
         /// 
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="reportDto"></param>
+        /// <param name="report"></param>
         /// <returns></returns>
         [HttpPut, Route("{id}")]
         public async Task<IHttpActionResult> UpdateAsync(int id, ReportDto report)
