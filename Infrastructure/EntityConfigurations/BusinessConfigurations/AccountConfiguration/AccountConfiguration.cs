@@ -23,12 +23,10 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.AccountConf
 
             HasMany(a => a.Portfolios)
                 .WithRequired(p => p.Account)
-                .HasForeignKey(p => p.AccountId)
-                .WillCascadeOnDelete(false);
+                .HasForeignKey(p => p.AccountId);
 
             HasRequired(a => a.Partner)
-                .WithMany(p => p.Accounts)
-                .WillCascadeOnDelete(false);
+                .WithMany(p => p.Accounts);
 
             Property(a => a.OpenedDate)
                 .HasColumnType(DatabaseVendorTypes.TimestampField)

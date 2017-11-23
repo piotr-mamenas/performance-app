@@ -83,7 +83,6 @@
     <Compile Include="EntityConfigurations\BusinessConfigurations\ExchangeRateConfiguration\ExchangeRatesConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\InstitutionConfigurations\BankConfiguration.cs" />
     <Compile Include="EntityConfigurations\SystemConfigurations\MessageConfigurations\MessageConfiguration.cs" />
-    <Compile Include="EntityConfigurations\BusinessConfigurations\PartnerConfigurations\AssetManagerConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\PortfolioConfigurations\PortfolioConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\PortfolioConfigurations\PortfolioAssetPositionConfiguration.cs" />
     <Compile Include="EntityConfigurations\SystemConfigurations\TaskConfigurations\ExportTaskConfiguration.cs" />

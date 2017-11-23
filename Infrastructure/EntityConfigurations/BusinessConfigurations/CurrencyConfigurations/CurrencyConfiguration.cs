@@ -27,13 +27,11 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.CurrencyCon
 
             HasMany(c => c.Countries)
                 .WithRequired(c => c.Currency)
-                .HasForeignKey(c => c.CurrencyId)
-                .WillCascadeOnDelete(false);
+                .HasForeignKey(c => c.CurrencyId);
 
             HasMany(c => c.Positions)
                 .WithRequired(pa => pa.Currency)
-                .HasForeignKey(pa => pa.CurrencyId)
-                .WillCascadeOnDelete(false);
+                .HasForeignKey(pa => pa.CurrencyId);
         }
     }
 }

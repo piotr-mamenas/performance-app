@@ -28,13 +28,9 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.ExchangeRat
                 .IsRequired()
                 .HasColumnName("ExchangeRateRate");
 
-            HasRequired(c => c.BaseCurrency)
-                .WithMany()
-                .WillCascadeOnDelete(false);
+            HasRequired(c => c.BaseCurrency).WithMany();
 
-            HasRequired(c => c.TargetCurrency)
-                .WithMany()
-                .WillCascadeOnDelete(false);
+            HasRequired(c => c.TargetCurrency).WithMany();
 
             Property(e => e.Timestamp)
                 .HasColumnType(DatabaseVendorTypes.TimestampField)

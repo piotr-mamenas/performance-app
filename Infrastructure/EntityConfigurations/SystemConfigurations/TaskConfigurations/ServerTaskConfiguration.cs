@@ -25,8 +25,7 @@ namespace Infrastructure.EntityConfigurations.SystemConfigurations.TaskConfigura
 
             HasMany(t => t.Runs)
                 .WithRequired(tr => tr.Task)
-                .HasForeignKey(tr => tr.TaskId)
-                .WillCascadeOnDelete(false);
+                .HasForeignKey(tr => tr.TaskId);
 
             Map<ImportTask>(p => p.Requires("TaskType").HasValue((int)TaskType.Import));
             Map<ExportTask>(p => p.Requires("TaskType").HasValue((int)TaskType.Export));

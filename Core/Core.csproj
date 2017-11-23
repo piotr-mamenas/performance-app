@@ -87,8 +87,8 @@
     <Compile Include="Domain\Institutions\Bank.cs" />
     <Compile Include="Domain\Institutions\Institution.cs" />
     <Compile Include="Domain\Messages\Message.cs" />
-    <Compile Include="Domain\Partners\AssetManager.cs" />
     <Compile Include="Domain\Partners\Partner.cs" />
+    <Compile Include="Domain\Partners\PartnerType.cs" />
     <Compile Include="Domain\Portfolios\Portfolio.cs" />
     <Compile Include="Domain\Portfolios\PortfolioAssetPosition.cs" />
     <Compile Include="Domain\Assets\AssetPrice.cs" />
@@ -130,6 +130,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PortfolioService.cs" />
     <Compile Include="Validation\Accounts\AccountValidator.cs" />
+    <Compile Include="Validation\Assets\AssetPriceValidator.cs" />
+    <Compile Include="Validation\Assets\AssetValidator.cs" />
+    <Compile Include="Validation\Assets\BondValidator.cs" />
+    <Compile Include="Validation\Contacts\ContactValidator.cs" />
+    <Compile Include="Validation\ExchangeRates\ExchangeRateValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6">

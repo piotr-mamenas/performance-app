@@ -35,8 +35,7 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.ContactConf
                 .HasColumnName("ContactPhoneNumber");
 
             HasRequired(c => c.Partner)
-                .WithMany(p => p.Contacts)
-                .WillCascadeOnDelete(false);
+                .WithMany(p => p.Contacts);
         }
     }
 }

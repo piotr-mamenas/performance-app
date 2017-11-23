@@ -33,7 +33,6 @@ namespace Infrastructure
             Bonds = new AssetRepository<Bond>(_context);
             Contacts = new ContactRepository<Contact>(_context);
             Partners = new PartnerRepository<Partner>(_context);
-            AssetManagers = new PartnerRepository<AssetManager>(_context);
             Institutions = new InstitutionRepository<Institution>(_context);
             Banks = new InstitutionRepository<Bank>(_context);
             Currencies = new CurrencyRepository<Currency>(_context);
@@ -48,7 +47,6 @@ namespace Infrastructure
         public IAssetRepository<Asset> Assets { get; }
         public IAssetRepository<Bond> Bonds { get; }
         public IPartnerRepository<Partner> Partners { get; }
-        public IPartnerRepository<AssetManager> AssetManagers { get; }
         public IInstitutionRepository<Institution> Institutions { get; }
         public IInstitutionRepository<Bank> Banks { get; }
         public IContactRepository<Contact> Contacts { get; }

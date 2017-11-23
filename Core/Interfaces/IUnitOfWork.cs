@@ -24,7 +24,6 @@ namespace Core.Interfaces
         IAssetRepository<Asset> Assets { get; }
         IAssetRepository<Bond> Bonds { get; }
         IPartnerRepository<Partner> Partners { get; }
-        IPartnerRepository<AssetManager> AssetManagers { get; }
         IInstitutionRepository<Institution> Institutions { get; }
         IInstitutionRepository<Bank> Banks { get; }
         ICurrencyRepository<Currency> Currencies { get; }

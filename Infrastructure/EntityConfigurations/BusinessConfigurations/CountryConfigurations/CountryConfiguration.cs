@@ -23,8 +23,7 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.CountryConf
                 .HasColumnName("CountryCode");
 
             HasRequired(c => c.Currency)
-                .WithMany(c => c.Countries)
-                .WillCascadeOnDelete(false);
+                .WithMany(c => c.Countries);
 
             Property(c => c.IsEnabled)
                 .HasColumnName("CountryEnabled");

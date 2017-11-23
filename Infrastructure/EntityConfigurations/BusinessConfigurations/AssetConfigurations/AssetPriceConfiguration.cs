@@ -13,8 +13,7 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.AssetConfig
                 .IsRequired();
 
             HasRequired(ap => ap.Asset)
-                .WithMany(a => a.Prices)
-                .WillCascadeOnDelete(false);
+                .WithMany(a => a.Prices);
         }
     }
 }

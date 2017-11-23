@@ -82,7 +82,6 @@ namespace Service.App_Start
             kernel.Bind<ICurrencyRepository<Currency>>().To<CurrencyRepository<Currency>>().InRequestScope();
             kernel.Bind<ICountryRepository<Country>>().To<CountryRepository<Country>>().InRequestScope();
             kernel.Bind<IPartnerRepository<Partner>>().To<PartnerRepository<Partner>>().InRequestScope();
-            kernel.Bind<IPartnerRepository<AssetManager>>().To<PartnerRepository<AssetManager>>().InRequestScope();
             kernel.Bind<IInstitutionRepository<Institution>>().To<InstitutionRepository<Institution>>().InRequestScope();
             kernel.Bind<IInstitutionRepository<Bank>>().To<InstitutionRepository<Bank>>().InRequestScope();
             kernel.Bind<IPortfolioRepository<Portfolio>>().To<PortfolioRepository<Portfolio>>().InRequestScope();

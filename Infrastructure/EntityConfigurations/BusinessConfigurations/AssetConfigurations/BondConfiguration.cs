@@ -1,5 +1,4 @@
-﻿using System.Data.Entity.ModelConfiguration;
-using Core.Domain.Assets;
+﻿using Core.Domain.Assets;
 
 namespace Infrastructure.EntityConfigurations.BusinessConfigurations.AssetConfigurations
 {

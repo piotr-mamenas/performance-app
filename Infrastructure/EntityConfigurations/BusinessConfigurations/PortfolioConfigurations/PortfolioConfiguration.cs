@@ -19,13 +19,11 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.PortfolioCo
                 .HasColumnName("PortfolioName");
 
             HasRequired(p => p.Account)
-                .WithMany(a => a.Portfolios)
-                .WillCascadeOnDelete(false);
+                .WithMany(a => a.Portfolios);
 
             HasMany(c => c.Positions)
                 .WithRequired(p => p.Portfolio)
-                .HasForeignKey(p => p.PortfolioId)
-                .WillCascadeOnDelete(false);
+                .HasForeignKey(p => p.PortfolioId);
 
             HasMany(p => p.Assets)
                 .WithMany(a => a.Portfolios)

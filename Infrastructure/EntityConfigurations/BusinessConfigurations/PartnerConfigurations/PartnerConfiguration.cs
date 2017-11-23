@@ -24,6 +24,11 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.PartnerConf
                 .HasMaxLength(30)
                 .HasColumnName("PartnerNumber");
 
+            HasRequired(p => p.Type)
+                .WithMany()
+                .HasForeignKey(p => p.PartnerTypeId)
+                .WillCascadeOnDelete(false);
+
             HasMany(p => p.Institutions)
                 .WithMany(o => o.Partners)
                 .Map(m => m.ToTable("PartnerInstitutions")
@@ -32,15 +37,11 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.PartnerConf
 
             HasMany(p => p.Contacts)
                 .WithRequired(c => c.Partner)
-                .HasForeignKey(c => c.PartnerId)
-                .WillCascadeOnDelete(false);
+                .HasForeignKey(c => c.PartnerId);
 
             HasMany(p => p.Accounts)
                 .WithRequired(a => a.Partner)
-                .HasForeignKey(a => a.PartnerId)
-                .WillCascadeOnDelete(false);
-
-            Map<AssetManager>(p => p.Requires("PartnerType").HasValue((int)PartnerType.AssetManager));
+                .HasForeignKey(a => a.PartnerId);
         }
     }
 }

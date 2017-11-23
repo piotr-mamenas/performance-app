@@ -12,6 +12,9 @@ namespace Core.Domain.Partners
 
         public string Number { get; set; }
 
+        public PartnerType Type { get; set; }
+        public int PartnerTypeId { get; set; }
+
         public ICollection<Institution> Institutions { get; set; }
 
         public ICollection<Contact> Contacts { get; set; }

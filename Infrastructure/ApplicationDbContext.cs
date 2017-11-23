@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using Core.Domain.Accounts;
 using Core.Domain.Assets;
 using Core.Domain.Contacts;
@@ -57,6 +58,9 @@ namespace Infrastructure
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
             modelBuilder.Configurations.Add(new InstitutionConfiguration());
             modelBuilder.Configurations.Add(new BankConfiguration());
             
@@ -69,7 +73,6 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new AssetClassConfiguration());
 
             modelBuilder.Configurations.Add(new PartnerConfiguration());
-            modelBuilder.Configurations.Add(new AssetManagerConfiguration());
 
             modelBuilder.Configurations.Add(new ContactConfiguration());
 

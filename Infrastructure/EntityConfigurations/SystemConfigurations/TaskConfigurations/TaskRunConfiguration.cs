@@ -19,8 +19,7 @@ namespace Infrastructure.EntityConfigurations.SystemConfigurations.TaskConfigura
                 .HasColumnName("TaskProgress");
 
             HasRequired(tr => tr.Task)
-                .WithMany(t => t.Runs)
-                .WillCascadeOnDelete(false);
+                .WithMany(t => t.Runs);
         }
     }
 }

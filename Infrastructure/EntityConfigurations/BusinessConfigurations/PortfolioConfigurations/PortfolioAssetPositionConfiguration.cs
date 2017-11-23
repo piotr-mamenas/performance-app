@@ -24,16 +24,13 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.PortfolioCo
                 .IsRequired();
 
             HasRequired(p => p.Currency)
-                .WithMany(c => c.Positions)
-                .WillCascadeOnDelete(false);
+                .WithMany(c => c.Positions);
 
             HasRequired(p => p.Portfolio)
-                .WithMany(c => c.Positions)
-                .WillCascadeOnDelete(false);
+                .WithMany(c => c.Positions);
 
             HasRequired(p => p.Asset)
-                .WithMany()
-                .WillCascadeOnDelete(false);
+                .WithMany();
         }
     }
 }
