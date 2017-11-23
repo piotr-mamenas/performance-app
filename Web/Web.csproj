@@ -215,6 +215,7 @@
     <Content Include="Content\app\services\institutionService.js" />
     <Content Include="Content\app\services\partnerService.js" />
     <Content Include="Content\app\services\portfolioService.js" />
+    <Content Include="Content\app\services\reportService.js" />
     <Content Include="Content\app\services\taskService.js" />
     <Content Include="Content\app\styles\global.css" />
     <Content Include="Content\vendor\scripts\moment\datetime.js" />

@@ -47,6 +47,7 @@
     <Compile Include="Profiles\InstitutionProfile.cs" />
     <Compile Include="Profiles\PartnerProfile.cs" />
     <Compile Include="Profiles\PortfolioProfile.cs" />
+    <Compile Include="Profiles\ReportProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

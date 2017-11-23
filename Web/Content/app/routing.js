@@ -35,6 +35,10 @@
         {
             Name: "Asset",
             Uri: "api/assets/"
+        },
+        {
+            Name: "Report",
+            Uri: "api/reports/"
         }
     ];
 

@@ -17,6 +17,6 @@ namespace Core.Domain.Reports
         /// <summary>
         /// The hash representation of the file name on server
         /// </summary>
-        public string ReportPath { get; set; }
+        public string ReportHash { get; set; }
     }
 }

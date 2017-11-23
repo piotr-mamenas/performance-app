@@ -23,7 +23,7 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.ReportConfi
                 .HasMaxLength(1024)
                 .HasColumnName("ReportDescription");
 
-            Property(p => p.ReportPath)
+            Property(p => p.ReportHash)
                 .IsOptional()
                 .HasMaxLength(255)
                 .HasColumnName("ReportHash");

@@ -6,11 +6,9 @@
 <table id="reportTable" class="table table-bordered table-hover">
     <thead>
     <tr>
-        <th>Portfolio Name</th>
-        <th>Portfolio Number</th>
-        <th>Account Number</th>
-        <th>Account Owner</th>
-        <th>Details</th>
+        <th>Report Name</th>
+        <th>Report Description</th>
+        <th>Download</th>
     </tr>
     </thead>
     <tbody></tbody>
@@ -18,5 +16,5 @@
 
 @section scripts {
     routing.setCurrentPage("#ReportNav");
-    portfolioTableController.init();
+    reportTableController.init();
 }

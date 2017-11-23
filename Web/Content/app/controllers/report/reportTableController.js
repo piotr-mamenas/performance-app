@@ -1,4 +1,4 @@
-﻿var portfolioTableController = function (service) {
+﻿var reportTableController = function (service) {
     var button;
     var table;
 
@@ -10,7 +10,13 @@
                     data: "Name"
                 },
                 {
-                    data: "Number"
+                    data: "Description"
+                },
+                {
+                    data: "Id",
+                    render: function (data) {
+                        return "<button href=\"#\" data-report-id=\"" + data + "\" class=\"btn btn-default btn-block report-download-report\"><span class='fa fa-download'></span></button>";
+                    }
                 }
             ],
             language: {
@@ -20,7 +26,7 @@
     }
 
     var init = function () {
-        service.getPortfolios(initializeDatatable, initializeDatatable);
+        service.getReports(initializeDatatable, initializeDatatable);
     }
 
     return {
