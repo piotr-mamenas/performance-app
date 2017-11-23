@@ -92,6 +92,7 @@
     <Compile Include="Domain\Portfolios\Portfolio.cs" />
     <Compile Include="Domain\Portfolios\PortfolioAssetPosition.cs" />
     <Compile Include="Domain\Assets\AssetPrice.cs" />
+    <Compile Include="Domain\Reports\Report.cs" />
     <Compile Include="Domain\Selections\Selection.cs" />
     <Compile Include="Domain\Tasks\ExportTask.cs" />
     <Compile Include="Domain\Tasks\ImportTask.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Interfaces\Repositories\Business\IExchangeRateRepository.cs" />
     <Compile Include="Interfaces\Repositories\BaseData\ICountryRepository.cs" />
     <Compile Include="Interfaces\Repositories\BaseData\ICurrencyRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Business\IReportRepository.cs" />
     <Compile Include="Interfaces\Repositories\System\IMessageRepository.cs" />
     <Compile Include="Interfaces\Repositories\Business\IPartnerRepository.cs" />
     <Compile Include="Interfaces\Repositories\Business\IInstitutionRepository.cs" />

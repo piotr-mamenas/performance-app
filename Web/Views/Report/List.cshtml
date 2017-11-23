@@ -3,8 +3,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Report</h2>
+<table id="reportTable" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Portfolio Name</th>
+        <th>Portfolio Number</th>
+        <th>Account Number</th>
+        <th>Account Owner</th>
+        <th>Details</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 
 @section scripts {
     routing.setCurrentPage("#ReportNav");
+    portfolioTableController.init();
 }

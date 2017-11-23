@@ -10,6 +10,7 @@ using Core.Domain.Institutions;
 using Core.Domain.Messages;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
+using Core.Domain.Reports;
 using Core.Domain.Tasks;
 using Infrastructure.ComplexTypesConfigurations;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.AccountConfiguration;
@@ -21,6 +22,7 @@ using Infrastructure.EntityConfigurations.BusinessConfigurations.ExchangeRateCon
 using Infrastructure.EntityConfigurations.BusinessConfigurations.InstitutionConfigurations;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.PartnerConfigurations;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.PortfolioConfigurations;
+using Infrastructure.EntityConfigurations.BusinessConfigurations.ReportConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.IdentityConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.MessageConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.TaskConfigurations;
@@ -44,6 +46,7 @@ namespace Infrastructure
         public DbSet<Portfolio> Portfolios { get; set; }
         public DbSet<ServerTask> Tasks { get; set; }
         public DbSet<ExchangeRate> ExchangeRates { get; set; }
+        public DbSet<Report> Reports { get; set; }
 
         public ApplicationDbContext()
             : base("PerformanceApp")
@@ -92,6 +95,8 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new ExportTaskConfiguration());
             modelBuilder.Configurations.Add(new ImportTaskConfiguration());
             modelBuilder.Configurations.Add(new TaskRunConfiguration());
+
+            modelBuilder.Configurations.Add(new ReportConfiguration());
         }
 
         public static ApplicationDbContext Create()

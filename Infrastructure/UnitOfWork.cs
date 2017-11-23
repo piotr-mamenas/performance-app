@@ -8,6 +8,7 @@ using Core.Domain.Institutions;
 using Core.Domain.Messages;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
+using Core.Domain.Reports;
 using Core.Domain.Tasks;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.BaseData;
@@ -40,6 +41,7 @@ namespace Infrastructure
             Messages = new MessageRepository<Message>(_context);
             Portfolios = new PortfolioRepository<Portfolio>(_context);
             Tasks = new TaskRepository<ServerTask>(_context);
+            Reports = new ReportRepository<Report>(_context);
         }
 
         public IAccountRepository<Account> Accounts { get; }
@@ -55,6 +57,7 @@ namespace Infrastructure
         public IMessageRepository<Message> Messages { get; }
         public IPortfolioRepository<Portfolio> Portfolios { get; }
         public ITaskRepository<ServerTask> Tasks { get; }
+        public IReportRepository<Report> Reports { get; }
 
         public async Task<int> CompleteAsync()
         {

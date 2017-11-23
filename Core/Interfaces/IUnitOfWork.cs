@@ -9,8 +9,8 @@ using Core.Domain.Institutions;
 using Core.Domain.Messages;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
+using Core.Domain.Reports;
 using Core.Domain.Tasks;
-using Core.Interfaces.Repositories;
 using Core.Interfaces.Repositories.BaseData;
 using Core.Interfaces.Repositories.Business;
 using Core.Interfaces.Repositories.System;
@@ -32,6 +32,7 @@ namespace Core.Interfaces
         IMessageRepository<Message> Messages { get; }
         IPortfolioRepository<Portfolio> Portfolios { get; }
         ITaskRepository<ServerTask> Tasks { get; }
+        IReportRepository<Report> Reports { get; }
         Task<int> CompleteAsync();
     }
 }

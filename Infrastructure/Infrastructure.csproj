@@ -77,6 +77,7 @@
     <Compile Include="EntityConfigurations\BusinessConfigurations\AssetConfigurations\AssetPriceConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\CountryConfigurations\CountryConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\CurrencyConfigurations\CurrencyConfiguration.cs" />
+    <Compile Include="EntityConfigurations\BusinessConfigurations\ReportConfigurations\ReportConfiguration.cs" />
     <Compile Include="EntityConfigurations\DatabaseVendorTypes.cs" />
     <Compile Include="EntityConfigurations\BaseEntityConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ExchangeRateConfiguration\ExchangeRatesConfiguration.cs" />
@@ -104,6 +105,10 @@
     <Compile Include="Migrations\201711152213421_AddAssetsToPortfolio.Designer.cs">
       <DependentUpon>201711152213421_AddAssetsToPortfolio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711231401176_AddingReportEntity.cs" />
+    <Compile Include="Migrations\201711231401176_AddingReportEntity.Designer.cs">
+      <DependentUpon>201711231401176_AddingReportEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -122,6 +127,7 @@
     <Compile Include="Repositories\BaseData\CountryRepository.cs" />
     <Compile Include="Repositories\BaseData\CurrencyRepository.cs" />
     <Compile Include="Repositories\Business\ContactRepository.cs" />
+    <Compile Include="Repositories\Business\ReportRepository.cs" />
     <Compile Include="Repositories\System\MessageRepository.cs" />
     <Compile Include="Repositories\Business\PartnerRepository.cs" />
     <Compile Include="Repositories\Business\InstitutionRepository.cs" />
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711152213421_AddAssetsToPortfolio.resx">
       <DependentUpon>201711152213421_AddAssetsToPortfolio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231401176_AddingReportEntity.resx">
+      <DependentUpon>201711231401176_AddingReportEntity.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

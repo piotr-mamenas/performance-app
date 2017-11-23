@@ -195,12 +195,12 @@
     <Content Include="Content\app\controllers\navbarController.js" />
     <Content Include="Content\app\controllers\partner\partnerTableController.js" />
     <Content Include="Content\app\controllers\portfolio\portfolioAssetsTableController.js" />
-    <Content Include="Content\app\controllers\portfolio\portfolioCreateViewController.js" />
     <Content Include="Content\app\controllers\portfolio\portfolioDetailsViewController.js" />
     <Content Include="Content\app\controllers\portfolio\portfolioPartnersTableController.js" />
     <Content Include="Content\app\controllers\portfolio\portfolioTableController.js" />
     <Content Include="Content\app\controllers\report\newReportModalController.js" />
     <Content Include="Content\app\controllers\report\reportTableController.js" />
+    <Content Include="Content\app\controllers\shared\accountSelectionTableController.js" />
     <Content Include="Content\app\controllers\shared\institutionSelectionTableController.js" />
     <Content Include="Content\app\controllers\shared\partnerSelectionTableController.js" />
     <Content Include="Content\app\controllers\task\taskTableController.js" />
@@ -471,6 +471,7 @@
     <Content Include="Views\Partner\Update.cshtml" />
     <Content Include="Views\Portfolio\Details.cshtml" />
     <Content Include="Views\Portfolio\Create.cshtml" />
+    <Content Include="Views\Shared\_AccountSelection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
