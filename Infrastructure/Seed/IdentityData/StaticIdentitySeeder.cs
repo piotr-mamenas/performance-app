@@ -20,30 +20,12 @@ namespace Infrastructure.Seed.IdentityData
                 await roleManager.CreateAsync(new Role { Name = Role.AssociateRole, Id = Guid.NewGuid().ToString() });
             }
 
-            if (!userManager.Users.Any(u => u.UserName == "polskiAdmin"))
-            {
-                var user = new User
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Language = Language.Pl,
-                    UserName = "polskiAdmin",
-                    Email = "demoPL@gmail.com",
-                    EmailConfirmed = true,
-                    PhoneNumber = "+41790799495",
-                    PhoneNumberConfirmed = true
-                };
-
-                await userManager.CreateAsync(user, "Secret1#");
-                await userManager.AddToRoleAsync(user.Id, Role.AdminRole);
-                await userManager.AddToRoleAsync(user.Id, Role.AssociateRole);
-            }
-
             if (!userManager.Users.Any(u => u.UserName == "DemoUser"))
             {
                 var user = new User
                 {
                     Id = Guid.NewGuid().ToString(),
-                    Language = Language.Pl,
+                    Language = Language.En,
                     UserName = "DemoUser",
                     Email = "demoUser@gmail.com",
                     EmailConfirmed = true,
@@ -66,23 +48,6 @@ namespace Infrastructure.Seed.IdentityData
                     Email = "demoDE@gmail.com",
                     EmailConfirmed = true,
                     PhoneNumber = "+41780349204",
-                    PhoneNumberConfirmed = true
-                };
-
-                await userManager.CreateAsync(user, "Secret1#");
-                await userManager.AddToRoleAsync(user.Id, Role.AssociateRole);
-            }
-
-            if (!userManager.Users.Any(u => u.UserName == "amerykanskiUser"))
-            {
-                var user = new User
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Language = Language.En,
-                    UserName = "amerykanskiUser",
-                    Email = "demoEN@gmail.com",
-                    EmailConfirmed = true,
-                    PhoneNumber = "+41780349604",
                     PhoneNumberConfirmed = true
                 };
 

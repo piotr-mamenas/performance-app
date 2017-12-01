@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 using Core.Domain.Contacts;
-using Core.Domain.Partners;
 
 namespace Infrastructure.Seed.TestData
 {

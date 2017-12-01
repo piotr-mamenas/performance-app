@@ -18,16 +18,25 @@ namespace Web.Tests.ControllerTests
     [TestFixture]
     public class AccountControllerTests
     {
-        private IUnitOfWork UnitOfWork { get; set; }
+        public IUnitOfWork UnitOfWork
+        {
+            get
+            {
+                if (_unitOfWork == null)
+                {
+                    _unitOfWork = MockUnitOfWork.Create(FakeAccountData.GetList(), FakePartnerData.GetList());
+                }
+                return _unitOfWork;
+            }
+        }
+
+        private IUnitOfWork _unitOfWork;
+
         private ILogger Logger { get; set; }
 
         [SetUp]
         public void Init()
         {
-            var fakeAccountsList = FakeAccountData.GetList();
-            var fakePartnersList = FakePartnerData.GetList();
-
-            UnitOfWork = MockUnitOfWork.Create(fakeAccountsList,fakePartnersList);
             Logger = new Mock<ILogger>().Object;
         }
 
@@ -75,27 +84,29 @@ namespace Web.Tests.ControllerTests
         }
 
         [Test]
-        [Ignore("Test does not see mocked unit of work account id, must fix")]
         public void Update_ShouldSave_UpdatedValidAccount()
         {
             // Arrange
-            var accountsCount = UnitOfWork.Accounts.GetAll().Count();
             var controller = new AccountController(UnitOfWork, Logger);
+
+            var accountId = 1;
+            var accountName = "UpdatedName";
 
             var accountVm = new AccountViewModel
             {
-                Id = 1,
-                Name = "UpdatedAccount",
+                Id = accountId,
+                Name = accountName,
                 Number = "UpdatedAccountNumber",
                 OpenedDate = DateTime.Now,
                 SelectedPartnerId = 1
             };
 
             // Act
-            var result = controller.Update(1,accountVm);
+            var result = controller.Update(accountId,accountVm);
+            var accountInDb = UnitOfWork.Accounts.GetAsync(accountId);
 
             // Assert
-            Assert.AreEqual(accountsCount + 1, UnitOfWork.Accounts.GetAll().Count());
+            Assert.AreEqual(accountName, accountInDb.Result.Name);
             Assert.IsInstanceOf(typeof(Task<ActionResult>), result);
         }
 

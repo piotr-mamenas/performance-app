@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Core.Domain.Partners;
-using Core.Enums.Domain;
 
 namespace Infrastructure.EntityConfigurations.BusinessConfigurations.PartnerConfigurations
 {
@@ -25,7 +24,7 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.PartnerConf
                 .HasColumnName("PartnerNumber");
 
             HasRequired(p => p.Type)
-                .WithMany()
+                .WithMany(pt => pt.Partners)
                 .HasForeignKey(p => p.PartnerTypeId)
                 .WillCascadeOnDelete(false);
 

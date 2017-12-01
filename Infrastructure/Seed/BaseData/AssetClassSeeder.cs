@@ -3,7 +3,7 @@ using Core.Domain.Assets;
 
 namespace Infrastructure.Seed.BaseData
 {
-    public class AssetClassSeeder : BaseSeeder<AssetClass>, ITestData
+    public class AssetClassSeeder : BaseSeeder<AssetClass>, IBaseData
     {
         public AssetClassSeeder(IDbSet<AssetClass> assetClasses)
             : base(assetClasses)

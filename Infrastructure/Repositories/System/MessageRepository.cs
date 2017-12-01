@@ -1,5 +1,4 @@
 ﻿using Core.Domain.Messages;
-using Core.Interfaces;
 using Core.Interfaces.Repositories.System;
 
 namespace Infrastructure.Repositories.System

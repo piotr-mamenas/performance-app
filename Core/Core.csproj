@@ -106,7 +106,6 @@
     <Compile Include="Enums\Domain\CurrencyType.cs" />
     <Compile Include="Enums\Domain\InstitutionType.cs" />
     <Compile Include="Enums\Domain\MessageType.cs" />
-    <Compile Include="Enums\Domain\PartnerType.cs" />
     <Compile Include="Enums\Domain\PositionType.cs" />
     <Compile Include="Enums\Domain\TaskType.cs" />
     <Compile Include="Enums\Language.cs" />
@@ -135,6 +134,10 @@
     <Compile Include="Validation\Assets\BondValidator.cs" />
     <Compile Include="Validation\Contacts\ContactValidator.cs" />
     <Compile Include="Validation\ExchangeRates\ExchangeRateValidator.cs" />
+    <Compile Include="Validation\Institutions\BankValidator.cs" />
+    <Compile Include="Validation\Institutions\InstitutionValidator.cs" />
+    <Compile Include="Validation\Partners\PartnerValidator.cs" />
+    <Compile Include="Validation\Portfolios\PortfolioValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6">
@@ -152,6 +155,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Validation\Identity\" />
+    <Folder Include="Validation\Reports\" />
+    <Folder Include="Validation\Tasks\" />
+    <Folder Include="Validation\Workflows\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,30 +10,12 @@ namespace Infrastructure.Seed.TestData
         public PortfolioSeeder(IDbSet<Portfolio> portfolios)
             : base(portfolios)
         {
-            // TODO: Need to fix asset population for portfolio
-            var assetList = new List<Asset>
-            {
-                new Asset
-                {
-                    Id = 1
-                },
-                new Asset
-                {
-                    Id = 2
-                },
-                new Asset
-                {
-                    Id = 3
-                }
-            };
-
             SeededEntities.Add(new Portfolio
             {
                 Id = 1,
                 Name = "Benchmark Portfolio",
                 Number = "KKY10934747",
-                AccountId = 1, 
-                Assets = assetList
+                AccountId = 1
             });
 
             SeededEntities.Add(new Portfolio
@@ -41,8 +23,7 @@ namespace Infrastructure.Seed.TestData
                 Id = 2,
                 Name = "Benchmark Portfolio",
                 Number = "KKZ97147473",
-                AccountId = 2,
-                Assets = assetList
+                AccountId = 2
             });
 
         }

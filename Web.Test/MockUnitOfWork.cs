@@ -8,8 +8,9 @@ using Moq;
 
 namespace Web.Tests
 {
-    public class MockUnitOfWork
+    public static class MockUnitOfWork
     {
+
         public static IUnitOfWork Create(IList<Account> accounts, IList<Partner> partners)
         {
             var mockUnitOfWork = new Mock<IUnitOfWork>();
@@ -20,6 +21,7 @@ namespace Web.Tests
             mockUnitOfWork.Setup(m => m.Accounts.GetAll()).Returns(accounts.AsQueryable());
             mockUnitOfWork.Setup(m => m.Partners.GetAsync(1)).Returns(Task.FromResult(partners.SingleOrDefault(a => a.Id == 1)));
             mockUnitOfWork.Setup(m => m.Partners.GetAll()).Returns(partners.AsQueryable());
+            mockUnitOfWork.Setup(m => m.Accounts.GetAsync(1)).Returns(Task.FromResult(accounts.SingleOrDefault(a => a.Id == 1)));
 
             mockUnitOfWork.As<IComplete>();
             mockUnitOfWork.As<IComplete>().Setup(m => m.CompleteAsync()).Returns(Task.FromResult(0));

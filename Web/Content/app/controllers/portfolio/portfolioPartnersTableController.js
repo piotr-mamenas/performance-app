@@ -1,7 +1,7 @@
-﻿var portfolioPartnersTableController = function (service) {
+﻿var portfolioPartnersTableController = function(service) {
     var table;
 
-    var initializeDatatable = function (result) {
+    var initializeDatatable = function(result) {
         table = $("#portfolioPartnersTable").DataTable({
             data: result,
             columns: [
@@ -16,14 +16,14 @@
                 emptyTable: "No records at present."
             }
         });
-    }
+    };
 
-    var init = function (accountId) {
+    var init = function(accountId) {
         service.getPartnersByAccounts(accountId, initializeDatatable, initializeDatatable);
-    }
+    };
 
     return {
         init: init
     };
 
-}(partnerService)
+}(partnerService);

@@ -1,5 +1,9 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Data.Entity.Validation;
+using System.Threading;
+using System.Threading.Tasks;
 using Core.Domain.Accounts;
 using Core.Domain.Assets;
 using Core.Domain.Contacts;
@@ -27,6 +31,7 @@ using Infrastructure.EntityConfigurations.BusinessConfigurations.ReportConfigura
 using Infrastructure.EntityConfigurations.SystemConfigurations.IdentityConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.MessageConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.TaskConfigurations;
+using Infrastructure.Helpers;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Infrastructure
@@ -39,6 +44,7 @@ namespace Infrastructure
         public DbSet<AssetPrice> AssetPrices { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Partner> Partners { get; set; }
+        public DbSet<PartnerType> PartnerTypes { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Country> Countries { get; set; }
@@ -73,6 +79,7 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new AssetClassConfiguration());
 
             modelBuilder.Configurations.Add(new PartnerConfiguration());
+            modelBuilder.Configurations.Add(new PartnerTypeConfiguration());
 
             modelBuilder.Configurations.Add(new ContactConfiguration());
 
@@ -102,6 +109,51 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new ReportConfiguration());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override int SaveChanges()
+        {
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEntityValidationException)
+            {
+                throw ExceptionHelper.CreateFromEntityValidation(dbEntityValidationException);
+            }
+            catch (DbUpdateException dbUpdateException)
+            {
+                throw ExceptionHelper.CreateFromDbUpdateException(dbUpdateException);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+        {
+            try
+            {
+                return await base.SaveChangesAsync(cancellationToken);
+            }
+            catch (DbEntityValidationException dbEntityValidationException)
+            {
+                throw ExceptionHelper.CreateFromEntityValidation(dbEntityValidationException);
+            }
+            catch (DbUpdateException dbUpdateException)
+            {
+                throw ExceptionHelper.CreateFromDbUpdateException(dbUpdateException);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

@@ -17,6 +17,7 @@ namespace Infrastructure.Seed.TestData
                 Amount = 102.3456m,
                 Timestamp = new DateTime(2017,11,17,12,57,47,DateTimeKind.Local)
             });
+
             SeededEntities.Add(new AssetPrice
             {
                 Id = 1,
@@ -25,6 +26,7 @@ namespace Infrastructure.Seed.TestData
                 Amount = 101.3456m,
                 Timestamp = new DateTime(2017, 11, 16, 12, 17, 47, DateTimeKind.Local)
             });
+
             SeededEntities.Add(new AssetPrice
             {
                 Id = 1,
@@ -42,6 +44,7 @@ namespace Infrastructure.Seed.TestData
                 Amount = 64.0192m,
                 Timestamp = new DateTime(2017, 11, 17, 12, 47, 47, DateTimeKind.Local)
             });
+
             SeededEntities.Add(new AssetPrice
             {
                 Id = 1,
@@ -50,6 +53,7 @@ namespace Infrastructure.Seed.TestData
                 Amount = 64.3456m,
                 Timestamp = new DateTime(2017, 11, 16, 12, 17, 47, DateTimeKind.Local)
             });
+
             SeededEntities.Add(new AssetPrice
             {
                 Id = 1,
@@ -67,6 +71,7 @@ namespace Infrastructure.Seed.TestData
                 Amount = 87.1205m,
                 Timestamp = new DateTime(2017, 11, 17, 12, 57, 47, DateTimeKind.Local)
             });
+
             SeededEntities.Add(new AssetPrice
             {
                 Id = 1,
@@ -75,6 +80,7 @@ namespace Infrastructure.Seed.TestData
                 Amount = 85.9294m,
                 Timestamp = new DateTime(2017, 11, 16, 13,17,11,DateTimeKind.Local)
             });
+
             SeededEntities.Add(new AssetPrice
             {
                 Id = 1,

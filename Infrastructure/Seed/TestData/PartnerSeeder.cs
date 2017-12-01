@@ -12,14 +12,16 @@ namespace Infrastructure.Seed.TestData
             {
                 Id = 1,
                 Name = "OCPD Trading Company",
-                Number = "PL1249"
+                Number = "PL1249",
+                PartnerTypeId = 1
             });
 
             SeededEntities.Add(new Partner
             {
                 Id = 2,
                 Name = "Dr. Wyler & Co",
-                Number = "US3450"
+                Number = "US3450",
+                PartnerTypeId = 1
             });
         }
     }

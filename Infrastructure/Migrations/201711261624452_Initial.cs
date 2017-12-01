@@ -30,10 +30,12 @@ namespace Infrastructure.Migrations
                         PartnerId = c.Int(nullable: false, identity: true),
                         PartnerName = c.String(nullable: false, maxLength: 255),
                         PartnerNumber = c.String(nullable: false, maxLength: 30),
+                        PartnerTypeId = c.Int(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
-                        PartnerType = c.Int(),
                     })
-                .PrimaryKey(t => t.PartnerId);
+                .PrimaryKey(t => t.PartnerId)
+                .ForeignKey("dbo.PartnerType", t => t.PartnerTypeId)
+                .Index(t => t.PartnerTypeId);
             
             CreateTable(
                 "dbo.Contact",
@@ -65,6 +67,16 @@ namespace Infrastructure.Migrations
                 .PrimaryKey(t => t.InstitutionId);
             
             CreateTable(
+                "dbo.PartnerType",
+                c => new
+                    {
+                        PartnerTypeId = c.Int(nullable: false, identity: true),
+                        PartnerTypeName = c.String(nullable: false, maxLength: 255),
+                        IsDeleted = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.PartnerTypeId);
+            
+            CreateTable(
                 "dbo.Portfolio",
                 c => new
                     {
@@ -77,26 +89,6 @@ namespace Infrastructure.Migrations
                 .PrimaryKey(t => t.PortfolioId)
                 .ForeignKey("dbo.Account", t => t.AccountId)
                 .Index(t => t.AccountId);
-            
-            CreateTable(
-                "dbo.Position",
-                c => new
-                    {
-                        PositionId = c.Int(nullable: false, identity: true),
-                        PositionAmount = c.Decimal(nullable: false, precision: 16, scale: 3),
-                        CurrencyId = c.Int(nullable: false),
-                        AssetId = c.Int(nullable: false),
-                        PortfolioId = c.Int(nullable: false),
-                        PositionTimestamp = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
-                        IsDeleted = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.PositionId)
-                .ForeignKey("dbo.Currency", t => t.CurrencyId)
-                .ForeignKey("dbo.Asset", t => t.AssetId)
-                .ForeignKey("dbo.Portfolio", t => t.PortfolioId)
-                .Index(t => t.CurrencyId)
-                .Index(t => t.AssetId)
-                .Index(t => t.PortfolioId);
             
             CreateTable(
                 "dbo.Asset",
@@ -144,8 +136,8 @@ namespace Infrastructure.Migrations
                         IsDeleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Currency", t => t.CurrencyId, cascadeDelete: true)
                 .ForeignKey("dbo.Asset", t => t.AssetId)
+                .ForeignKey("dbo.Currency", t => t.CurrencyId)
                 .Index(t => t.AssetId)
                 .Index(t => t.CurrencyId);
             
@@ -199,6 +191,26 @@ namespace Infrastructure.Migrations
                 .Index(t => t.Currency_Id);
             
             CreateTable(
+                "dbo.Position",
+                c => new
+                    {
+                        PositionId = c.Int(nullable: false, identity: true),
+                        PositionAmount = c.Decimal(nullable: false, precision: 16, scale: 3),
+                        CurrencyId = c.Int(nullable: false),
+                        AssetId = c.Int(nullable: false),
+                        PortfolioId = c.Int(nullable: false),
+                        PositionTimestamp = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        IsDeleted = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.PositionId)
+                .ForeignKey("dbo.Asset", t => t.AssetId)
+                .ForeignKey("dbo.Currency", t => t.CurrencyId)
+                .ForeignKey("dbo.Portfolio", t => t.PortfolioId)
+                .Index(t => t.CurrencyId)
+                .Index(t => t.AssetId)
+                .Index(t => t.PortfolioId);
+            
+            CreateTable(
                 "dbo.Message",
                 c => new
                     {
@@ -210,6 +222,18 @@ namespace Infrastructure.Migrations
                         MessageType = c.Int(),
                     })
                 .PrimaryKey(t => t.MessageId);
+            
+            CreateTable(
+                "dbo.Report",
+                c => new
+                    {
+                        ReportId = c.Int(nullable: false, identity: true),
+                        ReportName = c.String(nullable: false, maxLength: 255),
+                        ReportDescription = c.String(maxLength: 1024),
+                        ReportHash = c.String(maxLength: 255),
+                        IsDeleted = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.ReportId);
             
             CreateTable(
                 "dbo.Roles",
@@ -228,8 +252,8 @@ namespace Infrastructure.Migrations
                         RoleId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.Roles", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.Roles", t => t.RoleId)
+                .ForeignKey("dbo.Users", t => t.UserId)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
             
@@ -303,7 +327,7 @@ namespace Infrastructure.Migrations
                         UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
-                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -314,10 +338,23 @@ namespace Infrastructure.Migrations
                         InstitutionId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.PartnerId, t.InstitutionId })
-                .ForeignKey("dbo.Partner", t => t.PartnerId, cascadeDelete: true)
-                .ForeignKey("dbo.Institution", t => t.InstitutionId, cascadeDelete: true)
+                .ForeignKey("dbo.Partner", t => t.PartnerId)
+                .ForeignKey("dbo.Institution", t => t.InstitutionId)
                 .Index(t => t.PartnerId)
                 .Index(t => t.InstitutionId);
+            
+            CreateTable(
+                "dbo.PortfolioAssets",
+                c => new
+                    {
+                        PortfolioId = c.Int(nullable: false),
+                        AssetId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.PortfolioId, t.AssetId })
+                .ForeignKey("dbo.Portfolio", t => t.PortfolioId)
+                .ForeignKey("dbo.Asset", t => t.AssetId)
+                .Index(t => t.PortfolioId)
+                .Index(t => t.AssetId);
             
             CreateTable(
                 "dbo.User1",
@@ -340,20 +377,25 @@ namespace Infrastructure.Migrations
             DropForeignKey("dbo.UserRoles", "RoleId", "dbo.Roles");
             DropForeignKey("dbo.Portfolio", "AccountId", "dbo.Account");
             DropForeignKey("dbo.Position", "PortfolioId", "dbo.Portfolio");
-            DropForeignKey("dbo.Position", "AssetId", "dbo.Asset");
-            DropForeignKey("dbo.AssetPrice", "AssetId", "dbo.Asset");
+            DropForeignKey("dbo.PortfolioAssets", "AssetId", "dbo.Asset");
+            DropForeignKey("dbo.PortfolioAssets", "PortfolioId", "dbo.Portfolio");
             DropForeignKey("dbo.AssetPrice", "CurrencyId", "dbo.Currency");
             DropForeignKey("dbo.Position", "CurrencyId", "dbo.Currency");
+            DropForeignKey("dbo.Position", "AssetId", "dbo.Asset");
             DropForeignKey("dbo.ExchangeRate", "Currency_Id", "dbo.Currency");
             DropForeignKey("dbo.ExchangeRate", "TargetCurrencyId", "dbo.Currency");
             DropForeignKey("dbo.ExchangeRate", "BaseCurrencyId", "dbo.Currency");
             DropForeignKey("dbo.Country", "CurrencyId", "dbo.Currency");
             DropForeignKey("dbo.Asset", "Currency_Id", "dbo.Currency");
+            DropForeignKey("dbo.AssetPrice", "AssetId", "dbo.Asset");
             DropForeignKey("dbo.Asset", "ClassId", "dbo.AssetClass");
             DropForeignKey("dbo.Account", "PartnerId", "dbo.Partner");
+            DropForeignKey("dbo.Partner", "PartnerTypeId", "dbo.PartnerType");
             DropForeignKey("dbo.PartnerInstitutions", "InstitutionId", "dbo.Institution");
             DropForeignKey("dbo.PartnerInstitutions", "PartnerId", "dbo.Partner");
             DropForeignKey("dbo.Contact", "PartnerId", "dbo.Partner");
+            DropIndex("dbo.PortfolioAssets", new[] { "AssetId" });
+            DropIndex("dbo.PortfolioAssets", new[] { "PortfolioId" });
             DropIndex("dbo.PartnerInstitutions", new[] { "InstitutionId" });
             DropIndex("dbo.PartnerInstitutions", new[] { "PartnerId" });
             DropIndex("dbo.UserLogins", new[] { "UserId" });
@@ -361,6 +403,9 @@ namespace Infrastructure.Migrations
             DropIndex("dbo.TaskRun", new[] { "TaskId" });
             DropIndex("dbo.UserRoles", new[] { "RoleId" });
             DropIndex("dbo.UserRoles", new[] { "UserId" });
+            DropIndex("dbo.Position", new[] { "PortfolioId" });
+            DropIndex("dbo.Position", new[] { "AssetId" });
+            DropIndex("dbo.Position", new[] { "CurrencyId" });
             DropIndex("dbo.ExchangeRate", new[] { "Currency_Id" });
             DropIndex("dbo.ExchangeRate", new[] { "TargetCurrencyId" });
             DropIndex("dbo.ExchangeRate", new[] { "BaseCurrencyId" });
@@ -369,13 +414,12 @@ namespace Infrastructure.Migrations
             DropIndex("dbo.AssetPrice", new[] { "AssetId" });
             DropIndex("dbo.Asset", new[] { "Currency_Id" });
             DropIndex("dbo.Asset", new[] { "ClassId" });
-            DropIndex("dbo.Position", new[] { "PortfolioId" });
-            DropIndex("dbo.Position", new[] { "AssetId" });
-            DropIndex("dbo.Position", new[] { "CurrencyId" });
             DropIndex("dbo.Portfolio", new[] { "AccountId" });
             DropIndex("dbo.Contact", new[] { "PartnerId" });
+            DropIndex("dbo.Partner", new[] { "PartnerTypeId" });
             DropIndex("dbo.Account", new[] { "PartnerId" });
             DropTable("dbo.User1");
+            DropTable("dbo.PortfolioAssets");
             DropTable("dbo.PartnerInstitutions");
             DropTable("dbo.UserLogins");
             DropTable("dbo.UserClaims");
@@ -384,15 +428,17 @@ namespace Infrastructure.Migrations
             DropTable("dbo.Task");
             DropTable("dbo.UserRoles");
             DropTable("dbo.Roles");
+            DropTable("dbo.Report");
             DropTable("dbo.Message");
+            DropTable("dbo.Position");
             DropTable("dbo.ExchangeRate");
             DropTable("dbo.Country");
             DropTable("dbo.Currency");
             DropTable("dbo.AssetPrice");
             DropTable("dbo.AssetClass");
             DropTable("dbo.Asset");
-            DropTable("dbo.Position");
             DropTable("dbo.Portfolio");
+            DropTable("dbo.PartnerType");
             DropTable("dbo.Institution");
             DropTable("dbo.Contact");
             DropTable("dbo.Partner");

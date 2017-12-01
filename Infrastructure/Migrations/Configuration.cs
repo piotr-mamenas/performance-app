@@ -1,4 +1,6 @@
+using System;
 using System.Data.Entity.Migrations;
+using System.Data.Entity.Validation;
 using System.Threading.Tasks;
 using Infrastructure.Seed.BaseData;
 using Infrastructure.Seed.BaseData.MessageSeeders;
@@ -20,15 +22,23 @@ namespace Infrastructure.Migrations
         /// <param name="context"></param>
         protected override void Seed(ApplicationDbContext context)
         {
-            var contactSeeder = new ContactSeeder(context.Contacts);
-            contactSeeder.Seed();
+            //if (System.Diagnostics.Debugger.IsAttached == false)
+            //{
+            //    System.Diagnostics.Debugger.Launch();
+            //}
+
+            var partnerTypeSeeder = new PartnerTypeSeeder(context.PartnerTypes);
+            partnerTypeSeeder.Seed();
 
             var partnerSeeder = new PartnerSeeder(context.Partners);
             partnerSeeder.Seed();
 
+            var contactSeeder = new ContactSeeder(context.Contacts);
+            contactSeeder.Seed();
+
             var accountSeeder = new AccountSeeder(context.Accounts);
             accountSeeder.Seed();
-
+            
             var currencySeeder = new CurrencySeeder(context.Currencies);
             currencySeeder.Seed();
 
