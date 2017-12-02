@@ -1,4 +1,4 @@
-﻿var accountSelectionTableController = function (service) {
+﻿var accountSelectionTableController = function (service, constants) {
     var table;
     var box;
 
@@ -30,18 +30,18 @@
         box = bootbox.dialog({
             show: true,
             message: container.html(),
-            title: "DataTables in a Bootbox",
+            title: "Select an Account",
             buttons: {
+                cancel: {
+                    label: "<i class='fa fa-times'></i> Cancel",
+                    className: "btn-default"
+                },
                 ok: {
-                    label: "OK",
+                    label: "<i class='fa fa-check'></i> OK",
                     className: "btn-primary",
                     callback: function () {
                         console.log("OK Button");
                     }
-                },
-                cancel: {
-                    label: "Cancel",
-                    className: "btn-default"
                 }
             }
         });
@@ -49,9 +49,6 @@
         if (table == null || table === undefined) {
             $("div.bootbox.modal").on("shown.bs.modal", loadSelection);
         }
-        console.log(box);
-
-        //box.modal("show");
     };
 
     var highlightRow = function () {
@@ -67,4 +64,4 @@
         init: init
     };
 
-}(accountService)
+}(accountService, constants)
