@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
-using Core.Domain.Assets;
+﻿using System.Data.Entity;
 using Core.Domain.Portfolios;
 
 namespace Infrastructure.Seed.TestData

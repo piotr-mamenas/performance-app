@@ -32,7 +32,7 @@
                     <div class="form-group">
                         @Html.HiddenFor(p => p.AccountId)
                         @Html.LabelFor(p => p.AccountId)
-                        <button id="openAccountSelectionButton" type="Button" class="btn btn-default form-control">Select Account<span class="fa fa-search"></span></button>
+                        <button id="openAccountSelectionButton" type="Button" class="btn btn-default form-control">Select Account <span class="fa fa-search" style="margin-left: 3px;"></span></button>
                     </div>
                 </div>
             </fieldset>
@@ -44,6 +44,7 @@
         }
     </div>
 </div>
+@Html.Partial("_AccountSelection")
 
 @section scripts{
     routing.setCurrentPage("#PortfolioNav");
