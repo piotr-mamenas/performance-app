@@ -473,6 +473,7 @@
     <Content Include="Views\Portfolio\Details.cshtml" />
     <Content Include="Views\Portfolio\Create.cshtml" />
     <Content Include="Views\Shared\_AccountSelection.cshtml" />
+    <Content Include="Views\Task\ShowSchedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

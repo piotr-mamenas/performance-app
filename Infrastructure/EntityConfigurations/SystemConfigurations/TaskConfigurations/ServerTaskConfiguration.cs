@@ -23,12 +23,17 @@ namespace Infrastructure.EntityConfigurations.SystemConfigurations.TaskConfigura
                 .HasColumnName("TaskDescription")
                 .HasMaxLength(1024);
 
+            HasRequired(t => t.Type)
+                .WithMany(t => t.Tasks)
+                .HasForeignKey(t => t.TypeId);
+
             HasMany(t => t.Runs)
                 .WithRequired(tr => tr.Task)
                 .HasForeignKey(tr => tr.TaskId);
 
-            Map<ImportTask>(p => p.Requires("TaskType").HasValue((int)TaskType.Import));
-            Map<ExportTask>(p => p.Requires("TaskType").HasValue((int)TaskType.Export));
+            // TODO: Solve
+            Map<ImportTask>(p => p.Requires("TaskType").HasValue((int)Core.Enums.Domain.TaskType.Import));
+            Map<ExportTask>(p => p.Requires("TaskType").HasValue((int)Core.Enums.Domain.TaskType.Export));
         }
     }
 }

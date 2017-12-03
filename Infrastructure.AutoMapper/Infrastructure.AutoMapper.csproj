@@ -48,6 +48,7 @@
     <Compile Include="Profiles\PartnerProfile.cs" />
     <Compile Include="Profiles\PortfolioProfile.cs" />
     <Compile Include="Profiles\ReportProfile.cs" />
+    <Compile Include="Profiles\TaskProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

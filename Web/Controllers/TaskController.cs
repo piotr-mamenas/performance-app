@@ -24,5 +24,11 @@ namespace Web.Controllers
         {
             return View();
         }
+
+        [Route("schedule")]
+        public ActionResult ShowSchedule()
+        {
+            return View();
+        }
     }
 }

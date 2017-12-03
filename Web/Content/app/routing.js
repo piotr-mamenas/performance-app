@@ -39,6 +39,10 @@
         {
             Name: "Report",
             Uri: "api/reports/"
+        },
+        {
+            Name: "Task",
+            Uri: "api/tasks/"
         }
     ];
 

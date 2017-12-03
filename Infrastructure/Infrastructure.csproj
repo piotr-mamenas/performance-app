@@ -103,6 +103,7 @@
     <Compile Include="EntityConfigurations\SystemConfigurations\TaskConfigurations\ImportTaskConfiguration.cs" />
     <Compile Include="EntityConfigurations\SystemConfigurations\TaskConfigurations\ServerTaskConfiguration.cs" />
     <Compile Include="EntityConfigurations\SystemConfigurations\TaskConfigurations\TaskRunConfiguration.cs" />
+    <Compile Include="EntityConfigurations\SystemConfigurations\TaskConfigurations\TaskTypeConfiguration.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Helpers\AttributeHelper.cs" />
     <Compile Include="Helpers\ExceptionHelper.cs" />
@@ -114,6 +115,10 @@
     <Compile Include="Migrations\201711261624452_Initial.cs" />
     <Compile Include="Migrations\201711261624452_Initial.Designer.cs">
       <DependentUpon>201711261624452_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712031650143_AndTaskTypeToTypeMigration.cs" />
+    <Compile Include="Migrations\201712031650143_AndTaskTypeToTypeMigration.Designer.cs">
+      <DependentUpon>201712031650143_AndTaskTypeToTypeMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
@@ -175,6 +180,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711261624452_Initial.resx">
       <DependentUpon>201711261624452_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712031650143_AndTaskTypeToTypeMigration.resx">
+      <DependentUpon>201712031650143_AndTaskTypeToTypeMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

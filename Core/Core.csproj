@@ -98,6 +98,7 @@
     <Compile Include="Domain\Tasks\ImportTask.cs" />
     <Compile Include="Domain\Tasks\ServerTask.cs" />
     <Compile Include="Domain\Tasks\TaskRun.cs" />
+    <Compile Include="Domain\Tasks\TaskType.cs" />
     <Compile Include="Domain\Workflows\Workflow.cs" />
     <Compile Include="Domain\Workflows\WorkflowTransition.cs" />
     <Compile Include="Enums\Domain\AssetType.cs" />

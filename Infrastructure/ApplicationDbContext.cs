@@ -105,6 +105,7 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new ExportTaskConfiguration());
             modelBuilder.Configurations.Add(new ImportTaskConfiguration());
             modelBuilder.Configurations.Add(new TaskRunConfiguration());
+            modelBuilder.Configurations.Add(new TaskTypeConfiguration());
 
             modelBuilder.Configurations.Add(new ReportConfiguration());
         }

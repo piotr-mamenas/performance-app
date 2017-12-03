@@ -137,6 +137,7 @@
     <Compile Include="Controllers\PartnerApiController.cs" />
     <Compile Include="Controllers\PortfolioApiController.cs" />
     <Compile Include="Controllers\ReportApiController.cs" />
+    <Compile Include="Controllers\TaskApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

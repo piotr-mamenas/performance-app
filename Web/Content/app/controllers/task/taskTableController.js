@@ -1,6 +1,5 @@
 ﻿var taskTableController = function (service) {
     var table;
-    var button;
 
     var initializeDatatable = function (result) {
         table = $("#taskTable").DataTable({
@@ -10,7 +9,19 @@
                     data: "Name"
                 },
                 {
-                    data: "Number"
+                    data: "Description"
+                },
+                {
+                    data: "Type.Name"
+                },
+                {
+                    data: "StartTimestamp"
+                },
+                {
+                    data: "EndTimestamp"
+                },
+                {
+                    data: "Progress"
                 }
             ],
             language: {
@@ -20,11 +31,11 @@
     }
 
     var init = function () {
-        service.getTaskRuns(initializeDatatable, initializeDatatable);
+        service.getTaskRunsByTask(initializeDatatable, initializeDatatable);
     }
 
     return {
         init: init
     };
 
-}(portfolioService)
+}(taskService)

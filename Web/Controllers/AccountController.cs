@@ -5,7 +5,6 @@ using System.Web.Mvc;
 using Core.Domain.Accounts;
 using Core.Domain.Partners;
 using Core.Interfaces;
-using Core.Interfaces.Repositories;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Ninject.Extensions.Logging;

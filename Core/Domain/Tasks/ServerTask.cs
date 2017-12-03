@@ -9,6 +9,9 @@ namespace Core.Domain.Tasks
 
         public string Description { get; set; }
 
+        public TaskType Type { get; set; }
+        public int TypeId { get; set; }
+
         public ICollection<TaskRun> Runs { get; set; }
     }
 }

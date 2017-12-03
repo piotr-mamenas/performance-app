@@ -1,11 +1,23 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Task</h2>
+<table id="taskTable" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Task Name</th>
+        <th>Task Description</th>
+        <th>Task Type</th>
+        <th>Task Status</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Progress</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 
 @section scripts {
     routing.setCurrentPage("#TaskNav");
+    taskTableController.init();
 }

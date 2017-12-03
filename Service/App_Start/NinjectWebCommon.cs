@@ -5,12 +5,15 @@ using Core.Domain.Currencies;
 using Core.Domain.Institutions;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
+using Core.Domain.Tasks;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.BaseData;
 using Core.Interfaces.Repositories.Business;
+using Core.Interfaces.Repositories.System;
 using Infrastructure;
 using Infrastructure.Repositories.BaseData;
 using Infrastructure.Repositories.Business;
+using Infrastructure.Repositories.System;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Service.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Service.App_Start.NinjectWebCommon), "Stop")]
@@ -85,6 +88,7 @@ namespace Service.App_Start
             kernel.Bind<IInstitutionRepository<Institution>>().To<InstitutionRepository<Institution>>().InRequestScope();
             kernel.Bind<IInstitutionRepository<Bank>>().To<InstitutionRepository<Bank>>().InRequestScope();
             kernel.Bind<IPortfolioRepository<Portfolio>>().To<PortfolioRepository<Portfolio>>().InRequestScope();
+            kernel.Bind<ITaskRepository<ServerTask>>().To<TaskRepository<ServerTask>>().InRequestScope();
         }        
     }
 }
