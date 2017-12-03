@@ -48,7 +48,6 @@
     <Compile Include="Report\ReportDto.cs" />
     <Compile Include="Task\ServerTaskDto.cs" />
     <Compile Include="Task\TaskRunDto.cs" />
-    <Compile Include="Task\TaskTypeDto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

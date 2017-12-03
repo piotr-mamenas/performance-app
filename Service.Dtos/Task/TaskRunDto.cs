@@ -8,7 +8,7 @@ namespace Service.Dtos.Task
 
         public string Name { get; set; }
 
-        public TaskTypeDto Type { get; set; }
+        public string TypeName { get; set; }
 
         public DateTime StartTimestamp { get; set; }
 

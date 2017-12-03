@@ -150,9 +150,9 @@ namespace Service.Controllers
                 return NotFound();
             }
 
-            var taskRuns = tasks.SelectMany(tr => tr.Runs);
+            var taskRuns = tasks.SelectMany(tr => tr.Runs).ToList();
 
-            return Ok(taskRuns.Map<ICollection<TaskRunDto>>());
+            return Ok(taskRuns.Map<IList<TaskRunDto>>());
         }
 
         /// <summary>

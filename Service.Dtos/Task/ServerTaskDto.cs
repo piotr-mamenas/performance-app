@@ -10,8 +10,7 @@ namespace Service.Dtos.Task
 
         public string Description { get; set; }
 
-        public TaskTypeDto Type { get; set; }
-        public int TypeId { get; set; }
+        public string TypeName { get; set; }
 
         public ICollection<TaskRunDto> Runs { get; set; }
     }
