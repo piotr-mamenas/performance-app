@@ -10,24 +10,24 @@ namespace Infrastructure.EntityConfigurations.SystemConfigurations.TaskConfigura
         {
             ToTable("Task");
 
-            Property(t => t.Id)
+            Property(st => st.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("TaskId");
 
-            Property(t => t.Name)
+            Property(st => st.Name)
                 .HasColumnName("TaskName")
                 .HasMaxLength(255)
                 .IsRequired();
 
-            Property(t => t.Description)
+            Property(st => st.Description)
                 .HasColumnName("TaskDescription")
                 .HasMaxLength(1024);
 
-            HasRequired(t => t.Type)
+            HasRequired(st => st.Type)
                 .WithMany(t => t.Tasks)
                 .HasForeignKey(t => t.TypeId);
 
-            HasMany(t => t.Runs)
+            HasMany(st => st.Runs)
                 .WithRequired(tr => tr.Task)
                 .HasForeignKey(tr => tr.TaskId);
 

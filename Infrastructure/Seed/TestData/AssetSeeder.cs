@@ -40,6 +40,7 @@ namespace Infrastructure.Seed.TestData
                 IssueDate = DateTime.Now,
                 MaturityDate = DateTime.Today,
                 Name = "US Standard Bond",
+                CurrencyId = 1,
                 Coupon = new BondCoupon
                 {
                     Amount = 200,

@@ -23,9 +23,9 @@ namespace Infrastructure.EntityConfigurations.SystemConfigurations.WorkflowConfi
                 .IsRequired()
                 .HasMaxLength(255);
 
-            HasRequired(c => c.TransitionFrom).WithMany();
+            HasRequired(wt => wt.TransitionFrom).WithMany();
 
-            HasRequired(c => c.TransitionTo).WithMany();
+            HasRequired(wt => wt.TransitionTo).WithMany();
         }
     }
 }

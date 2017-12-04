@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Core.Domain.Currencies;
 
 namespace Core.Domain.Assets
 {
@@ -10,6 +11,9 @@ namespace Core.Domain.Assets
         public DateTime MaturityDate { get; set; }
 
         public BondCoupon Coupon { get; set; }
+        
+        public Currency Currency { get; set; }
+        public int? CurrencyId { get; set; }
 
         public decimal FaceValue { get; set; }
 
@@ -17,12 +21,14 @@ namespace Core.Domain.Assets
         {
         }
 
-        public Bond(BondCoupon coupon, decimal faceValue, DateTime issueDate, DateTime maturityDate)
+        public Bond(BondCoupon coupon, decimal faceValue, Currency currency, DateTime issueDate, DateTime maturityDate)
         {
             Coupon = coupon;
             FaceValue = faceValue;
             IssueDate = issueDate;
             MaturityDate = maturityDate;
+            Currency = currency;
+            CurrencyId = currency.Id;
         }
 
         public void SetCoupon(decimal amount, decimal rate)

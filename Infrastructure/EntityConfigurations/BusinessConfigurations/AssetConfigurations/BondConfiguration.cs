@@ -20,6 +20,10 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.AssetConfig
 
             Property(b => b.Coupon.Amount);
 
+            HasRequired(b => b.Currency)
+                .WithMany(c => c.Bonds)
+                .HasForeignKey(b => b.CurrencyId);
+
             Property(b => b.FaceValue)
                 .HasColumnName("BondFaceValue")
                 .IsRequired();

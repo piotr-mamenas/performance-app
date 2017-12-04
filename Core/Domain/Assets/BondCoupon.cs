@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using Core.Domain.Currencies;
 
 namespace Core.Domain.Assets
 {
