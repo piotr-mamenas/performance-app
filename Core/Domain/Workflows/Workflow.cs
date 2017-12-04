@@ -1,9 +1,13 @@
-﻿namespace Core.Domain.Workflows
-{
-    public class Workflow
-    {
-        public string Name { get; set; }
+﻿using System;
+using Core.Interfaces;
 
-        public string Designation { get; set; }
+namespace Core.Domain.Workflows
+{
+    public class Workflow : BaseEntity, IEntityRoot
+    {
+        public DateTime Timestamp { get; set; }
+
+        public WorkflowStatus Status { get; set; }
+        public int StatusId { get; set; }
     }
 }

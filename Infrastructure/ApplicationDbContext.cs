@@ -31,6 +31,7 @@ using Infrastructure.EntityConfigurations.BusinessConfigurations.ReportConfigura
 using Infrastructure.EntityConfigurations.SystemConfigurations.IdentityConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.MessageConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.TaskConfigurations;
+using Infrastructure.EntityConfigurations.SystemConfigurations.WorkflowConfigurations;
 using Infrastructure.Helpers;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -106,6 +107,10 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new ImportTaskConfiguration());
             modelBuilder.Configurations.Add(new TaskRunConfiguration());
             modelBuilder.Configurations.Add(new TaskTypeConfiguration());
+
+            modelBuilder.Configurations.Add(new WorkflowStatusConfiguration());
+            modelBuilder.Configurations.Add(new WorkflowConfiguration());
+            modelBuilder.Configurations.Add(new WorkflowTransitionConfiguration());
 
             modelBuilder.Configurations.Add(new ReportConfiguration());
         }

@@ -10,9 +10,6 @@ namespace Infrastructure.EntityConfigurations
             Property(e => e.IsDeleted).HasColumnName("IsDeleted");
 
             HasKey(e => e.Id);
-
-            HasKey(p => p.Id);
         }
-
     }
 }

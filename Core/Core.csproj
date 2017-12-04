@@ -100,6 +100,7 @@
     <Compile Include="Domain\Tasks\TaskRun.cs" />
     <Compile Include="Domain\Tasks\TaskType.cs" />
     <Compile Include="Domain\Workflows\Workflow.cs" />
+    <Compile Include="Domain\Workflows\WorkflowStatus.cs" />
     <Compile Include="Domain\Workflows\WorkflowTransition.cs" />
     <Compile Include="Enums\Domain\AssetType.cs" />
     <Compile Include="Enums\Domain\ContactType.cs" />

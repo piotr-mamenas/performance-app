@@ -104,6 +104,9 @@
     <Compile Include="EntityConfigurations\SystemConfigurations\TaskConfigurations\ServerTaskConfiguration.cs" />
     <Compile Include="EntityConfigurations\SystemConfigurations\TaskConfigurations\TaskRunConfiguration.cs" />
     <Compile Include="EntityConfigurations\SystemConfigurations\TaskConfigurations\TaskTypeConfiguration.cs" />
+    <Compile Include="EntityConfigurations\SystemConfigurations\WorkflowConfigurations\WorkflowConfiguration.cs" />
+    <Compile Include="EntityConfigurations\SystemConfigurations\WorkflowConfigurations\WorkflowStatusConfiguration.cs" />
+    <Compile Include="EntityConfigurations\SystemConfigurations\WorkflowConfigurations\WorkflowTransitionConfiguration.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Helpers\AttributeHelper.cs" />
     <Compile Include="Helpers\ExceptionHelper.cs" />
@@ -119,6 +122,10 @@
     <Compile Include="Migrations\201712031650143_AndTaskTypeToTypeMigration.cs" />
     <Compile Include="Migrations\201712031650143_AndTaskTypeToTypeMigration.Designer.cs">
       <DependentUpon>201712031650143_AndTaskTypeToTypeMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712042159146_WorkflowObjectsMigration.cs" />
+    <Compile Include="Migrations\201712042159146_WorkflowObjectsMigration.Designer.cs">
+      <DependentUpon>201712042159146_WorkflowObjectsMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
@@ -183,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712031650143_AndTaskTypeToTypeMigration.resx">
       <DependentUpon>201712031650143_AndTaskTypeToTypeMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712042159146_WorkflowObjectsMigration.resx">
+      <DependentUpon>201712042159146_WorkflowObjectsMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
