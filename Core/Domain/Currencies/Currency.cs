@@ -21,14 +21,11 @@ namespace Core.Domain.Currencies
 
         public ICollection<PortfolioAssetPosition> Positions { get; set; }
 
-        public ICollection<ExchangeRate> ExchangeRates { get; set; }
-
         public Currency()
         {
             Countries = null;
             Bonds = null;
             Positions = null;
-            ExchangeRates = null;
         }
     }
 }

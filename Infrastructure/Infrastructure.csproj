@@ -131,6 +131,10 @@
     <Compile Include="Migrations\201712042215308_AdjustingBondCurrencyColumn.Designer.cs">
       <DependentUpon>201712042215308_AdjustingBondCurrencyColumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712042223182_RemovingExchangeRateFromCurrencyMapping.cs" />
+    <Compile Include="Migrations\201712042223182_RemovingExchangeRateFromCurrencyMapping.Designer.cs">
+      <DependentUpon>201712042223182_RemovingExchangeRateFromCurrencyMapping.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -200,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712042215308_AdjustingBondCurrencyColumn.resx">
       <DependentUpon>201712042215308_AdjustingBondCurrencyColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712042223182_RemovingExchangeRateFromCurrencyMapping.resx">
+      <DependentUpon>201712042223182_RemovingExchangeRateFromCurrencyMapping.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
