@@ -13,5 +13,12 @@ namespace Core.Domain.Tasks
         public int TypeId { get; set; }
 
         public ICollection<TaskRun> Runs { get; set; }
+
+        public string Parameters { get; set; }
+
+        public IList<string> Run()
+        {
+            return new List<string>();
+        }
     }
 }

@@ -23,6 +23,10 @@ namespace Infrastructure.EntityConfigurations.SystemConfigurations.TaskConfigura
                 .HasColumnName("TaskDescription")
                 .HasMaxLength(1024);
 
+            Property(st => st.Parameters)
+                .HasColumnName("TaskJsonParameters")
+                .HasMaxLength(2048);
+
             HasRequired(st => st.Type)
                 .WithMany(t => t.Tasks)
                 .HasForeignKey(t => t.TypeId);
