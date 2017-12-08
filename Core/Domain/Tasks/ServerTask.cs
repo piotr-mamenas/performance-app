@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using Core.Interfaces;
 
 namespace Core.Domain.Tasks
@@ -16,8 +17,11 @@ namespace Core.Domain.Tasks
 
         public string Parameters { get; set; }
 
-        public IList<string> Run()
+        public IList<string> Run(CancellationToken cancellationToken)
         {
+            //
+            // if (!cancellationToken.IsCancellationRequested)
+            //
             return new List<string>();
         }
     }

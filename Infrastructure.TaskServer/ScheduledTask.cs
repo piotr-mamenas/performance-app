@@ -1,23 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using Core.Domain.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace Infrastructure.TaskServer
 {
     public class ScheduledTask
     {
-        private readonly IRunnableTask _currentTask;
+        public TechnicalTaskStatus Status { get; set; }   
+        public int TaskId { get; set; }
 
-        public Func<IList<string>> RunningOperation { get; set; }
-
-        public ScheduledTask(IRunnableTask task)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="submittedTask"></param>
+        public ScheduledTask(IRunnableTask submittedTask)
         {
-            _currentTask = task;
+            _submittedTask = submittedTask;
+            TaskId = submittedTask.Id;
+            _tokenSource = new CancellationTokenSource();
         }
 
         public void Run()
         {
-            RunningOperation = _currentTask.Run;
+            var token = _tokenSource.Token;
+
+            Task.Factory.StartNew(() => _submittedTask.Run(token), token);
+
+            token.Register(Notify);
         }
+
+        public void Cancel()
+        {
+            _tokenSource.Cancel();
+        }
+
+        public void Notify()
+        {
+            // add event handling here
+        }
+
+        private readonly IRunnableTask _submittedTask;
+        private readonly CancellationTokenSource _tokenSource;
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 
 namespace Infrastructure.TaskServer
 {
     public interface IRunnableTask
     {
-        IList<string> Run();
+        int Id { get; set; }
+        IList<string> Run(CancellationToken cancellationToken);
     }
 }
