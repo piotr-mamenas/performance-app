@@ -5,7 +5,8 @@ namespace Infrastructure.TaskServer
 {
     public class ScheduledTask
     {
-        public TechnicalTaskStatus Status { get; set; }   
+        public TaskStatus Status => _runningTask.Status;
+
         public int TaskId { get; set; }
 
         /// <summary>
@@ -15,7 +16,9 @@ namespace Infrastructure.TaskServer
         public ScheduledTask(IRunnableTask submittedTask)
         {
             _submittedTask = submittedTask;
+
             TaskId = submittedTask.Id;
+
             _tokenSource = new CancellationTokenSource();
         }
 
@@ -23,8 +26,8 @@ namespace Infrastructure.TaskServer
         {
             var token = _tokenSource.Token;
 
-            Task.Factory.StartNew(() => _submittedTask.Run(token), token);
-
+            _runningTask = Task.Factory.StartNew(() => _submittedTask.Run(token), token);
+            
             token.Register(Notify);
         }
 
@@ -36,9 +39,11 @@ namespace Infrastructure.TaskServer
         public void Notify()
         {
             // add event handling here
+            // rabbitmq considered but maybe something simpler
         }
 
         private readonly IRunnableTask _submittedTask;
         private readonly CancellationTokenSource _tokenSource;
+        private Task _runningTask;
     }
 }

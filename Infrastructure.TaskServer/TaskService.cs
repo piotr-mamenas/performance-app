@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceProcess;
 
 namespace Infrastructure.TaskServer
 {
@@ -19,11 +11,19 @@ namespace Infrastructure.TaskServer
 
         protected override void OnStart(string[] args)
         {
+            // single core for now
+            var taskManager = new TaskManager();
 
+            while (true)
+            {
+                taskManager.RunNext();
+                // TODO: need to add logic to fetch task from db
+            }
         }
 
         protected override void OnStop()
         {
+            //TODO: Disposal logic
         }
     }
 }
