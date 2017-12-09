@@ -13,9 +13,6 @@ using Service.Dtos.BaseData;
 
 namespace Service.Controllers
 {
-    /// <summary>
-    /// 
-    /// </summary>
     [RoutePrefix("api/currencies")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CurrencyApiController : ApiController
@@ -29,10 +26,6 @@ namespace Service.Controllers
             _unitOfWork = (IComplete)unitOfWork;
         }
 
-        /// <summary>
-        /// Get All Currencies
-        /// </summary>
-        /// <returns>Currencies Collection JSON by default</returns>
         [HttpGet, Route("")]
         [ResponseType(typeof(ICollection<CurrencyDto>))]
         public async Task<IHttpActionResult> GetAsync()
@@ -46,11 +39,6 @@ namespace Service.Controllers
             return Ok(currencies.Map<ICollection<CurrencyDto>>());
         }
 
-        /// <summary>
-        /// Get Single Currency
-        /// </summary>
-        /// <param name="id">Id of the currency in the Database</param>
-        /// <returns>Currency JSON by default</returns>
         [HttpGet, Route("{id}")]
         [ResponseType(typeof(CurrencyDto))]
         public async Task<IHttpActionResult> GetAsync(int id)
@@ -64,12 +52,6 @@ namespace Service.Controllers
             return Ok(currency.Map<CurrencyDto>());
         }
         
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="currency"></param>
-        /// <returns></returns>
         [HttpPut, Route("{id}")]
         public async Task<IHttpActionResult> UpdateAsync(int id, CurrencyDto currency)
         {
@@ -91,11 +73,6 @@ namespace Service.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="currency"></param>
-        /// <returns></returns>
         [HttpPost, Route("")]
         public async Task<IHttpActionResult> Create(CurrencyDto currency)
         {
@@ -111,11 +88,6 @@ namespace Service.Controllers
             return Created(new Uri(Request.RequestUri + "/" + currency.Id), currency);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> Delete(int id)
         {

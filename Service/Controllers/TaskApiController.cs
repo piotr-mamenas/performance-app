@@ -64,12 +64,6 @@ namespace Service.Controllers
             return Ok(task.Map<PortfolioDto>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="task"></param>
-        /// <returns></returns>
         [HttpPut, Route("{id}")]
         public async Task<IHttpActionResult> UpdateAsync(int id, ServerTaskDto task)
         {
@@ -92,10 +86,6 @@ namespace Service.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [HttpPost, Route("")]
         public async Task<IHttpActionResult> CreateAsync(ServerTaskDto task)
         {
@@ -111,11 +101,6 @@ namespace Service.Controllers
             return Created(new Uri(Request.RequestUri + "/" + task.Id), task);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
@@ -133,10 +118,6 @@ namespace Service.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [HttpGet, Route("runs")]
         public async Task<IHttpActionResult> GetTaskRuns()
         {
@@ -155,11 +136,6 @@ namespace Service.Controllers
             return Ok(taskRuns.Map<IList<TaskRunDto>>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [HttpGet, Route("{id}/runs")]
         public async Task<IHttpActionResult> GetTaskRunsByTaskId(int id)
         {

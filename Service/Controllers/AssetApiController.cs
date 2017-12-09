@@ -7,7 +7,6 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Assets;
-using Core.Enums.Domain;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
@@ -28,10 +27,6 @@ namespace Service.Controllers
             _repository = unitOfWork.Assets;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [ResponseType(typeof(ICollection<AssetDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
@@ -48,11 +43,6 @@ namespace Service.Controllers
             return Ok(assets.Map<ICollection<AssetDto>>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [ResponseType(typeof(AssetDto))]
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
@@ -66,11 +56,6 @@ namespace Service.Controllers
             return Ok(asset.Map<AssetDto>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [ResponseType(typeof(AssetDto))]
         [HttpGet, Route("portfolios/{id}")]
         public async Task<IHttpActionResult> GetByPortfolioAsync(int id)
@@ -89,12 +74,6 @@ namespace Service.Controllers
             return Ok(assets.Map<ICollection<AssetDto>>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="asset"></param>
-        /// <returns></returns>
         [HttpPut, Route("{id}")]
         public async Task<IHttpActionResult> UpdateAsync(int id, AssetDto asset)
         {
@@ -117,11 +96,6 @@ namespace Service.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="asset"></param>
-        /// <returns></returns>
         [HttpPost, Route("")]
         public async Task<IHttpActionResult> CreateAsync(AssetDto asset)
         {
@@ -137,11 +111,6 @@ namespace Service.Controllers
             return Created(new Uri(Request.RequestUri + "/" + asset.Id), asset);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {

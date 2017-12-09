@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 
-namespace Infrastructure.TaskServer
+namespace Infrastructure.TaskServer.Interfaces
 {
     public interface IRunnableTask
     {

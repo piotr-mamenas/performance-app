@@ -6,9 +6,11 @@ namespace Core.Domain.Workflows
     {
         public string Name { get; set; }
 
-        public string Designation { get; set; }
+        public string Caption { get; set; }
 
         public int Code { get; set; }
+
+        public bool IsEnabled { get; set; }
 
         public ICollection<Workflow> Workflows { get; set; }
     }

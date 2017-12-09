@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.TaskServer
+﻿namespace Infrastructure.TaskServer.Interfaces
 {
     public interface ICancellableTask
     {

@@ -7,8 +7,8 @@ namespace Core.Validation.Assets
     {
         public AssetValidator()
         {
-            RuleFor(a => a.ClassId).NotEmpty().WithMessage("Class for Asset must be specified");
-            RuleFor(a => a.Name).NotEmpty().WithMessage("Asset must have name specified");
+            RuleFor(a => a.ClassId).NotEmpty().WithMessage("Asset Class must be specified");
+            RuleFor(a => a.Name).NotEmpty().WithMessage("Asset Name must be specified");
         }
     }
 }

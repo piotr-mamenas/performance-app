@@ -7,10 +7,9 @@ namespace Core.Validation.Accounts
     {
         public AccountValidator()
         {
-            RuleFor(a => a.Name).NotEmpty().WithMessage("Field account name cannot be empty");
-            RuleFor(a => a.Number).NotEmpty().WithMessage("Field account number cannot be empty");
-            RuleFor(a => a.PartnerId).NotEmpty().WithMessage("Partner must be selected");
-            RuleFor(a => a.OpenedDate).NotEmpty();
+            RuleFor(a => a.Name).NotEmpty().WithMessage("Account Name must be specified");
+            RuleFor(a => a.Number).NotEmpty().WithMessage("Account Number must be specified");
+            RuleFor(a => a.PartnerId).NotEmpty().WithMessage("Partner must be specified");
         }
     }
 }

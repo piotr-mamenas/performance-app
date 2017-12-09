@@ -27,10 +27,6 @@ namespace Service.Controllers
             _repository = unitOfWork.Reports;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [ResponseType(typeof(ICollection<ReportDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
@@ -45,11 +41,6 @@ namespace Service.Controllers
             return Ok(reports.Map<ICollection<ReportDto>>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [ResponseType(typeof(ReportDto))]
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
@@ -64,12 +55,6 @@ namespace Service.Controllers
             return Ok(report.Map<ReportDto>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="report"></param>
-        /// <returns></returns>
         [HttpPut, Route("{id}")]
         public async Task<IHttpActionResult> UpdateAsync(int id, ReportDto report)
         {
@@ -92,10 +77,6 @@ namespace Service.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [HttpPost, Route("")]
         public async Task<IHttpActionResult> CreateAsync(PortfolioDto report)
         {
@@ -111,11 +92,6 @@ namespace Service.Controllers
             return Created(new Uri(Request.RequestUri + "/" + report.Id), report);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {

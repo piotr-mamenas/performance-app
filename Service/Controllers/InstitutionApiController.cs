@@ -13,9 +13,6 @@ using Service.Dtos.Institution;
 
 namespace Service.Controllers
 {
-    /// <summary>
-    /// 
-    /// </summary>
     [RoutePrefix("api/institutions")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class InstitutionApiController : ApiController
@@ -23,20 +20,12 @@ namespace Service.Controllers
         private readonly IComplete _unitOfWork;
         private readonly IInstitutionRepository<Institution> _repository;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="unitOfWork"></param>
         public InstitutionApiController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = (IComplete) unitOfWork;
             _repository = unitOfWork.Institutions;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [ResponseType(typeof(ICollection<InstitutionDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
@@ -51,11 +40,6 @@ namespace Service.Controllers
             return Ok(institutions.Map<ICollection<Institution>>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [ResponseType(typeof(InstitutionDto))]
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
@@ -70,12 +54,6 @@ namespace Service.Controllers
             return Ok(institution.Map<InstitutionDto>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="institution"></param>
-        /// <returns></returns>
         [HttpPut, Route("{id}")]
         public async Task<IHttpActionResult> UpdateAsync(int id, InstitutionDto institution)
         {
@@ -98,11 +76,6 @@ namespace Service.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="institution"></param>
-        /// <returns></returns>
         [HttpPost, Route("")]
         public async Task<IHttpActionResult> CreateAsync(InstitutionDto institution)
         {
@@ -118,11 +91,6 @@ namespace Service.Controllers
             return Created(new Uri(Request.RequestUri + "/" + institution.Id), institution);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {

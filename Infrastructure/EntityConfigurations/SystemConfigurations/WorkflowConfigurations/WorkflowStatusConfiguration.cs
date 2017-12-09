@@ -22,8 +22,11 @@ namespace Infrastructure.EntityConfigurations.SystemConfigurations.WorkflowConfi
                 .HasColumnName("WorkflowStatusCode")
                 .IsRequired();
 
-            Property(ws => ws.Designation)
-                .HasColumnName("WorkflowStatusDesignation")
+            Property(c => c.IsEnabled)
+                .HasColumnName("WorkflowEnabled");
+
+            Property(ws => ws.Caption)
+                .HasColumnName("WorkflowStatusCaption")
                 .HasMaxLength(255)
                 .IsRequired();
 

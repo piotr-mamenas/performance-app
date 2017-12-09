@@ -135,6 +135,10 @@
     <Compile Include="Migrations\201712042223182_RemovingExchangeRateFromCurrencyMapping.Designer.cs">
       <DependentUpon>201712042223182_RemovingExchangeRateFromCurrencyMapping.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712091930527_AddingParamsToTask.cs" />
+    <Compile Include="Migrations\201712091930527_AddingParamsToTask.Designer.cs">
+      <DependentUpon>201712091930527_AddingParamsToTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -172,6 +176,7 @@
     <Compile Include="Seed\BaseData\MessageSeeders\Polish\AccountLocalizationPolishMessageSeeder.cs" />
     <Compile Include="Seed\BaseData\MessageSeeders\Polish\GlobalLocalizationPolishMessageSeeder.cs" />
     <Compile Include="Seed\BaseData\MessageSeeders\Polish\PartnerLocalizationPolishMessageSeeder.cs" />
+    <Compile Include="Seed\BaseData\WorkflowStatusSeeder.cs" />
     <Compile Include="Seed\BaseSeeder.cs" />
     <Compile Include="Seed\BaseData\CurrencySeeder.cs" />
     <Compile Include="Seed\IBaseData.cs" />
@@ -207,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712042223182_RemovingExchangeRateFromCurrencyMapping.resx">
       <DependentUpon>201712042223182_RemovingExchangeRateFromCurrencyMapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712091930527_AddingParamsToTask.resx">
+      <DependentUpon>201712091930527_AddingParamsToTask.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

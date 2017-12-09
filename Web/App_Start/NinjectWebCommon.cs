@@ -81,15 +81,5 @@ namespace Web.App_Start
             kernel.Bind<IInstitutionRepository<Institution>>().To<InstitutionRepository<Institution>>().InRequestScope();
             kernel.Bind<IInstitutionRepository<Bank>>().To<InstitutionRepository<Bank>>().InRequestScope();
         }
-
-        // IMapper based dependency injection
-        //private static void BindMapper(this IKernel kernel)
-        //{
-            //var mapperConfiguration = new MapperConfiguration(cfg =>
-            //{
-                //cfg.AddProfile(new MappingProfile());
-            //});
-            //kernel.Bind<IMapper>().ToConstant(mapperConfiguration.CreateMapper());
-        //}
     }
 }

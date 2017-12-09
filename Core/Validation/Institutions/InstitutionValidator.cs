@@ -7,7 +7,7 @@ namespace Core.Validation.Institutions
     {
         public InstitutionValidator()
         {
-            
+            RuleFor(i => i.Name).NotEmpty().WithMessage("Institution Name must be specified");
         }
     }
 }

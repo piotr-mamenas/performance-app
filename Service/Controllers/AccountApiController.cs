@@ -26,10 +26,6 @@ namespace Service.Controllers
             _repository = unitOfWork.Accounts;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [ResponseType(typeof(ICollection<AccountDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
@@ -45,11 +41,6 @@ namespace Service.Controllers
             return Ok(accounts.Map<ICollection<AccountDto>>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [ResponseType(typeof(AccountDto))]
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
@@ -63,12 +54,6 @@ namespace Service.Controllers
             return Ok(account.Map<AccountDto>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="account"></param>
-        /// <returns></returns>
         [HttpPut, Route("{id}")]
         public async Task<IHttpActionResult> UpdateAsync(int id, AccountDto account)
         {
@@ -91,11 +76,6 @@ namespace Service.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="account"></param>
-        /// <returns></returns>
         [HttpPost, Route("")]
         public async Task<IHttpActionResult> CreateAsync(AccountDto account)
         {
@@ -111,11 +91,6 @@ namespace Service.Controllers
             return Created(new Uri(Request.RequestUri + "/" + account.Id), account);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {

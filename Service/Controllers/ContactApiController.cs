@@ -14,9 +14,6 @@ using Service.Dtos.Contact;
 
 namespace Service.Controllers
 {
-    /// <summary>
-    /// 
-    /// </summary>
     [RoutePrefix("api/contacts")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ContactApiController : ApiController
@@ -33,10 +30,6 @@ namespace Service.Controllers
             _repository = unitOfWork.Contacts;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [ResponseType(typeof(ICollection<ContactDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
@@ -52,11 +45,6 @@ namespace Service.Controllers
             return Ok(contacts.Map<ICollection<ContactDto>>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [ResponseType(typeof(ContactDto))]
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
@@ -70,12 +58,6 @@ namespace Service.Controllers
             return Ok(contact.Map<ContactDto>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="contact"></param>
-        /// <returns></returns>
         [HttpPut, Route("{id}")]
         public async Task<IHttpActionResult> UpdateAsync(int id, ContactDto contact)
         {
@@ -98,11 +80,6 @@ namespace Service.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="contact"></param>
-        /// <returns></returns>
         [HttpPost, Route("")]
         public async Task<IHttpActionResult> CreateAsync(ContactDto contact)
         {
@@ -118,11 +95,6 @@ namespace Service.Controllers
             return Created(new Uri(Request.RequestUri + "/" + contact.Id), contact);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {

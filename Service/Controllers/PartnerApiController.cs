@@ -14,9 +14,6 @@ using Service.Dtos.Partner;
 
 namespace Service.Controllers
 {
-    /// <summary>
-    /// 
-    /// </summary>
     [RoutePrefix("api/partners")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PartnerApiController : ApiController
@@ -30,10 +27,6 @@ namespace Service.Controllers
             _repository = unitOfWork.Partners;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [ResponseType(typeof(ICollection<PartnerDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
@@ -47,11 +40,6 @@ namespace Service.Controllers
             return Ok(partners.Map<ICollection<PartnerDto>>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [ResponseType(typeof(PartnerDto))]
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
@@ -81,12 +69,7 @@ namespace Service.Controllers
 
             return Ok(partners.Map<ICollection<PartnerDto>>());
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="partner"></param>
-        /// <returns></returns>
+
         [HttpPut, Route("{id}")]
         public async Task<IHttpActionResult> UpdateAsync(int id, PartnerDto partner)
         {
@@ -109,11 +92,6 @@ namespace Service.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="partner"></param>
-        /// <returns></returns>
         [HttpPost, Route("")]
         public async Task<IHttpActionResult> CreateAsync(PartnerDto partner)
         {
@@ -129,11 +107,6 @@ namespace Service.Controllers
             return Created(new Uri(Request.RequestUri + "/" + partner.Id), partner);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {

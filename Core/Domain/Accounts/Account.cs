@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
+using Core.Domain.Workflows;
 using Core.Interfaces;
 
 namespace Core.Domain.Accounts
@@ -37,6 +38,12 @@ namespace Core.Domain.Accounts
         /// </summary>
         public Partner Partner { get; set; }
         public int PartnerId { get; set; }
+        
+        /// <summary>
+        /// The status the account is in
+        /// </summary>
+        public WorkflowStatus Status { get; set; }
+        public int StatusId { get; set; }
 
         /// <summary>
         /// The portfolios which belong to this account
@@ -59,6 +66,8 @@ namespace Core.Domain.Accounts
             OpenedDate = DateTime.Today;
             Portfolios = null;
             Partner = accountOwner;
+            StatusId = 1;
+            //TODO: Status fetching logic, hardcoding this id is a horrible idea
         }
         #endregion
     }

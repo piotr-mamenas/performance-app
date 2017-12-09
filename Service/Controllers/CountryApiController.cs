@@ -13,9 +13,6 @@ using Service.Dtos.BaseData;
 
 namespace Service.Controllers
 {
-    /// <summary>
-    /// 
-    /// </summary>
     [RoutePrefix("api/countries")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CountryApiController : ApiController
@@ -29,10 +26,6 @@ namespace Service.Controllers
             _repository = unitOfWork.Countries;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [ResponseType(typeof(ICollection<CountryDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
@@ -46,11 +39,6 @@ namespace Service.Controllers
             return Ok(countries.Map<ICollection<CountryDto>>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [ResponseType(typeof(CountryDto))]
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
@@ -64,12 +52,6 @@ namespace Service.Controllers
             return Ok(country.Map<CountryDto>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="country"></param>
-        /// <returns></returns>
         [HttpPut, Route("{id}")]
         public async Task<IHttpActionResult> UpdateAsync(int id, CountryDto country)
         {
@@ -92,11 +74,6 @@ namespace Service.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="country"></param>
-        /// <returns></returns>
         [HttpPost, Route("")]
         public async Task<IHttpActionResult> CreateAsync(CountryDto country)
         {
@@ -112,11 +89,6 @@ namespace Service.Controllers
             return Created(new Uri(Request.RequestUri + "/" + country.Id), country);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
