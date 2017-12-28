@@ -1,5 +1,7 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using FluentValidation.Results;
 using Infrastructure.TaskServer.Interfaces;
 
 namespace Infrastructure.TaskServer
@@ -23,13 +25,14 @@ namespace Infrastructure.TaskServer
             _tokenSource = new CancellationTokenSource();
         }
 
-        public void Run()
+        public async Task<IList<ValidationFailure>> Run()
         {
             var token = _tokenSource.Token;
-
-            _runningTask = Task.Factory.StartNew(() => _submittedTask.Run(token), token);
-            
             token.Register(Notify);
+
+            _result = await Task.Factory.StartNew(() => _submittedTask.Run(token), token);
+
+            return _result.Result;
         }
 
         public void Cancel()
@@ -39,12 +42,11 @@ namespace Infrastructure.TaskServer
 
         public void Notify()
         {
-            // add event handling here
-            // rabbitmq considered but maybe something simpler
         }
 
         private readonly IRunnableTask _submittedTask;
         private readonly CancellationTokenSource _tokenSource;
         private Task _runningTask;
+        private Task<IList<ValidationFailure>> _result;
     }
 }

@@ -144,7 +144,7 @@
     <Compile Include="Validation\Reports\ReportValidator.cs" />
     <Compile Include="Validation\Tasks\ExportTaskValidator.cs" />
     <Compile Include="Validation\Tasks\ImportTaskValidator.cs" />
-    <Compile Include="Validation\Tasks\TaskValidator.cs" />
+    <Compile Include="Validation\Tasks\ServerTaskValidator.cs" />
     <Compile Include="Validation\Workflows\WorkflowValidator.cs" />
   </ItemGroup>
   <ItemGroup>

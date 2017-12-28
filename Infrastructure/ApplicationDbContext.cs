@@ -17,6 +17,7 @@ using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Core.Domain.Reports;
 using Core.Domain.Tasks;
+using Core.Domain.Workflows;
 using Infrastructure.ComplexTypesConfigurations;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.AccountConfiguration;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.AssetConfigurations;
@@ -55,6 +56,9 @@ namespace Infrastructure
         public DbSet<ServerTask> Tasks { get; set; }
         public DbSet<ExchangeRate> ExchangeRates { get; set; }
         public DbSet<Report> Reports { get; set; }
+        public DbSet<Workflow> Worksflows { get; set; }
+        public DbSet<WorkflowStatus> WorkflowStatuses { get; set; }
+        public DbSet<WorkflowTransition> WorkflowTransitions { get; set; }
 
         public ApplicationDbContext()
             : base("PerformanceApp")

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using Core.Interfaces;
+using FluentValidation.Results;
 
 namespace Core.Domain.Tasks
 {
@@ -17,12 +19,21 @@ namespace Core.Domain.Tasks
 
         public string Parameters { get; set; }
 
-        public IList<string> Run(CancellationToken cancellationToken)
+        public Task<IList<ValidationFailure>> Run(CancellationToken cancellationToken)
         {
-            //
-            // if (!cancellationToken.IsCancellationRequested)
-            //
-            return new List<string>();
+            while (true)
+            {
+                DoWork();
+                if (!cancellationToken.IsCancellationRequested)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public void DoWork()
+        {
+            
         }
     }
 }

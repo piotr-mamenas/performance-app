@@ -76,9 +76,9 @@ namespace Web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    if (returnUrl != null)
+                    if (returnUrl != null && Url.IsLocalUrl(returnUrl))
                     {
-                        return RedirectToRoute(returnUrl);
+                        return Redirect(returnUrl);
                     }
                     return RedirectToAction("Index", "Partner");
 

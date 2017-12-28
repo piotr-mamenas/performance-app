@@ -1,6 +1,4 @@
-using System;
 using System.Data.Entity.Migrations;
-using System.Data.Entity.Validation;
 using System.Threading.Tasks;
 using Infrastructure.Seed.BaseData;
 using Infrastructure.Seed.BaseData.MessageSeeders;
@@ -26,6 +24,9 @@ namespace Infrastructure.Migrations
             //{
             //    System.Diagnostics.Debugger.Launch();
             //}
+
+            var statusSeeder = new WorkflowStatusSeeder(context.WorkflowStatuses);
+            statusSeeder.Seed();
 
             var partnerTypeSeeder = new PartnerTypeSeeder(context.PartnerTypes);
             partnerTypeSeeder.Seed();

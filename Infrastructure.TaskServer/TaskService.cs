@@ -11,14 +11,9 @@ namespace Infrastructure.TaskServer
 
         protected override void OnStart(string[] args)
         {
-            // single core for now
             var taskManager = new TaskManager();
-
-            while (true)
-            {
-                taskManager.RunNext();
-                // TODO: need to add logic to fetch task from db
-            }
+            
+            taskManager.Start();
         }
 
         protected override void OnStop()

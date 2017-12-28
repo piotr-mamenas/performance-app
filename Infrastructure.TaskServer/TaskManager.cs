@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using FluentValidation.Results;
 using Infrastructure.TaskServer.Interfaces;
 
 namespace Infrastructure.TaskServer
@@ -49,15 +51,21 @@ namespace Infrastructure.TaskServer
             _scheduledTasks.Remove(task);
         }
 
-        public void RunNext()
+        public void Start()
         {
+            IList<ValidationFailure> taskResult = null;
+
             var task = _scheduledTasks[0];
 
-            task.Run();
+            while (taskResult == null)
+            {
+                taskResult = task.Run().Result;
+            }
 
             _scheduledTasks.RemoveAt(0);
         }
         
+        // TODO: Will have to change to immutable type
         private readonly IList<ScheduledTask> _scheduledTasks;
     }
 }

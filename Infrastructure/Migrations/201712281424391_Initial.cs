@@ -17,11 +17,14 @@ namespace Infrastructure.Migrations
                         OpenedDate = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         ClosedDate = c.DateTime(precision: 7, storeType: "datetime2"),
                         PartnerId = c.Int(nullable: false),
+                        StatusId = c.Int(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.AccountId)
                 .ForeignKey("dbo.Partner", t => t.PartnerId)
-                .Index(t => t.PartnerId);
+                .ForeignKey("dbo.WorkflowStatus", t => t.StatusId)
+                .Index(t => t.PartnerId)
+                .Index(t => t.StatusId);
             
             CreateTable(
                 "dbo.Partner",
@@ -103,15 +106,15 @@ namespace Infrastructure.Migrations
                         BondMaturityDate = c.DateTime(precision: 7, storeType: "datetime2"),
                         BondCouponRate = c.Decimal(precision: 18, scale: 2),
                         BondCouponAmount = c.Decimal(precision: 18, scale: 2),
+                        CurrencyId = c.Int(),
                         BondFaceValue = c.Decimal(precision: 18, scale: 2),
-                        Currency_Id = c.Int(),
                         AssetType = c.Int(),
                     })
                 .PrimaryKey(t => t.AssetId)
                 .ForeignKey("dbo.AssetClass", t => t.ClassId)
-                .ForeignKey("dbo.Currency", t => t.Currency_Id)
+                .ForeignKey("dbo.Currency", t => t.CurrencyId)
                 .Index(t => t.ClassId)
-                .Index(t => t.Currency_Id);
+                .Index(t => t.CurrencyId);
             
             CreateTable(
                 "dbo.AssetClass",
@@ -169,28 +172,6 @@ namespace Infrastructure.Migrations
                 .Index(t => t.CurrencyId);
             
             CreateTable(
-                "dbo.ExchangeRate",
-                c => new
-                    {
-                        ExchangeRateId = c.Int(nullable: false, identity: true),
-                        BaseCurrencyId = c.Int(nullable: false),
-                        TargetCurrencyId = c.Int(nullable: false),
-                        ExchangeRateRate = c.Decimal(nullable: false, precision: 9, scale: 2),
-                        ExchangeRateMax = c.Decimal(nullable: false, precision: 9, scale: 2),
-                        ExchangeRateMin = c.Decimal(nullable: false, precision: 9, scale: 2),
-                        Timestamp = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
-                        IsDeleted = c.Boolean(nullable: false),
-                        Currency_Id = c.Int(),
-                    })
-                .PrimaryKey(t => t.ExchangeRateId)
-                .ForeignKey("dbo.Currency", t => t.BaseCurrencyId)
-                .ForeignKey("dbo.Currency", t => t.TargetCurrencyId)
-                .ForeignKey("dbo.Currency", t => t.Currency_Id)
-                .Index(t => t.BaseCurrencyId)
-                .Index(t => t.TargetCurrencyId)
-                .Index(t => t.Currency_Id);
-            
-            CreateTable(
                 "dbo.Position",
                 c => new
                     {
@@ -209,6 +190,51 @@ namespace Infrastructure.Migrations
                 .Index(t => t.CurrencyId)
                 .Index(t => t.AssetId)
                 .Index(t => t.PortfolioId);
+            
+            CreateTable(
+                "dbo.WorkflowStatus",
+                c => new
+                    {
+                        WorkflowStatusId = c.Int(nullable: false, identity: true),
+                        WorkflowStatusName = c.String(nullable: false, maxLength: 255),
+                        WorkflowStatusCaption = c.String(nullable: false, maxLength: 255),
+                        WorkflowStatusCode = c.Int(nullable: false),
+                        WorkflowEnabled = c.Boolean(nullable: false),
+                        IsDeleted = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.WorkflowStatusId);
+            
+            CreateTable(
+                "dbo.Workflow",
+                c => new
+                    {
+                        WorkflowId = c.Int(nullable: false, identity: true),
+                        WorkflowTimestamp = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        StatusId = c.Int(nullable: false),
+                        IsDeleted = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.WorkflowId)
+                .ForeignKey("dbo.WorkflowStatus", t => t.StatusId)
+                .Index(t => t.StatusId);
+            
+            CreateTable(
+                "dbo.ExchangeRate",
+                c => new
+                    {
+                        ExchangeRateId = c.Int(nullable: false, identity: true),
+                        BaseCurrencyId = c.Int(nullable: false),
+                        TargetCurrencyId = c.Int(nullable: false),
+                        ExchangeRateRate = c.Decimal(nullable: false, precision: 9, scale: 2),
+                        ExchangeRateMax = c.Decimal(nullable: false, precision: 9, scale: 2),
+                        ExchangeRateMin = c.Decimal(nullable: false, precision: 9, scale: 2),
+                        Timestamp = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        IsDeleted = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.ExchangeRateId)
+                .ForeignKey("dbo.Currency", t => t.BaseCurrencyId)
+                .ForeignKey("dbo.Currency", t => t.TargetCurrencyId)
+                .Index(t => t.BaseCurrencyId)
+                .Index(t => t.TargetCurrencyId);
             
             CreateTable(
                 "dbo.Message",
@@ -264,12 +290,16 @@ namespace Infrastructure.Migrations
                         TaskId = c.Int(nullable: false, identity: true),
                         TaskName = c.String(nullable: false, maxLength: 255),
                         TaskDescription = c.String(maxLength: 1024),
+                        TypeId = c.Int(nullable: false),
+                        TaskJsonParameters = c.String(maxLength: 2048),
                         IsDeleted = c.Boolean(nullable: false),
                         ExportPath = c.String(maxLength: 255),
                         ImportPath = c.String(maxLength: 255),
                         TaskType = c.Int(),
                     })
-                .PrimaryKey(t => t.TaskId);
+                .PrimaryKey(t => t.TaskId)
+                .ForeignKey("dbo.TaskType", t => t.TypeId)
+                .Index(t => t.TypeId);
             
             CreateTable(
                 "dbo.TaskRun",
@@ -286,6 +316,17 @@ namespace Infrastructure.Migrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Task", t => t.TaskId)
                 .Index(t => t.TaskId);
+            
+            CreateTable(
+                "dbo.TaskType",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        TaskTypeName = c.String(nullable: false),
+                        TaskTypeDescription = c.String(nullable: false),
+                        IsDeleted = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Users",
@@ -331,6 +372,23 @@ namespace Infrastructure.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
+                "dbo.WorkflowTransition",
+                c => new
+                    {
+                        WorkflowTransitionId = c.Int(nullable: false, identity: true),
+                        WorkflowTransitionName = c.String(nullable: false, maxLength: 255),
+                        WorkflowTransitionCaption = c.String(nullable: false, maxLength: 255),
+                        IsDeleted = c.Boolean(nullable: false),
+                        TransitionFrom_Id = c.Int(nullable: false),
+                        TransitionTo_Id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.WorkflowTransitionId)
+                .ForeignKey("dbo.WorkflowStatus", t => t.TransitionFrom_Id)
+                .ForeignKey("dbo.WorkflowStatus", t => t.TransitionTo_Id)
+                .Index(t => t.TransitionFrom_Id)
+                .Index(t => t.TransitionTo_Id);
+            
+            CreateTable(
                 "dbo.PartnerInstitutions",
                 c => new
                     {
@@ -370,11 +428,18 @@ namespace Infrastructure.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.WorkflowTransition", "TransitionTo_Id", "dbo.WorkflowStatus");
+            DropForeignKey("dbo.WorkflowTransition", "TransitionFrom_Id", "dbo.WorkflowStatus");
             DropForeignKey("dbo.UserRoles", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserLogins", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserClaims", "UserId", "dbo.Users");
+            DropForeignKey("dbo.Task", "TypeId", "dbo.TaskType");
             DropForeignKey("dbo.TaskRun", "TaskId", "dbo.Task");
             DropForeignKey("dbo.UserRoles", "RoleId", "dbo.Roles");
+            DropForeignKey("dbo.ExchangeRate", "TargetCurrencyId", "dbo.Currency");
+            DropForeignKey("dbo.ExchangeRate", "BaseCurrencyId", "dbo.Currency");
+            DropForeignKey("dbo.Account", "StatusId", "dbo.WorkflowStatus");
+            DropForeignKey("dbo.Workflow", "StatusId", "dbo.WorkflowStatus");
             DropForeignKey("dbo.Portfolio", "AccountId", "dbo.Account");
             DropForeignKey("dbo.Position", "PortfolioId", "dbo.Portfolio");
             DropForeignKey("dbo.PortfolioAssets", "AssetId", "dbo.Asset");
@@ -382,11 +447,8 @@ namespace Infrastructure.Migrations
             DropForeignKey("dbo.AssetPrice", "CurrencyId", "dbo.Currency");
             DropForeignKey("dbo.Position", "CurrencyId", "dbo.Currency");
             DropForeignKey("dbo.Position", "AssetId", "dbo.Asset");
-            DropForeignKey("dbo.ExchangeRate", "Currency_Id", "dbo.Currency");
-            DropForeignKey("dbo.ExchangeRate", "TargetCurrencyId", "dbo.Currency");
-            DropForeignKey("dbo.ExchangeRate", "BaseCurrencyId", "dbo.Currency");
             DropForeignKey("dbo.Country", "CurrencyId", "dbo.Currency");
-            DropForeignKey("dbo.Asset", "Currency_Id", "dbo.Currency");
+            DropForeignKey("dbo.Asset", "CurrencyId", "dbo.Currency");
             DropForeignKey("dbo.AssetPrice", "AssetId", "dbo.Asset");
             DropForeignKey("dbo.Asset", "ClassId", "dbo.AssetClass");
             DropForeignKey("dbo.Account", "PartnerId", "dbo.Partner");
@@ -398,40 +460,48 @@ namespace Infrastructure.Migrations
             DropIndex("dbo.PortfolioAssets", new[] { "PortfolioId" });
             DropIndex("dbo.PartnerInstitutions", new[] { "InstitutionId" });
             DropIndex("dbo.PartnerInstitutions", new[] { "PartnerId" });
+            DropIndex("dbo.WorkflowTransition", new[] { "TransitionTo_Id" });
+            DropIndex("dbo.WorkflowTransition", new[] { "TransitionFrom_Id" });
             DropIndex("dbo.UserLogins", new[] { "UserId" });
             DropIndex("dbo.UserClaims", new[] { "UserId" });
             DropIndex("dbo.TaskRun", new[] { "TaskId" });
+            DropIndex("dbo.Task", new[] { "TypeId" });
             DropIndex("dbo.UserRoles", new[] { "RoleId" });
             DropIndex("dbo.UserRoles", new[] { "UserId" });
+            DropIndex("dbo.ExchangeRate", new[] { "TargetCurrencyId" });
+            DropIndex("dbo.ExchangeRate", new[] { "BaseCurrencyId" });
+            DropIndex("dbo.Workflow", new[] { "StatusId" });
             DropIndex("dbo.Position", new[] { "PortfolioId" });
             DropIndex("dbo.Position", new[] { "AssetId" });
             DropIndex("dbo.Position", new[] { "CurrencyId" });
-            DropIndex("dbo.ExchangeRate", new[] { "Currency_Id" });
-            DropIndex("dbo.ExchangeRate", new[] { "TargetCurrencyId" });
-            DropIndex("dbo.ExchangeRate", new[] { "BaseCurrencyId" });
             DropIndex("dbo.Country", new[] { "CurrencyId" });
             DropIndex("dbo.AssetPrice", new[] { "CurrencyId" });
             DropIndex("dbo.AssetPrice", new[] { "AssetId" });
-            DropIndex("dbo.Asset", new[] { "Currency_Id" });
+            DropIndex("dbo.Asset", new[] { "CurrencyId" });
             DropIndex("dbo.Asset", new[] { "ClassId" });
             DropIndex("dbo.Portfolio", new[] { "AccountId" });
             DropIndex("dbo.Contact", new[] { "PartnerId" });
             DropIndex("dbo.Partner", new[] { "PartnerTypeId" });
+            DropIndex("dbo.Account", new[] { "StatusId" });
             DropIndex("dbo.Account", new[] { "PartnerId" });
             DropTable("dbo.User1");
             DropTable("dbo.PortfolioAssets");
             DropTable("dbo.PartnerInstitutions");
+            DropTable("dbo.WorkflowTransition");
             DropTable("dbo.UserLogins");
             DropTable("dbo.UserClaims");
             DropTable("dbo.Users");
+            DropTable("dbo.TaskType");
             DropTable("dbo.TaskRun");
             DropTable("dbo.Task");
             DropTable("dbo.UserRoles");
             DropTable("dbo.Roles");
             DropTable("dbo.Report");
             DropTable("dbo.Message");
-            DropTable("dbo.Position");
             DropTable("dbo.ExchangeRate");
+            DropTable("dbo.Workflow");
+            DropTable("dbo.WorkflowStatus");
+            DropTable("dbo.Position");
             DropTable("dbo.Country");
             DropTable("dbo.Currency");
             DropTable("dbo.AssetPrice");

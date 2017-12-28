@@ -1,4 +1,6 @@
-﻿namespace Core.Domain.Tasks
+﻿using System.Threading;
+
+namespace Core.Domain.Tasks
 {
     public class ImportTask : ServerTask
     {

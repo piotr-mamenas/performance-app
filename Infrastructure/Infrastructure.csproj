@@ -115,29 +115,9 @@
     <Compile Include="Identity\ApplicationRoleStore.cs" />
     <Compile Include="Identity\ApplicationSignInManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
-    <Compile Include="Migrations\201711261624452_Initial.cs" />
-    <Compile Include="Migrations\201711261624452_Initial.Designer.cs">
-      <DependentUpon>201711261624452_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712031650143_AndTaskTypeToTypeMigration.cs" />
-    <Compile Include="Migrations\201712031650143_AndTaskTypeToTypeMigration.Designer.cs">
-      <DependentUpon>201712031650143_AndTaskTypeToTypeMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712042159146_WorkflowObjectsMigration.cs" />
-    <Compile Include="Migrations\201712042159146_WorkflowObjectsMigration.Designer.cs">
-      <DependentUpon>201712042159146_WorkflowObjectsMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712042215308_AdjustingBondCurrencyColumn.cs" />
-    <Compile Include="Migrations\201712042215308_AdjustingBondCurrencyColumn.Designer.cs">
-      <DependentUpon>201712042215308_AdjustingBondCurrencyColumn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712042223182_RemovingExchangeRateFromCurrencyMapping.cs" />
-    <Compile Include="Migrations\201712042223182_RemovingExchangeRateFromCurrencyMapping.Designer.cs">
-      <DependentUpon>201712042223182_RemovingExchangeRateFromCurrencyMapping.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712091930527_AddingParamsToTask.cs" />
-    <Compile Include="Migrations\201712091930527_AddingParamsToTask.Designer.cs">
-      <DependentUpon>201712091930527_AddingParamsToTask.cs</DependentUpon>
+    <Compile Include="Migrations\201712281424391_Initial.cs" />
+    <Compile Include="Migrations\201712281424391_Initial.Designer.cs">
+      <DependentUpon>201712281424391_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
@@ -198,23 +178,8 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711261624452_Initial.resx">
-      <DependentUpon>201711261624452_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712031650143_AndTaskTypeToTypeMigration.resx">
-      <DependentUpon>201712031650143_AndTaskTypeToTypeMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712042159146_WorkflowObjectsMigration.resx">
-      <DependentUpon>201712042159146_WorkflowObjectsMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712042215308_AdjustingBondCurrencyColumn.resx">
-      <DependentUpon>201712042215308_AdjustingBondCurrencyColumn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712042223182_RemovingExchangeRateFromCurrencyMapping.resx">
-      <DependentUpon>201712042223182_RemovingExchangeRateFromCurrencyMapping.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712091930527_AddingParamsToTask.resx">
-      <DependentUpon>201712091930527_AddingParamsToTask.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712281424391_Initial.resx">
+      <DependentUpon>201712281424391_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
