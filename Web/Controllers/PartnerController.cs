@@ -55,7 +55,11 @@ namespace Web.Controllers
         [Route("create")]
         public ActionResult Create()
         {
-            return View();
+            var partnerVm = new PartnerViewModel
+            {
+                PartnerTypeSelection = GetPartnerTypeSelection()
+            };
+            return View(partnerVm);
         }
 
         /// <summary>
@@ -71,7 +75,7 @@ namespace Web.Controllers
             {
                 return View(partnerVm);
             }
-
+            
             _partners.Add(partnerVm.Map<Partner>());
 
             await _unitOfWork.CompleteAsync();
