@@ -11,9 +11,23 @@ namespace Infrastructure.Seed.TestData
             SeededEntities.Add(new Report
             {
                 Id = 1,
-                Name = "Base Template Report",
+                Name = "templateA.pdf",
                 Description = "Description of the Report",
-                ReportHash = "AB#$*9d8d320dsdsoas#212:sd"
+                ReportHash = "12390ddxcs32xccds"
+            });
+            SeededEntities.Add(new Report
+            {
+                Id = 2,
+                Name = "templateB.pdf",
+                Description = "Description of the Report",
+                ReportHash = "sdfdsf234dfxDK4xss"
+            });
+            SeededEntities.Add(new Report
+            {
+                Id = 3,
+                Name = "templateC.pdf",
+                Description = "Description of the Report",
+                ReportHash = "SJIJD2ewzxc920dxp"
             });
         }
     }

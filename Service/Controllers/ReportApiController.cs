@@ -1,7 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
+using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
@@ -107,6 +113,38 @@ namespace Service.Controllers
             await _unitOfWork.CompleteAsync();
 
             return Ok();
+        }
+
+        [HttpGet, Route("{id}/download")]
+        public async Task<IHttpActionResult> DownloadAsync(int id)
+        {
+            var report = await _repository.GetAsync(id);
+
+            if (report == null)
+            {
+                return NotFound();
+            }
+            
+            var serverPath = ConfigurationManager.AppSettings["filestoreUri"];
+            var path = Path.Combine(serverPath, report.ReportHash);
+            
+            var stream = new FileStream(path, FileMode.Open);
+
+            var result = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StreamContent(stream)
+            };
+
+            result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+            {
+                FileName = report.Name
+            };
+            result.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/octet-stream");
+            result.Content.Headers.ContentLength = stream.Length;
+            
+            var response = ResponseMessage(result);
+
+            return response;
         }
     }
 }

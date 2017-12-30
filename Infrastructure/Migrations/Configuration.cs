@@ -20,11 +20,6 @@ namespace Infrastructure.Migrations
         /// <param name="context"></param>
         protected override void Seed(ApplicationDbContext context)
         {
-            //if (System.Diagnostics.Debugger.IsAttached == false)
-            //{
-            //    System.Diagnostics.Debugger.Launch();
-            //}
-
             var statusSeeder = new WorkflowStatusSeeder(context.WorkflowStatuses);
             statusSeeder.Seed();
 
@@ -62,6 +57,9 @@ namespace Infrastructure.Migrations
 
             var portfolioSeeder = new PortfolioSeeder(context.Portfolios);
             portfolioSeeder.Seed();
+
+            var reportSeeder = new ReportSeeder(context.Reports);
+            reportSeeder.Seed();
 
             MessageSeedingRunner.Run(context.Messages);
 
