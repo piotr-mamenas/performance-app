@@ -14,6 +14,9 @@ namespace Service.Dtos.Partner
         [DisplayName("Partner Number")]
         public string Number { get; set; }
 
+        [DisplayName("Partner Type")]
+        public string TypeName { get; set; }
+
         public ICollection<InstitutionDto> Institutions { get; set; }
     }
 }

@@ -31,7 +31,9 @@ namespace Service.Controllers
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var partners = await _repository.GetAll().ToListAsync();
+            var partners = await _repository.GetAll()
+                .Include(p => p.Type)
+                .ToListAsync();
 
             if (partners == null)
             {

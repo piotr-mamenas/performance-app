@@ -12,11 +12,13 @@ namespace Infrastructure.AutoMapper.Profiles
             CreateMap<Partner, PartnerDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.Number, opt => opt.MapFrom(src => src.Number))
+                .ForMember(dest => dest.TypeName, opt => opt.MapFrom(src => src.Type.Name))
                 .ReverseMap();
 
             CreateMap<Partner, PartnerViewModel>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.Number, opt => opt.MapFrom(src => src.Number))
+                .ForMember(dest => dest.SelectedPartnerTypeId, opt => opt.MapFrom(src => src.PartnerTypeId))
                 .ReverseMap();
         }
     }

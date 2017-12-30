@@ -1,4 +1,5 @@
-﻿using Core.Domain.Partners;
+﻿using System.Linq;
+using Core.Domain.Partners;
 using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
@@ -8,6 +9,11 @@ namespace Infrastructure.Repositories.Business
         public PartnerRepository(ApplicationDbContext context)
             : base(context)
         {
+        }
+
+        public IQueryable<PartnerType> GetTypesAsQueryable()
+        {
+            return Context.PartnerTypes.AsQueryable();
         }
     }
 }

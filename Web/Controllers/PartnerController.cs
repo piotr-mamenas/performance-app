@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using Core.Domain.Partners;
 using Core.Interfaces;
@@ -88,7 +90,10 @@ namespace Web.Controllers
                 return View("List");
             }
 
-            return View(partnerInDb.Map<PartnerViewModel>());
+            var partnerVm = partnerInDb.Map<PartnerViewModel>();
+            partnerVm.PartnerTypeSelection = GetPartnerTypeSelection();
+
+            return View(partnerVm);
         }
 
         /// <summary>
@@ -120,6 +125,22 @@ namespace Web.Controllers
             await _unitOfWork.CompleteAsync();
 
             return RedirectToAction("List");
+        }
+
+        /// <summary>
+        /// Returns a list of partners available to be linked to the contact
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerable<SelectListItem> GetPartnerTypeSelection()
+        {
+            var partnerTypes = _partners.GetTypesAsQueryable()
+                .Select(p => new SelectListItem
+                {
+                    Value = p.Id.ToString(),
+                    Text = p.Name
+                });
+
+            return new SelectList(partnerTypes, "Value", "Text");
         }
     }
 }

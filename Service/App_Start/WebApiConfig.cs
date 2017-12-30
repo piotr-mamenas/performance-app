@@ -2,6 +2,7 @@
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using FluentValidation.WebApi;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -18,6 +19,8 @@ namespace Service
                 defaults: new {id = RouteParameter.Optional}
             );
             config.Formatters.Add(new BrowserJsonFormatter());
+
+            FluentValidationModelValidatorProvider.Configure(config);
         }
     }
 

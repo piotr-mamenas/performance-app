@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Web.Mvc;
+﻿using System.ComponentModel;
 using Service.Dtos.Portfolio;
 
 namespace Web.Presentation.ViewModels.PortfolioViewModels

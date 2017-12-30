@@ -29,6 +29,12 @@
                         @Html.ValidationMessageFor(c => Model.Number, null, new {@class = "label label-danger pull-right"})
                         <br/>
                     </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.SelectedPartnerTypeId)
+                        @Html.DropDownListFor(c => c.SelectedPartnerTypeId, Model.PartnerTypeSelection, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(c => c.SelectedPartnerTypeId, null, new {@class = "label label-danger pull-right"})
+                        <br/>
+                    </div>
                 </div>
             </fieldset>
 

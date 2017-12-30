@@ -3,7 +3,6 @@ using System.ComponentModel;
 
 namespace Service.Dtos.Asset
 {
-    // TODO: This dto will require some cleanup and consolidation
     public class AssetDto
     {
         public int Id { get; set; }
