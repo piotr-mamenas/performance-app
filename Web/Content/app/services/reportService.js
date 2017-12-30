@@ -10,7 +10,12 @@
             .fail(fail);
     };
 
+    var getDownloadUri = function(id) {
+        return routing.getApiUri("Report") + id + "/download";
+    };
+
     return {
-        getReports: getReports
-    }
+        getReports: getReports,
+        getDownloadUri: getDownloadUri
+}
 }(routing);
