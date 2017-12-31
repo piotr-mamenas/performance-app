@@ -27,9 +27,8 @@
       <siteMapNode navigation="subNav" display="Schedule" controller="Task" action="ShowSchedule" cssClass="fa fa-clock-o"/>
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Market Data" controller="Home" action="Index" navId="MarketNav" cssClass="fa fa-globe">
-      <siteMapNode navigation="subNav" display="Prices" controller="Home" action="Index" cssClass="fa fa-money"/>
-      <siteMapNode navigation="subNav" display="Exchange Rates" controller="Home" action="Index" cssClass="fa fa-exchange"/>
-      <siteMapNode navigation="subNav" display="Currencies" controller="Home" action="Index" cssClass="fa fa-eur"/>
+      <siteMapNode navigation="subNav" display="Prices" controller="MarketData" action="ListPrices" cssClass="fa fa-money"/>
+      <siteMapNode navigation="subNav" display="Exchange Rates" controller="MarketData" action="ListExchangeRates" cssClass="fa fa-eur"/>
     </siteMapNode>
   </siteMapNode>
 </siteMap>

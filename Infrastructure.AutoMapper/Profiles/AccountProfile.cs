@@ -23,6 +23,7 @@ namespace Infrastructure.AutoMapper.Profiles
                 .ForMember(dest => dest.Number, opt => opt.MapFrom(src => src.Number))
                 .ForMember(dest => dest.OpenedDate, opt => opt.MapFrom(src => $"{src.OpenedDate:d}"))
                 .ForMember(dest => dest.SelectedPartnerId, opt => opt.MapFrom(src => src.PartnerId))
+                .ForMember(dest => dest.StatusId, opt => opt.MapFrom(src => src.StatusId))
                 .ReverseMap();
         }
     }

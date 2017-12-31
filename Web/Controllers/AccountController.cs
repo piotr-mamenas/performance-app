@@ -123,6 +123,7 @@ namespace Web.Controllers
             }
             
             accountInDb = accountVm.Map<Account,AccountViewModel>();
+            accountInDb.ClosedDate = null;
 
             _accounts.Add(accountInDb);
 

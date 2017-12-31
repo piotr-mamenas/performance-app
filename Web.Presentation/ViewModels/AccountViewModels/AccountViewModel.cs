@@ -28,6 +28,8 @@ namespace Web.Presentation.ViewModels.AccountViewModels
         [DisplayName("Date Closed")]
         public DateTime ClosedDate { get; set; }
 
+        public int StatusId { get; set; }
+
         public IEnumerable<SelectListItem> PartnerNumberSelection { get; set; }
     }
 }

@@ -207,6 +207,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MarketDataController.cs" />
     <Compile Include="Controllers\PartnerController.cs" />
     <Compile Include="Controllers\PortfolioController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
@@ -226,6 +227,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\App\Controllers\Account\AccountTableController.js" />
+    <Content Include="Content\App\Controllers\Account\CreateAccountController.js" />
+    <Content Include="Content\App\Controllers\Account\UpdateAccountController.js" />
     <Content Include="Content\App\Controllers\Contact\CreateContactController.js" />
     <Content Include="Content\App\Controllers\Contact\NewContactWizardController.js" />
     <Content Include="Content\App\Controllers\Contact\UpdateContactController.js" />
@@ -516,6 +519,9 @@
     <Content Include="Views\Portfolio\Create.cshtml" />
     <Content Include="Views\Shared\_AccountSelection.cshtml" />
     <Content Include="Views\Task\ShowSchedule.cshtml" />
+    <Content Include="Views\MarketData\Index.cshtml" />
+    <Content Include="Views\MarketData\ListPrices.cshtml" />
+    <Content Include="Views\MarketData\ListExchangeRates.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
