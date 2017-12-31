@@ -1,4 +1,4 @@
-﻿var portfolioService = function (routing) {
+﻿var PortfolioService = function (routing) {
 
     var getPortfolios = function (done, fail) {
         $.ajax({
@@ -13,4 +13,4 @@
     return {
         getPortfolios: getPortfolios
     }
-}(routing);
+}(Routing);

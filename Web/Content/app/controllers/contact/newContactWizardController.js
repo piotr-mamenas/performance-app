@@ -1,4 +1,4 @@
-﻿var newContactWizardController = function () {
+﻿var NewContactWizardController = function () {
     var getCurrentStep = function () {
         return $(".contact-newcontact-currentstep").data("current-step");
     }

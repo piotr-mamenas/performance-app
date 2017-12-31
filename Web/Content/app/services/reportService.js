@@ -1,4 +1,4 @@
-﻿var reportService = function (routing) {
+﻿var ReportService = function (routing) {
 
     var getReports = function (done, fail) {
         $.ajax({
@@ -18,4 +18,4 @@
         getReports: getReports,
         getDownloadUri: getDownloadUri
 }
-}(routing);
+}(Routing);

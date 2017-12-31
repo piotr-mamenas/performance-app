@@ -1,4 +1,4 @@
-﻿var institutionService = function (routing) {
+﻿var InstitutionService = function (routing) {
 
     var getInstitutions = function (done, fail) {
         $.ajax({
@@ -13,4 +13,4 @@
     return {
         getInstitutions: getInstitutions
     }
-}(routing);
+}(Routing);

@@ -1,4 +1,4 @@
-﻿var portfolioDetailsViewController = function () {
+﻿var PortfolioDetailsViewController = function () {
 
     var showPortfolioAssetsTable = function () {
         $("#portfolioPartnersTable").parents("div.dataTables_wrapper").first().hide();

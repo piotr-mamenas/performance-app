@@ -1,4 +1,4 @@
-﻿var selectionController = function () {
+﻿var SelectionController = function () {
 
     var activateTab = function (buttonSelector, tabSelector) {
         if (!$(tabSelector).is(":animated") && $(tabSelector).is(":hidden")) {

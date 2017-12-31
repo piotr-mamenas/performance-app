@@ -1,4 +1,4 @@
-﻿var contactTableController = function (service) {
+﻿var ContactTableController = function (service) {
     var button;
     var table;
 
@@ -91,4 +91,4 @@
         init: init
     };
 
-}(contactService);
+}(ContactService);

@@ -63,8 +63,8 @@
     </table>
 </div>
 @section scripts {
-    routing.setCurrentPage("#PortfolioNav");
-    portfolioAssetsTableController.init(@Model.PortfolioId);
-    portfolioPartnersTableController.init(@Model.AccountId);
-    portfolioDetailsViewController.init();
+    Routing.setCurrentPage("#PortfolioNav");
+    PortfolioAssetsTableController.init(@Model.PortfolioId);
+    PortfolioPartnersTableController.init(@Model.AccountId);
+    PortfolioDetailsViewController.init();
 }

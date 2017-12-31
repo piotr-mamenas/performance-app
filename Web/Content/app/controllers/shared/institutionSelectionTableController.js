@@ -1,4 +1,4 @@
-﻿var institutionSelectionTableController = function (service) {
+﻿var InstitutionSelectionTableController = function (service) {
 
     var initializeDatatable = function (result) {
         $("#institutionSelectionTable").DataTable({
@@ -26,4 +26,4 @@
         init: init
     };
 
-}(institutionService)
+}(InstitutionService)

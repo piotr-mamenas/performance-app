@@ -1,4 +1,4 @@
-﻿var routing = function () {
+﻿var Routing = function () {
 
     var mvc = [
         {

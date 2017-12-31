@@ -1,4 +1,4 @@
-﻿var taskTableController = function (service) {
+﻿var TaskTableController = function (service) {
     var table;
 
     var initializeDatatable = function (result) {
@@ -38,4 +38,4 @@
         init: init
     };
 
-}(taskService)
+}(TaskService)

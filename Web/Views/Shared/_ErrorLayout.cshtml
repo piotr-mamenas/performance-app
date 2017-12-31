@@ -30,14 +30,14 @@
 
 <script>
     $(document).ready(function() {
-        app.init();
+        App.init();
         $.support.cors = true;
-        routing.init('@Html.GetWebServerUri()');
-        selectionController.init();
+        Routing.init('@Html.GetWebServerUri()');
+        SelectionController.init();
 
-        routing.setCurrentPage("#PartnerNav");
+        Routing.setCurrentPage("#PartnerNav");
 
-        navbarController.init();
+        NavbarController.init();
     });
 </script>
 

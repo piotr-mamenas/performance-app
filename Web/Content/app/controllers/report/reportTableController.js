@@ -1,4 +1,4 @@
-﻿var reportTableController = function (service) {
+﻿var ReportTableController = function (service) {
     var button;
     var table;
 
@@ -33,4 +33,4 @@
         init: init
     };
 
-}(reportService)
+}(ReportService)

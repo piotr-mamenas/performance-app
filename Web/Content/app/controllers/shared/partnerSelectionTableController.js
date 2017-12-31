@@ -1,4 +1,4 @@
-﻿var partnerSelectionTableController = function (service) {
+﻿var PartnerSelectionTableController = function (service) {
 
     var initializeDatatable = function (result) {
         $("#partnerSelectionTable").DataTable({
@@ -29,4 +29,4 @@
         init: init
     };
 
-}(partnerService)
+}(PartnerService)

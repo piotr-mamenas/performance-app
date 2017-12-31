@@ -1,4 +1,4 @@
-﻿var partnerService = function (routing) {
+﻿var PartnerService = function (routing) {
 
     var getPartners = function (done, fail) {
         $.ajax({
@@ -37,4 +37,4 @@
         deletePartner: deletePartner,
         getPartnersByAccounts: getPartnersByAccounts
     }
-}(routing);
+}(Routing);

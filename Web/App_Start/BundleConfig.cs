@@ -12,18 +12,18 @@ namespace Web
 
         private static void RegisterAppBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                "~/Content/app/app.js",
-                "~/Content/app/routing.js"));
+            bundles.Add(new ScriptBundle("~/bundles/App").Include(
+                "~/Content/App/App.js",
+                "~/Content/App/Routing.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/app/services").IncludeDirectory(
-                "~/Content/app/services","*Service.js",searchSubdirectories: true));
+            bundles.Add(new ScriptBundle("~/bundles/App/Services").IncludeDirectory(
+                "~/Content/App/Services","*Service.js",searchSubdirectories: true));
 
-            bundles.Add(new ScriptBundle("~/bundles/app/controllers").IncludeDirectory(
-                "~/Content/app/controllers", "*Controller.js", searchSubdirectories: true));
+            bundles.Add(new ScriptBundle("~/bundles/App/Controllers").IncludeDirectory(
+                "~/Content/App/Controllers", "*Controller.js", searchSubdirectories: true));
 
-            bundles.Add(new StyleBundle("~/bundles/app/styles").IncludeDirectory(
-                "~/Content/app/styles","*.css", searchSubdirectories: true));
+            bundles.Add(new StyleBundle("~/bundles/App/Styles").IncludeDirectory(
+                "~/Content/App/Styles","*.css", searchSubdirectories: true));
         }
 
         private static void RegisterVendorBundles(BundleCollection bundles)
@@ -37,7 +37,8 @@ namespace Web
                 "~/Content/vendor/scripts/datatables/datatables.bootstrap.js",
                 "~/Content/vendor/scripts/underscore/underscore.js",
                 "~/Content/vendor/scripts/moment/moment.js",
-                "~/Content/vendor/scripts/moment/datetime.js"));
+                "~/Content/vendor/scripts/moment/datetime.js",
+                "~/Content/vendor/scripts/bootstrap-select/bootstrap-select.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/vendor/jqueryval").Include(
                 "~/Content/vendor/scripts/jquery/jquery.unobtrusive*",
@@ -51,7 +52,8 @@ namespace Web
                 "~/Content/vendor/styles/bootstrap/bootstrap.css",
                 "~/Content/vendor/styles/font-awesome/font-awesome.css",
                 "~/Content/vendor/styles/datatables/css/datatables.bootstrap.css",
-                "~/Content/vendor/styles/datatables/css/dataTables.fontAwesome.css"));
+                "~/Content/vendor/styles/datatables/css/dataTables.fontAwesome.css",
+                "~/Content/vendor/styles/bootstrap-select/bootstrap-select.css"));
         }
     }
 }

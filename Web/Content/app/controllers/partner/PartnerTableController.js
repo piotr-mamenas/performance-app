@@ -1,4 +1,4 @@
-﻿var partnerTableController = function (service) {
+﻿var PartnerTableController = function (service) {
     var button;
     var table;
 
@@ -81,4 +81,4 @@
         init: init
     };
 
-}(partnerService)
+}(PartnerService)

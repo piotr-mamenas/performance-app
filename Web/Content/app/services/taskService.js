@@ -1,4 +1,4 @@
-﻿var taskService = function (routing) {
+﻿var TaskService = function (routing) {
 
     var getTaskRunsByTask = function (taskId, done, fail) {
         $.ajax({
@@ -13,4 +13,4 @@
     return {
         getTaskRunsByTask: getTaskRunsByTask
     }
-}(routing);
+}(Routing);

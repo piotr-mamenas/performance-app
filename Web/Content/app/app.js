@@ -1,4 +1,4 @@
-﻿var app = function() {
+﻿var App = function() {
     
     var init = function() {
     };

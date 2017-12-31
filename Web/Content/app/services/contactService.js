@@ -1,4 +1,4 @@
-﻿var contactService = function (routing) {
+﻿var ContactService = function (routing) {
 
     var getContacts = function (done, fail) {
         $.ajax({
@@ -26,4 +26,4 @@
         getContacts: getContacts,
         deleteContact: deleteContact
     }
-}(routing);
+}(Routing);

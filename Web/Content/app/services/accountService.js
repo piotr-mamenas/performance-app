@@ -1,4 +1,4 @@
-﻿var accountService = function (routing) {
+﻿var AccountService = function (routing) {
 
     var getAccounts = function (done, fail) {
         $.ajax({
@@ -26,4 +26,4 @@
         getAccounts: getAccounts,
         deleteAccount: deleteAccount
     }
-}(routing);
+}(Routing);

@@ -1,4 +1,4 @@
-﻿var accountSelectionTableController = function (service) {
+﻿var AccountSelectionTableController = function (service) {
     var table;
     var box;
 
@@ -64,4 +64,4 @@
         init: init
     };
 
-}(accountService)
+}(AccountService)

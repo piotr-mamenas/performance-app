@@ -1,4 +1,4 @@
-﻿var assetService = function (routing) {
+﻿var AssetService = function (routing) {
     var getAssetsByPortfolios = function (portfolioId, done, fail) {
         $.ajax({
             url: routing.getApiUri("Asset") + "portfolios/" + portfolioId,
@@ -12,4 +12,4 @@
     return {
         getAssetsByPortfolios: getAssetsByPortfolios
     }
-}(routing);
+}(Routing);

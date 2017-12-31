@@ -1,4 +1,4 @@
-﻿var portfolioPartnersTableController = function(service) {
+﻿var PortfolioPartnersTableController = function(service) {
     var table;
 
     var initializeDatatable = function(result) {
@@ -26,4 +26,4 @@
         init: init
     };
 
-}(partnerService);
+}(PartnerService);

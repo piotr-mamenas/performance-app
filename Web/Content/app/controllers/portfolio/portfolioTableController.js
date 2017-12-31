@@ -1,4 +1,4 @@
-﻿var portfolioTableController = function (service) {
+﻿var PortfolioTableController = function (service) {
     var table;
 
     var initializeDatatable = function (result) {
@@ -38,4 +38,4 @@
         init: init
     };
 
-}(portfolioService)
+}(PortfolioService)

@@ -1,4 +1,4 @@
-﻿var navbarController = function (routing) {
+﻿var NavbarController = function (routing) {
 
     var presetNavbar = function (currentPage) {
         if (currentPage !== null) {
@@ -30,4 +30,4 @@
     return {
         init: init
     }
-}(routing);
+}(Routing);
