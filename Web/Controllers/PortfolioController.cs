@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Core.Domain.Portfolios;
@@ -58,7 +60,11 @@ namespace Web.Controllers
         [Route("create")]
         public ActionResult Create()
         {
-            return View();
+            var portfolioVm = new NewPortfolioViewModel
+            {
+                AccountSelection = GetAccountSelection()
+            };
+            return View(portfolioVm);
         }
 
         [HttpPost]
@@ -75,6 +81,18 @@ namespace Web.Controllers
             await _unitOfWork.CompleteAsync();
 
             return View("List");
+        }
+
+        private IEnumerable<SelectListItem> GetAccountSelection()
+        {
+            var accounts = _portfolios.GetAll()
+                .Select(p => new SelectListItem
+                {
+                    Value = p.AccountId.ToString(),
+                    Text = p.Account.Number
+                });
+
+            return new SelectList(accounts, "Value", "Text");
         }
     }
 }

@@ -64,7 +64,5 @@
 </div>
 @section scripts {
     Routing.setCurrentPage("#PortfolioNav");
-    PortfolioAssetsTableController.init(@Model.PortfolioId);
-    PortfolioPartnersTableController.init(@Model.AccountId);
-    PortfolioDetailsViewController.init();
+    PortfolioDetailsViewController.init(@Model.PortfolioId, @Model.AccountId);
 }

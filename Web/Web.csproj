@@ -231,6 +231,7 @@
     <Content Include="Content\App\Controllers\Contact\UpdateContactController.js" />
     <Content Include="Content\App\Controllers\NavbarController.js" />
     <Content Include="Content\App\Controllers\Partner\PartnerTableController.js" />
+    <Content Include="Content\App\Controllers\Portfolio\CreatePortfolioController.js" />
     <Content Include="Content\App\Controllers\Portfolio\PortfolioAssetsTableController.js" />
     <Content Include="Content\App\Controllers\Portfolio\PortfolioDetailsViewController.js" />
     <Content Include="Content\App\Controllers\Portfolio\PortfolioPartnersTableController.js" />

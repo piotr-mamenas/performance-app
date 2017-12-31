@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Web.Mvc;
 
 namespace Web.Presentation.ViewModels.PortfolioViewModels
 {
@@ -20,6 +22,8 @@ namespace Web.Presentation.ViewModels.PortfolioViewModels
         /// Initial Portfolio Account
         /// </summary>
         [DisplayName("Open for Account")]
-        public int AccountId { get; set; }
+        public int SelectedAccountId { get; set; }
+
+        public IEnumerable<SelectListItem> AccountSelection { get; set; }
     }
 }

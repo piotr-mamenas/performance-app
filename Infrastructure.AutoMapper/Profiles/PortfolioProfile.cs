@@ -30,7 +30,7 @@ namespace Infrastructure.AutoMapper.Profiles
             CreateMap<Portfolio, NewPortfolioViewModel>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.Number, opt => opt.MapFrom(src => src.Number))
-                .ForMember(dest => dest.AccountId, opt => opt.MapFrom(src => src.AccountId))
+                .ForMember(dest => dest.SelectedAccountId, opt => opt.MapFrom(src => src.AccountId))
                 .ReverseMap();
         }
     }

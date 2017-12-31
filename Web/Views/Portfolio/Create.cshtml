@@ -30,9 +30,15 @@
                     </div>
                     
                     <div class="form-group">
-                        @Html.HiddenFor(p => p.AccountId)
-                        @Html.LabelFor(p => p.AccountId)
-                        <button id="openAccountSelectionButton" type="Button" class="btn btn-default form-control">Select Account <span class="fa fa-search" style="margin-left: 3px;"></span></button>
+                        @Html.LabelFor(c => c.SelectedAccountId)
+                        @Html.DropDownListFor(c => c.SelectedAccountId, Model.AccountSelection, new
+                        {
+                            @class = "form-control js-portfolio-account-select",
+                            data_show_subtext="true",
+                            data_live_search="true"
+                        })
+                        @Html.ValidationMessageFor(c => c.SelectedAccountId, null, new {@class = "label label-danger pull-right"})
+                        <br/>
                     </div>
                 </div>
             </fieldset>
@@ -44,9 +50,8 @@
         }
     </div>
 </div>
-@Html.Partial("_AccountSelection")
 
 @section scripts{
     Routing.setCurrentPage("#PortfolioNav");
-    AccountSelectionTableController.init();
+    CreatePortfolioController.init();
 }
