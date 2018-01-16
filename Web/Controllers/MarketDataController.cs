@@ -4,6 +4,8 @@ using Web.Controllers.Templates;
 
 namespace Web.Controllers
 {
+    [Authorize]
+    [RoutePrefix("marketdata")]
     public class MarketDataController : BaseController
     {
         public MarketDataController(ILogger logger)
@@ -11,16 +13,19 @@ namespace Web.Controllers
         {
         }
 
+        [Route("")]
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("ListPrices");
         }
 
+        [Route("exchangerates")]
         public ActionResult ListExchangeRates()
         {
             return View();
         }
 
+        [Route("prices")]
         public ActionResult ListPrices()
         {
             return View();

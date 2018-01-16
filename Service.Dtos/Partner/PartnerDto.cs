@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using Service.Dtos.Account;
+using Service.Dtos.Contact;
 using Service.Dtos.Institution;
 
 namespace Service.Dtos.Partner
@@ -18,5 +20,9 @@ namespace Service.Dtos.Partner
         public string TypeName { get; set; }
 
         public ICollection<InstitutionDto> Institutions { get; set; }
+
+        public ICollection<AccountDto> Accounts { get; set; }
+
+        public ICollection<ContactDto> Contacts { get; set; }
     }
 }

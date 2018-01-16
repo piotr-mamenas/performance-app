@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Core.Domain.Accounts;
 using Core.Domain.Contacts;
 using Core.Domain.Institutions;
@@ -26,6 +27,21 @@ namespace Core.Domain.Partners
             Institutions = null;
             Contacts = null;
             Accounts = null;
+        }
+        
+        public string GetDeleteError()
+        {
+            if (Contacts.Any())
+            {
+                return "Partner has existing Contacts";
+            }
+
+            if (Accounts.Any())
+            {
+                return "Partner has existing Accounts";
+            }
+
+            return null;
         }
     }
 }
