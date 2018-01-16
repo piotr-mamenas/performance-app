@@ -111,6 +111,13 @@
     if (!preserveDialog) {
       dialog.modal("hide");
     }
+
+    setTimeout(function () {
+        var modal_count = $('.modal-dialog').length;
+        if (modal_count > 0) {
+            $('body').addClass('modal-open');
+        }
+    }, 500);   
   }
 
   function getKeyLength(obj) {

@@ -43,8 +43,8 @@
                     .remove()
                     .draw();
             },
-            function () {
-                alert("Unexpected Error");
+            function (result) {
+                bootbox.alert(result.responseJSON.Message);
             });
     };
 

@@ -27,7 +27,7 @@
                 url: routing.getApiUri("Partner") + partnerId + "/delete",
                 type: "POST",
                 method: "DELETE",
-                contentType: "text/plain"
+                dataType: "json"
             }).done(done)
             .fail(fail);
     }
