@@ -9,6 +9,7 @@ using Core.Domain.Accounts;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
+using Infrastructure.Serialization.JsonContractResolvers;
 using Service.Dtos.Account;
 
 namespace Service.Controllers
@@ -22,6 +23,9 @@ namespace Service.Controllers
 
         public AccountApiController(IUnitOfWork unitOfWork)
         {
+            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            json.SerializerSettings.ContractResolver = new AccountContractResolver();
+
             _unitOfWork = (IComplete)unitOfWork;
             _repository = unitOfWork.Accounts;
         }

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Core.Domain.Assets;
 using Core.Domain.Countries;
-using Core.Domain.ExchangeRates;
 using Core.Domain.Portfolios;
 using Core.Interfaces;
 

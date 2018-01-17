@@ -173,6 +173,7 @@
     <Compile Include="Seed\TestData\PartnerTypeSeeder.cs" />
     <Compile Include="Seed\TestData\PortfolioSeeder.cs" />
     <Compile Include="Seed\TestData\ReportSeeder.cs" />
+    <Compile Include="Serialization\JsonContractResolvers\AccountContractResolver.cs" />
     <Compile Include="Serialization\JsonContractResolvers\ContactContractResolver.cs" />
     <Compile Include="Services\LocalizationService.cs" />
     <Compile Include="UnitOfWork.cs" />
