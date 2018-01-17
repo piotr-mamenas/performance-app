@@ -123,10 +123,11 @@ namespace Web.Controllers
                 return View();
             }
             
-            accountInDb = accountVm.Map<Account,AccountViewModel>();
-            accountInDb.ClosedDate = null;
+            var updatedAccount = accountVm.Map<Account,AccountViewModel>();
+            updatedAccount.ClosedDate = null;
+            updatedAccount.OpenedDate = accountInDb.OpenedDate;
 
-            _accounts.Add(accountInDb);
+            _accounts.Add(updatedAccount);
 
             await _unitOfWork.CompleteAsync();
 
