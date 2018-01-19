@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Core.Domain.Identity;
-using Infrastructure.Migrations;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;

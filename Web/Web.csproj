@@ -232,6 +232,8 @@
     <Content Include="Content\App\Controllers\Contact\CreateContactController.js" />
     <Content Include="Content\App\Controllers\Contact\NewContactWizardController.js" />
     <Content Include="Content\App\Controllers\Contact\UpdateContactController.js" />
+    <Content Include="Content\App\Controllers\MarketData\ExchangeRateTableController.js" />
+    <Content Include="Content\App\Controllers\MarketData\AssetPriceTableController.js" />
     <Content Include="Content\App\Controllers\NavbarController.js" />
     <Content Include="Content\App\Controllers\Partner\PartnerTableController.js" />
     <Content Include="Content\App\Controllers\Portfolio\CreatePortfolioController.js" />

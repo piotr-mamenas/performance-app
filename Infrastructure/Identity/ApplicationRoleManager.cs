@@ -17,8 +17,6 @@ namespace Infrastructure.Identity
             var manager =
                 new ApplicationRoleManager(new ApplicationRoleStore(context.Get<ApplicationDbContext>()));
 
-
-
             return manager;
         }
     }

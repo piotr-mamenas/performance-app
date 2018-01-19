@@ -1,11 +1,23 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "List Exchange Rates";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ListExchangeRates</h2>
+<table id="exchangeRateTable" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Base Currency</th>
+            <th>Target Currency</th>
+            <th>Rate</th>
+            <th>Min</th>
+            <th>Max</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 
 @section scripts{
     Routing.setCurrentPage("#MarketNav");
+    ExchangeRateTableController.init();
 }
