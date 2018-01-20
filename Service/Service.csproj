@@ -139,6 +139,7 @@
     <Compile Include="Controllers\ContactApiController.cs" />
     <Compile Include="Controllers\CountryApiController.cs" />
     <Compile Include="Controllers\CurrencyApiController.cs" />
+    <Compile Include="Controllers\ExchangeRateApiController.cs" />
     <Compile Include="Controllers\InstitutionApiController.cs" />
     <Compile Include="Controllers\PartnerApiController.cs" />
     <Compile Include="Controllers\PortfolioApiController.cs" />

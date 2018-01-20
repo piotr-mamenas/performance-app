@@ -5,6 +5,7 @@ using Core.Domain.Assets;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
+using Core.Domain.ExchangeRates;
 using Core.Domain.Institutions;
 using Core.Domain.Messages;
 using Core.Domain.Partners;
@@ -32,6 +33,7 @@ namespace Core.Interfaces
         IPortfolioRepository<Portfolio> Portfolios { get; }
         ITaskRepository<ServerTask> Tasks { get; }
         IReportRepository<Report> Reports { get; }
+        IExchangeRateRepository<ExchangeRate> ExchangeRates { get; }
         Task<int> CompleteAsync();
     }
 }

@@ -17,6 +17,10 @@
             Uri:  "api/partners/"
         },
         {
+            Name: "ExchangeRate",
+            Uri: "api/exchangerates/"
+        },
+        {
             Name: "Contact",
             Uri: "api/contacts/"
         },

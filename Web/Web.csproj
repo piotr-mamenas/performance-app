@@ -255,6 +255,7 @@
     <Content Include="Content\App\Services\AccountService.js" />
     <Content Include="Content\App\Services\AssetService.js" />
     <Content Include="Content\App\Services\ContactService.js" />
+    <Content Include="Content\App\Services\ExchangeRateService.js" />
     <Content Include="Content\App\Services\InstitutionService.js" />
     <Content Include="Content\App\Services\PartnerService.js" />
     <Content Include="Content\App\Services\PortfolioService.js" />

@@ -4,6 +4,7 @@ using Core.Domain.Assets;
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
+using Core.Domain.ExchangeRates;
 using Core.Domain.Institutions;
 using Core.Domain.Messages;
 using Core.Domain.Partners;
@@ -41,6 +42,7 @@ namespace Infrastructure
             Portfolios = new PortfolioRepository<Portfolio>(_context);
             Tasks = new TaskRepository<ServerTask>(_context);
             Reports = new ReportRepository<Report>(_context);
+            ExchangeRates = new ExchangeRateRepository<ExchangeRate>(_context);
         }
 
         public IAccountRepository<Account> Accounts { get; }
@@ -56,6 +58,7 @@ namespace Infrastructure
         public IPortfolioRepository<Portfolio> Portfolios { get; }
         public ITaskRepository<ServerTask> Tasks { get; }
         public IReportRepository<Report> Reports { get; }
+        public IExchangeRateRepository<ExchangeRate> ExchangeRates { get; }
 
         public async Task<int> CompleteAsync()
         {

@@ -137,6 +137,7 @@
     <Compile Include="Repositories\BaseData\CountryRepository.cs" />
     <Compile Include="Repositories\BaseData\CurrencyRepository.cs" />
     <Compile Include="Repositories\Business\ContactRepository.cs" />
+    <Compile Include="Repositories\Business\ExchangeRateRepository.cs" />
     <Compile Include="Repositories\Business\ReportRepository.cs" />
     <Compile Include="Repositories\System\MessageRepository.cs" />
     <Compile Include="Repositories\Business\PartnerRepository.cs" />
