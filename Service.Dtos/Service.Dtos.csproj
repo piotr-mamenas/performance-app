@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Account\AccountDto.cs" />
     <Compile Include="Asset\AssetDto.cs" />
+    <Compile Include="Asset\AssetPriceDto.cs" />
     <Compile Include="Asset\BondCouponDto.cs" />
     <Compile Include="Contact\ContactDto.cs" />
     <Compile Include="BaseData\CountryDto.cs" />

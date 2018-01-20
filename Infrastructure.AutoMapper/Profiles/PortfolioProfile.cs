@@ -1,5 +1,4 @@
-﻿using System.Runtime.Remoting.Channels;
-using AutoMapper;
+﻿using AutoMapper;
 using Core.Domain.Portfolios;
 using Service.Dtos.Portfolio;
 using Web.Presentation.ViewModels.PortfolioViewModels;

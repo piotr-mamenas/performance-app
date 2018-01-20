@@ -10,6 +10,7 @@ using Core.Domain.Assets;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
+using Infrastructure.Serialization.JsonContractResolvers;
 using Service.Dtos.Asset;
 
 namespace Service.Controllers
@@ -23,6 +24,9 @@ namespace Service.Controllers
 
         public AssetApiController(IUnitOfWork unitOfWork)
         {
+            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            json.SerializerSettings.ContractResolver = new AssetContractResolver();
+
             _unitOfWork = (IComplete)unitOfWork;
             _repository = unitOfWork.Assets;
         }
@@ -72,6 +76,23 @@ namespace Service.Controllers
                 return NotFound();
             }
             return Ok(assets.Map<ICollection<AssetDto>>());
+        }
+
+        [ResponseType(typeof(AssetPriceDto))]
+        [HttpGet, Route("prices")]
+        public async Task<IHttpActionResult> GetPricesAsync()
+        {
+            var assetPrices = await _repository.GetAll()
+                .Include(a => a.Prices)
+                .Include(a => a.Class.Name)
+                .Select(a => a.Prices)
+                .ToListAsync();
+
+            if (assetPrices == null)
+            {
+                return NotFound();
+            }
+            return Ok(assetPrices.Map<ICollection<AssetPriceDto>>());
         }
 
         [HttpPut, Route("{id}")]

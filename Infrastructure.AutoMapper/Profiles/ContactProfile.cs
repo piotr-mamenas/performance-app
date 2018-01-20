@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using Core.Domain.Contacts;
-using Core.Domain.Partners;
 using Service.Dtos.Contact;
-using Service.Dtos.Partner;
 using Web.Presentation.ViewModels.ContactViewModels;
 
 namespace Infrastructure.AutoMapper.Profiles

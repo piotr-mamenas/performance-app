@@ -6,19 +6,22 @@
             data: result,
             columns: [
                 {
-                    data: "Name"
+                    data: "Asset.Name"
                 },
                 {
-                    data: "Class"
+                    data: "Asset.Class"
                 },
                 {
-                    data: "Isin"
+                    data: "Asset.Isin"
                 },
                 {
-                    data: "CurrentPrice"
+                    data: "Amount"
                 },
                 {
-                    data: "CurrencyCode"
+                    data: "Currency.Code"
+                },
+                {
+                    data: "Timestamp"
                 }
             ],
             language: {
@@ -27,8 +30,8 @@
         });
     }
 
-    var init = function (id) {
-        service.getAssetsByPortfolios(id, initializeDatatable, initializeDatatable);
+    var init = function () {
+        service.getAssetPrices(initializeDatatable, initializeDatatable);
     }
 
     return {
