@@ -19,6 +19,6 @@ namespace Service.Dtos.ExchangeRate
 
         public decimal Min { get; set; }
 
-        public DateTime Timestamp { get; set; }
+        public string Timestamp { get; set; }
     }
 }

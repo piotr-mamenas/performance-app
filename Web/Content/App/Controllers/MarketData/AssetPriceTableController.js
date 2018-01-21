@@ -6,19 +6,19 @@
             data: result,
             columns: [
                 {
-                    data: "Asset.Name"
+                    data: "AssetName"
                 },
                 {
-                    data: "Asset.Class"
+                    data: "ClassName"
                 },
                 {
-                    data: "Asset.Isin"
+                    data: "Isin"
                 },
                 {
                     data: "Amount"
                 },
                 {
-                    data: "Currency.Code"
+                    data: "CurrencyCode"
                 },
                 {
                     data: "Timestamp"

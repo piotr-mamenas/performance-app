@@ -15,7 +15,7 @@ namespace Service.Dtos.Asset
         public string CurrencyCode { get; set; }
         public int CurrencyId { get; set; }
 
-        public DateTime Timestamp { get; set; }
+        public string Timestamp { get; set; }
 
         public decimal Amount { get; set; }
     }

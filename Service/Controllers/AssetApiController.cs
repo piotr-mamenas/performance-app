@@ -24,8 +24,8 @@ namespace Service.Controllers
 
         public AssetApiController(IUnitOfWork unitOfWork)
         {
-            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
-            json.SerializerSettings.ContractResolver = new AssetContractResolver();
+            //var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            //json.SerializerSettings.ContractResolver = new AssetContractResolver();
 
             _unitOfWork = (IComplete)unitOfWork;
             _repository = unitOfWork.Assets;
@@ -82,11 +82,7 @@ namespace Service.Controllers
         [HttpGet, Route("prices")]
         public async Task<IHttpActionResult> GetPricesAsync()
         {
-            var assetPrices = await _repository.GetAll()
-                .Include(a => a.Prices)
-                .Include(a => a.Class.Name)
-                .Select(a => a.Prices)
-                .ToListAsync();
+            var assetPrices = await _repository.GetPrices(p => p.Asset != null);
 
             if (assetPrices == null)
             {
