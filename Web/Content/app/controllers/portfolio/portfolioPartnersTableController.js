@@ -18,8 +18,9 @@
         });
     };
 
-    var init = function(accountId) {
+    var init = function(accountId, callback) {
         service.getPartnersByAccounts(accountId, initializeDatatable, initializeDatatable);
+        callback();
     };
 
     return {

@@ -16,7 +16,7 @@
     <siteMapNode navigation="navbar" display="Portfolios" controller="Portfolio" action="Index" navId="PortfolioNav" cssClass="fa fa-book">
       <siteMapNode navigation="subNav" display="List" controller="Portfolio" action="List" cssClass="fa fa-list"/>
       <siteMapNode navigation="subNav" display="New Portfolio" controller="Portfolio" action="Create" cssClass="fa fa-book"/>
-      <siteMapNode navigation="subNav" display="Performance" controller="Portfolio" action="Index" cssClass="fa fa-line-chart"/>
+      <siteMapNode navigation="subNav" display="Returns" controller="Portfolio" action="Create" cssClass="fa fa-money"/>
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Reports" controller="Report" action="Index" navId="ReportNav" cssClass="fa fa-bar-chart">
       <siteMapNode navigation="subNav" display="List" controller="Report" action="List" cssClass="fa fa-list"/>

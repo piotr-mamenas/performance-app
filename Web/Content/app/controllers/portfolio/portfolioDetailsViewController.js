@@ -27,10 +27,9 @@
 
     var init = function (portfolioId, accountId) {
         PortfolioAssetsTableController.init(portfolioId);
-        PortfolioPartnersTableController.init(accountId);
+        PortfolioPartnersTableController.init(accountId, showPortfolioAssetsTable);
 
         $(".portfolio-details-js-selection").on("change", changeTable);
-        showPortfolioAssetsTable();
     }
 
     return {
