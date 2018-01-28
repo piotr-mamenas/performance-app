@@ -22,7 +22,9 @@ namespace Infrastructure.EntityConfigurations.SystemConfigurations.IdentityConfi
                     p.PasswordHash,
                     p.LockoutEnabled,
                     p.LockoutEndDateUtc,
-                    p.UserName
+                    p.UserName,
+                    p.SecurityStamp,
+                    p.TwoFactorEnabled
                 });
             }).HasKey(c => c.Id);
 

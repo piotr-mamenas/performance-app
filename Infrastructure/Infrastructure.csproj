@@ -129,6 +129,10 @@
     <Compile Include="Migrations\201801282024380_CorrectingNameNotToUseSQLServerKeyword.Designer.cs">
       <DependentUpon>201801282024380_CorrectingNameNotToUseSQLServerKeyword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801282057419_ExpandingUserConfiguration.cs" />
+    <Compile Include="Migrations\201801282057419_ExpandingUserConfiguration.Designer.cs">
+      <DependentUpon>201801282057419_ExpandingUserConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -200,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801282024380_CorrectingNameNotToUseSQLServerKeyword.resx">
       <DependentUpon>201801282024380_CorrectingNameNotToUseSQLServerKeyword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801282057419_ExpandingUserConfiguration.resx">
+      <DependentUpon>201801282057419_ExpandingUserConfiguration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
