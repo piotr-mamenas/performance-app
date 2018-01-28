@@ -1,7 +1,7 @@
-# Splitbook - Performance & Risk Reporting App
+# Splitbook - Portfolio Management App
 
 ## Description
-Initially started as a 2 week DDD challenge Splitbook is a Performance & Risk Reporting corporate app developed as a part of building my personal application portfolio.
+Initially started as a 2 week DDD challenge Splitbook is a Financial Portfolio Management corporate app developed as a part of building my personal application portfolio.
 This git repository should be treated as work-in-progress rather than the final product. I commit daily so the project changes rapidly.
 
 ## Running
