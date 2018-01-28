@@ -240,6 +240,7 @@
     <Content Include="Content\App\Controllers\Portfolio\PortfolioAssetsTableController.js" />
     <Content Include="Content\App\Controllers\Portfolio\PortfolioDetailsViewController.js" />
     <Content Include="Content\App\Controllers\Portfolio\PortfolioPartnersTableController.js" />
+    <Content Include="Content\App\Controllers\Portfolio\PortfolioReturnsTableController.js" />
     <Content Include="Content\App\Controllers\Portfolio\PortfolioTableController.js" />
     <Content Include="Content\App\Controllers\Report\NewReportModalController.js" />
     <Content Include="Content\App\Controllers\Report\ReportTableController.js" />
@@ -525,6 +526,7 @@
     <Content Include="Views\MarketData\Index.cshtml" />
     <Content Include="Views\MarketData\ListPrices.cshtml" />
     <Content Include="Views\MarketData\ListExchangeRates.cshtml" />
+    <Content Include="Views\Portfolio\Returns.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

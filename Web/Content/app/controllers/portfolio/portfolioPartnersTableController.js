@@ -1,5 +1,6 @@
 ﻿var PortfolioPartnersTableController = function(service) {
     var table;
+    var afterLoadCallback;
 
     var initializeDatatable = function(result) {
         table = $("#portfolioPartnersTable").DataTable({
@@ -16,11 +17,12 @@
                 emptyTable: "No records at present."
             }
         });
+        afterLoadCallback();
     };
 
     var init = function(accountId, callback) {
         service.getPartnersByAccounts(accountId, initializeDatatable, initializeDatatable);
-        callback();
+        afterLoadCallback = callback;
     };
 
     return {

@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-4">
+    <table id="portfolioTable" class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Portfolio Name</th>
+            <th>Portfolio Number</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>    
+</div>
+
+<div class="col-md-8">
+    
+</div>
+
+@section scripts {
+    Routing.setCurrentPage("#PortfolioNav");
+    PortfolioReturnsTableController.init();
+}
+

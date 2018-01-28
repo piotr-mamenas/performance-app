@@ -39,6 +39,12 @@ namespace Web.Controllers
             return View();
         }
 
+        [Route("returns")]
+        public ActionResult Returns()
+        {
+            return View();
+        }
+
         [HttpGet]
         [Route("details/{id}")]
         public async Task<ActionResult> Details(int id)
