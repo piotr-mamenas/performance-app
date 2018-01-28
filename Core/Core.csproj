@@ -111,8 +111,10 @@
     <Compile Include="Enums\Domain\InstitutionType.cs" />
     <Compile Include="Enums\Domain\MessageType.cs" />
     <Compile Include="Enums\Domain\PositionType.cs" />
+    <Compile Include="Enums\Domain\ReturnType.cs" />
     <Compile Include="Enums\Domain\TaskType.cs" />
     <Compile Include="Enums\Language.cs" />
+    <Compile Include="Enums\Periodicity.cs" />
     <Compile Include="Interfaces\IComplete.cs" />
     <Compile Include="Interfaces\IEntityRoot.cs" />
     <Compile Include="Interfaces\IIdentifiable.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="Interfaces\Repositories\BaseData\ICountryRepository.cs" />
     <Compile Include="Interfaces\Repositories\BaseData\ICurrencyRepository.cs" />
     <Compile Include="Interfaces\Repositories\Business\IReportRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Business\IReturnRepository.cs" />
     <Compile Include="Interfaces\Repositories\System\IMessageRepository.cs" />
     <Compile Include="Interfaces\Repositories\Business\IPartnerRepository.cs" />
     <Compile Include="Interfaces\Repositories\Business\IInstitutionRepository.cs" />

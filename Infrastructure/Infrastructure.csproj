@@ -92,6 +92,8 @@
     <Compile Include="EntityConfigurations\BusinessConfigurations\CurrencyConfigurations\CurrencyConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\PartnerConfigurations\PartnerTypeConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ReportConfigurations\ReportConfiguration.cs" />
+    <Compile Include="EntityConfigurations\BusinessConfigurations\ReturnConfigurations\HoldingPeriodReturnConfiguration.cs" />
+    <Compile Include="EntityConfigurations\BusinessConfigurations\ReturnConfigurations\ReturnConfiguration.cs" />
     <Compile Include="EntityConfigurations\DatabaseVendorTypes.cs" />
     <Compile Include="EntityConfigurations\BaseEntityConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ExchangeRateConfiguration\ExchangeRatesConfiguration.cs" />
@@ -119,6 +121,14 @@
     <Compile Include="Migrations\201712281424391_Initial.Designer.cs">
       <DependentUpon>201712281424391_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801282018582_AddReturnModelMigration.cs" />
+    <Compile Include="Migrations\201801282018582_AddReturnModelMigration.Designer.cs">
+      <DependentUpon>201801282018582_AddReturnModelMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801282024380_CorrectingNameNotToUseSQLServerKeyword.cs" />
+    <Compile Include="Migrations\201801282024380_CorrectingNameNotToUseSQLServerKeyword.Designer.cs">
+      <DependentUpon>201801282024380_CorrectingNameNotToUseSQLServerKeyword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -139,6 +149,7 @@
     <Compile Include="Repositories\Business\ContactRepository.cs" />
     <Compile Include="Repositories\Business\ExchangeRateRepository.cs" />
     <Compile Include="Repositories\Business\ReportRepository.cs" />
+    <Compile Include="Repositories\Business\ReturnRepository.cs" />
     <Compile Include="Repositories\System\MessageRepository.cs" />
     <Compile Include="Repositories\Business\PartnerRepository.cs" />
     <Compile Include="Repositories\Business\InstitutionRepository.cs" />
@@ -183,6 +194,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712281424391_Initial.resx">
       <DependentUpon>201712281424391_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801282018582_AddReturnModelMigration.resx">
+      <DependentUpon>201801282018582_AddReturnModelMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801282024380_CorrectingNameNotToUseSQLServerKeyword.resx">
+      <DependentUpon>201801282024380_CorrectingNameNotToUseSQLServerKeyword.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

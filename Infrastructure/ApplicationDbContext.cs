@@ -16,6 +16,7 @@ using Core.Domain.Messages;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Core.Domain.Reports;
+using Core.Domain.Returns;
 using Core.Domain.Tasks;
 using Core.Domain.Workflows;
 using Infrastructure.ComplexTypesConfigurations;
@@ -29,6 +30,7 @@ using Infrastructure.EntityConfigurations.BusinessConfigurations.InstitutionConf
 using Infrastructure.EntityConfigurations.BusinessConfigurations.PartnerConfigurations;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.PortfolioConfigurations;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.ReportConfigurations;
+using Infrastructure.EntityConfigurations.BusinessConfigurations.ReturnConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.IdentityConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.MessageConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.TaskConfigurations;
@@ -59,6 +61,7 @@ namespace Infrastructure
         public DbSet<Workflow> Worksflows { get; set; }
         public DbSet<WorkflowStatus> WorkflowStatuses { get; set; }
         public DbSet<WorkflowTransition> WorkflowTransitions { get; set; }
+        public DbSet<Return> Returns { get; set; }
 
         public ApplicationDbContext()
             : base("PerformanceApp")
@@ -117,6 +120,9 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new WorkflowTransitionConfiguration());
 
             modelBuilder.Configurations.Add(new ReportConfiguration());
+
+            modelBuilder.Configurations.Add(new ReturnConfiguration());
+            modelBuilder.Configurations.Add(new HoldingPeriodReturnConfiguration());
         }
 
         /// <summary>

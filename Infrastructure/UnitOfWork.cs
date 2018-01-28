@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.CodeDom;
+using System.Threading.Tasks;
 using Core.Domain.Accounts;
 using Core.Domain.Assets;
 using Core.Domain.Contacts;
@@ -10,6 +11,7 @@ using Core.Domain.Messages;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Core.Domain.Reports;
+using Core.Domain.Returns;
 using Core.Domain.Tasks;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.BaseData;
@@ -43,6 +45,7 @@ namespace Infrastructure
             Tasks = new TaskRepository<ServerTask>(_context);
             Reports = new ReportRepository<Report>(_context);
             ExchangeRates = new ExchangeRateRepository<ExchangeRate>(_context);
+            Returns = new ReturnRepository<Return>(_context);
         }
 
         public IAccountRepository<Account> Accounts { get; }
@@ -59,6 +62,7 @@ namespace Infrastructure
         public ITaskRepository<ServerTask> Tasks { get; }
         public IReportRepository<Report> Reports { get; }
         public IExchangeRateRepository<ExchangeRate> ExchangeRates { get; }
+        public IReturnRepository<Return> Returns { get; }
 
         public async Task<int> CompleteAsync()
         {

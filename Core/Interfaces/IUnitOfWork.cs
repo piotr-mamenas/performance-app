@@ -11,6 +11,7 @@ using Core.Domain.Messages;
 using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Core.Domain.Reports;
+using Core.Domain.Returns;
 using Core.Domain.Tasks;
 using Core.Interfaces.Repositories.BaseData;
 using Core.Interfaces.Repositories.Business;
@@ -34,6 +35,7 @@ namespace Core.Interfaces
         ITaskRepository<ServerTask> Tasks { get; }
         IReportRepository<Report> Reports { get; }
         IExchangeRateRepository<ExchangeRate> ExchangeRates { get; }
+        IReturnRepository<Return> Returns { get; }
         Task<int> CompleteAsync();
     }
 }
