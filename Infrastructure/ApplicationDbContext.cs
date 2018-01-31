@@ -62,6 +62,8 @@ namespace Infrastructure
         public DbSet<WorkflowStatus> WorkflowStatuses { get; set; }
         public DbSet<WorkflowTransition> WorkflowTransitions { get; set; }
         public DbSet<Return> Returns { get; set; }
+        public DbSet<ReturnIncome> ReturnIncomes { get; set; }
+        public DbSet<ReturnCalculationPeriod> ReturnCalculationPeriods { get; set; }
 
         public ApplicationDbContext()
             : base("PerformanceApp")
@@ -123,10 +125,12 @@ namespace Infrastructure
 
             modelBuilder.Configurations.Add(new ReturnConfiguration());
             modelBuilder.Configurations.Add(new HoldingPeriodReturnConfiguration());
+            modelBuilder.Configurations.Add(new ReturnIncomeConfiguration());
+            modelBuilder.Configurations.Add(new ReturnCalculationPeriodConfiguration());
         }
 
         /// <summary>
-        /// 
+        /// Catching additional validation errors for migration debugging purposes
         /// </summary>
         /// <returns></returns>
         public override int SaveChanges()
@@ -146,7 +150,7 @@ namespace Infrastructure
         }
 
         /// <summary>
-        /// 
+        /// Same as above but with Async support
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
@@ -165,11 +169,7 @@ namespace Infrastructure
                 throw ExceptionHelper.CreateFromDbUpdateException(dbUpdateException);
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+        
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

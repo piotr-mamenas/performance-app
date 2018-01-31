@@ -93,7 +93,9 @@
     <Compile Include="EntityConfigurations\BusinessConfigurations\PartnerConfigurations\PartnerTypeConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ReportConfigurations\ReportConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ReturnConfigurations\HoldingPeriodReturnConfiguration.cs" />
+    <Compile Include="EntityConfigurations\BusinessConfigurations\ReturnConfigurations\ReturnCalculationPeriodConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ReturnConfigurations\ReturnConfiguration.cs" />
+    <Compile Include="EntityConfigurations\BusinessConfigurations\ReturnConfigurations\ReturnIncomeConfiguration.cs" />
     <Compile Include="EntityConfigurations\DatabaseVendorTypes.cs" />
     <Compile Include="EntityConfigurations\BaseEntityConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ExchangeRateConfiguration\ExchangeRatesConfiguration.cs" />
@@ -132,6 +134,10 @@
     <Compile Include="Migrations\201801282057419_ExpandingUserConfiguration.cs" />
     <Compile Include="Migrations\201801282057419_ExpandingUserConfiguration.Designer.cs">
       <DependentUpon>201801282057419_ExpandingUserConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801311324088_InvestmentReturnUpdateMigration.cs" />
+    <Compile Include="Migrations\201801311324088_InvestmentReturnUpdateMigration.Designer.cs">
+      <DependentUpon>201801311324088_InvestmentReturnUpdateMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801282057419_ExpandingUserConfiguration.resx">
       <DependentUpon>201801282057419_ExpandingUserConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801311324088_InvestmentReturnUpdateMigration.resx">
+      <DependentUpon>201801311324088_InvestmentReturnUpdateMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

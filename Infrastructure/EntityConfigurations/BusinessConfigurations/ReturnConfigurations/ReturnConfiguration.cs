@@ -14,11 +14,29 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.ReturnConfi
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("ReturnId");
 
+            HasRequired(r => r.Asset)
+                .WithMany(a => a.Returns)
+                .HasForeignKey(r => r.AssetId);
+
+            Property(r => r.Rate)
+                .HasColumnName("ReturnRate")
+                .HasPrecision(9, 2)
+                .IsRequired();
+
+            HasMany(r => r.Incomes)
+                .WithRequired(ri => ri.Return)
+                .HasForeignKey(ri => ri.ReturnId);
+
+            HasMany(r => r.Periods)
+                .WithRequired(p => p.Return)
+                .HasForeignKey(p => p.ReturnId);
+
             Property(r => r.CalculatedTime)
+                .HasColumnName("ReturnTimestamp")
                 .HasColumnType(DatabaseVendorTypes.TimestampField)
                 .IsRequired();
 
-            Map<HoldingPeriodReturn>(a => a.Requires("ReturnType").HasValue((int)ReturnType.HoldingPeriodReturn));
+            Map<HoldingPeriodReturn>(r => r.Requires("ReturnType").HasValue((int)ReturnType.HoldingPeriodReturn));
         }
     }
 }

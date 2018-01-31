@@ -95,6 +95,8 @@
     <Compile Include="Domain\Reports\Report.cs" />
     <Compile Include="Domain\Returns\HoldingPeriodReturn.cs" />
     <Compile Include="Domain\Returns\Return.cs" />
+    <Compile Include="Domain\Returns\ReturnIncome.cs" />
+    <Compile Include="Domain\Returns\ReturnCalculationPeriod.cs" />
     <Compile Include="Domain\Selections\Selection.cs" />
     <Compile Include="Domain\Tasks\ExportTask.cs" />
     <Compile Include="Domain\Tasks\ImportTask.cs" />
