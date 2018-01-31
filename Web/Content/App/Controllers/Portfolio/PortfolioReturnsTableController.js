@@ -22,11 +22,11 @@
     var selectRow = function (e) {
         selectedRow = $(e.currentTarget);
 
-        if (selectedRow.hasClass("selected")) {
-            selectedRow.removeClass("selected");
+        if (selectedRow.hasClass("active")) {
+            selectedRow.removeClass("active");
         } else {
-            table.$("tr.selected").removeClass("selected");
-            selectedRow.addClass("selected");
+            table.$("tr.active").removeClass("active");
+            selectedRow.addClass("active");
         }
     };
 
