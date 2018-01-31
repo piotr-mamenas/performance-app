@@ -36,6 +36,7 @@ namespace Core.Interfaces
         IReportRepository<Report> Reports { get; }
         IExchangeRateRepository<ExchangeRate> ExchangeRates { get; }
         IReturnRepository<Return> Returns { get; }
+        IReturnRepository<HoldingPeriodReturn> HoldingPeriodReturns { get; }
         Task<int> CompleteAsync();
     }
 }

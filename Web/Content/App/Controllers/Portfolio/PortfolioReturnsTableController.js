@@ -21,7 +21,7 @@
 
     var selectRow = function (e) {
         selectedRow = $(e.currentTarget);
-
+        console.log(selectedRow);
         if (selectedRow.hasClass("active")) {
             selectedRow.removeClass("active");
         } else {

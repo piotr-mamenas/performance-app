@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Assets;
+using Core.Domain.Returns;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
@@ -19,7 +20,8 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AssetApiController : ApiController
     {
-        private readonly IAssetRepository<Asset> _repository;
+        private readonly IAssetRepository<Asset> _assetRepository;
+        private readonly IReturnRepository<HoldingPeriodReturn> _returnRepository;
         private readonly IComplete _unitOfWork;
 
         public AssetApiController(IUnitOfWork unitOfWork)
@@ -28,14 +30,15 @@ namespace Service.Controllers
             //json.SerializerSettings.ContractResolver = new AssetContractResolver();
 
             _unitOfWork = (IComplete)unitOfWork;
-            _repository = unitOfWork.Assets;
+            _assetRepository = unitOfWork.Assets;
+            _returnRepository = unitOfWork.HoldingPeriodReturns;
         }
 
         [ResponseType(typeof(ICollection<AssetDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var assets = await _repository.GetAll()
+            var assets = await _assetRepository.GetAll()
                 .Include(a => a.Prices)
                 .Include(a => a.Class)
                 .ToListAsync();
@@ -51,7 +54,7 @@ namespace Service.Controllers
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            var asset = await _repository.GetAsync(id);
+            var asset = await _assetRepository.GetAsync(id);
 
             if (asset == null)
             {
@@ -64,7 +67,7 @@ namespace Service.Controllers
         [HttpGet, Route("portfolios/{id}")]
         public async Task<IHttpActionResult> GetByPortfolioAsync(int id)
         {
-            var assets = await _repository.GetAll()
+            var assets = await _assetRepository.GetAll()
                 .Where(a => a.Portfolios.Any(p => p.Id == id))
                 .Include(a => a.Class)
                 .Include(a => a.Prices)
@@ -75,14 +78,21 @@ namespace Service.Controllers
             {
                 return NotFound();
             }
-            return Ok(assets.Map<ICollection<AssetDto>>());
+            
+            var assetsDtos = assets.Map<ICollection<AssetDto>>();
+            foreach (var asset in assetsDtos)
+            {
+                asset.HoldingPeriodReturnRate = _returnRepository.GetLastHoldingPeriodReturnRate(asset.Id);
+            }
+
+            return Ok(assetsDtos);
         }
 
         [ResponseType(typeof(AssetPriceDto))]
         [HttpGet, Route("prices")]
         public async Task<IHttpActionResult> GetPricesAsync()
         {
-            var assetPrices = await _repository.GetPrices(p => p.Asset != null);
+            var assetPrices = await _assetRepository.GetPrices(p => p.Asset != null);
 
             if (assetPrices == null)
             {
@@ -99,14 +109,14 @@ namespace Service.Controllers
                 return BadRequest();
             }
 
-            var assetInDb = await _repository.GetAsync(id);
+            var assetInDb = await _assetRepository.GetAsync(id);
 
             if (assetInDb == null)
             {
                 return NotFound();
             }
 
-            _repository.Add(asset.Map<Asset>());
+            _assetRepository.Add(asset.Map<Asset>());
 
             await _unitOfWork.CompleteAsync();
 
@@ -121,7 +131,7 @@ namespace Service.Controllers
                 return BadRequest();
             }
 
-            _repository.Add(asset.Map<Asset>());
+            _assetRepository.Add(asset.Map<Asset>());
 
             await _unitOfWork.CompleteAsync();
 
@@ -131,14 +141,14 @@ namespace Service.Controllers
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            var asset = await _repository.GetAsync(id);
+            var asset = await _assetRepository.GetAsync(id);
 
             if (asset == null)
             {
                 return NotFound();
             }
 
-            _repository.Remove(asset);
+            _assetRepository.Remove(asset);
 
             await _unitOfWork.CompleteAsync();
 

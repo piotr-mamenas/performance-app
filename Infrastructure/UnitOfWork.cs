@@ -46,6 +46,7 @@ namespace Infrastructure
             Reports = new ReportRepository<Report>(_context);
             ExchangeRates = new ExchangeRateRepository<ExchangeRate>(_context);
             Returns = new ReturnRepository<Return>(_context);
+            HoldingPeriodReturns = new ReturnRepository<HoldingPeriodReturn>(_context);
         }
 
         public IAccountRepository<Account> Accounts { get; }
@@ -63,6 +64,7 @@ namespace Infrastructure
         public IReportRepository<Report> Reports { get; }
         public IExchangeRateRepository<ExchangeRate> ExchangeRates { get; }
         public IReturnRepository<Return> Returns { get; }
+        public IReturnRepository<HoldingPeriodReturn> HoldingPeriodReturns { get; }
 
         public async Task<int> CompleteAsync()
         {

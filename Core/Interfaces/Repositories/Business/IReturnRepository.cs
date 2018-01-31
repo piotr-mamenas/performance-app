@@ -4,5 +4,6 @@ namespace Core.Interfaces.Repositories.Business
 {
     public interface IReturnRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : Return
     {
+        decimal GetLastHoldingPeriodReturnRate(int assetId);
     }
 }

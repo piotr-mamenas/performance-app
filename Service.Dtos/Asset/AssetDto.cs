@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Service.Dtos.Asset
@@ -31,5 +30,8 @@ namespace Service.Dtos.Asset
 
         [DisplayName("Face Value")]
         public decimal FaceValue { get; set; }
+
+        [DisplayName("Holding Period Return")]
+        public decimal HoldingPeriodReturnRate { get; set; }
     }
 }

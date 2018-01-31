@@ -19,6 +19,9 @@
                 },
                 {
                     data: "CurrencyCode"
+                },
+                {
+                    data: "HoldingPeriodReturn"
                 }
             ],
             language: {

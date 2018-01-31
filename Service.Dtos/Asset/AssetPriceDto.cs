@@ -1,7 +1,4 @@
-﻿using System;
-using Service.Dtos.BaseData;
-
-namespace Service.Dtos.Asset
+﻿namespace Service.Dtos.Asset
 {
     public class AssetPriceDto
     {
