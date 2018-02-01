@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 using Core.Domain.Identity;
 using Core.Enums;
 using Infrastructure.Identity;
-using Infrastructure.Seed.BaseData;
-using Infrastructure.Seed.BaseData.MessageSeeders;
-using Infrastructure.Seed.IdentityData;
-using Infrastructure.Seed.TestData;
 
 namespace Infrastructure.Migrations
 {
@@ -26,7 +22,7 @@ namespace Infrastructure.Migrations
         /// <param name="context"></param>
         protected override void Seed(ApplicationDbContext context)
         {
-            var sqlFiles = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory+"\\Seed", "*.sql");
+            var sqlFiles = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory+"\\..\\..\\Seed", "*.sql");
 
             var initSqlFile = File.ReadAllText(sqlFiles.SingleOrDefault(s => s.Contains("00")));
             var endSqlFile = File.ReadAllText(sqlFiles.SingleOrDefault(s => s.Contains("01")));
