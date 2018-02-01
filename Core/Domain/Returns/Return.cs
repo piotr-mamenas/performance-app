@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Domain.Assets;
+using Core.Enums.Domain;
 using Core.Interfaces;
 
 namespace Core.Domain.Returns
@@ -17,5 +18,7 @@ namespace Core.Domain.Returns
 
         public Asset Asset { get; set; }
         public int AssetId { get; set; }
+
+        public ReturnType Type { get; set; }
     }
 }

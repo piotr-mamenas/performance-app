@@ -32,6 +32,6 @@ namespace Service.Dtos.Asset
         public decimal FaceValue { get; set; }
 
         [DisplayName("Holding Period Return")]
-        public decimal HoldingPeriodReturnRate { get; set; }
+        public decimal? HoldingPeriodReturnRate { get; set; }
     }
 }

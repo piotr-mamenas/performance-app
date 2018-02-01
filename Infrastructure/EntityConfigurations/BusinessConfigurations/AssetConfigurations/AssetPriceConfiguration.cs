@@ -1,4 +1,5 @@
-﻿using Core.Domain.Assets;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Core.Domain.Assets;
 
 namespace Infrastructure.EntityConfigurations.BusinessConfigurations.AssetConfigurations
 {
@@ -7,6 +8,10 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.AssetConfig
         public AssetPriceConfiguration()
         {
             ToTable("AssetPrice");
+
+            Property(a => a.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
+                .HasColumnName("AssetPriceId");
 
             Property(ap => ap.Timestamp)
                 .HasColumnType(DatabaseVendorTypes.TimestampField)

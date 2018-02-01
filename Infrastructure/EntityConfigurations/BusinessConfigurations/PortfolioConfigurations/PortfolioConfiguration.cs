@@ -18,6 +18,11 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.PortfolioCo
                 .HasMaxLength(255)
                 .HasColumnName("PortfolioName");
 
+            Property(p => p.Number)
+                .IsRequired()
+                .HasMaxLength(12)
+                .HasColumnName("PortfolioNumber");
+
             HasRequired(p => p.Account)
                 .WithMany(a => a.Portfolios);
 

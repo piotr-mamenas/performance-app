@@ -8,10 +8,10 @@ using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Assets;
 using Core.Domain.Returns;
+using Core.Enums.Domain;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
-using Infrastructure.Serialization.JsonContractResolvers;
 using Service.Dtos.Asset;
 
 namespace Service.Controllers
@@ -72,6 +72,7 @@ namespace Service.Controllers
                 .Include(a => a.Class)
                 .Include(a => a.Prices)
                 .Include(a => a.Prices.Select(p => p.Currency))
+                .Include(a => a.Returns.Where(r => r.AssetId == a.Id))
                 .ToListAsync();
 
             if (assets == null)
@@ -79,10 +80,16 @@ namespace Service.Controllers
                 return NotFound();
             }
             
+            // TODO: Move the logic to a service
             var assetsDtos = assets.Map<ICollection<AssetDto>>();
             foreach (var asset in assetsDtos)
             {
-                asset.HoldingPeriodReturnRate = _returnRepository.GetLastHoldingPeriodReturnRate(asset.Id);
+                var lastHoldingPeriodReturn = assets.Select(a => a.Returns.Where(r => r.Type == ReturnType.HoldingPeriodReturn)
+                    .OrderByDescending(r => r.CalculatedTime).SingleOrDefault())
+                    .Select(r => r?.Rate)
+                    .SingleOrDefault();
+
+                asset.HoldingPeriodReturnRate = lastHoldingPeriodReturn;
             }
 
             return Ok(assetsDtos);

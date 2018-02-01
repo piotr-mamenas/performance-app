@@ -1,0 +1,35 @@
+DELETE FROM Message;
+SET IDENTITY_INSERT Message ON;
+
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (1,'Web.Partner.Label.NewPartner',1,'New Partner',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (2,'Web.Account.AccountList.Label.AccountName',1,'Account Name',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (3,'Web.Account.AccountList.Label.AccountNumber',1,'Account Number',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (4,'Web.Account.AccountList.Label.DateOpened',1,'Date Opened',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (5,'Web.Account.AccountList.Label.DateClosed',1,'Date Closed',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (6,'Web.Account.Label.UpdateAccount',1,'Update Account',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (7,'Web.Account.Label.CreateAccount',1,'New Account',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (8,'Global.Edit',1,'Edit',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (9,'Global.Delete',1,'Delete',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (10,'Global.Save',1,'Save',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (11,'Web.Partner.Label.NewPartner',3,'Neuer Partner',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (12,'Web.Account.AccountList.Label.AccountName',3,'Kontobezeichnung',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (13,'Web.Account.AccountList.Label.AccountNumber',3,'Kontonummer',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (14,'Web.Account.AccountList.Label.DateOpened',3,'Eröffnungsdatum',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (15,'Web.Account.AccountList.Label.DateClosed',3,'Abschlussdatum',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (16,'Web.Account.Label.UpdateAccount',3,'Konto Aktualisierung',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (17,'Web.Account.Label.CreateAccount',3,'Neues Konto',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (18,'Global.Edit',3,'Bearbeiten',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (19,'Global.Delete',3,'Löschen',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (20,'Global.Save',3,'Speichern',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (21,'Web.Partner.Label.NewPartner',2,'Nowy Partner',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (22,'Web.Account.AccountList.Label.AccountName',2,'Nazwa Konta',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (23,'Web.Account.AccountList.Label.AccountNumber',2,'Numer Konta',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (24,'Web.Account.AccountList.Label.DateOpened',2,'Data Otwarcia',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (25,'Web.Account.AccountList.Label.DateClosed',2,'Data Zamkniecia',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (26,'Web.Account.Label.UpdateAccount',2,'Edycja Konta',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (27,'Web.Account.Label.CreateAccount',2,'Otwarcie Konta',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (28,'Global.Edit',2,'Edycja',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (29,'Global.Delete',2,'Usuń',0,null);
+INSERT INTO Message (MessageId,MessageToken,MessageLanguage,MessageContent,IsDeleted,MessageType) VALUES (30,'Global.Save',2,'Zapisz',0,null);
+
+SET IDENTITY_INSERT Message OFF;

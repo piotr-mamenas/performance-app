@@ -1,5 +1,11 @@
+using System;
 using System.Data.Entity.Migrations;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using Core.Domain.Identity;
+using Core.Enums;
+using Infrastructure.Identity;
 using Infrastructure.Seed.BaseData;
 using Infrastructure.Seed.BaseData.MessageSeeders;
 using Infrastructure.Seed.IdentityData;
@@ -20,51 +26,74 @@ namespace Infrastructure.Migrations
         /// <param name="context"></param>
         protected override void Seed(ApplicationDbContext context)
         {
-            var statusSeeder = new WorkflowStatusSeeder(context.WorkflowStatuses);
-            statusSeeder.Seed();
+            var sqlFiles = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory+"\\Seed", "*.sql");
 
-            var partnerTypeSeeder = new PartnerTypeSeeder(context.PartnerTypes);
-            partnerTypeSeeder.Seed();
+            var initSqlFile = File.ReadAllText(sqlFiles.SingleOrDefault(s => s.Contains("00")));
+            var endSqlFile = File.ReadAllText(sqlFiles.SingleOrDefault(s => s.Contains("01")));
 
-            var partnerSeeder = new PartnerSeeder(context.Partners);
-            partnerSeeder.Seed();
+            context.Database.ExecuteSqlCommand(initSqlFile);
 
-            var contactSeeder = new ContactSeeder(context.Contacts);
-            contactSeeder.Seed();
+            sqlFiles.Where(s => !s.Contains("00") && !s.Contains("01"))
+                .ToList()
+                .ForEach(x => context.Database.ExecuteSqlCommand(File.ReadAllText(x)));
 
-            var accountSeeder = new AccountSeeder(context.Accounts);
-            accountSeeder.Seed();
-            
-            var currencySeeder = new CurrencySeeder(context.Currencies);
-            currencySeeder.Seed();
+            context.Database.ExecuteSqlCommand(endSqlFile);
 
+            Task.Run(async () => { await SeedIdentityAsync(context); }).Wait();
             context.SaveChanges();
+        }
 
-            var countrySeeder = new CountrySeeder(context.Countries);
-            countrySeeder.Seed();
+        /// <summary>
+        /// As additional Identity Framework logic needs to be executed, this seed is separate from
+        /// the original data seed
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public static async Task SeedIdentityAsync(ApplicationDbContext context)
+        {
+            var userManager = new ApplicationUserManager(new ApplicationUserStore(context));
+            var roleManager = new ApplicationRoleManager(new ApplicationRoleStore(context));
 
-            var institutionSeeder = new InstitutionSeeder(context.Institutions);
-            institutionSeeder.Seed();
+            if (!roleManager.Roles.Any())
+            {
+                await roleManager.CreateAsync(new Role { Name = Role.AdminRole, Id = Guid.NewGuid().ToString() });
+                await roleManager.CreateAsync(new Role { Name = Role.AssociateRole, Id = Guid.NewGuid().ToString() });
+            }
 
-            var assetClassSeeder = new AssetClassSeeder(context.AssetClasses);
-            assetClassSeeder.Seed();
+            if (!userManager.Users.Any(u => u.UserName == "DemoUser"))
+            {
+                var user = new User
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Language = Language.En,
+                    UserName = "DemoUser",
+                    Email = "demoUser@gmail.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "+41790788495",
+                    PhoneNumberConfirmed = true
+                };
 
-            var assetSeeder = new AssetSeeder(context.Assets);
-            assetSeeder.Seed();
+                await userManager.CreateAsync(user, "Secret1#");
+                await userManager.AddToRoleAsync(user.Id, Role.AdminRole);
+                await userManager.AddToRoleAsync(user.Id, Role.AssociateRole);
+            }
 
-            var assetPrice = new AssetPriceSeeder(context.AssetPrices);
-            assetPrice.Seed();
+            if (!userManager.Users.Any(u => u.UserName == "niemieckiUser"))
+            {
+                var user = new User
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Language = Language.De,
+                    UserName = "niemieckiUser",
+                    Email = "demoDE@gmail.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "+41780349204",
+                    PhoneNumberConfirmed = true
+                };
 
-            var portfolioSeeder = new PortfolioSeeder(context.Portfolios);
-            portfolioSeeder.Seed();
-
-            var reportSeeder = new ReportSeeder(context.Reports);
-            reportSeeder.Seed();
-
-            MessageSeedingRunner.Run(context.Messages);
-
-            Task.Run(async () => { await StaticIdentitySeeder.SeedIdentityAsync(context); }).Wait();
-            context.SaveChanges();
+                await userManager.CreateAsync(user, "Secret1#");
+                await userManager.AddToRoleAsync(user.Id, Role.AssociateRole);
+            }
         }
     }
 }

@@ -139,6 +139,10 @@
     <Compile Include="Migrations\201801311324088_InvestmentReturnUpdateMigration.Designer.cs">
       <DependentUpon>201801311324088_InvestmentReturnUpdateMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802011414471_SlightCorrectionsToNamingAndConstraints.cs" />
+    <Compile Include="Migrations\201802011414471_SlightCorrectionsToNamingAndConstraints.Designer.cs">
+      <DependentUpon>201802011414471_SlightCorrectionsToNamingAndConstraints.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -166,35 +170,6 @@
     <Compile Include="Repositories\Business\PortfolioRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\System\TaskRepository.cs" />
-    <Compile Include="Seed\BaseData\AssetClassSeeder.cs" />
-    <Compile Include="Seed\BaseData\MessageSeeders\BaseLocalizationSeeder.cs" />
-    <Compile Include="Seed\BaseData\MessageSeeders\English\AccountLocalizationEnglishMessageSeeder.cs" />
-    <Compile Include="Seed\BaseData\MessageSeeders\English\GlobalLocalizationEnglishMessageSeeder.cs" />
-    <Compile Include="Seed\BaseData\MessageSeeders\English\PartnerLocalizationEnglishMessageSeeder.cs" />
-    <Compile Include="Seed\BaseData\MessageSeeders\German\AccountLocalizationGermanMessageSeeder.cs" />
-    <Compile Include="Seed\BaseData\MessageSeeders\German\GlobalLocalizationGermanMessageSeeder.cs" />
-    <Compile Include="Seed\BaseData\MessageSeeders\German\PartnerLocalizationGermanMessageSeeder.cs" />
-    <Compile Include="Seed\BaseData\MessageSeeders\MessageSeedingRunner.cs" />
-    <Compile Include="Seed\BaseData\MessageSeeders\Polish\AccountLocalizationPolishMessageSeeder.cs" />
-    <Compile Include="Seed\BaseData\MessageSeeders\Polish\GlobalLocalizationPolishMessageSeeder.cs" />
-    <Compile Include="Seed\BaseData\MessageSeeders\Polish\PartnerLocalizationPolishMessageSeeder.cs" />
-    <Compile Include="Seed\BaseData\WorkflowStatusSeeder.cs" />
-    <Compile Include="Seed\BaseSeeder.cs" />
-    <Compile Include="Seed\BaseData\CurrencySeeder.cs" />
-    <Compile Include="Seed\IBaseData.cs" />
-    <Compile Include="Seed\IdentityData\StaticIdentitySeeder.cs" />
-    <Compile Include="Seed\ISeedable.cs" />
-    <Compile Include="Seed\ITestData.cs" />
-    <Compile Include="Seed\TestData\AccountSeeder.cs" />
-    <Compile Include="Seed\TestData\AssetPriceSeeder.cs" />
-    <Compile Include="Seed\TestData\AssetSeeder.cs" />
-    <Compile Include="Seed\BaseData\CountrySeeder.cs" />
-    <Compile Include="Seed\TestData\ContactSeeder.cs" />
-    <Compile Include="Seed\TestData\InstitutionSeeder.cs" />
-    <Compile Include="Seed\TestData\PartnerSeeder.cs" />
-    <Compile Include="Seed\TestData\PartnerTypeSeeder.cs" />
-    <Compile Include="Seed\TestData\PortfolioSeeder.cs" />
-    <Compile Include="Seed\TestData\ReportSeeder.cs" />
     <Compile Include="Serialization\JsonContractResolvers\AccountContractResolver.cs" />
     <Compile Include="Serialization\JsonContractResolvers\AssetContractResolver.cs" />
     <Compile Include="Serialization\JsonContractResolvers\ContactContractResolver.cs" />
@@ -217,6 +192,9 @@
     <EmbeddedResource Include="Migrations\201801311324088_InvestmentReturnUpdateMigration.resx">
       <DependentUpon>201801311324088_InvestmentReturnUpdateMigration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802011414471_SlightCorrectionsToNamingAndConstraints.resx">
+      <DependentUpon>201802011414471_SlightCorrectionsToNamingAndConstraints.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
       <SubType>Designer</SubType>
@@ -229,6 +207,8 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Seed\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
