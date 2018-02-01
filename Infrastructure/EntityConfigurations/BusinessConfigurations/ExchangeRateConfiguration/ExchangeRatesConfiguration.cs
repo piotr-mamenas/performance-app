@@ -14,17 +14,17 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.ExchangeRat
                 .HasColumnName("ExchangeRateId");
 
             Property(e => e.Max)
-                .HasPrecision(9,2)
+                .HasPrecision(9, 9)
                 .IsRequired()
                 .HasColumnName("ExchangeRateMax");
 
             Property(e => e.Min)
-                .HasPrecision(9, 2)
+                .HasPrecision(9, 9)
                 .IsRequired()
                 .HasColumnName("ExchangeRateMin");
 
             Property(e => e.Rate)
-                .HasPrecision(9, 2)
+                .HasPrecision(9, 9)
                 .IsRequired()
                 .HasColumnName("ExchangeRateRate");
 

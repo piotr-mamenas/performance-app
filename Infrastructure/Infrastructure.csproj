@@ -143,6 +143,10 @@
     <Compile Include="Migrations\201802011414471_SlightCorrectionsToNamingAndConstraints.Designer.cs">
       <DependentUpon>201802011414471_SlightCorrectionsToNamingAndConstraints.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802011546302_AdjustingExchangeRatePrecisionTo9Digit.cs" />
+    <Compile Include="Migrations\201802011546302_AdjustingExchangeRatePrecisionTo9Digit.Designer.cs">
+      <DependentUpon>201802011546302_AdjustingExchangeRatePrecisionTo9Digit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -194,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802011414471_SlightCorrectionsToNamingAndConstraints.resx">
       <DependentUpon>201802011414471_SlightCorrectionsToNamingAndConstraints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802011546302_AdjustingExchangeRatePrecisionTo9Digit.resx">
+      <DependentUpon>201802011546302_AdjustingExchangeRatePrecisionTo9Digit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
