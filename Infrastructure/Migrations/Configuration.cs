@@ -22,17 +22,26 @@ namespace Infrastructure.Migrations
         /// <param name="context"></param>
         protected override void Seed(ApplicationDbContext context)
         {
-            var sqlFiles = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory+"\\..\\..\\Seed", "*.sql");
+            var seedingDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\..\\..\\Seed";
+            var seedDataDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\..\\..\\Seed\\Seed_Data";
+            var baseDataDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\..\\..\\Seed\\Base_Data";
 
-            var initSqlFile = File.ReadAllText(sqlFiles.SingleOrDefault(s => s.Contains("00")));
-            var endSqlFile = File.ReadAllText(sqlFiles.SingleOrDefault(s => s.Contains("01")));
-
+            var coreFiles = Directory.GetFiles(seedingDirectory, "*.sql");
+            var seedDataFiles = Directory.GetFiles(seedDataDirectory, "*.sql");
+            var baseDataFiles = Directory.GetFiles(baseDataDirectory, "*.sql");
+            
+            var initSqlFile = File.ReadAllText(coreFiles.SingleOrDefault(s => s.Contains("00")));
             context.Database.ExecuteSqlCommand(initSqlFile);
 
-            sqlFiles.Where(s => !s.Contains("00") && !s.Contains("01"))
+            seedDataFiles.Where(s => !s.Contains("00") && !s.Contains("01"))
                 .ToList()
-                .ForEach(x => context.Database.ExecuteSqlCommand(File.ReadAllText(x)));
+                .ForEach(sql => context.Database.ExecuteSqlCommand(File.ReadAllText(sql)));
 
+            baseDataFiles.Where(s => !s.Contains("00") && !s.Contains("01"))
+                .ToList()
+                .ForEach(sql => context.Database.ExecuteSqlCommand(File.ReadAllText(sql)));
+
+            var endSqlFile = File.ReadAllText(coreFiles.SingleOrDefault(s => s.Contains("01")));
             context.Database.ExecuteSqlCommand(endSqlFile);
 
             Task.Run(async () => { await SeedIdentityAsync(context); }).Wait();
