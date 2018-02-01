@@ -30,9 +30,11 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.PartnerConf
 
             HasMany(p => p.Institutions)
                 .WithMany(o => o.Partners)
-                .Map(m => m.ToTable("PartnerInstitutions")
-                .MapLeftKey("PartnerId")
-                .MapRightKey("InstitutionId"));
+                .Map(m => {
+                    m.ToTable("PartnerInstitutions");
+                    m.MapLeftKey("PartnerId");
+                    m.MapRightKey("InstitutionId");
+                });
 
             HasMany(p => p.Contacts)
                 .WithRequired(c => c.Partner)

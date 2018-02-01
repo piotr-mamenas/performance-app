@@ -6,6 +6,11 @@ namespace Core.Domain.Returns
 {
     public class HoldingPeriodReturn : Return
     {
+        public HoldingPeriodReturn()
+        {
+            
+        }
+
         public HoldingPeriodReturn(ICollection<ReturnCalculationPeriod> periods, ICollection<ReturnIncome> incomes)
         {
             Periods = periods;

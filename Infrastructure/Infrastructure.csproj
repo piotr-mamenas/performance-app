@@ -147,6 +147,14 @@
     <Compile Include="Migrations\201802011546302_AdjustingExchangeRatePrecisionTo9Digit.Designer.cs">
       <DependentUpon>201802011546302_AdjustingExchangeRatePrecisionTo9Digit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802011953466_ExpandingPartnerInstitutionJoinTable.cs" />
+    <Compile Include="Migrations\201802011953466_ExpandingPartnerInstitutionJoinTable.Designer.cs">
+      <DependentUpon>201802011953466_ExpandingPartnerInstitutionJoinTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802011959408_SwitchingBackNamesMigration.cs" />
+    <Compile Include="Migrations\201802011959408_SwitchingBackNamesMigration.Designer.cs">
+      <DependentUpon>201802011959408_SwitchingBackNamesMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -201,6 +209,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802011546302_AdjustingExchangeRatePrecisionTo9Digit.resx">
       <DependentUpon>201802011546302_AdjustingExchangeRatePrecisionTo9Digit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802011953466_ExpandingPartnerInstitutionJoinTable.resx">
+      <DependentUpon>201802011953466_ExpandingPartnerInstitutionJoinTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802011959408_SwitchingBackNamesMigration.resx">
+      <DependentUpon>201802011959408_SwitchingBackNamesMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

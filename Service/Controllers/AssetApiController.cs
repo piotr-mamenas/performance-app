@@ -21,6 +21,7 @@ namespace Service.Controllers
     public class AssetApiController : ApiController
     {
         private readonly IAssetRepository<Asset> _assetRepository;
+        private readonly IAssetRepository<Bond> _bondRepository;
         private readonly IReturnRepository<HoldingPeriodReturn> _returnRepository;
         private readonly IComplete _unitOfWork;
 
@@ -32,6 +33,7 @@ namespace Service.Controllers
             _unitOfWork = (IComplete)unitOfWork;
             _assetRepository = unitOfWork.Assets;
             _returnRepository = unitOfWork.HoldingPeriodReturns;
+            _bondRepository = unitOfWork.Bonds;
         }
 
         [ResponseType(typeof(ICollection<AssetDto>))]
@@ -63,7 +65,7 @@ namespace Service.Controllers
             return Ok(asset.Map<AssetDto>());
         }
 
-        [ResponseType(typeof(AssetDto))]
+        [ResponseType(typeof(ICollection<AssetDto>))]
         [HttpGet, Route("portfolios/{id}")]
         public async Task<IHttpActionResult> GetByPortfolioAsync(int id)
         {
@@ -72,7 +74,7 @@ namespace Service.Controllers
                 .Include(a => a.Class)
                 .Include(a => a.Prices)
                 .Include(a => a.Prices.Select(p => p.Currency))
-                .Include(a => a.Returns.Where(r => r.AssetId == a.Id))
+                .Include(a => a.Returns)
                 .ToListAsync();
 
             if (assets == null)
@@ -82,14 +84,23 @@ namespace Service.Controllers
             
             // TODO: Move the logic to a service
             var assetsDtos = assets.Map<ICollection<AssetDto>>();
-            foreach (var asset in assetsDtos)
+            foreach (var assetDto in assetsDtos)
             {
-                var lastHoldingPeriodReturn = assets.Select(a => a.Returns.Where(r => r.Type == ReturnType.HoldingPeriodReturn)
+                var lastHoldingPeriodReturn = assets.Select(a => a.Returns
+                    .Where(r => r.Type == ReturnType.HoldingPeriodReturn && r.AssetId == assetDto.Id)
                     .OrderByDescending(r => r.CalculatedTime).SingleOrDefault())
                     .Select(r => r?.Rate)
-                    .SingleOrDefault();
+                    .FirstOrDefault();
 
-                asset.HoldingPeriodReturnRate = lastHoldingPeriodReturn;
+                var bondAsset = _bondRepository.GetAll()
+                    .Include(b => b.Currency)
+                    .SingleOrDefault(b => b.Id == assetDto.Id);
+
+                if (bondAsset != null)
+                {
+                    assetDto.CurrencyCode = bondAsset.Currency.Code;
+                }
+                assetDto.HoldingPeriodReturnRate = lastHoldingPeriodReturn;
             }
 
             return Ok(assetsDtos);

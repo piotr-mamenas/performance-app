@@ -21,7 +21,7 @@
                     data: "CurrencyCode"
                 },
                 {
-                    data: "HoldingPeriodReturn"
+                    data: "HoldingPeriodReturnRate"
                 }
             ],
             language: {

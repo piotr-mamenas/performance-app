@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Core.Domain.Portfolios;
 using Core.Domain.Returns;
+using Core.Enums.Domain;
 using Core.Interfaces;
 
 namespace Core.Domain.Assets

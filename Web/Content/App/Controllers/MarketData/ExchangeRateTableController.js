@@ -6,10 +6,10 @@
             data: result,
             columns: [
                 {
-                    data: "BaseCurrency.Name"
+                    data: "BaseCurrency.Code"
                 },
                 {
-                    data: "TargetCurrency.Name"
+                    data: "TargetCurrency.Code"
                 },
                 {
                     data: "Rate"
