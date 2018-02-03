@@ -241,6 +241,7 @@
     <Content Include="Content\App\Controllers\Portfolio\PortfolioDetailsViewController.js" />
     <Content Include="Content\App\Controllers\Portfolio\PortfolioPartnersTableController.js" />
     <Content Include="Content\App\Controllers\Portfolio\PortfolioReturnsTableController.js" />
+    <Content Include="Content\App\Controllers\Portfolio\PortfolioSelectionTableController.js" />
     <Content Include="Content\App\Controllers\Portfolio\PortfolioTableController.js" />
     <Content Include="Content\App\Controllers\Report\NewReportModalController.js" />
     <Content Include="Content\App\Controllers\Report\ReportTableController.js" />

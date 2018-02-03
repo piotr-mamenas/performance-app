@@ -1,16 +1,21 @@
-﻿var PortfolioReturnsTableController = function (service) {
+﻿var PortfolioReturnsTableController = function(service) {
     var table;
-    var selectedRow;
 
-    var initializeDatatable = function (result) {
-        table = $("#portfolioTable").DataTable({
+    var initializeDatatable = function(result) {
+        table = $("#portfolioReturnsTable").DataTable({
             data: result,
             columns: [
                 {
-                    data: "Name"
+                    data: "AssetName"
                 },
                 {
-                    data: "Number"
+                    data: "ClassName"
+                },
+                {
+                    data: "Isin"
+                },
+                {
+                    data: "HoldingPeriodReturn"
                 }
             ],
             language: {
@@ -19,25 +24,12 @@
         });
     }
 
-    var selectRow = function (e) {
-        selectedRow = $(e.currentTarget);
-        console.log(selectedRow);
-        if (selectedRow.hasClass("active")) {
-            selectedRow.removeClass("active");
-        } else {
-            table.$("tr.active").removeClass("active");
-            selectedRow.addClass("active");
-        }
-    };
-
-    var init = function () {
-        service.getPortfolios(initializeDatatable, initializeDatatable);
-
-        $("#portfolioTable tbody").on("click", "tr", selectRow);
+    var init = function(id) {
+        service.getAssetsByPortfolios(id, initializeDatatable, initializeDatatable);
     }
 
     return {
         init: init
     };
 
-}(PortfolioService)
+}(AssetService);
