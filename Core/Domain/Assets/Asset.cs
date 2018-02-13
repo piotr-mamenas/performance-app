@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Core.Domain.Portfolios;
 using Core.Domain.Returns;
 using Core.Enums.Domain;

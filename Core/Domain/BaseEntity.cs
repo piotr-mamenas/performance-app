@@ -4,7 +4,7 @@ using Core.Interfaces;
 namespace Core.Domain
 {
     /// <summary>
-    /// The base entity out of which all Domain business entities inherit from
+    /// The base entity out of which all domain business entities inherit from
     /// </summary>
     public abstract class BaseEntity : IIdentifiable
     {
@@ -13,18 +13,28 @@ namespace Core.Domain
         public bool IsDeleted { get; set; }
 
         /// <summary>
-        /// Overloading of the equality operator to be able to 
+        /// 
         /// </summary>
         /// <param name="leftEntity"></param>
         /// <param name="rightEntity"></param>
         /// <returns></returns>
         public static bool operator ==(BaseEntity leftEntity, BaseEntity rightEntity)
         {
-            return ReferenceEquals(leftEntity, rightEntity) || (object)leftEntity != null && leftEntity.Equals(rightEntity);
+            if (ReferenceEquals(leftEntity, null) && ReferenceEquals(rightEntity, null))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(leftEntity, null) || ReferenceEquals(rightEntity, null))
+            {
+                return false;
+            }
+
+            return leftEntity.Equals(rightEntity);
         }
 
         /// <summary>
-        /// Overloading of the inequality operator
+        /// 
         /// </summary>
         /// <param name="leftEntity"></param>
         /// <param name="rightEntity"></param>
@@ -43,7 +53,27 @@ namespace Core.Domain
         {
             var entity = obj as BaseEntity;
 
-            return entity != null && entity.GetType() == GetType() && (entity.Id == Id);
+            if (ReferenceEquals(entity, null))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, entity))
+            {
+                return true;
+            }
+
+            if (GetType() != entity.GetType())
+            {
+                return false;
+            }
+
+            if (Id == 0 || entity.Id == 0)
+            {
+                return false;
+            }
+
+            return Id == entity.Id;
         }
 
         /// <summary>
@@ -52,7 +82,7 @@ namespace Core.Domain
         /// <returns></returns>
         public override int GetHashCode()
         {
-            return Id.GetHashCode();
+            return (GetType().ToString() + Id).GetHashCode();
         }
 
         /// <summary>

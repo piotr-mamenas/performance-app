@@ -6,15 +6,26 @@ namespace Core.Domain.Returns
 {
     public class HoldingPeriodReturn : Return
     {
-        public HoldingPeriodReturn()
+        protected HoldingPeriodReturn()
         {
-            
         }
 
-        public HoldingPeriodReturn(ICollection<ReturnCalculationPeriod> periods, ICollection<ReturnIncome> incomes)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="periods"></param>
+        /// <param name="incomes"></param>
+        public HoldingPeriodReturn(IEnumerable<Tuple<DateTime, DateTime>> periods, IEnumerable<Tuple<decimal, DateTime>> incomes)
         {
-            Periods = periods;
-            Incomes = incomes;
+            foreach (var period in periods)
+            {
+                Periods.Add(new ReturnCalculationPeriod{ DateFrom = period.Item1, DateTo = period.Item2, ReturnId = this.Id });
+            }
+
+            foreach (var income in incomes)
+            {
+                Incomes.Add(new ReturnIncome{ Amount = income.Item1, Timestamp = income.Item2, ReturnId = this.Id });
+            }
         }
 
         /// <summary>

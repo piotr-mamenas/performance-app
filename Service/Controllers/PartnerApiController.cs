@@ -127,7 +127,7 @@ namespace Service.Controllers
                 return NotFound();
             }
 
-            var deletionError = partner.GetDeleteError();
+            var deletionError = partner.ValidateDelete();
 
             if (deletionError != null)
             {

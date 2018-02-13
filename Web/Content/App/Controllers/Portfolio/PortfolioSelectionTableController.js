@@ -19,11 +19,9 @@
         });
     }
 
-    var selectRow = function (e) {
-        selectedRow = $(e.currentTarget);
-        console.log(selectedRow);
+    var selectRow = function () {
+        selectedRow = $(this);
         if (selectedRow.hasClass("active")) {
-            selectedRow.removeClass("active");
         } else {
             table.$("tr.active").removeClass("active");
             selectedRow.addClass("active");

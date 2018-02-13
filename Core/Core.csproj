@@ -103,6 +103,7 @@
     <Compile Include="Domain\Tasks\ServerTask.cs" />
     <Compile Include="Domain\Tasks\TaskRun.cs" />
     <Compile Include="Domain\Tasks\TaskType.cs" />
+    <Compile Include="Domain\ValueObject.cs" />
     <Compile Include="Domain\Workflows\Workflow.cs" />
     <Compile Include="Domain\Workflows\WorkflowStatus.cs" />
     <Compile Include="Domain\Workflows\WorkflowTransition.cs" />
@@ -170,7 +171,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Domain\SharedKernel\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Validation\readme.txt" />
   </ItemGroup>

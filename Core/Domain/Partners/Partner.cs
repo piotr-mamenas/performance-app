@@ -29,7 +29,11 @@ namespace Core.Domain.Partners
             Accounts = null;
         }
         
-        public string GetDeleteError()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string ValidateDelete ()
         {
             if (Contacts.Any())
             {
