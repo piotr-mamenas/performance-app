@@ -1,21 +1,24 @@
 ﻿var PortfolioReturnsTableController = function(service) {
     var table;
 
-    var initializeDatatable = function(result) {
+    var initializeDatatable = function (result) {
+        if (table != null) {
+            table.destroy();
+        }
         table = $("#portfolioReturnsTable").DataTable({
             data: result,
             columns: [
                 {
-                    data: "AssetName"
+                    data: "Name"
                 },
                 {
-                    data: "ClassName"
+                    data: "Class"
                 },
                 {
                     data: "Isin"
                 },
                 {
-                    data: "HoldingPeriodReturn"
+                    data: "HoldingPeriodReturnRate"
                 }
             ],
             language: {

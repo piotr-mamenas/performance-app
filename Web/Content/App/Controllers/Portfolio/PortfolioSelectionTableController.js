@@ -7,6 +7,9 @@
             data: result,
             columns: [
                 {
+                    data: "Id"
+                },
+                {
                     data: "Name"
                 },
                 {
@@ -15,24 +18,26 @@
             ],
             language: {
                 emptyTable: "No records at present."
-            }
+            },
+            paging: false,
+            searching: false
         });
     }
 
     var selectRow = function () {
         selectedRow = $(this);
+        var selectedPortfolioId = table.row(selectedRow).data().Id;
         if (selectedRow.hasClass("active")) {
         } else {
             table.$("tr.active").removeClass("active");
             selectedRow.addClass("active");
+            PortfolioReturnsTableController.init(selectedPortfolioId);
         }
     };
 
     var init = function () {
         service.getPortfolios(initializeDatatable, initializeDatatable);
-
         $("#portfolioSelectionTable tbody").on("click", "tr", selectRow);
-        PortfolioReturnsTableController.init(0);
     }
 
     return {

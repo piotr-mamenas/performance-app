@@ -76,11 +76,6 @@ namespace Service.Controllers
                 .Include(a => a.Prices.Select(p => p.Currency))
                 .Include(a => a.Returns)
                 .ToListAsync();
-
-            if (assets == null)
-            {
-                return NotFound();
-            }
             
             // TODO: Move the logic to a service
             var assetsDtos = assets.Map<ICollection<AssetDto>>();
