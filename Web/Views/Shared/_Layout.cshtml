@@ -15,10 +15,7 @@
 <div id="app-body" data-current-page="">
     <div class="container-fluid">
         <div class="row" style="height: 800px;">
-            <div class="col-md-3">
-                @RenderPage("Selection.cshtml")
-            </div>
-            <div class="col-md-9">
+            <div class="col-md-12">
                 @RenderBody()
             </div>
         </div>        
@@ -37,7 +34,6 @@
         App.init();
         $.support.cors = true;
         Routing.init('@Html.GetWebServerUri()');
-        SelectionController.init();
 
         @RenderSection("scripts", false)
 

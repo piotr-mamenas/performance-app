@@ -97,12 +97,12 @@
     <Compile Include="Domain\Returns\Return.cs" />
     <Compile Include="Domain\Returns\ReturnIncome.cs" />
     <Compile Include="Domain\Returns\ReturnCalculationPeriod.cs" />
-    <Compile Include="Domain\Selections\Selection.cs" />
     <Compile Include="Domain\Tasks\ExportTask.cs" />
     <Compile Include="Domain\Tasks\ImportTask.cs" />
     <Compile Include="Domain\Tasks\ServerTask.cs" />
     <Compile Include="Domain\Tasks\TaskRun.cs" />
     <Compile Include="Domain\Tasks\TaskType.cs" />
+    <Compile Include="Domain\TileWidgets\TileWidget.cs" />
     <Compile Include="Domain\ValueObject.cs" />
     <Compile Include="Domain\Workflows\Workflow.cs" />
     <Compile Include="Domain\Workflows\WorkflowStatus.cs" />
@@ -171,9 +171,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\SharedKernel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Validation\readme.txt" />
   </ItemGroup>

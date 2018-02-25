@@ -17,6 +17,10 @@ namespace Web.Controllers
         [Route("")]
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Dashboard");
+            }
             return RedirectToAction("Login", "Authentication");
         }
     }
