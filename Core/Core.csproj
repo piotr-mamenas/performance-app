@@ -130,6 +130,7 @@
     <Compile Include="Interfaces\Repositories\BaseData\ICurrencyRepository.cs" />
     <Compile Include="Interfaces\Repositories\Business\IReportRepository.cs" />
     <Compile Include="Interfaces\Repositories\Business\IReturnRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Business\ITileWidgetRepository.cs" />
     <Compile Include="Interfaces\Repositories\System\IMessageRepository.cs" />
     <Compile Include="Interfaces\Repositories\Business\IPartnerRepository.cs" />
     <Compile Include="Interfaces\Repositories\Business\IInstitutionRepository.cs" />

@@ -96,6 +96,7 @@
     <Compile Include="EntityConfigurations\BusinessConfigurations\ReturnConfigurations\ReturnCalculationPeriodConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ReturnConfigurations\ReturnConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ReturnConfigurations\ReturnIncomeConfiguration.cs" />
+    <Compile Include="EntityConfigurations\BusinessConfigurations\TileWidgetConfigurations\TileWidgetConfiguration.cs" />
     <Compile Include="EntityConfigurations\DatabaseVendorTypes.cs" />
     <Compile Include="EntityConfigurations\BaseEntityConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ExchangeRateConfiguration\ExchangeRatesConfiguration.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="Repositories\Business\ExchangeRateRepository.cs" />
     <Compile Include="Repositories\Business\ReportRepository.cs" />
     <Compile Include="Repositories\Business\ReturnRepository.cs" />
+    <Compile Include="Repositories\Business\TileWidgetRepository.cs" />
     <Compile Include="Repositories\System\MessageRepository.cs" />
     <Compile Include="Repositories\Business\PartnerRepository.cs" />
     <Compile Include="Repositories\Business\InstitutionRepository.cs" />

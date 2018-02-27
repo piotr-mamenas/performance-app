@@ -18,6 +18,7 @@ using Core.Domain.Portfolios;
 using Core.Domain.Reports;
 using Core.Domain.Returns;
 using Core.Domain.Tasks;
+using Core.Domain.TileWidgets;
 using Core.Domain.Workflows;
 using Infrastructure.ComplexTypesConfigurations;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.AccountConfiguration;
@@ -31,6 +32,7 @@ using Infrastructure.EntityConfigurations.BusinessConfigurations.PartnerConfigur
 using Infrastructure.EntityConfigurations.BusinessConfigurations.PortfolioConfigurations;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.ReportConfigurations;
 using Infrastructure.EntityConfigurations.BusinessConfigurations.ReturnConfigurations;
+using Infrastructure.EntityConfigurations.BusinessConfigurations.TileWidgetConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.IdentityConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.MessageConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.TaskConfigurations;
@@ -64,6 +66,7 @@ namespace Infrastructure
         public DbSet<Return> Returns { get; set; }
         public DbSet<ReturnIncome> ReturnIncomes { get; set; }
         public DbSet<ReturnCalculationPeriod> ReturnCalculationPeriods { get; set; }
+        public DbSet<TileWidget> TileWidgets { get; set; }
 
         public ApplicationDbContext()
             : base("PerformanceApp")
@@ -127,6 +130,8 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new HoldingPeriodReturnConfiguration());
             modelBuilder.Configurations.Add(new ReturnIncomeConfiguration());
             modelBuilder.Configurations.Add(new ReturnCalculationPeriodConfiguration());
+
+            modelBuilder.Configurations.Add(new TileWidgetConfiguration());
         }
 
         /// <summary>

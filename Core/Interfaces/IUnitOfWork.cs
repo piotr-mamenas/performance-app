@@ -13,6 +13,7 @@ using Core.Domain.Portfolios;
 using Core.Domain.Reports;
 using Core.Domain.Returns;
 using Core.Domain.Tasks;
+using Core.Domain.TileWidgets;
 using Core.Interfaces.Repositories.BaseData;
 using Core.Interfaces.Repositories.Business;
 using Core.Interfaces.Repositories.System;
@@ -37,6 +38,7 @@ namespace Core.Interfaces
         IExchangeRateRepository<ExchangeRate> ExchangeRates { get; }
         IReturnRepository<Return> Returns { get; }
         IReturnRepository<HoldingPeriodReturn> HoldingPeriodReturns { get; }
+        ITileWidgetRepository<TileWidget> TileWidgets { get; }
         Task<int> CompleteAsync();
     }
 }
