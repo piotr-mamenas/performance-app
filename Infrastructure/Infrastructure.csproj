@@ -156,6 +156,10 @@
     <Compile Include="Migrations\201802011959408_SwitchingBackNamesMigration.Designer.cs">
       <DependentUpon>201802011959408_SwitchingBackNamesMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802272145316_TileWidgetFeatureMigration.cs" />
+    <Compile Include="Migrations\201802272145316_TileWidgetFeatureMigration.Designer.cs">
+      <DependentUpon>201802272145316_TileWidgetFeatureMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -217,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802011959408_SwitchingBackNamesMigration.resx">
       <DependentUpon>201802011959408_SwitchingBackNamesMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802272145316_TileWidgetFeatureMigration.resx">
+      <DependentUpon>201802272145316_TileWidgetFeatureMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
