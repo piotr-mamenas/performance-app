@@ -17,6 +17,10 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.TileWidgetC
                 .HasColumnName("TileIcon")
                 .IsRequired();
 
+            Property(tw => tw.Name)
+                .HasColumnName("TileName")
+                .IsRequired();
+
             Property(tw => tw.Url)
                 .HasColumnName("LinkUrl")
                 .IsOptional();

@@ -14,7 +14,8 @@ namespace Infrastructure.AutoMapper
                 typeof(InstitutionProfile), 
                 typeof(CurrencyProfile),
                 typeof(AssetProfile),
-                typeof(PortfolioProfile)));
+                typeof(PortfolioProfile),
+                typeof(TileWidgetProfile)));
         }
     }
 }

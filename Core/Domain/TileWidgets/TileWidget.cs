@@ -1,5 +1,4 @@
-﻿using System;
-using Core.Domain.Identity;
+﻿using Core.Domain.Identity;
 using Core.Interfaces;
 
 namespace Core.Domain.TileWidgets
@@ -9,6 +8,7 @@ namespace Core.Domain.TileWidgets
         public User User { get; set; }
         public string UserId { get; set; }
 
+        public string Name { get; set; }
         public string Icon { get; set; }
         public string Url { get; set; }
 

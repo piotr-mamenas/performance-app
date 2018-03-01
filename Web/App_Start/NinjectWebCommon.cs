@@ -1,6 +1,7 @@
 using Core.Domain.Contacts;
 using Core.Domain.Countries;
 using Core.Domain.Currencies;
+using Core.Domain.Identity;
 using Core.Domain.Institutions;
 using Core.Domain.Partners;
 using Core.Interfaces;
@@ -9,6 +10,8 @@ using Core.Interfaces.Repositories.Business;
 using Infrastructure;
 using Infrastructure.Repositories.BaseData;
 using Infrastructure.Repositories.Business;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Web.App_Start.NinjectWebCommon), "Stop")]
@@ -80,6 +83,8 @@ namespace Web.App_Start
             kernel.Bind<IPartnerRepository<Partner>>().To<PartnerRepository<Partner>>().InRequestScope();
             kernel.Bind<IInstitutionRepository<Institution>>().To<InstitutionRepository<Institution>>().InRequestScope();
             kernel.Bind<IInstitutionRepository<Bank>>().To<InstitutionRepository<Bank>>().InRequestScope();
+            kernel.Bind(typeof(IUserStore<>)).To(typeof(UserStore<>)).InRequestScope();
+            kernel.Bind(typeof(UserManager<>)).ToSelf();
         }
     }
 }

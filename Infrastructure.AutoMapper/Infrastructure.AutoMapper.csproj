@@ -50,6 +50,7 @@
     <Compile Include="Profiles\PortfolioProfile.cs" />
     <Compile Include="Profiles\ReportProfile.cs" />
     <Compile Include="Profiles\TaskProfile.cs" />
+    <Compile Include="Profiles\TileWidgetProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
