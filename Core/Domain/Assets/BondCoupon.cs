@@ -12,11 +12,6 @@ namespace Core.Domain.Assets
         
         public decimal Amount { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="comparedCoupon"></param>
-        /// <returns></returns>
         protected override bool EqualsCore(BondCoupon comparedCoupon)
         {
             if (Rate == comparedCoupon.Rate && Amount == comparedCoupon.Amount)
@@ -26,10 +21,6 @@ namespace Core.Domain.Assets
             return false;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         protected override int GetHashCodeCore()
         {
             unchecked

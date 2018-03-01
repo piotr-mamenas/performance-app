@@ -102,6 +102,7 @@
     <Compile Include="Domain\Tasks\ServerTask.cs" />
     <Compile Include="Domain\Tasks\TaskRun.cs" />
     <Compile Include="Domain\Tasks\TaskType.cs" />
+    <Compile Include="Domain\TileWidgets\FontAwesomeIcon.cs" />
     <Compile Include="Domain\TileWidgets\TileWidget.cs" />
     <Compile Include="Domain\ValueObject.cs" />
     <Compile Include="Domain\Workflows\Workflow.cs" />

@@ -10,7 +10,7 @@ namespace Infrastructure.AutoMapper.Profiles
         {
             CreateMap<TileWidget, DashboardWidgetViewModel>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Icon, opt => opt.MapFrom(src => src.Icon))
+                .ForMember(dest => dest.Icon, opt => opt.MapFrom(src => src.Icon.Name))
                 .ForMember(dest => dest.Url, opt => opt.MapFrom(src => src.Url))
                 .ReverseMap();
         }

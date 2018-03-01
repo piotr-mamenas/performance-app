@@ -13,10 +13,6 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.TileWidgetC
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("TileWidgetId");
 
-            Property(tw => tw.Icon)
-                .HasColumnName("TileIcon")
-                .IsRequired();
-
             Property(tw => tw.Name)
                 .HasColumnName("TileName")
                 .IsRequired();
