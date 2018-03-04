@@ -83,8 +83,7 @@ namespace Web.App_Start
             kernel.Bind<IPartnerRepository<Partner>>().To<PartnerRepository<Partner>>().InRequestScope();
             kernel.Bind<IInstitutionRepository<Institution>>().To<InstitutionRepository<Institution>>().InRequestScope();
             kernel.Bind<IInstitutionRepository<Bank>>().To<InstitutionRepository<Bank>>().InRequestScope();
-            kernel.Bind(typeof(IUserStore<>)).To(typeof(UserStore<>)).InRequestScope();
-            kernel.Bind(typeof(UserManager<>)).ToSelf();
+            kernel.Bind(typeof(UserManager<User>)).ToSelf().InRequestScope();
         }
     }
 }

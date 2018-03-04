@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
 
@@ -17,10 +18,18 @@ namespace Web.Controllers
         [Route("")]
         public ActionResult Index()
         {
-            if (User.Identity.IsAuthenticated)
+            try
             {
-                return RedirectToAction("Index", "Dashboard");
+                if (User.Identity.IsAuthenticated)
+                {
+                    return RedirectToAction("Index", "Dashboard");
+                }
             }
+            catch (Exception ex)
+            {
+                Logger.Error(ex,$"{ex} occurred");
+            }
+
             return RedirectToAction("Login", "Authentication");
         }
     }

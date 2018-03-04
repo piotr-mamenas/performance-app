@@ -1,30 +1,35 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
-using Core.Domain.Identity;
 using Core.Domain.TileWidgets;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
+using Infrastructure.Identity;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
 using Web.Presentation.ViewModels.DashboardViewModels;
 
 namespace Web.Controllers
 {
-    [RoutePrefix("dashboard")]
     [Authorize]
+    [RoutePrefix("dashboard")]
     public class DashboardController : BaseController
     {
-        private readonly IComplete _unitOfWork;
         private readonly ITileWidgetRepository<TileWidget> _widgetRepository;
-        private readonly UserManager<User> _userManager;
+        private ApplicationUserManager _userManager;
 
-        public DashboardController(ILogger logger, IUnitOfWork unitOfWork, UserManager<User> userManager)
+        public ApplicationUserManager UserManager
+        {
+            get => _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            private set => _userManager = value;
+        }
+
+        public DashboardController(ILogger logger, IUnitOfWork unitOfWork, ApplicationUserManager userManager)
             : base(logger)
         {
-            _unitOfWork = (IComplete) unitOfWork;
             _widgetRepository = unitOfWork.TileWidgets;
             _userManager = userManager;
         }

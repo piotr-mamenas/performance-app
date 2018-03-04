@@ -39,9 +39,6 @@
     <Reference Include="CherrySeed.Repositories.Ef, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CherrySeed.Repositories.Ef.1.0.1.0\lib\net40\CherrySeed.Repositories.Ef.dll</HintPath>
     </Reference>
-    <Reference Include="CsvHelper, Version=6.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
-      <HintPath>..\packages\CsvHelper.6.0.3\lib\net45\CsvHelper.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -160,6 +157,10 @@
     <Compile Include="Migrations\201802272145316_TileWidgetFeatureMigration.Designer.cs">
       <DependentUpon>201802272145316_TileWidgetFeatureMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803031728208_SlightCorrectionMigration.cs" />
+    <Compile Include="Migrations\201803031728208_SlightCorrectionMigration.Designer.cs">
+      <DependentUpon>201803031728208_SlightCorrectionMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -224,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802272145316_TileWidgetFeatureMigration.resx">
       <DependentUpon>201802272145316_TileWidgetFeatureMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803031728208_SlightCorrectionMigration.resx">
+      <DependentUpon>201803031728208_SlightCorrectionMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
