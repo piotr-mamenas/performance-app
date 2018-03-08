@@ -51,11 +51,11 @@
     ];
 
     var getCurrentPage = function () {
-        return $("div#app-body").data("currentPage");
+        return localStorage.getItem("currentRoute")
     };
 
     var setCurrentPage = function (selector) {
-        $("div#app-body").data("currentPage", selector);
+        localStorage.setItem("currentRoute", selector);
     };
 
     var getApiUri = function (service) {
