@@ -52,7 +52,7 @@ namespace Core.Domain.Returns
         /// Calculates the Holding Period Return
         /// </summary>
         /// <returns></returns>
-        public void Calculate()
+        public override void Calculate()
         {
             var holdingPeriodReturn = 0.00m;
 

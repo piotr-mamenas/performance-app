@@ -9,12 +9,7 @@ namespace Infrastructure.AutoMapper.Profiles
     {
         public PortfolioProfile()
         {
-            CreateMap<Portfolio, PortfolioDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Number, opt => opt.MapFrom(src => src.Number))
-                .ForMember(dest => dest.Account, opt => opt.MapFrom(src => src.Account))
-                .ForMember(dest => dest.AccountId, opt => opt.MapFrom(src => src.AccountId))
-                .ForMember(dest => dest.Assets, opt => opt.MapFrom(src => src.Assets))
+            CreateMap<Portfolio, PortfolioDto>()
                 .ReverseMap();
 
             CreateMap<Portfolio, PortfolioDetailsViewModel>()
@@ -27,8 +22,6 @@ namespace Infrastructure.AutoMapper.Profiles
                 .ReverseMap();
 
             CreateMap<Portfolio, NewPortfolioViewModel>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Number, opt => opt.MapFrom(src => src.Number))
                 .ForMember(dest => dest.SelectedAccountId, opt => opt.MapFrom(src => src.AccountId))
                 .ReverseMap();
         }

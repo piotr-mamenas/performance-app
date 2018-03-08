@@ -8,13 +8,10 @@ namespace Infrastructure.AutoMapper.Profiles
     {
         public InstitutionProfile()
         {
-            CreateMap<Institution, InstitutionDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
+            CreateMap<Institution, InstitutionDto>()
                 .ReverseMap();
 
-            CreateMap<Bank, InstitutionDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Bic, opt => opt.MapFrom(src => src.Bic))
+            CreateMap<Bank, InstitutionDto>()
                 .ReverseMap();
         }
     }

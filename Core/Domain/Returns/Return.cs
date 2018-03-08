@@ -6,7 +6,7 @@ using Core.Interfaces;
 
 namespace Core.Domain.Returns
 {
-    public class Return : BaseEntity, IEntityRoot
+    public abstract class Return : BaseEntity, IEntityRoot
     {
         public ICollection<ReturnIncome> Incomes { get; set; }
 
@@ -20,5 +20,7 @@ namespace Core.Domain.Returns
         public int AssetId { get; set; }
 
         public ReturnType Type { get; set; }
+
+        public abstract void Calculate();
     }
 }
