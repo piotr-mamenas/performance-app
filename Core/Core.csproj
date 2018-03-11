@@ -92,6 +92,7 @@
     <Compile Include="Domain\Portfolios\Portfolio.cs" />
     <Compile Include="Domain\Portfolios\PortfolioAssetPosition.cs" />
     <Compile Include="Domain\Assets\AssetPrice.cs" />
+    <Compile Include="Domain\Portfolios\PortfolioOperationOrder.cs" />
     <Compile Include="Domain\Reports\Report.cs" />
     <Compile Include="Domain\Returns\HoldingPeriodReturn.cs" />
     <Compile Include="Domain\Returns\Return.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="Enums\Domain\CurrencyType.cs" />
     <Compile Include="Enums\Domain\InstitutionType.cs" />
     <Compile Include="Enums\Domain\MessageType.cs" />
+    <Compile Include="Enums\Domain\PortfolioOperationType.cs" />
     <Compile Include="Enums\Domain\PositionType.cs" />
     <Compile Include="Enums\Domain\ReturnType.cs" />
     <Compile Include="Enums\Domain\TaskType.cs" />
@@ -155,6 +157,7 @@
     <Compile Include="Validation\Tasks\ExportTaskValidator.cs" />
     <Compile Include="Validation\Tasks\ImportTaskValidator.cs" />
     <Compile Include="Validation\Tasks\ServerTaskValidator.cs" />
+    <Compile Include="Validation\ValidationExtensions.cs" />
     <Compile Include="Validation\Workflows\WorkflowValidator.cs" />
   </ItemGroup>
   <ItemGroup>

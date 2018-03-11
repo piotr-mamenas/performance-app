@@ -14,5 +14,10 @@ namespace Core.Domain.Assets
         public DateTime Timestamp { get; set; }
 
         public decimal Amount { get; set; }
+
+        public int GetAmountInCurrency(Currency targetCurrency)
+        {
+            return 0;
+        }
     }
 }

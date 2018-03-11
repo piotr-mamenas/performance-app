@@ -23,5 +23,10 @@ namespace Core.Domain.Portfolios
             Assets = null;
             Positions = null;
         }
+
+        public void PlaceOrder(PortfolioOperationOrder order)
+        {
+            // TODO: Logic
+        }
     }
 }

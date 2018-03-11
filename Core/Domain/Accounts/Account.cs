@@ -41,6 +41,16 @@ namespace Core.Domain.Accounts
             Portfolios = null;
         }
 
+        public void Close()
+        {
+            
+        }
+
+        public void RequestClose()
+        {
+            
+        }
+
         public Account(string accountName, string accountNumber, Partner accountOwner)
         {
             Name = accountName;

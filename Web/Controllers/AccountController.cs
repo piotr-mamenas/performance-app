@@ -6,6 +6,7 @@ using Core.Domain.Accounts;
 using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
+using Core.Validation;
 using Infrastructure.AutoMapper;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
@@ -126,6 +127,7 @@ namespace Web.Controllers
             updatedAccount.ClosedDate = null;
             updatedAccount.OpenedDate = accountInDb.OpenedDate;
 
+            var validationResult = updatedAccount.Validate();
             _accounts.Add(updatedAccount);
 
             await _unitOfWork.CompleteAsync();

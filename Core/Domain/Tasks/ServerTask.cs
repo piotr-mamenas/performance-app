@@ -33,7 +33,7 @@ namespace Core.Domain.Tasks
 
         public void DoWork()
         {
-            
+            // TODO: call to Windows Service in throttling loop
         }
     }
 }
