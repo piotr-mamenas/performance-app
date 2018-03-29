@@ -8,6 +8,11 @@ namespace Core.Domain.TileWidgets
 
         public string Name { get; set; }
 
+        public FontAwesomeIcon()
+        {
+            
+        }
+
         public FontAwesomeIcon(string name)
         {
             Name = name;

@@ -8,10 +8,6 @@ namespace Web.Controllers
     [RoutePrefix("error")]
     public class ErrorController : Controller
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [Route("notfound")]
         public ActionResult NotFound()
         {
@@ -19,10 +15,6 @@ namespace Web.Controllers
             return View();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [Route("forbidden")]
         public ActionResult Forbidden()
         {
@@ -30,10 +22,6 @@ namespace Web.Controllers
             return View();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [Route("unauthorized")]
         public ActionResult Unauthorized()
         {
@@ -41,10 +29,6 @@ namespace Web.Controllers
             return View();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [Route("internal")]
         public ActionResult Internal()
         {

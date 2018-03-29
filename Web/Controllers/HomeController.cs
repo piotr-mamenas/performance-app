@@ -18,18 +18,10 @@ namespace Web.Controllers
         [Route("")]
         public ActionResult Index()
         {
-            try
+            if (User.Identity.IsAuthenticated)
             {
-                if (User.Identity.IsAuthenticated)
-                {
-                    return RedirectToAction("Index", "Dashboard");
-                }
+                return RedirectToAction("Index", "Dashboard");
             }
-            catch (Exception ex)
-            {
-                Logger.Error(ex,$"{ex} occurred");
-            }
-
             return RedirectToAction("Login", "Authentication");
         }
     }

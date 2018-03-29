@@ -8,6 +8,7 @@ using Core.Interfaces;
 using Core.Interfaces.Repositories.BaseData;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure;
+using Infrastructure.Identity;
 using Infrastructure.Repositories.BaseData;
 using Infrastructure.Repositories.Business;
 using Microsoft.AspNet.Identity;
@@ -84,6 +85,7 @@ namespace Web.App_Start
             kernel.Bind<IInstitutionRepository<Institution>>().To<InstitutionRepository<Institution>>().InRequestScope();
             kernel.Bind<IInstitutionRepository<Bank>>().To<InstitutionRepository<Bank>>().InRequestScope();
             kernel.Bind(typeof(UserManager<User>)).ToSelf().InRequestScope();
+            kernel.Bind<IUserStore<User>>().To<ApplicationUserStore>().InRequestScope();
         }
     }
 }
