@@ -1,0 +1,9 @@
+﻿@model Web.Presentation.ViewModels.DashboardViewModels.DashboardWidgetViewModel
+<div class="dashboard-widget" href="@Model.Url" style="cursor: pointer;">
+    <div class="row">
+        @Model.Name
+    </div>
+    <div class="row">
+        <span class="@Model.Icon"></span>
+    </div>
+</div>

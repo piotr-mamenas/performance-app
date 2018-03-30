@@ -132,6 +132,7 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new ReturnCalculationPeriodConfiguration());
 
             modelBuilder.Configurations.Add(new TileWidgetConfiguration());
+            modelBuilder.Configurations.Add(new FontAwesomeIconConfiguration());
         }
 
         /// <summary>

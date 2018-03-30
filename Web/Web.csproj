@@ -264,6 +264,7 @@
     <Content Include="Content\App\Services\PortfolioService.js" />
     <Content Include="Content\App\Services\ReportService.js" />
     <Content Include="Content\App\Services\TaskService.js" />
+    <Content Include="Content\App\Styles\dashboard-widget.css" />
     <Content Include="Content\App\Styles\global.css" />
     <Content Include="Content\vendor\styles\bootstrap-select\bootstrap-select.css" />
     <Content Include="Content\vendor\styles\bootstrap-select\bootstrap-select.min.css" />
@@ -530,6 +531,7 @@
     <Content Include="Views\MarketData\ListExchangeRates.cshtml" />
     <Content Include="Views\Portfolio\Returns.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Dashboard\_Widget.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,6 +21,8 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.TileWidgetC
                 .HasColumnName("LinkUrl")
                 .IsOptional();
 
+            Property(tw => tw.Icon.Name);
+
             HasRequired(tw => tw.User)
                 .WithMany(u => u.TileWidgets)
                 .HasForeignKey(tw => tw.UserId)

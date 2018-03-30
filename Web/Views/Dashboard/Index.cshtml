@@ -4,7 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Dashboard</h2>
+@foreach (var widget in Model.UserWidgets)
+{
+    Html.RenderPartial("_Widget",widget);
+}
 
 @section scripts {
     

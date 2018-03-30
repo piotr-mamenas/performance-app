@@ -51,7 +51,7 @@
     ];
 
     var getCurrentPage = function () {
-        return localStorage.getItem("currentRoute")
+        return localStorage.getItem("currentRoute");
     };
 
     var setCurrentPage = function (selector) {

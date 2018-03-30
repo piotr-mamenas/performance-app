@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComplexTypesConfigurations\BondCouponConfiguration.cs" />
+    <Compile Include="ComplexTypesConfigurations\FontAwesomeIcon.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\AccountConfiguration\AccountConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\AssetConfigurations\AssetClassConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\AssetConfigurations\AssetConfiguration.cs" />
@@ -161,6 +162,10 @@
     <Compile Include="Migrations\201803031728208_SlightCorrectionMigration.Designer.cs">
       <DependentUpon>201803031728208_SlightCorrectionMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803301417433_RegisteringIconAsComplexType.cs" />
+    <Compile Include="Migrations\201803301417433_RegisteringIconAsComplexType.Designer.cs">
+      <DependentUpon>201803301417433_RegisteringIconAsComplexType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -228,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803031728208_SlightCorrectionMigration.resx">
       <DependentUpon>201803031728208_SlightCorrectionMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803301417433_RegisteringIconAsComplexType.resx">
+      <DependentUpon>201803301417433_RegisteringIconAsComplexType.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
