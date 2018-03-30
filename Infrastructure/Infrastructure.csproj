@@ -166,6 +166,10 @@
     <Compile Include="Migrations\201803301417433_RegisteringIconAsComplexType.Designer.cs">
       <DependentUpon>201803301417433_RegisteringIconAsComplexType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803301843248_RenamingTileWidgetsToTileWidgetForConsistency.cs" />
+    <Compile Include="Migrations\201803301843248_RenamingTileWidgetsToTileWidgetForConsistency.Designer.cs">
+      <DependentUpon>201803301843248_RenamingTileWidgetsToTileWidgetForConsistency.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -236,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803301417433_RegisteringIconAsComplexType.resx">
       <DependentUpon>201803301417433_RegisteringIconAsComplexType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803301843248_RenamingTileWidgetsToTileWidgetForConsistency.resx">
+      <DependentUpon>201803301843248_RenamingTileWidgetsToTileWidgetForConsistency.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

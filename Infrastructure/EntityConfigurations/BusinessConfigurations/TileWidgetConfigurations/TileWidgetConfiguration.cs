@@ -7,7 +7,7 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.TileWidgetC
     {
         public TileWidgetConfiguration()
         {
-            ToTable("TileWidgets");
+            ToTable("TileWidget");
 
             Property(tw => tw.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
