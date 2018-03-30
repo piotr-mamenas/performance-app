@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode navigation="page" display="Splitbook" controller="Home" action="Index" class="navbar-brand">
+  <siteMapNode navigation="page" display="Splitbook" controller="Home" action="Index" navId="DashboardNav" class="navbar-brand">
     <siteMapNode navigation="navbar" display="Partners" controller="Partner" action="Index" navId="PartnerNav" cssClass="fa fa-users">
       <siteMapNode navigation="subNav" display="List" controller="Partner" action="Index" cssClass="fa fa-list"/>
       <siteMapNode navigation="subNav" display="New Partner" controller="Partner" action="Create" cssClass="fa fa-user"/>
@@ -29,6 +29,10 @@
     <siteMapNode navigation="navbar" display="Market Data" controller="Home" action="Index" navId="MarketNav" cssClass="fa fa-globe">
       <siteMapNode navigation="subNav" display="Prices" controller="MarketData" action="ListPrices" cssClass="fa fa-money"/>
       <siteMapNode navigation="subNav" display="Exchange Rates" controller="MarketData" action="ListExchangeRates" cssClass="fa fa-eur"/>
+    </siteMapNode>
+    <siteMapNode visible="false" navigation="navbar" display="Dashboard" controller="Dashboard" action="Index" navId="DashboardNav">
+      <siteMapNode navigation="subNav" display="Dashboard" controller="Dashboard" action="Index" cssClass="fa fa-home" />
+      <siteMapNode navigation="subNav" display="New Widget" controller="Dashboard" action="CreateWidget" cssClass="fa fa-plus" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>

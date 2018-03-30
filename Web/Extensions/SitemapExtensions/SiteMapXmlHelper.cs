@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -49,6 +50,8 @@ namespace Web.Extensions.SitemapExtensions
             CssClass = node.Attribute("cssClass")?.Value;
 
             NavId = node.Attribute("navId")?.Value;
+
+            Visible = node.Attribute("visible")?.Value != "false";
         }
 
         public string Display { get; set; }
@@ -60,5 +63,7 @@ namespace Web.Extensions.SitemapExtensions
         public string CssClass { get; set; }
 
         public string NavId { get; set; }
+
+        public bool Visible { get; set; }
     }
 }

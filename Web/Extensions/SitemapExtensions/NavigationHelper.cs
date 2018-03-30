@@ -29,14 +29,10 @@ namespace Web.Extensions.SitemapExtensions
         private static string GetNavbarHeader(XDocument node)
         {
             var sitemapNode = new SiteMapNode(node.GetHeaderXmlElement());
-
-            var urlHelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
-            var url = urlHelper.AbsoluteAction(sitemapNode.Action, sitemapNode.Controller);
-
             var headerStringBuilder = new StringBuilder();
 
-            headerStringBuilder.AppendLine("<div class=\"navbar-header\">");
-            headerStringBuilder.AppendLine("<a href=\"" + url + "\" class=\"navbar-brand\">" + sitemapNode.Display + "</a>");
+            headerStringBuilder.AppendLine("<div class=\"navbar-header\" >");
+            headerStringBuilder.AppendLine("<a href=\"#\" data-toggle=\"collapse\" data-target=\"#" + sitemapNode.NavId + "\" class=\"navbar-brand\">" + sitemapNode.Display + "</a>");
             headerStringBuilder.AppendLine("</div>");
             return headerStringBuilder.ToString();
         }
@@ -74,10 +70,11 @@ namespace Web.Extensions.SitemapExtensions
         private static string GetNavigationItem(XElement node)
         {
             var siteMapNode = new SiteMapNode(node);
+            var visibilityStyle = siteMapNode.Visible ? "" : "display: none;";
 
-            return "<li class=\"dropdown\">" +
-                   "<a href=\"#\" data-toggle=\"collapse\" data-target=\"#" + siteMapNode.NavId + "\"><span style=\"margin-right:5px;\" class=\"" + siteMapNode.CssClass +
-                   "\"></span>" + siteMapNode.Display + "</a></li>";
+            return "<li class=\"dropdown\" style=\"" + visibilityStyle + "\">" + 
+                "<a href=\"#\" data-toggle=\"collapse\" data-target=\"#" + siteMapNode.NavId + "\"><span style=\"margin-right:5px;\" class=\"" + siteMapNode.CssClass +
+                "\"></span>" + siteMapNode.Display + "</a></li>";
         }
 
         /// <summary>
