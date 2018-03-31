@@ -13,7 +13,6 @@
 
     $("[data-toggle=collapse]").click(function () {
         var targetSubNav = $($(this).data("target"));
-        console.log(targetSubNav);
         routing.setCurrentPage("#" + targetSubNav.attr("id"));
 
         $("#subnavbar").children("ul").not(":hidden").slideUp(0).hide(0);

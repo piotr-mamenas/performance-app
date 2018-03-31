@@ -31,8 +31,11 @@ namespace Web.Extensions.SitemapExtensions
             var sitemapNode = new SiteMapNode(node.GetHeaderXmlElement());
             var headerStringBuilder = new StringBuilder();
 
+            var urlHelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
+            var url = urlHelper.AbsoluteAction(sitemapNode.Action, sitemapNode.Controller);
+
             headerStringBuilder.AppendLine("<div class=\"navbar-header\" >");
-            headerStringBuilder.AppendLine("<a href=\"#\" data-toggle=\"collapse\" data-target=\"#" + sitemapNode.NavId + "\" class=\"navbar-brand\">" + sitemapNode.Display + "</a>");
+            headerStringBuilder.AppendLine("<a href=\"" + url + "\" data-toggle=\"collapse\" data-target=\"#" + sitemapNode.NavId + "\" class=\"navbar-brand\">" + sitemapNode.Display + "</a>");
             headerStringBuilder.AppendLine("</div>");
             return headerStringBuilder.ToString();
         }
@@ -73,7 +76,7 @@ namespace Web.Extensions.SitemapExtensions
             var visibilityStyle = siteMapNode.Visible ? "" : "display: none;";
 
             return "<li class=\"dropdown\" style=\"" + visibilityStyle + "\">" + 
-                "<a href=\"#\" data-toggle=\"collapse\" data-target=\"#" + siteMapNode.NavId + "\"><span style=\"margin-right:5px;\" class=\"" + siteMapNode.CssClass +
+                "<a href=\"#\" data-toggle=\"collapse\" data-target=\"#" + siteMapNode.NavId + "\"><span style=\"margin-right:5px;\" class=\"navbar-icon " + siteMapNode.CssClass +
                 "\"></span>" + siteMapNode.Display + "</a></li>";
         }
 
@@ -118,7 +121,7 @@ namespace Web.Extensions.SitemapExtensions
                 var urlHelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
                 var url = urlHelper.AbsoluteAction(sitemapNode.Action, sitemapNode.Controller);
 
-                subNavBuilder.AppendLine("<li><a href=\"" + url + "\"><span style=\"margin-right:5px;\" class=\"" +
+                subNavBuilder.AppendLine("<li><a href=\"" + url + "\"><span style=\"margin-right:5px;\" class=\"subnavbar-icon " +
                                          sitemapNode.CssClass + "\"></span>" + sitemapNode.Display + "</a></li>");
             }
 
