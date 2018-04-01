@@ -12,24 +12,28 @@
 </head>
 <body>
     @Html.GenerateRibbon()
-<div id="app-body" data-current-page="">
-    <div class="container-fluid">
-        <div class="row" style="height: 800px;">
-            <div class="col-md-12">
-                @RenderBody()
+    <div id="app-body" data-current-page="">
+        <div class="container-fluid">
+            <div class="row" style="height: 800px;">
+                <div class="col-md-12">
+                    @RenderBody()
+                </div>
             </div>
-        </div>        
+        </div>
     </div>
-</div>
+    <div class="footer navbar-fixed-bottom">
+        <div class="icon-sidebar">
+            <span class="fa fa-2x fa-bookmark-o"></span>
+        </div>
+    </div>
 
+    @Scripts.Render("~/bundles/vendor/lib")
+    @Scripts.Render("~/bundles/vendor/jqueryval")
+    @Scripts.Render("~/bundles/app")
+    @Scripts.Render("~/bundles/app/services")
+    @Scripts.Render("~/bundles/app/controllers")
 
-@Scripts.Render("~/bundles/vendor/lib")
-@Scripts.Render("~/bundles/vendor/jqueryval")
-@Scripts.Render("~/bundles/app")
-@Scripts.Render("~/bundles/app/services")
-@Scripts.Render("~/bundles/app/controllers")
-
-<script>
+    <script>
     $(document).ready(function() {
         App.init();
         $.support.cors = true;
@@ -39,7 +43,7 @@
 
         NavbarController.init();
     });
-</script>
+    </script>
 
 </body>
 </html>

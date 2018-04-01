@@ -50,3 +50,22 @@ ul.nav a:hover {
     align-items: center;
     justify-content: center;
 }
+
+.icon-sidebar {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+
+.navbar-fixed-bottom {
+    background-color: #000033 !important;
+    opacity: 0.5;
+    width: 200px;
+}
+
+footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+}

@@ -8,6 +8,8 @@ namespace Core.Domain.Returns
     {
         protected HoldingPeriodReturn()
         {
+            Incomes = new List<ReturnIncome>();
+            Periods = new List<ReturnCalculationPeriod>();
         }
 
         /// <summary>
