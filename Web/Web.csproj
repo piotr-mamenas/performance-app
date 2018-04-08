@@ -269,6 +269,8 @@
     <Content Include="Content\App\Services\TaskService.js" />
     <Content Include="Content\App\Styles\dashboard-widget.css" />
     <Content Include="Content\App\Styles\global.css" />
+    <Content Include="Content\vendor\scripts\bootstrap\bootstrap-datepicker.min.js" />
+    <Content Include="Content\vendor\scripts\bootstrap\bootstrap-datetimepicker.min.js" />
     <Content Include="Content\vendor\styles\bootstrap-select\bootstrap-select.css" />
     <Content Include="Content\vendor\styles\bootstrap-select\bootstrap-select.min.css" />
     <Content Include="Content\vendor\scripts\moment\datetime.js" />
@@ -276,6 +278,8 @@
     <Content Include="Content\vendor\scripts\moment\moment.js" />
     <Content Include="Content\vendor\scripts\underscore\underscore.js" />
     <Content Include="Content\vendor\scripts\underscore\underscore.min.js" />
+    <Content Include="Content\vendor\styles\bootstrap\bootstrap-datepicker.min.css" />
+    <Content Include="Content\vendor\styles\bootstrap\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\vendor\styles\datatables\css\autoFill.bootstrap.css" />
     <Content Include="Content\vendor\styles\datatables\css\autoFill.bootstrap.min.css" />
     <Content Include="Content\vendor\styles\datatables\css\autoFill.dataTables.css" />

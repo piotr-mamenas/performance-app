@@ -32,27 +32,43 @@
             }
         });
     }
+    
+    var initializeDatepicker = function (selector) {
+        $(selector).datepicker({
+            format: "dd/mm/yyyy",
+            autoclose: true
+        }).on("changeDate", function () {
+            $(this).blur();
+            $(this).datepicker("hide");
+        });
+    }
+
+    var appendPeriod = function() {
+        numberOfPeriods++;
+        $(".calculation-datepicker").append(
+            "<div class='row input-group input-daterange'>" +
+                "<div class='col-md-6'>" +
+                    "<input type='text' class='form-control' data-date-from-row-id='" + numberOfPeriods + "' placeholder='Date From' />" +
+                "</div>" +
+                "<div class='col-md-6'>" +
+                    "<input type='text' class='form-control' data-date-to-row-id='" + numberOfPeriods + "' placeholder='Date To' />" +
+                "</div>" +
+            "</div>");
+    };
 
     var onCalculateAssetClick = function(e) {
         calculateAssetButton = $(e.currentTarget);
-        numberOfPeriods = 1;
+        numberOfPeriods = 0;
+        calculationPeriods = [];
 
+        $(".calculation-datepicker").empty();
+        appendPeriod();
         bootbox.dialog({
             title: "Enter Calculation Periods",
-            message:
-                "<form role=\"form\">" +
-                "<div class=\"form-group row\">" +
-                    "<div class=\"col-md-6 calculation-date-from\">" +
-                        "<label class=\"label label-default\">Date From</label>" +
-                        "<input type=\"date\" class=\"date form-control calculation-date-from-row\" placeholder=\"DD / MM / YYYY\" />" +
-                    "</div>" +
-                    "<div class=\"col-md-6 calculation-date-to\">" +
-                        "<label class=\"label label-default\">Date To</label>" +
-                        "<input type=\"date\" class=\"date form-control calculation-date-to-row\" placeholder=\"DD / MM / YYYY\" />" +
-                    "</div>" +
-                "</div>" + 
-                "</form>"
-            ,
+            onEscape: function () {
+                $(".bootbox.modal").modal("hide");
+            },
+            message: $("#portfolioReturnsForm").html(),
             buttons: {
                 cancel: {
                     label: "<i class=\"fa fa-times\"></i> Cancel",
@@ -61,18 +77,18 @@
                 confirm: {
                     label: "<i class=\"fa fa-check\"></i> Confirm",
                     className: "btn-primary",
-                    callback: function() {
-                        $(".calculation-date-from-row").each(function (index, value) {
-                            console.log(value);
+                    callback: function () {
+                        console.log("MAIN")
+                        $("input[data-date-from-row-id]").each(function () {
+                            console.log($(this));
+                            console.log("HELLO");
                             calculationPeriods.push({
-                                dateFrom: value,
-                                dateTo: null
+                                dateFrom: $(this).val()
                             });
                         });
                         
-                        $(".calculation-date-to-row").each(function (index, value) {
-                            
-                            calculationPeriods[index].dateFrom = value.val();
+                        $("input[data-date-to-row-id]").each(function (index) {
+                            calculationPeriods[index].dateTo = $(this).val();
                         });
                         console.log(calculationPeriods);
                     }
@@ -87,15 +103,22 @@
                             periodButton.css("color", "#F00");
                             periodButton.prop("disabled", true);
                         } else {
-                            numberOfPeriods++;
-                            $(".calculation-date-from").append("<input type=\"date\" class=\"date form-control calculation-date-from-row\" placeholder=\"dd-mm - yy\" />");                            
-                            $(".calculation-date-to").append("<input type=\"date\" class=\"date form-control calculation-date-to-row\" placeholder=\"dd-mm - yy\" />");
+                            console.log($("[data-date-from-row-id='" + numberOfPeriods + "']"));
+                            console.log($("[data-date-from-row-id='" + numberOfPeriods + "']").val());
+                            if ($("input[data-date-from-row-id='" + numberOfPeriods + "']").val()) {
+                                appendPeriod();
+
+                                initializeDatepicker("[data-date-from-row-id='" + numberOfPeriods + "']");
+                                initializeDatepicker("[data-date-to-row-id='" + numberOfPeriods + "']");                                
+                            }
                         }
                         return false;
                     }
                 }
             }
         });
+        initializeDatepicker("[data-date-from-row-id='1']");
+        initializeDatepicker("[data-date-to-row-id='1']");
     };
 
     var init = function(id) {

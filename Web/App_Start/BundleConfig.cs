@@ -38,6 +38,8 @@ namespace Web
                 "~/Content/vendor/scripts/underscore/underscore.js",
                 "~/Content/vendor/scripts/moment/moment.js",
                 "~/Content/vendor/scripts/moment/datetime.js",
+                "~/Content/vendor/scripts/bootstrap/bootstrap-datetimepicker.min.js",
+                "~/Content/vendor/scripts/bootstrap/bootstrap-datepicker.min.js",
                 "~/Content/vendor/scripts/bootstrap-select/bootstrap-select.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/vendor/jqueryval").Include(
@@ -53,7 +55,9 @@ namespace Web
                 "~/Content/vendor/styles/font-awesome/font-awesome.css",
                 "~/Content/vendor/styles/datatables/css/datatables.bootstrap.css",
                 "~/Content/vendor/styles/datatables/css/dataTables.fontAwesome.css",
-                "~/Content/vendor/styles/bootstrap-select/bootstrap-select.css"));
+                "~/Content/vendor/styles/bootstrap-select/bootstrap-select.css",
+                "~/Content/vendor/styles/bootstrap/bootstrap-datetimepicker.min.css",
+                "~/Content/vendor/styles/bootstrap/bootstrap-datepicker.min.css"));
         }
     }
 }
