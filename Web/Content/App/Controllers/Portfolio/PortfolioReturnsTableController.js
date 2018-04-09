@@ -96,16 +96,14 @@
                 addPeriod: {
                     label: "<i class=\"fa fa-plus\"></i> Add Period",
                     callback: function () {
-                        if (numberOfPeriods > 10) {
+                        if (numberOfPeriods > 4) {
                             var periodButton = $("[data-bb-handler='addPeriod']");
                             periodButton.html("MAXIMUM PERIODS REACHED");
                             periodButton.css("font-size", 8);
                             periodButton.css("color", "#F00");
                             periodButton.prop("disabled", true);
                         } else {
-                            console.log($("[data-date-from-row-id='" + numberOfPeriods + "']"));
-                            console.log($("[data-date-from-row-id='" + numberOfPeriods + "']").val());
-                            if ($("input[data-date-from-row-id='" + numberOfPeriods + "']").val()) {
+                            if ($("input[data-date-from-row-id='" + numberOfPeriods + "']").data()) {
                                 appendPeriod();
 
                                 initializeDatepicker("[data-date-from-row-id='" + numberOfPeriods + "']");
