@@ -3,6 +3,8 @@
     var calculateAssetButton;
     var calculationPeriods = [];
     var numberOfPeriods = 1;
+    var selectedAssetId = 0;
+    var portfolioId = 0;
 
     var initializeDatatable = function (result) {
         if (table != null) {
@@ -45,24 +47,25 @@
 
     var appendPeriod = function() {
         numberOfPeriods++;
-        $(".calculation-datepicker").append(
+        $(".bootbox-body").find(".calculation-datepicker").append(
             "<div class='row input-group input-daterange'>" +
                 "<div class='col-md-6'>" +
-                    "<input type='text' class='form-control' data-date-from-row-id='" + numberOfPeriods + "' placeholder='Date From' />" +
+                    "<input type='text' required='required' class='form-control' data-date-from-row-id='" + numberOfPeriods + "' placeholder='Date From' />" +
                 "</div>" +
                 "<div class='col-md-6'>" +
-                    "<input type='text' class='form-control' data-date-to-row-id='" + numberOfPeriods + "' placeholder='Date To' />" +
+                    "<input type='text' required='required' class='form-control' data-date-to-row-id='" + numberOfPeriods + "' placeholder='Date To' />" +
                 "</div>" +
             "</div>");
     };
 
     var onCalculateAssetClick = function(e) {
         calculateAssetButton = $(e.currentTarget);
+        selectedAssetId = calculateAssetButton.data("asset-id");
         numberOfPeriods = 0;
         calculationPeriods = [];
 
         $(".calculation-datepicker").empty();
-        appendPeriod();
+
         bootbox.dialog({
             title: "Enter Calculation Periods",
             onEscape: function () {
@@ -78,19 +81,22 @@
                     label: "<i class=\"fa fa-check\"></i> Confirm",
                     className: "btn-primary",
                     callback: function () {
-                        console.log("MAIN")
-                        $("input[data-date-from-row-id]").each(function () {
-                            console.log($(this));
-                            console.log("HELLO");
+                        for (var cnt = 1; cnt <= numberOfPeriods; cnt++) {
                             calculationPeriods.push({
-                                dateFrom: $(this).val()
+                                dateFrom: $("input[data-date-from-row-id='" + cnt + "']").val(),
+                                dateTo: $("input[data-date-to-row-id='" + cnt + "']").val()
                             });
-                        });
-                        
-                        $("input[data-date-to-row-id]").each(function (index) {
-                            calculationPeriods[index].dateTo = $(this).val();
-                        });
-                        console.log(calculationPeriods);
+                        }
+                        console.log(JSON.stringify(calculationPeriods));
+                        service.getReturnsByIdAndPeriod(selectedAssetId,
+                            portfolioId,
+                            JSON.stringify(calculationPeriods),
+                            function(e) {
+                                console.log(e);
+                            },
+                            function(e) {
+                                console.log(e);
+                            });
                     }
                 },
                 addPeriod: {
@@ -115,6 +121,7 @@
                 }
             }
         });
+        appendPeriod();
         initializeDatepicker("[data-date-from-row-id='1']");
         initializeDatepicker("[data-date-to-row-id='1']");
     };
@@ -124,7 +131,8 @@
             initializeDatatable(result);
             $(".btn-portfolio-calculate-asset-returns").on("click", onCalculateAssetClick);
         }
-        service.getAssetsByPortfolios(id, loadDatatable, loadDatatable);
+        portfolioId = id;
+        service.getAssetsByPortfolios(portfolioId, loadDatatable, loadDatatable);
     }
 
     return {

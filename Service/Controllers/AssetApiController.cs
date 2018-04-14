@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Assets;
+using Core.Domain.Portfolios;
 using Core.Domain.Returns;
 using Core.Enums.Domain;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Service.Dtos.Asset;
+using Service.Dtos.Shared;
 
 namespace Service.Controllers
 {
@@ -22,7 +25,7 @@ namespace Service.Controllers
     {
         private readonly IAssetRepository<Asset> _assetRepository;
         private readonly IAssetRepository<Bond> _bondRepository;
-        private readonly IReturnRepository<HoldingPeriodReturn> _returnRepository;
+        private readonly IPortfolioRepository<Portfolio> _portfolioRepository;
         private readonly IComplete _unitOfWork;
 
         public AssetApiController(IUnitOfWork unitOfWork)
@@ -32,23 +35,19 @@ namespace Service.Controllers
 
             _unitOfWork = (IComplete)unitOfWork;
             _assetRepository = unitOfWork.Assets;
-            _returnRepository = unitOfWork.HoldingPeriodReturns;
             _bondRepository = unitOfWork.Bonds;
+            _portfolioRepository = unitOfWork.Portfolios;
         }
 
         [ResponseType(typeof(ICollection<AssetDto>))]
         [HttpGet, Route("")]
-        public async Task<IHttpActionResult> GetAsync()
+        public async Task<IHttpActionResult> GetAllAsync()
         {
             var assets = await _assetRepository.GetAll()
                 .Include(a => a.Prices)
                 .Include(a => a.Class)
                 .ToListAsync();
 
-            if (assets == null)
-            {
-                return NotFound();
-            }
             return Ok(assets.Map<ICollection<AssetDto>>());
         }
 
@@ -63,6 +62,60 @@ namespace Service.Controllers
                 return NotFound();
             }
             return Ok(asset.Map<AssetDto>());
+        }
+
+        [ResponseType(typeof(decimal))]
+        [HttpPost, Route("{assetId}/portfolios/{portfolioId}/returns")]
+        public async Task<IHttpActionResult> GetReturnsForCalculationPeriodAsync(int assetId, int portfolioId, ICollection<DatePeriodDto> calculationPeriods)
+        {
+            var assetInDb = await _assetRepository.GetAsync(assetId);
+
+            if (assetInDb == null)
+            {
+                return NotFound();
+            }
+
+            var portfolioInDb = await _portfolioRepository.GetAsync(portfolioId);
+
+            if (portfolioInDb == null)
+            {
+                return NotFound();
+            }
+
+            var submittedPeriods = new List<Tuple<DateTime, DateTime>>();
+            foreach (var period in calculationPeriods)
+            {
+                submittedPeriods.Add(new Tuple<DateTime, DateTime>(
+                    DateTime.ParseExact(period.DateFrom, "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                    DateTime.ParseExact(period.DateTo, "dd/MM/yyyy", CultureInfo.InvariantCulture)
+                ));
+            }
+
+            var initialDatetime = submittedPeriods.Min(p => p.Item1).Date;
+            var finalDatetime = submittedPeriods.Max(p => p.Item2).Date;
+
+            try
+            {
+                var periodIncomes = portfolioInDb.Positions
+                    .Where(p => p.AssetId == assetId && p.PortfolioId == portfolioId)
+                    .Where(p => p.Timestamp >= initialDatetime && p.Timestamp <= finalDatetime)
+                    .Select(p => new Tuple<decimal, DateTime>(p.Amount, p.Timestamp))
+                    .ToList();
+
+                assetInDb.CalculateReturn(ReturnType.HoldingPeriodReturn, submittedPeriods, periodIncomes);
+                var calculatedReturnRate = assetInDb.Returns
+                    .Where(r => r.Id == 0)
+                    .Select(crr => crr.Rate)
+                    .SingleOrDefault();
+
+                _assetRepository.Add(assetInDb);
+
+                return Ok(calculatedReturnRate);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [ResponseType(typeof(ICollection<AssetDto>))]

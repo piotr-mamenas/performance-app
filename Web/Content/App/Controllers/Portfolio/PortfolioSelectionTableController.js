@@ -31,7 +31,6 @@
         } else {
             table.$("tr.active").removeClass("active");
             selectedRow.addClass("active");
-            console.log(selectedPortfolioId);
             PortfolioReturnsTableController.init(selectedPortfolioId);
         }
     };

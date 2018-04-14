@@ -30,7 +30,7 @@ namespace Core.Domain.Assets
                     var holdingPeriodReturn = new HoldingPeriodReturn(periods,incomes);
                     holdingPeriodReturn.Calculate();
                     Returns.Add(holdingPeriodReturn);
-                        break;
+                    break;
             }
         }
 
