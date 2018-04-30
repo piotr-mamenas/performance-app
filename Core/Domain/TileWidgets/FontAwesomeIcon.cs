@@ -5,6 +5,7 @@ namespace Core.Domain.TileWidgets
     public class FontAwesomeIcon : ValueObject<FontAwesomeIcon>
     {
         public static string StickyNote = "fa fa-sticky-note";
+        public static string Cogs = "fa fa-cogs";
 
         public string Name { get; set; }
 

@@ -69,3 +69,7 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.navbar-brand {
+    color: #FFF !important;
+}

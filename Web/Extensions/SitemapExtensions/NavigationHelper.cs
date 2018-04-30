@@ -1,10 +1,9 @@
-﻿using System.Text;
+﻿using System.Configuration;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
-using System.Web.UI.WebControls;
 using System.Xml.Linq;
-using Core.Domain.Identity;
 
 namespace Web.Extensions.SitemapExtensions
 {
@@ -121,6 +120,11 @@ namespace Web.Extensions.SitemapExtensions
                 var urlHelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
                 var url = urlHelper.AbsoluteAction(sitemapNode.Action, sitemapNode.Controller);
 
+                // TODO: For later. This hardcode is ugly.
+                if (url == "http://" + HttpContext.Current.Request.Url.Authority)
+                {
+                    url = "#";
+                }
                 subNavBuilder.AppendLine("<li><a href=\"" + url + "\"><span style=\"margin-right:5px;\" class=\"subnavbar-icon " +
                                          sitemapNode.CssClass + "\"></span>" + sitemapNode.Display + "</a></li>");
             }

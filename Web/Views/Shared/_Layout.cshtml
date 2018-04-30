@@ -17,6 +17,7 @@
             <div class="row" style="height: 800px;">
                 <div class="col-md-12">
                     @RenderBody()
+                    <div id="runTaskForm" style="display: none"></div>
                 </div>
             </div>
         </div>
@@ -27,6 +28,16 @@
         </div>
     </div>
 
+<div id="newWidgetForm" style="display: none">
+    <div class="form-group">
+        <label for="new-widget-name"></label>
+        <input type="text" id="new-widget-name" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-block"><span class="fa fa-caret-left"></span></button>
+        <button class="btn btn-block"><span class="fa fa-caret-right"></span></button>
+    </div>
+</div>
     @Scripts.Render("~/bundles/vendor/lib")
     @Scripts.Render("~/bundles/vendor/jqueryval")
     @Scripts.Render("~/bundles/app")
@@ -42,6 +53,7 @@
         @RenderSection("scripts", false)
 
         NavbarController.init();
+        NewWidgetWindowController.init();
     });
     </script>
 

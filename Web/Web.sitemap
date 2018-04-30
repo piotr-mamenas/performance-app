@@ -23,8 +23,6 @@
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Tasks" controller="Task" action="Index" navId="TaskNav" cssClass="fa fa-tasks">
       <siteMapNode navigation="subNav" display="List" controller="Task" action="List" cssClass="fa fa-list"/>
-      <siteMapNode navigation="subNav" display="Run Task" controller="Home" action="Index" cssClass="fa fa-play-circle-o"/>
-      <siteMapNode navigation="subNav" display="Schedule" controller="Task" action="ShowSchedule" cssClass="fa fa-clock-o"/>
     </siteMapNode>
     <siteMapNode navigation="navbar" display="Market Data" controller="Home" action="Index" navId="MarketNav" cssClass="fa fa-globe">
       <siteMapNode navigation="subNav" display="Prices" controller="MarketData" action="ListPrices" cssClass="fa fa-money"/>
@@ -32,7 +30,7 @@
     </siteMapNode>
     <siteMapNode visible="false" navigation="navbar" display="Dashboard" controller="Dashboard" action="Index" navId="DashboardNav">
       <siteMapNode navigation="subNav" display="Dashboard" controller="Dashboard" action="Index" cssClass="fa fa-home" />
-      <siteMapNode navigation="subNav" display="New Widget" controller="Dashboard" action="CreateWidget" cssClass="fa fa-plus" />
+      <siteMapNode navigation="subNav" display="New Widget" controller="Dashboard" action="#" cssClass="fa fa-plus open-new-widget-window" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>

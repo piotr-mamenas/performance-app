@@ -236,6 +236,7 @@
     <Content Include="Content\App\Controllers\Contact\CreateContactController.js" />
     <Content Include="Content\App\Controllers\Contact\NewContactWizardController.js" />
     <Content Include="Content\App\Controllers\Contact\UpdateContactController.js" />
+    <Content Include="Content\App\Controllers\Dashboard\NewWidgetWindowController.js" />
     <Content Include="Content\App\Controllers\MarketData\ExchangeRateTableController.js" />
     <Content Include="Content\App\Controllers\MarketData\AssetPriceTableController.js" />
     <Content Include="Content\App\Controllers\NavbarController.js" />
@@ -252,6 +253,7 @@
     <Content Include="Content\App\Controllers\Shared\AccountSelectionTableController.js" />
     <Content Include="Content\App\Controllers\Shared\InstitutionSelectionTableController.js" />
     <Content Include="Content\App\Controllers\Shared\PartnerSelectionTableController.js" />
+    <Content Include="Content\App\Controllers\Task\RunTaskWindowController.js" />
     <Content Include="Content\App\Controllers\Task\TaskTableController.js" />
     <Content Include="Content\App\Images\background.jpg" />
     <Content Include="Content\App\App.js" />
