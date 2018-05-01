@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Core.Domain.TileWidgets
 {
@@ -6,12 +7,14 @@ namespace Core.Domain.TileWidgets
     {
         public static string StickyNote = "fa fa-sticky-note";
         public static string Cogs = "fa fa-cogs";
-
+        public static string LargeBook = "fa fa-4x fa-book";
+        public static string LargeLink = "fa fa-4x fa-link";
+        public static string LargeBriefCase = "fa fa-4x fa-link";
+        
         public string Name { get; set; }
-
+        
         public FontAwesomeIcon()
         {
-            
         }
 
         public FontAwesomeIcon(string name)

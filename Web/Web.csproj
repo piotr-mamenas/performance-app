@@ -269,6 +269,7 @@
     <Content Include="Content\App\Services\PortfolioService.js" />
     <Content Include="Content\App\Services\ReportService.js" />
     <Content Include="Content\App\Services\TaskService.js" />
+    <Content Include="Content\App\Services\ResourceService.js" />
     <Content Include="Content\App\Styles\dashboard-widget.css" />
     <Content Include="Content\App\Styles\global.css" />
     <Content Include="Content\vendor\scripts\bootstrap\bootstrap-datepicker.min.js" />
