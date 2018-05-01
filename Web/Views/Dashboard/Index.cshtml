@@ -10,26 +10,7 @@
     }    
 </div>
 
-<div id="newWidgetForm" style="display: none">
-    <div class="form-group">
-        <label for="new-widget-name">Widget Name</label>
-        <input type="text" id="new-widget-name" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label for="new-widget-name">Widget Url</label>
-        <input type="text" id="new-widget-url" class="form-control" />
-    </div>
-    <div class="form-group">
-        <span class="col-md-3">
-            <button class="new-widget-caret-left btn btn-block"><span class="fa fa-caret-left"></span></button>    
-        </span>
-        <span class="col-md-2 new-widget-icon-spinner">
-        </span>
-        <span class="col-md-3">
-            <button class="new-widget-caret-right btn btn-block"><span class="fa fa-caret-right"></span></button>
-        </span>
-    </div>
-</div>
+@Html.Partial("_NewWidgetForm")
 
 @section scripts {
     NewWidgetWindowController.init();

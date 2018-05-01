@@ -3,8 +3,6 @@
     var currentlySelectedIconId = 0;
 
     var appendIcon = function () {
-        console.log(availableIcons[currentlySelectedIconId]);
-        console.log(currentlySelectedIconId);
         $(".new-widget-icon-spinner").empty();
         $(".new-widget-icon-spinner").append("<span class='" + availableIcons[currentlySelectedIconId] + "'></span>");
     }
@@ -12,7 +10,7 @@
     var onLeftCaretClick = function (e) {
         e.preventDefault();
         currentlySelectedIconId = currentlySelectedIconId - 1;
-        if (currentlySelectedIconId < 0) {
+        if (currentlySelectedIconId === -1) {
             currentlySelectedIconId = availableIcons.length - 1;
         }
         appendIcon();
@@ -21,7 +19,7 @@
     var onRightCaretClick = function (e) {
         e.preventDefault();
         currentlySelectedIconId = currentlySelectedIconId + 1;
-        if (currentlySelectedIconId >= availableIcons.length - 1) {
+        if (currentlySelectedIconId >= availableIcons.length) {
             currentlySelectedIconId = 0;
         }
         appendIcon();
@@ -42,8 +40,14 @@
                 confirm: {
                     label: "<i class='fa fa-check'></i> Confirm",
                     className: "btn-primary",
-                    callback: function() {
-
+                    callback: function () {
+                        // TODO: Solve issue with 2 windows
+                        var widgetName = $(".js-new-widget-name");//.val();
+                        var widgetUrl = $(".js-new-widget-url");//.val();
+                        var widgetIcon = $(".js-widget-icon-spinner").children("span").attr("class");
+                        console.log(widgetName);
+                        console.log(widgetUrl);
+                        console.log(widgetIcon);
                     }
                 }
             }
@@ -54,8 +58,9 @@
 
     var init = function() {
         $(".open-new-widget-window").parent("a").on("click", onNewWidgetClick);
-        resourceService.getAvailableIcons(function(data) {
+        resourceService.getAvailableLargeIconClasses(function(data) {
             availableIcons = data;
+            appendIcon();
         }, console.log);
     };
 

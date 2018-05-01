@@ -87,7 +87,7 @@
                                 dateTo: $("input[data-date-to-row-id='" + cnt + "']").val()
                             });
                         }
-                        console.log(JSON.stringify(calculationPeriods));
+
                         service.getReturnsByIdAndPeriod(selectedAssetId,
                             portfolioId,
                             JSON.stringify(calculationPeriods),

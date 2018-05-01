@@ -255,6 +255,7 @@
     <Content Include="Content\App\Controllers\Shared\PartnerSelectionTableController.js" />
     <Content Include="Content\App\Controllers\Task\RunTaskWindowController.js" />
     <Content Include="Content\App\Controllers\Task\TaskTableController.js" />
+    <Content Include="Content\App\Controllers\ToastNotificationController.js" />
     <Content Include="Content\App\Images\background.jpg" />
     <Content Include="Content\App\App.js" />
     <Content Include="Content\App\Controllers\Contact\ContactTableController.js" />
@@ -772,6 +773,7 @@
     <Content Include="Content\vendor\scripts\highcharts\5.0.14\highcharts.js.map" />
     <Content Include="Content\vendor\scripts\highcharts\5.0.14\highcharts-more.js.map" />
     <Content Include="Content\vendor\scripts\highcharts\5.0.14\highcharts-3d.js.map" />
+    <Content Include="Views\Dashboard\_NewWidgetForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
