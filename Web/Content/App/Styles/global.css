@@ -1,0 +1,75 @@
+﻿.navbar {
+    margin-bottom: -1px;
+    border-radius: 0;
+    background-color: #00235b !important;
+}
+
+ul.nav a:link {
+    color: #FFF;
+}
+ul.nav a:visited {
+    color: #FFF;
+}
+ul.nav a:hover {
+    color: #000033 !important;
+}
+.main-account-menu a:link {
+    color: #000033 !important;
+}
+.main-account-menu a:visited {
+    color: #FFF;
+}
+
+#subnavbar {
+    background-color: #000033 !important;
+    margin-bottom: 20px;
+    padding: 5px;
+    height: 62px;
+}
+
+.navbar-icon {
+    color: #000033;
+    text-shadow: 1px 1px 3px #FFF;
+}
+
+.subnavbar-icon {
+    color: #FFF;
+    text-shadow: 1px 1px 3px #000033;
+}
+
+.navbar-header {
+    color: #FFF;
+}
+
+.collapsing {
+    display:none;
+}
+
+.modal-open .modal {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-sidebar {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+
+.navbar-fixed-bottom {
+    background-color: #000033 !important;
+    opacity: 0.5;
+    width: 200px;
+}
+
+footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+}
+
+.navbar-brand {
+    color: #FFF !important;
+}
