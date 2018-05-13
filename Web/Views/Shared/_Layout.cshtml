@@ -32,17 +32,17 @@
     @Scripts.Render("~/bundles/app")
     @Scripts.Render("~/bundles/app/services")
     @Scripts.Render("~/bundles/app/controllers")
-
+    <div id="snackbar"></div>
     <script>
     $(document).ready(function() {
         App.init();
         $.support.cors = true;
         Routing.init('@Html.GetWebServerUri()');
+        ToastNotification.init("#snackbar");
 
         @RenderSection("scripts", false)
 
         NavbarController.init();
-        ToastNotificationController.init();
     });
     </script>
 

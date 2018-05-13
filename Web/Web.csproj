@@ -255,7 +255,7 @@
     <Content Include="Content\App\Controllers\Shared\PartnerSelectionTableController.js" />
     <Content Include="Content\App\Controllers\Task\RunTaskWindowController.js" />
     <Content Include="Content\App\Controllers\Task\TaskTableController.js" />
-    <Content Include="Content\App\Controllers\ToastNotificationController.js" />
+    <Content Include="Content\App\ToastNotification.js" />
     <Content Include="Content\App\Images\background.jpg" />
     <Content Include="Content\App\App.js" />
     <Content Include="Content\App\Controllers\Contact\ContactTableController.js" />
@@ -273,6 +273,7 @@
     <Content Include="Content\App\Services\ResourceService.js" />
     <Content Include="Content\App\Styles\dashboard-widget.css" />
     <Content Include="Content\App\Styles\global.css" />
+    <Content Include="Content\App\Styles\snackbar.css" />
     <Content Include="Content\vendor\scripts\bootstrap\bootstrap-datepicker.min.js" />
     <Content Include="Content\vendor\scripts\bootstrap\bootstrap-datetimepicker.min.js" />
     <Content Include="Content\vendor\styles\bootstrap-select\bootstrap-select.css" />

@@ -14,7 +14,8 @@ namespace Web
         {
             bundles.Add(new ScriptBundle("~/bundles/App").Include(
                 "~/Content/App/App.js",
-                "~/Content/App/Routing.js"));
+                "~/Content/App/Routing.js",
+                "~/Content/App/ToastNotification.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/App/Services").IncludeDirectory(
                 "~/Content/App/Services","*Service.js",searchSubdirectories: true));

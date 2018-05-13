@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using System.Web.Http.Description;
-using Core.Domain.Accounts;
 using Core.Domain.TileWidgets;
-using Core.Interfaces;
-using Core.Interfaces.Repositories.Business;
-using Infrastructure.AutoMapper;
-using Infrastructure.Serialization.JsonContractResolvers;
-using Service.Dtos.Account;
 
 namespace Service.Controllers
 {
@@ -29,6 +19,18 @@ namespace Service.Controllers
                 FontAwesomeIcon.LargeBook,
                 FontAwesomeIcon.LargeBriefCase,
                 FontAwesomeIcon.LargeLink
+            };
+            return availableIcons;
+        }
+
+        [HttpGet, Route("largeicons")]
+        public ICollection<string> GetAvailableLargeIconNames()
+        {
+            ICollection<string> availableIcons = new List<string>
+            {
+                FontAwesomeIcon.LargeBriefCase,
+                FontAwesomeIcon.LargeLink,
+                FontAwesomeIcon.LargeBook
             };
             return availableIcons;
         }

@@ -1,4 +1,4 @@
-﻿var NavbarController = function (routing) {
+﻿var NavbarController = function (routing, toasty) {
 
     var presetNavbar = function (currentPage) {
         if (currentPage !== null) {
@@ -25,9 +25,10 @@
 
     var init = function () {
         presetNavbar(routing.getCurrentPage());
+        toasty.notify("Welcome!");
     }
 
     return {
         init: init
     }
-}(Routing);
+}(Routing, ToastNotification);

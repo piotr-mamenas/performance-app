@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Core.Domain.Portfolios;
 using Core.Domain.Returns;
 using Core.Enums.Domain;
@@ -15,11 +16,11 @@ namespace Core.Domain.Assets
 
         public AssetClass Class { get; set; }
         public int ClassId { get; set; }
-        
+
         public ICollection<Portfolio> Portfolios { get; set; }
 
         public ICollection<AssetPrice> Prices { get; set; }
-        
+
         public ICollection<Return> Returns { get; set; }
 
         public void CalculateReturn(ReturnType returnType, IEnumerable<Tuple<DateTime, DateTime>> periods, IEnumerable<Tuple<decimal, DateTime>> incomes)
@@ -27,7 +28,7 @@ namespace Core.Domain.Assets
             switch (returnType)
             {
                 case ReturnType.HoldingPeriodReturn:
-                    var holdingPeriodReturn = new HoldingPeriodReturn(periods,incomes);
+                    var holdingPeriodReturn = new HoldingPeriodReturn(periods, incomes);
                     holdingPeriodReturn.Calculate();
                     Returns.Add(holdingPeriodReturn);
                     break;

@@ -2,9 +2,6 @@
 
 namespace Core.Domain.Assets
 {
-    /// <summary>
-    /// 
-    /// </summary>
     [ComplexType]
     public class BondCoupon : ValueObject<BondCoupon>
     {
