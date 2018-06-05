@@ -50,6 +50,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Assets\AssetTests.cs" />
     <Compile Include="Domain\Assets\BondTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

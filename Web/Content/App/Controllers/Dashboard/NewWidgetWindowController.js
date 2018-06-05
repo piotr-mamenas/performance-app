@@ -9,8 +9,8 @@
 
     var onLeftCaretClick = function (e) {
         e.preventDefault();
-        currentlySelectedIconId = currentlySelectedIconId - 1;
-        if (currentlySelectedIconId === -1) {
+        currentlySelectedIconId -= 1;
+        if (currentlySelectedIconId < 0) {
             currentlySelectedIconId = availableIcons.length - 1;
         }
         appendIcon();
@@ -18,7 +18,7 @@
 
     var onRightCaretClick = function (e) {
         e.preventDefault();
-        currentlySelectedIconId = currentlySelectedIconId + 1;
+        currentlySelectedIconId += 1;
         if (currentlySelectedIconId >= availableIcons.length) {
             currentlySelectedIconId = 0;
         }
@@ -28,10 +28,13 @@
     var onNewWidgetClick = function () {
         bootbox.dialog({
             title: "Create New Widget",
-            onEscape: function() {
+            onEscape: function () {
                 $(".bootbox.modal").modal("hide");
             },
-            message: $("#newWidgetForm").html(),
+            message: function () {
+                var formHtml = $("#newWidgetForm").html();
+                return formHtml;
+            },
             buttons: {
                 cancel: {
                     label: "<i class='fa fa-times'></i> Cancel",
@@ -41,13 +44,10 @@
                     label: "<i class='fa fa-check'></i> Confirm",
                     className: "btn-primary",
                     callback: function () {
-                        // TODO: Solve issue with 2 windows
-                        var widgetName = $(".js-new-widget-name");//.val();
-                        var widgetUrl = $(".js-new-widget-url");//.val();
-                        var widgetIcon = $(".js-widget-icon-spinner").children("span").attr("class");
-                        console.log(widgetName);
-                        console.log(widgetUrl);
-                        console.log(widgetIcon);
+                        var modalSelector = $(".modal-dialog");
+                        var widgetName = modalSelector.find(".js-new-widget-name").val();
+                        var widgetUrl = modalSelector.find(".js-new-widget-url").val();
+                        var widgetIcon = modalSelector.find(".js-widget-icon-spinner").children("span").attr("class");
                     }
                 }
             }

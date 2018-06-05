@@ -9,7 +9,7 @@ namespace Core.Domain.TileWidgets
         public static string Cogs = "fa fa-cogs";
         public static string LargeBook = "fa fa-4x fa-book";
         public static string LargeLink = "fa fa-4x fa-link";
-        public static string LargeBriefCase = "fa fa-4x fa-link";
+        public static string LargeBriefCase = "fa fa-4x fa-briefcase";
         
         public string Name { get; set; }
         
