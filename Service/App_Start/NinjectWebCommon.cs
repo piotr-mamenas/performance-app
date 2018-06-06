@@ -14,6 +14,9 @@ using Infrastructure;
 using Infrastructure.Repositories.BaseData;
 using Infrastructure.Repositories.Business;
 using Infrastructure.Repositories.System;
+using Infrastructure.Identity;
+using Microsoft.AspNet.Identity;
+using Core.Domain.Identity;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Service.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Service.App_Start.NinjectWebCommon), "Stop")]
@@ -89,6 +92,8 @@ namespace Service.App_Start
             kernel.Bind<IInstitutionRepository<Bank>>().To<InstitutionRepository<Bank>>().InRequestScope();
             kernel.Bind<IPortfolioRepository<Portfolio>>().To<PortfolioRepository<Portfolio>>().InRequestScope();
             kernel.Bind<ITaskRepository<ServerTask>>().To<TaskRepository<ServerTask>>().InRequestScope();
+            kernel.Bind(typeof(UserManager<User>)).ToSelf().InRequestScope();
+            kernel.Bind<IUserStore<User>>().To<ApplicationUserStore>().InRequestScope();
         }        
     }
 }

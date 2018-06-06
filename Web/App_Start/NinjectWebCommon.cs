@@ -12,6 +12,7 @@ using Infrastructure.Identity;
 using Infrastructure.Repositories.BaseData;
 using Infrastructure.Repositories.Business;
 using Microsoft.AspNet.Identity;
+using Core.Domain.Identity;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Web.App_Start.NinjectWebCommon), "Stop")]
