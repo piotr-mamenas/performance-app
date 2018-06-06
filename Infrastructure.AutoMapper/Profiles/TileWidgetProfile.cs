@@ -11,6 +11,11 @@ namespace Infrastructure.AutoMapper.Profiles
             CreateMap<TileWidget, DashboardWidgetViewModel>()
                 .ForMember(dest => dest.Icon, opt => opt.MapFrom(src => src.Icon.Name))
                 .ReverseMap();
+
+            CreateMap<DashboardWidgetViewModel, TileWidget>()
+                .ForMember(dest => dest.Icon.Name, opt => opt.MapFrom(src => src.Icon))
+                .ReverseMap();
+
         }
     }
 }

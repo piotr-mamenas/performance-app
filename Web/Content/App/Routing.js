@@ -51,6 +51,10 @@
         {
             Name: "Resource",
             Uri: "api/resources/"
+        },
+        {
+            Name: "Widget",
+            Uri: "api/widget/"
         }
     ];
 

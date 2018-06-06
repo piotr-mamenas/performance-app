@@ -119,7 +119,7 @@ namespace Service.Controllers
         }
 
         [HttpGet, Route("runs")]
-        public async Task<IHttpActionResult> GetTaskRuns()
+        public async Task<IHttpActionResult> GetTaskRunsAsync()
         {
             var tasks = await _repository.GetAll()
                 .Include(t => t.Runs)
@@ -137,7 +137,7 @@ namespace Service.Controllers
         }
 
         [HttpGet, Route("{id}/runs")]
-        public async Task<IHttpActionResult> GetTaskRunsByTaskId(int id)
+        public async Task<IHttpActionResult> GetTaskRunsByTaskIdAsync(int id)
         {
             var task = await _repository.GetAsync(id);
 

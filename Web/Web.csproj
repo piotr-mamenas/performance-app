@@ -256,6 +256,7 @@
     <Content Include="Content\App\Controllers\Shared\PartnerSelectionTableController.js" />
     <Content Include="Content\App\Controllers\Task\RunTaskWindowController.js" />
     <Content Include="Content\App\Controllers\Task\TaskTableController.js" />
+    <Content Include="Content\App\Services\WidgetService.js" />
     <Content Include="Content\App\ToastNotification.js" />
     <Content Include="Content\App\Images\background.jpg" />
     <Content Include="Content\App\App.js" />

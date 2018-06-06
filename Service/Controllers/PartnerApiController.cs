@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
-using Core.Domain.Accounts;
-using Core.Domain.Contacts;
 using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
@@ -113,7 +111,7 @@ namespace Service.Controllers
             return Created(new Uri(Request.RequestUri + "/" + partner.Id), partner);
         }
 
-        [HttpDelete, HttpGet, Route("{id}/delete")]
+        [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
             var partner = await _partnersRepository.GetAll()

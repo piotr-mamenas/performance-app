@@ -69,6 +69,7 @@
     <Compile Include="Shared\DatePeriodDto.cs" />
     <Compile Include="Task\ServerTaskDto.cs" />
     <Compile Include="Task\TaskRunDto.cs" />
+    <Compile Include="Widget\CreateWidgetDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
