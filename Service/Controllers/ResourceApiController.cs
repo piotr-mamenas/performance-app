@@ -7,7 +7,7 @@ namespace Service.Controllers
 {
     [RoutePrefix("api/resources")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class ResourceApiController : ApiController
+    public class ResourceApiController : BaseApiController
     {
         [HttpGet, Route("icons")]
         public ICollection<string> GetAvailableIconNames()

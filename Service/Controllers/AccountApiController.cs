@@ -16,7 +16,7 @@ namespace Service.Controllers
 {
     [RoutePrefix("api/accounts")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class AccountApiController : ApiController
+    public class AccountApiController : BaseApiController
     {
         private readonly IAccountRepository<Account> _repository;
         private readonly IComplete _unitOfWork;

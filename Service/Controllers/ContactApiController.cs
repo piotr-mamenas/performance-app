@@ -16,7 +16,7 @@ namespace Service.Controllers
 {
     [RoutePrefix("api/contacts")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class ContactApiController : ApiController
+    public class ContactApiController : BaseApiController
     {
         private readonly IContactRepository<Contact> _repository;
         private readonly IComplete _unitOfWork;

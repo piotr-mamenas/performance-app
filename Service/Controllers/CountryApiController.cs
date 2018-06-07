@@ -15,7 +15,7 @@ namespace Service.Controllers
 {
     [RoutePrefix("api/countries")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class CountryApiController : ApiController
+    public class CountryApiController : BaseApiController
     {
         private readonly IComplete _unitOfWork;
         private readonly ICountryRepository<Country> _repository;

@@ -12,7 +12,6 @@ using Infrastructure.Identity;
 using Infrastructure.Repositories.BaseData;
 using Infrastructure.Repositories.Business;
 using Microsoft.AspNet.Identity;
-using Core.Domain.Identity;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Web.App_Start.NinjectWebCommon), "Stop")]
@@ -23,7 +22,7 @@ namespace Web.App_Start
     using System.Web;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
+    using Core.Domain.Identity;
     using Ninject;
     using Ninject.Web.Common;
 

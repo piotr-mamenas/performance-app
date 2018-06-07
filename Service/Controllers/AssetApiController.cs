@@ -20,7 +20,7 @@ namespace Service.Controllers
 {
     [RoutePrefix("api/assets")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class AssetApiController : ApiController
+    public class AssetApiController : BaseApiController
     {
         private readonly IAssetRepository<Asset> _assetRepository;
         private readonly IAssetRepository<Bond> _bondRepository;

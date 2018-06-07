@@ -16,7 +16,7 @@ namespace Service.Controllers
 {
     [RoutePrefix("api/portfolios")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class PortfolioApiController : ApiController
+    public class PortfolioApiController : BaseApiController
     {
         private readonly IPortfolioRepository<Portfolio> _repository;
         private readonly IComplete _unitOfWork;

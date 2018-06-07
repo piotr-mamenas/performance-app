@@ -5,11 +5,12 @@ using Core.Domain.TileWidgets;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
+using Ninject.Activation;
 using Service.Dtos.Widget;
 
 namespace Service.Controllers
 {
-    public class WidgetApiController : ApiController
+    public class WidgetApiController : BaseApiController
     {
         private readonly ITileWidgetRepository<TileWidget> _repository;
         private readonly IComplete _unitOfWork;
@@ -28,9 +29,7 @@ namespace Service.Controllers
                 return BadRequest();
             }
 
-            var newWidget = createWidgetDto.Map<TileWidget>();
-
-            newWidget.UserId = Guid.NewGuid().ToString();
+            var newWidget = TileWidget.Build(CurrentUser.Id, createWidgetDto.Name, createWidgetDto.Name, createWidgetDto.Url);
             _repository.Add(newWidget);
 
             await _unitOfWork.CompleteAsync();

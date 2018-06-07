@@ -15,7 +15,7 @@ namespace Service.Controllers
 {
     [RoutePrefix("api/institutions")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class InstitutionApiController : ApiController
+    public class InstitutionApiController : BaseApiController
     {
         private readonly IComplete _unitOfWork;
         private readonly IInstitutionRepository<Institution> _repository;

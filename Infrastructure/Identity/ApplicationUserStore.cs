@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using Core.Domain.Identity;
+﻿using Core.Domain.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 

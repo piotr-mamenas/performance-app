@@ -18,7 +18,7 @@ namespace Service.Controllers
 {
     [RoutePrefix("api/partners")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class PartnerApiController : ApiController
+    public class PartnerApiController : BaseApiController
     {
         private readonly IComplete _unitOfWork;
         private readonly IPartnerRepository<Partner> _partnersRepository;

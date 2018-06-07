@@ -21,7 +21,7 @@ namespace Service.Controllers
 {
     [RoutePrefix("api/reports")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class ReportApiController : ApiController
+    public class ReportApiController : BaseApiController
     {
         private readonly IReportRepository<Report> _repository;
         private readonly IComplete _unitOfWork;

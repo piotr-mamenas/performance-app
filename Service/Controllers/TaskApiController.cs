@@ -17,7 +17,7 @@ namespace Service.Controllers
 {
     [RoutePrefix("api/tasks")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class TaskApiController : ApiController
+    public class TaskApiController : BaseApiController
     {
         private readonly ITaskRepository<ServerTask> _repository;
         private readonly IComplete _unitOfWork;

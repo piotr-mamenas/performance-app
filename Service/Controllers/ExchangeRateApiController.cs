@@ -16,7 +16,7 @@ namespace Service.Controllers
 {
     [RoutePrefix("api/exchangerates")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class ExchangeRateApiController : ApiController
+    public class ExchangeRateApiController : BaseApiController
     {
         private readonly IExchangeRateRepository<ExchangeRate> _repository;
         private readonly IComplete _unitOfWork;
