@@ -169,6 +169,7 @@
     <Compile Include="Controllers\ResourceApiController.cs" />
     <Compile Include="Controllers\TaskApiController.cs" />
     <Compile Include="Controllers\WidgetApiController.cs" />
+    <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
