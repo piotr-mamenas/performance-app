@@ -11,6 +11,7 @@ using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Infrastructure.Serialization.JsonContractResolvers;
 using Service.Dtos.Contact;
+using Service.Filters;
 
 namespace Service.Controllers
 {
@@ -59,13 +60,9 @@ namespace Service.Controllers
         }
 
         [HttpPut, Route("{id}")]
+        [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, ContactDto contact)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var contactInDb = await _repository.GetAsync(id);
 
             if (contactInDb == null)
@@ -81,13 +78,9 @@ namespace Service.Controllers
         }
 
         [HttpPost, Route("")]
+        [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(ContactDto contact)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             _repository.Add(contact.Map<Contact>());
 
             await _unitOfWork.CompleteAsync();

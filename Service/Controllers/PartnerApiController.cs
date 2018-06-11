@@ -13,6 +13,7 @@ using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Service.Dtos.Partner;
+using Service.Filters;
 
 namespace Service.Controllers
 {
@@ -75,13 +76,9 @@ namespace Service.Controllers
         }
 
         [HttpPut, Route("{id}")]
+        [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, PartnerDto partner)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var partnerInDb = await _partnersRepository.GetAsync(id);
 
             if (partnerInDb == null)
@@ -97,13 +94,9 @@ namespace Service.Controllers
         }
 
         [HttpPost, Route("")]
+        [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(PartnerDto partner)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             _partnersRepository.Add(partner.Map<Partner>());
 
             await _unitOfWork.CompleteAsync();

@@ -10,6 +10,7 @@ using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Service.Dtos.Institution;
+using Service.Filters;
 
 namespace Service.Controllers
 {
@@ -55,13 +56,9 @@ namespace Service.Controllers
         }
 
         [HttpPut, Route("{id}")]
+        [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, InstitutionDto institution)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var institutionInDb = await _repository.GetAsync(id);
 
             if (institutionInDb == null)
@@ -77,13 +74,9 @@ namespace Service.Controllers
         }
 
         [HttpPost, Route("")]
+        [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(InstitutionDto institution)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             _repository.Add(institution.Map<Institution>());
 
             await _unitOfWork.CompleteAsync();

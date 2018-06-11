@@ -15,6 +15,7 @@ using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Service.Dtos.Asset;
 using Service.Dtos.Shared;
+using Service.Filters;
 
 namespace Service.Controllers
 {
@@ -169,11 +170,6 @@ namespace Service.Controllers
         [HttpPut, Route("{id}")]
         public async Task<IHttpActionResult> UpdateAsync(int id, AssetDto asset)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var assetInDb = await _assetRepository.GetAsync(id);
 
             if (assetInDb == null)
@@ -189,13 +185,9 @@ namespace Service.Controllers
         }
 
         [HttpPost, Route("")]
+        [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(AssetDto asset)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             _assetRepository.Add(asset.Map<Asset>());
 
             await _unitOfWork.CompleteAsync();

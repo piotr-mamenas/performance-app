@@ -11,6 +11,7 @@ using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Service.Dtos.BaseData;
 using Service.Dtos.ExchangeRate;
+using Service.Filters;
 
 namespace Service.Controllers
 {
@@ -57,13 +58,9 @@ namespace Service.Controllers
         }
 
         [HttpPut, Route("{id}")]
+        [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, ExchangeRateDto exchangeRate)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var exchangeRateInDb = await _repository.GetAsync(id);
 
             if (exchangeRateInDb == null)
@@ -78,13 +75,9 @@ namespace Service.Controllers
         }
 
         [HttpPost, Route("")]
+        [ValidateModel]
         public async Task<IHttpActionResult> Create(ExchangeRateDto exchangeRate)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             _repository.Add(exchangeRate.Map<ExchangeRate>());
 
             await _unitOfWork.CompleteAsync();

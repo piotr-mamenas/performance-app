@@ -1,4 +1,4 @@
-﻿var NewWidgetWindowController = function(resourceService) {
+﻿var NewWidgetWindowController = function(resourceService, widgetService, toastNotification) {
     var availableIcons = [];
     var currentlySelectedIconId = 0;
 
@@ -45,9 +45,13 @@
                     className: "btn-primary",
                     callback: function () {
                         var modalSelector = $(".modal-dialog");
-                        var widgetName = modalSelector.find(".js-new-widget-name").val();
-                        var widgetUrl = modalSelector.find(".js-new-widget-url").val();
-                        var widgetIcon = modalSelector.find(".js-widget-icon-spinner").children("span").attr("class");
+
+                        var newWidget = {
+                            name: modalSelector.find(".js-new-widget-name").val(),
+                            url: modalSelector.find(".js-new-widget-url").val(),
+                            icon: modalSelector.find(".new-widget-icon-spinner").children("span").attr("class")
+                        };
+                        widgetService.createWidget(newWidget, toastNotification.notify, toastNotification.notify);
                     }
                 }
             }
@@ -67,4 +71,4 @@
     return {
         init: init
     };
-}(ResourceService);
+}(ResourceService, WidgetService, ToastNotification);

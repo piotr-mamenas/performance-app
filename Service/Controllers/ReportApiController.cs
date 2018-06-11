@@ -16,6 +16,7 @@ using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Service.Dtos.Portfolio;
 using Service.Dtos.Report;
+using Service.Filters;
 
 namespace Service.Controllers
 {
@@ -61,13 +62,9 @@ namespace Service.Controllers
         }
 
         [HttpPut, Route("{id}")]
+        [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, ReportDto report)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var reportInDb = await _repository.GetAsync(id);
 
             if (reportInDb == null)
@@ -83,13 +80,9 @@ namespace Service.Controllers
         }
 
         [HttpPost, Route("")]
+        [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(PortfolioDto report)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             _repository.Add(report.Map<Report>());
 
             await _unitOfWork.CompleteAsync();

@@ -10,6 +10,7 @@ using Core.Interfaces;
 using Core.Interfaces.Repositories.BaseData;
 using Infrastructure.AutoMapper;
 using Service.Dtos.BaseData;
+using Service.Filters;
 
 namespace Service.Controllers
 {
@@ -53,13 +54,9 @@ namespace Service.Controllers
         }
         
         [HttpPut, Route("{id}")]
+        [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, CurrencyDto currency)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var currencyInDb = await _repository.GetAsync(id);
 
             if (currencyInDb == null)
@@ -74,13 +71,9 @@ namespace Service.Controllers
         }
 
         [HttpPost, Route("")]
+        [ValidateModel]
         public async Task<IHttpActionResult> Create(CurrencyDto currency)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             _repository.Add(currency.Map<Currency>());
 
             await _unitOfWork.CompleteAsync();

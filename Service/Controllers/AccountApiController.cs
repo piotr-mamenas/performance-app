@@ -11,6 +11,7 @@ using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Infrastructure.Serialization.JsonContractResolvers;
 using Service.Dtos.Account;
+using Service.Filters;
 
 namespace Service.Controllers
 {
@@ -59,13 +60,9 @@ namespace Service.Controllers
         }
 
         [HttpPut, Route("{id}")]
+        [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, AccountDto account)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var accountInDb = await _repository.GetAsync(id);
 
             if (accountInDb == null)
@@ -81,13 +78,9 @@ namespace Service.Controllers
         }
 
         [HttpPost, Route("")]
+        [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(AccountDto account)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             _repository.Add(account.Map<Account>());
 
             await _unitOfWork.CompleteAsync();

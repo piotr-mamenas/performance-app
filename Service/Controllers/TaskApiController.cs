@@ -12,6 +12,7 @@ using Core.Interfaces.Repositories.System;
 using Infrastructure.AutoMapper;
 using Service.Dtos.Portfolio;
 using Service.Dtos.Task;
+using Service.Filters;
 
 namespace Service.Controllers
 {
@@ -28,10 +29,6 @@ namespace Service.Controllers
             _repository = unitOfWork.Tasks;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [ResponseType(typeof(ICollection<ServerTaskDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
@@ -45,11 +42,6 @@ namespace Service.Controllers
             return Ok(tasks.Map<ICollection<ServerTaskDto>>());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [ResponseType(typeof(ServerTaskDto))]
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
@@ -65,13 +57,9 @@ namespace Service.Controllers
         }
 
         [HttpPut, Route("{id}")]
+        [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, ServerTaskDto task)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var taskInDb = await _repository.GetAsync(id);
 
             if (taskInDb == null)
@@ -87,13 +75,9 @@ namespace Service.Controllers
         }
 
         [HttpPost, Route("")]
+        [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(ServerTaskDto task)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             _repository.Add(task.Map<ServerTask>());
 
             await _unitOfWork.CompleteAsync();

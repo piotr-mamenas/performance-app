@@ -11,6 +11,7 @@ using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Infrastructure.Serialization.JsonContractResolvers;
 using Service.Dtos.Portfolio;
+using Service.Filters;
 
 namespace Service.Controllers
 {
@@ -62,13 +63,9 @@ namespace Service.Controllers
         }
 
         [HttpPut, Route("{id}")]
+        [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, PortfolioDto portfolio)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             var portfolioInDb = await _repository.GetAsync(id);
 
             if (portfolioInDb == null)
@@ -84,13 +81,9 @@ namespace Service.Controllers
         }
 
         [HttpPost, Route("")]
+        [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(PortfolioDto portfolio)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
             _repository.Add(portfolio.Map<Portfolio>());
 
             await _unitOfWork.CompleteAsync();
