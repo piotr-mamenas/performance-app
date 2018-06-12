@@ -20,6 +20,7 @@
                     <div id="runTaskForm" style="display: none"></div>
                 </div>
             </div>
+            <div id="snackbar"></div>
         </div>
     </div>
     <div class="footer navbar-fixed-bottom">
@@ -32,7 +33,6 @@
     @Scripts.Render("~/bundles/app")
     @Scripts.Render("~/bundles/app/services")
     @Scripts.Render("~/bundles/app/controllers")
-    <div id="snackbar"></div>
     <script>
     $(document).ready(function() {
         App.init();

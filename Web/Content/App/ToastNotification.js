@@ -6,11 +6,18 @@
     };
 
     var notify = function (message) {
-        $(notificationSelector).html = message;
+        console.log(message);
+        if (typeof message === "string") {
+            $(notificationSelector).html(message);
+        } else {
+            $(notificationSelector).html(message.responseJSON.ExceptionMessage);
+        }
+        $(notificationSelector).addClass("animating");
         $(notificationSelector).show();
 
         setTimeout(function() {
             $(notificationSelector).hide();
+            $(notificationSelector).removeClass("animating");
         }, 3000);
     };
 
