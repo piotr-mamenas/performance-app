@@ -3,22 +3,23 @@
 
     var init = function (selector) {
         notificationSelector = selector;
+        Message.parent = document.getElementsByClassName("prophet")[0];
     };
 
-    var notify = function (message) {
-        console.log(message);
+    var notify = function (message, msgType) {
+        var displayMessage;
         if (typeof message === "string") {
-            $(notificationSelector).html(message);
+            displayMessage = message;
         } else {
-            $(notificationSelector).html(message.responseJSON.ExceptionMessage);
+            displayMessage = message.responseJSON.ExceptionMessage;
         }
-        $(notificationSelector).addClass("animating");
-        $(notificationSelector).show();
 
-        setTimeout(function() {
-            $(notificationSelector).hide();
-            $(notificationSelector).removeClass("animating");
-        }, 3000);
+        if (!msgType) {
+            msgType = "default";
+        };
+
+        var toast = new Message(displayMessage, { type: msgType });
+        toast.show();
     };
 
     return {

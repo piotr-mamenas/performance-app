@@ -278,6 +278,8 @@
     <Content Include="Content\App\Styles\snackbar.css" />
     <Content Include="Content\vendor\scripts\bootstrap\bootstrap-datepicker.min.js" />
     <Content Include="Content\vendor\scripts\bootstrap\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\vendor\scripts\prophet\prophet-min.js" />
+    <Content Include="Content\vendor\scripts\prophet\prophet.js" />
     <Content Include="Content\vendor\styles\bootstrap-select\bootstrap-select.css" />
     <Content Include="Content\vendor\styles\bootstrap-select\bootstrap-select.min.css" />
     <Content Include="Content\vendor\scripts\moment\datetime.js" />
@@ -399,6 +401,8 @@
     <Content Include="Content\vendor\styles\font-awesome\font-awesome.min.css" />
     <Content Include="Content\vendor\styles\bootstrap\bootstrap.css" />
     <Content Include="Content\vendor\styles\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\vendor\styles\prophet\prophet.css" />
+    <Content Include="Content\vendor\styles\prophet\prophet.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\vendor\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
