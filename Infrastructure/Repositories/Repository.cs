@@ -41,15 +41,6 @@ namespace Infrastructure.Repositories
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns>
-        public IQueryable<TEntity> GetAll()
-        {
-            return _entities.AsQueryable();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
         public async Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate)

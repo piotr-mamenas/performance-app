@@ -44,11 +44,11 @@ namespace Web.Controllers
         
         [HttpGet]
         [Route("create")]
-        public ActionResult Create()
+        public async Task<ActionResult> Create()
         {
             var partnerNumberSelection = new AccountViewModel
             {
-                PartnerNumberSelection = GetPartnerSelection()
+                PartnerNumberSelection = await GetPartnerSelection()
             };
 
             return View(partnerNumberSelection);
@@ -96,7 +96,7 @@ namespace Web.Controllers
 
             var accountVm = accountInDb.Map<AccountViewModel>();
 
-            accountVm.PartnerNumberSelection = GetPartnerSelection();
+            accountVm.PartnerNumberSelection = await GetPartnerSelection();
 
             return View(accountVm);
         }
@@ -135,20 +135,20 @@ namespace Web.Controllers
             return RedirectToAction("List");
         }
 
-        /// <summary>
-        /// Returns a list of partners available to be linked to the contact
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerable<SelectListItem> GetPartnerSelection()
+        private async Task<IEnumerable<SelectListItem>> GetPartnerSelection()
         {
-            var partnerSelection = _partners.GetAll()
-                .Select(p => new SelectListItem
+            var partners = await _partners.GetAllPartnersAsync();
+
+            if (partners != null)
+            {
+                var selectList = partners.Select(p => new SelectListItem
                 {
                     Value = p.Id.ToString(),
                     Text = p.Number
                 });
-
-            return new SelectList(partnerSelection, "Value", "Text");
+                return new SelectList(selectList, "Value", "Text");
+            }
+            return new SelectList(null, "Value", "Text");
         }
     }
 }

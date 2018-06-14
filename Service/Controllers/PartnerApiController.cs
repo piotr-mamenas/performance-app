@@ -34,9 +34,7 @@ namespace Service.Controllers
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var partners = await _partnersRepository.GetAll()
-                .Include(p => p.Type)
-                .ToListAsync();
+            var partners = await _partnersRepository.GetAllPartnersWithTypesAsync();
 
             if (partners == null)
             {
@@ -63,9 +61,7 @@ namespace Service.Controllers
         [HttpGet, Route("accounts/{id}")]
         public async Task<IHttpActionResult> GetByAccountAsync(int id)
         {
-            var partners = await _partnersRepository.GetAll()
-                .Where(a => a.Accounts.Any(p => p.Id == id))
-                .ToListAsync();
+            var partners = await _partnersRepository.GetAccountPartnersAsync(id);
 
             if (partners == null)
             {
@@ -107,11 +103,7 @@ namespace Service.Controllers
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            var partner = await _partnersRepository.GetAll()
-                .Where(p => p.Id == id)
-                .Include(p => p.Accounts)
-                .Include(p => p.Contacts)
-                .SingleOrDefaultAsync();
+            var partner = await _partnersRepository.GetByIdWithAccountsAndContactsAsync(id);
 
             if (partner == null)
             {

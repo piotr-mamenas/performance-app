@@ -49,10 +49,7 @@ namespace Web.Controllers
         [Route("details/{id}")]
         public async Task<ActionResult> Details(int id)
         {
-            var portfolioInDb = await _portfolios.GetAll()
-                .Include(p => p.Account)
-                .Include(p => p.Account.Partner)
-                .SingleAsync(p => p.Id == id);
+            var portfolioInDb = await _portfolios.SingleOrDefaultAsync(p => p.Id == id);
 
             if (portfolioInDb == null)
             {
@@ -64,11 +61,11 @@ namespace Web.Controllers
 
         [HttpGet]
         [Route("create")]
-        public ActionResult Create()
+        public async Task<ActionResult> Create()
         {
             var portfolioVm = new NewPortfolioViewModel
             {
-                AccountSelection = GetAccountSelection()
+                AccountSelection = await GetAccountSelection()
             };
             return View(portfolioVm);
         }
@@ -89,16 +86,20 @@ namespace Web.Controllers
             return View("List");
         }
 
-        private IEnumerable<SelectListItem> GetAccountSelection()
+        private async Task<IEnumerable<SelectListItem>> GetAccountSelection()
         {
-            var accounts = _portfolios.GetAll()
-                .Select(p => new SelectListItem
+            var accounts = await _portfolios.GetAllPortfoliosAsync();
+
+            if (accounts != null)
+            {
+                var selectList = accounts.Select(p => new SelectListItem
                 {
                     Value = p.AccountId.ToString(),
                     Text = p.Account.Number
                 });
-
-            return new SelectList(accounts, "Value", "Text");
+                return new SelectList(selectList, "Value", "Text");
+            }
+            return new SelectList(null,"Value","Text");
         }
     }
 }

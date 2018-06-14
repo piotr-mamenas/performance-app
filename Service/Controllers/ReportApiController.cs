@@ -37,8 +37,7 @@ namespace Service.Controllers
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var reports = await _repository.GetAll()
-                .ToListAsync();
+            var reports = await _repository.GetAllReportsAsync();
 
             if (reports == null)
             {
