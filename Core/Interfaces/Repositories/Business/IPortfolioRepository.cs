@@ -6,6 +6,6 @@ namespace Core.Interfaces.Repositories.Business
 {
     public interface IPortfolioRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : Portfolio
     {
-        Task<IEnumerable<Portfolio>> GetAllPortfoliosAsync();
+        Task<IEnumerable<Portfolio>> GetAllPortfoliosWithDetailsAsync();
     }
 }

@@ -88,7 +88,7 @@ namespace Web.Controllers
 
         private async Task<IEnumerable<SelectListItem>> GetAccountSelection()
         {
-            var accounts = await _portfolios.GetAllPortfoliosAsync();
+            var accounts = await _portfolios.GetAllPortfoliosWithDetailsAsync();
 
             if (accounts != null)
             {

@@ -13,7 +13,7 @@ namespace Infrastructure.Repositories.Business
         {
         }
 
-        public async Task<IEnumerable<Portfolio>> GetAllPortfoliosAsync()
+        public async Task<IEnumerable<Portfolio>> GetAllPortfoliosWithDetailsAsync()
         {
             return await Context.Portfolios
                 .Include(p => p.Account)

@@ -35,11 +35,7 @@ namespace Service.Controllers
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var portfolios = await _repository.GetAllPortfoliosAsync()
-                .Include(p => p.Account)
-                .Include(p => p.Account.Partner)
-                .Include(p => p.Assets)
-                .ToListAsync();
+            var portfolios = await _repository.GetAllPortfoliosWithDetailsAsync();
 
             if (portfolios == null)
             {

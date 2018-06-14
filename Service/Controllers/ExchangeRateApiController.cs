@@ -32,10 +32,7 @@ namespace Service.Controllers
         [ResponseType(typeof(ICollection<ExchangeRateDto>))]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var exchangeRates = await _repository.GetAll()
-                .Include(er => er.BaseCurrency)
-                .Include(er => er.TargetCurrency)
-                .ToListAsync();
+            var exchangeRates = await _repository.GetExchangeRatesWithCurrenciesAsync();
 
             if (exchangeRates == null)
             {

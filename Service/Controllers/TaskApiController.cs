@@ -33,7 +33,7 @@ namespace Service.Controllers
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var tasks = await _repository.GetAll().ToListAsync();
+            var tasks = await _repository.GetAllTaskRunsAsync();
 
             if (tasks == null)
             {
@@ -105,17 +105,12 @@ namespace Service.Controllers
         [HttpGet, Route("runs")]
         public async Task<IHttpActionResult> GetTaskRunsAsync()
         {
-            var tasks = await _repository.GetAll()
-                .Include(t => t.Runs)
-                .Include(t => t.Type)
-                .ToListAsync();
+            var taskRuns = await _repository.GetAllTaskRunsAsync();
 
-            if (tasks == null)
+            if (taskRuns == null)
             {
                 return NotFound();
             }
-
-            var taskRuns = tasks.SelectMany(tr => tr.Runs).ToList();
 
             return Ok(taskRuns.Map<IList<TaskRunDto>>());
         }

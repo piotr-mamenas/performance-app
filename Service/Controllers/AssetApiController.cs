@@ -122,13 +122,12 @@ namespace Service.Controllers
         [HttpGet, Route("portfolios/{id}")]
         public async Task<IHttpActionResult> GetByPortfolioAsync(int id)
         {
-            var assets = await _assetRepository.GetAll()
-                .Where(a => a.Portfolios.Any(p => p.Id == id))
-                .Include(a => a.Class)
-                .Include(a => a.Prices)
-                .Include(a => a.Prices.Select(p => p.Currency))
-                .Include(a => a.Returns)
-                .ToListAsync();
+            var assets = await _assetRepository.GetAllAssetsWithDetailsByPortfolio(id);
+
+            if (assets == null)
+            {
+                return NotFound();
+            }
             
             // TODO: Move the logic to a service
             var assetsDtos = assets.Map<ICollection<AssetDto>>();

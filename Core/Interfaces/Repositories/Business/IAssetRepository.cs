@@ -9,5 +9,6 @@ namespace Core.Interfaces.Repositories.Business
     public interface IAssetRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : Asset
     {
         Task<IEnumerable<AssetPrice>> GetPrices(Expression<Func<AssetPrice, bool>> predicate);
+        Task<IEnumerable<Asset>> GetAllAssetsWithDetailsByPortfolioAsync(int portfolioId);
     }
 }

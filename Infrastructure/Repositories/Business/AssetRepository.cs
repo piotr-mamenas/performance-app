@@ -24,5 +24,22 @@ namespace Infrastructure.Repositories.Business
                 .Include(ap => ap.Currency)
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<Asset>> GetAllAssetsWithDetailsByPortfolioAsync(int portfolioId)
+        {
+            return await Context.Assets.Where(a => a.Portfolios.Any(p => p.Id == portfolioId))
+                .Include(a => a.Class)
+                .Include(a => a.Prices)
+                .Include(a => a.Prices.Select(p => p.Currency))
+                .Include(a => a.Returns)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Asset>> GetBondAssetCurrencyAsync(int assetId)
+        {
+            return await Context.Assets
+                .Include(b => b.Currency)
+                .SingleOrDefault(b => b.Id == assetDto.Id);
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace Service.Controllers
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var institutions = await _repository.GetAll().ToListAsync();
+            var institutions = await _repository.GetAllInstitutionsAsync();
 
             if (institutions == null)
             {

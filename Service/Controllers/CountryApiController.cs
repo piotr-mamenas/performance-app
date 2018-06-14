@@ -31,7 +31,7 @@ namespace Service.Controllers
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var countries = await _repository.GetAll().ToListAsync();
+            var countries = await _repository.GetAllCountriesAsync();
 
             if (countries == null)
             {

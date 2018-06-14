@@ -35,9 +35,7 @@ namespace Service.Controllers
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var contacts = await _repository.GetAll()
-                .Include(p => p.Partner)
-                .ToListAsync();
+            var contacts = await _repository.GetAllContactsWithPartnersAsync();
 
             if (contacts == null)
             {

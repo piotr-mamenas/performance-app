@@ -31,7 +31,7 @@ namespace Service.Controllers
         [ResponseType(typeof(ICollection<CurrencyDto>))]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var currencies = await _repository.GetAll().ToListAsync();
+            var currencies = await _repository.GetAllCurrenciesAsync();
 
             if (currencies == null)
             {
