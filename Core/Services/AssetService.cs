@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Threading.Tasks;
 using Core.Domain.Assets;
 using Core.Domain.Portfolios;
 using Core.Enums.Domain;
 using Core.Exceptions;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
+using Core.Interfaces.Services;
 
 namespace Core.Services
 {
-    public class AssetService
+    public class AssetService : IAssetService
     {
         private readonly IAssetRepository _assetRepository;
         private readonly IBondRepository _bondRepository;
