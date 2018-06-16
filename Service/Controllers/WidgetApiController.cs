@@ -14,7 +14,7 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class WidgetApiController : BaseApiController
     {
-        private readonly ITileWidgetRepository<TileWidget> _repository;
+        private readonly ITileWidgetRepository _repository;
         private readonly IComplete _unitOfWork;
 
         public WidgetApiController(IUnitOfWork unitOfWork)

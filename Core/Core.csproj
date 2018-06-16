@@ -127,6 +127,7 @@
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Repositories\Business\IAccountRepository.cs" />
     <Compile Include="Interfaces\Repositories\Business\IAssetRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Business\IBondRepository.cs" />
     <Compile Include="Interfaces\Repositories\Business\IContactRepository.cs" />
     <Compile Include="Interfaces\Repositories\Business\IExchangeRateRepository.cs" />
     <Compile Include="Interfaces\Repositories\BaseData\ICountryRepository.cs" />

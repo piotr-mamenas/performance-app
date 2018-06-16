@@ -19,7 +19,7 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ContactApiController : BaseApiController
     {
-        private readonly IContactRepository<Contact> _repository;
+        private readonly IContactRepository _repository;
         private readonly IComplete _unitOfWork;
 
         public ContactApiController(IUnitOfWork unitOfWork)

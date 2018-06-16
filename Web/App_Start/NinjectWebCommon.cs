@@ -77,12 +77,11 @@ namespace Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
-            kernel.Bind<IContactRepository<Contact>>().To<ContactRepository<Contact>>().InRequestScope();
-            kernel.Bind<ICurrencyRepository<Currency>>().To<CurrencyRepository<Currency>>().InRequestScope();
-            kernel.Bind<ICountryRepository<Country>>().To<CountryRepository<Country>>().InRequestScope();
-            kernel.Bind<IPartnerRepository<Partner>>().To<PartnerRepository<Partner>>().InRequestScope();
-            kernel.Bind<IInstitutionRepository<Institution>>().To<InstitutionRepository<Institution>>().InRequestScope();
-            kernel.Bind<IInstitutionRepository<Bank>>().To<InstitutionRepository<Bank>>().InRequestScope();
+            kernel.Bind<IContactRepository>().To<ContactRepository>().InRequestScope();
+            kernel.Bind<ICurrencyRepository>().To<CurrencyRepository>().InRequestScope();
+            kernel.Bind<ICountryRepository>().To<CountryRepository>().InRequestScope();
+            kernel.Bind<IPartnerRepository>().To<PartnerRepository>().InRequestScope();
+            kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
             kernel.Bind(typeof(UserManager<User>)).ToSelf().InRequestScope();
             kernel.Bind<IUserStore<User>>().To<ApplicationUserStore>().InRequestScope();
         }

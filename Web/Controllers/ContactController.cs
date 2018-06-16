@@ -17,8 +17,8 @@ namespace Web.Controllers
     [Authorize]
     public class ContactController : BaseController
     {
-        private readonly IContactRepository<Contact> _contacts;
-        private readonly IPartnerRepository<Partner> _partners;
+        private readonly IContactRepository _contacts;
+        private readonly IPartnerRepository _partners;
         private readonly IComplete _unitOfWork;
 
         public ContactController(IUnitOfWork unitOfWork, ILogger logger)

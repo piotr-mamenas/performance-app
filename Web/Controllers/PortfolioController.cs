@@ -17,7 +17,7 @@ namespace Web.Controllers
     [Authorize]
     public class PortfolioController : BaseController
     {
-        private readonly IPortfolioRepository<Portfolio> _portfolios;
+        private readonly IPortfolioRepository _portfolios;
         private readonly IComplete _unitOfWork;
 
         public PortfolioController(IUnitOfWork unitOfWork, ILogger logger)

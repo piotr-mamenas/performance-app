@@ -19,7 +19,7 @@ namespace Service.Controllers
     public class InstitutionApiController : BaseApiController
     {
         private readonly IComplete _unitOfWork;
-        private readonly IInstitutionRepository<Institution> _repository;
+        private readonly IInstitutionRepository _repository;
 
         public InstitutionApiController(IUnitOfWork unitOfWork)
         {

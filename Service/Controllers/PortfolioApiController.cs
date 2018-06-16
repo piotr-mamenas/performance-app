@@ -19,7 +19,7 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PortfolioApiController : BaseApiController
     {
-        private readonly IPortfolioRepository<Portfolio> _repository;
+        private readonly IPortfolioRepository _repository;
         private readonly IComplete _unitOfWork;
 
         public PortfolioApiController(IUnitOfWork unitOfWork)

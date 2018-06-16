@@ -18,7 +18,7 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CurrencyApiController : BaseApiController
     {
-        private readonly ICurrencyRepository<Currency> _repository;
+        private readonly ICurrencyRepository _repository;
         private readonly IComplete _unitOfWork;
 
         public CurrencyApiController(IUnitOfWork unitOfWork)

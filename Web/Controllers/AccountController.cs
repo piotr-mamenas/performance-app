@@ -19,8 +19,8 @@ namespace Web.Controllers
     public class AccountController : BaseController
     {
         private readonly IComplete _unitOfWork;
-        private readonly IAccountRepository<Account> _accounts;
-        private readonly IPartnerRepository<Partner> _partners;
+        private readonly IAccountRepository _accounts;
+        private readonly IPartnerRepository _partners;
 
         public AccountController(IUnitOfWork unitOfWork, ILogger logger)
             : base(logger)

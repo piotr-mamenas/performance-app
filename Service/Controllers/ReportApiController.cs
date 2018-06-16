@@ -24,7 +24,7 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ReportApiController : BaseApiController
     {
-        private readonly IReportRepository<Report> _repository;
+        private readonly IReportRepository _repository;
         private readonly IComplete _unitOfWork;
 
         public ReportApiController(IUnitOfWork unitOfWork)

@@ -30,9 +30,9 @@ namespace Infrastructure.TaskServer
             var token = _tokenSource.Token;
             token.Register(Notify);
 
-            _result = await Task.Factory.StartNew(() => _submittedTask.Run(token), token);
+            _runningTask = await Task.Factory.StartNew(() => _submittedTask.Run(token), token);
 
-            return _result.Result;
+            return await _runningTask;
         }
 
         public void Cancel()
@@ -46,7 +46,6 @@ namespace Infrastructure.TaskServer
 
         private readonly IRunnableTask _submittedTask;
         private readonly CancellationTokenSource _tokenSource;
-        private Task _runningTask;
-        private Task<IList<ValidationFailure>> _result;
+        private Task<IList<ValidationFailure>> _runningTask;
     }
 }

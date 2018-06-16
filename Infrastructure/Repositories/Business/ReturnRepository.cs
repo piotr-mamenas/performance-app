@@ -4,7 +4,7 @@ using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class ReturnRepository<TSpecificEntity> : Repository<TSpecificEntity>, IReturnRepository<TSpecificEntity> where TSpecificEntity : Return
+    public class ReturnRepository : Repository<Return>, IReturnRepository
     {
         public ReturnRepository(ApplicationDbContext context)
             : base(context)

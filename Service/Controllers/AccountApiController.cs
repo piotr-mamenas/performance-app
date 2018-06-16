@@ -19,7 +19,7 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AccountApiController : BaseApiController
     {
-        private readonly IAccountRepository<Account> _repository;
+        private readonly IAccountRepository _repository;
         private readonly IComplete _unitOfWork;
 
         public AccountApiController(IUnitOfWork unitOfWork)
@@ -35,9 +35,7 @@ namespace Service.Controllers
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var accounts = await _repository.GetAll()
-                .Include(a => a.Partner)
-                .ToListAsync();
+            var accounts = await _repository.GetAllWithPartnerAsync();
 
             if (accounts == null)
             {

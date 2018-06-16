@@ -4,7 +4,7 @@ using Core.Domain.Portfolios;
 
 namespace Core.Interfaces.Repositories.Business
 {
-    public interface IPortfolioRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : Portfolio
+    public interface IPortfolioRepository : IRepository<Portfolio>
     {
         Task<IEnumerable<Portfolio>> GetAllPortfoliosWithDetailsAsync();
     }

@@ -187,6 +187,7 @@
     <Compile Include="Repositories\Business\AssetRepository.cs" />
     <Compile Include="Repositories\BaseData\CountryRepository.cs" />
     <Compile Include="Repositories\BaseData\CurrencyRepository.cs" />
+    <Compile Include="Repositories\Business\BondRepository.cs" />
     <Compile Include="Repositories\Business\ContactRepository.cs" />
     <Compile Include="Repositories\Business\ExchangeRateRepository.cs" />
     <Compile Include="Repositories\Business\ReportRepository.cs" />

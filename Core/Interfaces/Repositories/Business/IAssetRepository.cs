@@ -6,9 +6,10 @@ using Core.Domain.Assets;
 
 namespace Core.Interfaces.Repositories.Business
 {
-    public interface IAssetRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : Asset
+    public interface IAssetRepository : IRepository<Asset>
     {
         Task<IEnumerable<AssetPrice>> GetPrices(Expression<Func<AssetPrice, bool>> predicate);
         Task<IEnumerable<Asset>> GetAllAssetsWithDetailsByPortfolioAsync(int portfolioId);
+        Task<IEnumerable<Asset>> GetAllAssetsWithPricesAsync();
     }
 }

@@ -83,15 +83,15 @@ namespace Service.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
-            kernel.Bind<IAccountRepository<Account>>().To<AccountRepository<Account>>().InRequestScope();
-            kernel.Bind<IContactRepository<Contact>>().To<ContactRepository<Contact>>().InRequestScope();
-            kernel.Bind<ICurrencyRepository<Currency>>().To<CurrencyRepository<Currency>>().InRequestScope();
-            kernel.Bind<ICountryRepository<Country>>().To<CountryRepository<Country>>().InRequestScope();
-            kernel.Bind<IPartnerRepository<Partner>>().To<PartnerRepository<Partner>>().InRequestScope();
-            kernel.Bind<IInstitutionRepository<Institution>>().To<InstitutionRepository<Institution>>().InRequestScope();
-            kernel.Bind<IInstitutionRepository<Bank>>().To<InstitutionRepository<Bank>>().InRequestScope();
-            kernel.Bind<IPortfolioRepository<Portfolio>>().To<PortfolioRepository<Portfolio>>().InRequestScope();
-            kernel.Bind<ITaskRepository<ServerTask>>().To<TaskRepository<ServerTask>>().InRequestScope();
+            kernel.Bind<IAccountRepository>().To<AccountRepository>().InRequestScope();
+            kernel.Bind<IContactRepository>().To<ContactRepository>().InRequestScope();
+            kernel.Bind<ICurrencyRepository>().To<CurrencyRepository>().InRequestScope();
+            kernel.Bind<ICountryRepository>().To<CountryRepository>().InRequestScope();
+            kernel.Bind<IPartnerRepository>().To<PartnerRepository>().InRequestScope();
+            kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
+            kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
+            kernel.Bind<IPortfolioRepository>().To<PortfolioRepository>().InRequestScope();
+            kernel.Bind<ITaskRepository>().To<TaskRepository>().InRequestScope();
             kernel.Bind(typeof(UserManager<User>)).ToSelf().InRequestScope();
             kernel.Bind<IUserStore<User>>().To<ApplicationUserStore>().InRequestScope();
         }        

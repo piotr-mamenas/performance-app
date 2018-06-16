@@ -6,7 +6,7 @@ using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class ContactRepository<TSpecificEntity> : Repository<TSpecificEntity>, IContactRepository<TSpecificEntity> where TSpecificEntity : Contact
+    public class ContactRepository : Repository<Contact>, IContactRepository
     {
         public ContactRepository(ApplicationDbContext context)
             : base(context)

@@ -22,7 +22,7 @@ namespace Service.Controllers
     public class PartnerApiController : BaseApiController
     {
         private readonly IComplete _unitOfWork;
-        private readonly IPartnerRepository<Partner> _partnersRepository;
+        private readonly IPartnerRepository _partnersRepository;
 
         public PartnerApiController(IUnitOfWork unitOfWork)
         {

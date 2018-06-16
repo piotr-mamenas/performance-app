@@ -7,7 +7,7 @@ using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class TileWidgetRepository<TSpecificEntity> : Repository<TSpecificEntity>, ITileWidgetRepository<TSpecificEntity> where TSpecificEntity : TileWidget
+    public class TileWidgetRepository : Repository<TileWidget>, ITileWidgetRepository
     {
         private readonly DbSet<TileWidget> _widgets;
 

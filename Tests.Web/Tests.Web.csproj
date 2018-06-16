@@ -63,7 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControllerTests\AccountControllerTests.cs" />
     <Compile Include="FakeData\FakeAccountData.cs" />
     <Compile Include="FakeData\FakePartnerData.cs" />
     <Compile Include="MockUnitOfWork.cs" />

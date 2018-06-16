@@ -6,7 +6,7 @@ using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class ExchangeRateRepository<TSpecificEntity> : Repository<TSpecificEntity>, IExchangeRateRepository<TSpecificEntity> where TSpecificEntity : ExchangeRate
+    public class ExchangeRateRepository : Repository<ExchangeRate>, IExchangeRateRepository
     {
         public ExchangeRateRepository(ApplicationDbContext context)
             : base(context)

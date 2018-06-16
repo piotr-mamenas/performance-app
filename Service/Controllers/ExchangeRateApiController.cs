@@ -19,7 +19,7 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ExchangeRateApiController : BaseApiController
     {
-        private readonly IExchangeRateRepository<ExchangeRate> _repository;
+        private readonly IExchangeRateRepository _repository;
         private readonly IComplete _unitOfWork;
 
         public ExchangeRateApiController(IUnitOfWork unitOfWork)

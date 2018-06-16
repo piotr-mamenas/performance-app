@@ -18,9 +18,9 @@ namespace Tests.Web
             mockUnitOfWork.Setup(m => m.Accounts.Add(It.IsAny<Account>())).Callback<Account>(accounts.Add);
             mockUnitOfWork.Setup(m => m.Partners.Add(It.IsAny<Partner>())).Callback<Partner>(partners.Add);
 
-            mockUnitOfWork.Setup(m => m.Accounts.GetAll()).Returns(accounts.AsQueryable());
+            //mockUnitOfWork.Setup(m => m.Accounts.GetAll()).Returns(accounts.AsQueryable());
             mockUnitOfWork.Setup(m => m.Partners.GetAsync(1)).Returns(Task.FromResult(partners.SingleOrDefault(a => a.Id == 1)));
-            mockUnitOfWork.Setup(m => m.Partners.GetAll()).Returns(partners.AsQueryable());
+            //mockUnitOfWork.Setup(m => m.Partners.GetAll()).Returns(partners.AsQueryable());
             mockUnitOfWork.Setup(m => m.Accounts.GetAsync(1)).Returns(Task.FromResult(accounts.SingleOrDefault(a => a.Id == 1)));
 
             mockUnitOfWork.As<IComplete>();

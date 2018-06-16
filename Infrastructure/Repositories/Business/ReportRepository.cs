@@ -6,7 +6,7 @@ using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class ReportRepository<TSpecificEntity> : Repository<TSpecificEntity>, IReportRepository<TSpecificEntity> where TSpecificEntity : Report
+    public class ReportRepository : Repository<Report>, IReportRepository
     {
         public ReportRepository(ApplicationDbContext context)
             : base(context)

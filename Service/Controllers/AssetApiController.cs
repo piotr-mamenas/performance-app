@@ -23,9 +23,9 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AssetApiController : BaseApiController
     {
-        private readonly IAssetRepository<Asset> _assetRepository;
-        private readonly IAssetRepository<Bond> _bondRepository;
-        private readonly IPortfolioRepository<Portfolio> _portfolioRepository;
+        private readonly IAssetRepository _assetRepository;
+        private readonly IBondRepository _bondRepository;
+        private readonly IPortfolioRepository _portfolioRepository;
         private readonly IComplete _unitOfWork;
 
         public AssetApiController(IUnitOfWork unitOfWork)
@@ -43,10 +43,12 @@ namespace Service.Controllers
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAllAsync()
         {
-            var assets = await _assetRepository.GetAll()
-                .Include(a => a.Prices)
-                .Include(a => a.Class)
-                .ToListAsync();
+            var assets = await _assetRepository.GetAllAssetsWithPricesAsync();
+
+            if (assets == null)
+            {
+                return NotFound();
+            }
 
             return Ok(assets.Map<ICollection<AssetDto>>());
         }
@@ -122,7 +124,7 @@ namespace Service.Controllers
         [HttpGet, Route("portfolios/{id}")]
         public async Task<IHttpActionResult> GetByPortfolioAsync(int id)
         {
-            var assets = await _assetRepository.GetAllAssetsWithDetailsByPortfolio(id);
+            var assets = await _assetRepository.GetAllAssetsWithDetailsByPortfolioAsync(id);
 
             if (assets == null)
             {
@@ -139,9 +141,7 @@ namespace Service.Controllers
                     .Select(r => r?.Rate)
                     .FirstOrDefault();
 
-                var bondAsset = _bondRepository.GetAll()
-                    .Include(b => b.Currency)
-                    .SingleOrDefault(b => b.Id == assetDto.Id);
+                var bondAsset = await _bondRepository.GetBondAssetWithCurrencyAsync(assetDto.Id);
 
                 if (bondAsset != null)
                 {

@@ -22,23 +22,23 @@ namespace Core.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IAccountRepository<Account> Accounts { get; }
-        IContactRepository<Contact> Contacts { get; }
-        IAssetRepository<Asset> Assets { get; }
-        IAssetRepository<Bond> Bonds { get; }
-        IPartnerRepository<Partner> Partners { get; }
-        IInstitutionRepository<Institution> Institutions { get; }
-        IInstitutionRepository<Bank> Banks { get; }
-        ICurrencyRepository<Currency> Currencies { get; }
-        ICountryRepository<Country> Countries { get; }
-        IMessageRepository<Message> Messages { get; }
-        IPortfolioRepository<Portfolio> Portfolios { get; }
-        ITaskRepository<ServerTask> Tasks { get; }
-        IReportRepository<Report> Reports { get; }
-        IExchangeRateRepository<ExchangeRate> ExchangeRates { get; }
-        IReturnRepository<Return> Returns { get; }
-        IReturnRepository<HoldingPeriodReturn> HoldingPeriodReturns { get; }
-        ITileWidgetRepository<TileWidget> TileWidgets { get; }
+        IAccountRepository Accounts { get; }
+        IContactRepository Contacts { get; }
+        IAssetRepository Assets { get; }
+        IBondRepository Bonds { get; }
+        IPartnerRepository Partners { get; }
+        IInstitutionRepository Institutions { get; }
+        IInstitutionRepository Banks { get; }
+        ICurrencyRepository Currencies { get; }
+        ICountryRepository Countries { get; }
+        IMessageRepository Messages { get; }
+        IPortfolioRepository Portfolios { get; }
+        ITaskRepository Tasks { get; }
+        IReportRepository Reports { get; }
+        IExchangeRateRepository ExchangeRates { get; }
+        IReturnRepository Returns { get; }
+        IReturnRepository HoldingPeriodReturns { get; }
+        ITileWidgetRepository TileWidgets { get; }
         Task<int> CompleteAsync();
     }
 }

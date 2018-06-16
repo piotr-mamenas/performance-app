@@ -2,13 +2,11 @@
 using System.Data.Entity;
 using System.Threading.Tasks;
 using Core.Domain.Countries;
-using Core.Interfaces;
-using Core.Interfaces.Repositories;
 using Core.Interfaces.Repositories.BaseData;
 
 namespace Infrastructure.Repositories.BaseData
 {
-    public class CountryRepository<TSpecificEntity> : Repository<TSpecificEntity>, ICountryRepository<TSpecificEntity> where TSpecificEntity : class, IEntityRoot, new()
+    public class CountryRepository : Repository<Country>, ICountryRepository
     {
         public CountryRepository(ApplicationDbContext context)
             : base(context)

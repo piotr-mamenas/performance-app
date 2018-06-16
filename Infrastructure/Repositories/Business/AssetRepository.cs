@@ -9,7 +9,7 @@ using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class AssetRepository<TSpecificEntity> : Repository<TSpecificEntity>, IAssetRepository<TSpecificEntity> where TSpecificEntity : Asset
+    public class AssetRepository : Repository<Asset>, IAssetRepository
     {
         public AssetRepository(ApplicationDbContext context)
             : base(context)
@@ -25,6 +25,13 @@ namespace Infrastructure.Repositories.Business
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Asset>> GetAllAssetsWithPricesAsync()
+        {
+            return await Context.Assets
+                .Include(a => a.Prices)
+                .Include(a => a.Class)
+                .ToListAsync();
+        }
         public async Task<IEnumerable<Asset>> GetAllAssetsWithDetailsByPortfolioAsync(int portfolioId)
         {
             return await Context.Assets.Where(a => a.Portfolios.Any(p => p.Id == portfolioId))
@@ -33,13 +40,6 @@ namespace Infrastructure.Repositories.Business
                 .Include(a => a.Prices.Select(p => p.Currency))
                 .Include(a => a.Returns)
                 .ToListAsync();
-        }
-
-        public async Task<IEnumerable<Asset>> GetBondAssetCurrencyAsync(int assetId)
-        {
-            return await Context.Assets
-                .Include(b => b.Currency)
-                .SingleOrDefault(b => b.Id == assetDto.Id);
         }
     }
 }

@@ -9,10 +9,6 @@ using Core.Interfaces.Repositories;
 
 namespace Infrastructure.Repositories
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <typeparam name="TEntity"></typeparam>
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class 
     {
         protected readonly ApplicationDbContext Context;
@@ -26,6 +22,11 @@ namespace Infrastructure.Repositories
         {
             Context = context;
             _entities = Context.Set<TEntity>();
+        }
+
+        protected IQueryable<TEntity> GetAll()
+        {
+            return _entities.AsQueryable();
         }
 
         /// <summary>

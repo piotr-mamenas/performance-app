@@ -20,7 +20,7 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class TaskApiController : BaseApiController
     {
-        private readonly ITaskRepository<ServerTask> _repository;
+        private readonly ITaskRepository _repository;
         private readonly IComplete _unitOfWork;
 
         public TaskApiController(IUnitOfWork unitOfWork)

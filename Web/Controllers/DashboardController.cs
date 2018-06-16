@@ -18,7 +18,7 @@ namespace Web.Controllers
     [RoutePrefix("dashboard")]
     public class DashboardController : BaseController
     {
-        private readonly ITileWidgetRepository<TileWidget> _widgetRepository;
+        private readonly ITileWidgetRepository _widgetRepository;
         private ApplicationUserManager _userManager;
 
         public ApplicationUserManager UserManager

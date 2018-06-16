@@ -16,7 +16,7 @@ namespace Web.Controllers
     [RoutePrefix("partners")]
     public class PartnerController : BaseController
     {
-        private readonly IPartnerRepository<Partner> _partners;
+        private readonly IPartnerRepository _partners;
         private readonly IComplete _unitOfWork;
 
         /// <summary>

@@ -32,42 +32,42 @@ namespace Infrastructure
         {
             _context = context;
 
-            Accounts = new AccountRepository<Account>(_context);
-            Assets = new AssetRepository<Asset>(_context);
-            Bonds = new AssetRepository<Bond>(_context);
-            Contacts = new ContactRepository<Contact>(_context);
-            Partners = new PartnerRepository<Partner>(_context);
-            Institutions = new InstitutionRepository<Institution>(_context);
-            Banks = new InstitutionRepository<Bank>(_context);
-            Currencies = new CurrencyRepository<Currency>(_context);
-            Countries = new CountryRepository<Country>(_context);
-            Messages = new MessageRepository<Message>(_context);
-            Portfolios = new PortfolioRepository<Portfolio>(_context);
-            Tasks = new TaskRepository<ServerTask>(_context);
-            Reports = new ReportRepository<Report>(_context);
-            ExchangeRates = new ExchangeRateRepository<ExchangeRate>(_context);
-            Returns = new ReturnRepository<Return>(_context);
-            HoldingPeriodReturns = new ReturnRepository<HoldingPeriodReturn>(_context);
-            TileWidgets = new TileWidgetRepository<TileWidget>(_context);
+            Accounts = new AccountRepository(_context);
+            Assets = new AssetRepository(_context);
+            Bonds = new BondRepository(_context);
+            Contacts = new ContactRepository(_context);
+            Partners = new PartnerRepository(_context);
+            Institutions = new InstitutionRepository(_context);
+            Banks = new InstitutionRepository(_context);
+            Currencies = new CurrencyRepository(_context);
+            Countries = new CountryRepository(_context);
+            Messages = new MessageRepository(_context);
+            Portfolios = new PortfolioRepository(_context);
+            Tasks = new TaskRepository(_context);
+            Reports = new ReportRepository(_context);
+            ExchangeRates = new ExchangeRateRepository(_context);
+            Returns = new ReturnRepository(_context);
+            HoldingPeriodReturns = new ReturnRepository(_context);
+            TileWidgets = new TileWidgetRepository(_context);
         }
 
-        public IAccountRepository<Account> Accounts { get; }
-        public IAssetRepository<Asset> Assets { get; }
-        public IAssetRepository<Bond> Bonds { get; }
-        public IPartnerRepository<Partner> Partners { get; }
-        public IInstitutionRepository<Institution> Institutions { get; }
-        public IInstitutionRepository<Bank> Banks { get; }
-        public IContactRepository<Contact> Contacts { get; }
-        public ICurrencyRepository<Currency> Currencies { get; }
-        public ICountryRepository<Country> Countries { get; }
-        public IMessageRepository<Message> Messages { get; }
-        public IPortfolioRepository<Portfolio> Portfolios { get; }
-        public ITaskRepository<ServerTask> Tasks { get; }
-        public IReportRepository<Report> Reports { get; }
-        public IExchangeRateRepository<ExchangeRate> ExchangeRates { get; }
-        public IReturnRepository<Return> Returns { get; }
-        public IReturnRepository<HoldingPeriodReturn> HoldingPeriodReturns { get; }
-        public ITileWidgetRepository<TileWidget> TileWidgets { get; }
+        public IAccountRepository Accounts { get; }
+        public IAssetRepository Assets { get; }
+        public IBondRepository Bonds { get; }
+        public IPartnerRepository Partners { get; }
+        public IInstitutionRepository Institutions { get; }
+        public IInstitutionRepository Banks { get; }
+        public IContactRepository Contacts { get; }
+        public ICurrencyRepository Currencies { get; }
+        public ICountryRepository Countries { get; }
+        public IMessageRepository Messages { get; }
+        public IPortfolioRepository Portfolios { get; }
+        public ITaskRepository Tasks { get; }
+        public IReportRepository Reports { get; }
+        public IExchangeRateRepository ExchangeRates { get; }
+        public IReturnRepository Returns { get; }
+        public IReturnRepository HoldingPeriodReturns { get; }
+        public ITileWidgetRepository TileWidgets { get; }
 
         public async Task<int> CompleteAsync()
         {

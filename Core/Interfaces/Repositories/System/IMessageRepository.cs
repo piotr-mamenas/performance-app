@@ -2,7 +2,7 @@
 
 namespace Core.Interfaces.Repositories.System
 {
-    public interface IMessageRepository<TSpecificEntity> : IRepository<TSpecificEntity> where TSpecificEntity : Message
+    public interface IMessageRepository : IRepository<Message>
     {
     }
 }
