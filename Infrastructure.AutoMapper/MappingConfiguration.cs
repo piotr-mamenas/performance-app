@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Infrastructure.AutoMapper.Profiles;
+using Infrastructure.AutoMapper.Profiles.Converters;
 
 namespace Infrastructure.AutoMapper
 {
@@ -15,7 +16,8 @@ namespace Infrastructure.AutoMapper
                 typeof(CurrencyProfile),
                 typeof(AssetProfile),
                 typeof(PortfolioProfile),
-                typeof(TileWidgetProfile)));
+                typeof(TileWidgetProfile),
+                typeof(DateProfiles)));
         }
     }
 }

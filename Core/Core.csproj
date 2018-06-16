@@ -121,6 +121,7 @@
     <Compile Include="Enums\Domain\TaskType.cs" />
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\Periodicity.cs" />
+    <Compile Include="Exceptions\NoCalculationResultException.cs" />
     <Compile Include="Interfaces\IComplete.cs" />
     <Compile Include="Interfaces\IEntityRoot.cs" />
     <Compile Include="Interfaces\IIdentifiable.cs" />
@@ -141,7 +142,9 @@
     <Compile Include="Interfaces\Repositories\Business\IPortfolioRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
     <Compile Include="Interfaces\Repositories\System\ITaskRepository.cs" />
+    <Compile Include="Interfaces\Services\IAssetService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AssetService.cs" />
     <Compile Include="Services\PortfolioService.cs" />
     <Compile Include="Validation\Accounts\AccountValidator.cs" />
     <Compile Include="Validation\Assets\AssetValidator.cs" />

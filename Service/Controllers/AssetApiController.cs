@@ -10,8 +10,10 @@ using System.Web.Http.Description;
 using Core.Domain.Assets;
 using Core.Domain.Portfolios;
 using Core.Enums.Domain;
+using Core.Exceptions;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
+using Core.Interfaces.Services;
 using Infrastructure.AutoMapper;
 using Service.Dtos.Asset;
 using Service.Dtos.Shared;
@@ -23,16 +25,17 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AssetApiController : BaseApiController
     {
+        private readonly IAssetService _assetService;
         private readonly IAssetRepository _assetRepository;
         private readonly IBondRepository _bondRepository;
         private readonly IPortfolioRepository _portfolioRepository;
         private readonly IComplete _unitOfWork;
 
-        public AssetApiController(IUnitOfWork unitOfWork)
+        public AssetApiController(IUnitOfWork unitOfWork, IAssetService assetService)
         {
             //var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
             //json.SerializerSettings.ContractResolver = new AssetContractResolver();
-
+            _assetService = assetService;
             _unitOfWork = (IComplete)unitOfWork;
             _assetRepository = unitOfWork.Assets;
             _bondRepository = unitOfWork.Bonds;
@@ -84,39 +87,19 @@ namespace Service.Controllers
                 return NotFound();
             }
 
-            var submittedPeriods = new List<Tuple<DateTime, DateTime>>();
-            foreach (var period in calculationPeriods)
-            {
-                submittedPeriods.Add(new Tuple<DateTime, DateTime>(
-                    DateTime.ParseExact(period.DateFrom, "dd/MM/yyyy", CultureInfo.InvariantCulture),
-                    DateTime.ParseExact(period.DateTo, "dd/MM/yyyy", CultureInfo.InvariantCulture)
-                ));
-            }
-
-            var initialDatetime = submittedPeriods.Min(p => p.Item1).Date;
-            var finalDatetime = submittedPeriods.Max(p => p.Item2).Date;
+            var submittedPeriods = calculationPeriods.Map<List<Tuple<DateTime, DateTime>>>();
 
             try
             {
-                var periodIncomes = portfolioInDb.Positions
-                    .Where(p => p.AssetId == assetId && p.PortfolioId == portfolioId)
-                    .Where(p => p.Timestamp >= initialDatetime && p.Timestamp <= finalDatetime)
-                    .Select(p => new Tuple<decimal, DateTime>(p.Amount, p.Timestamp))
-                    .ToList();
-
-                assetInDb.CalculateReturn(ReturnType.HoldingPeriodReturn, submittedPeriods, periodIncomes);
-                var calculatedReturnRate = assetInDb.Returns
-                    .Where(r => r.Id == 0)
-                    .Select(crr => crr.Rate)
-                    .SingleOrDefault();
+                var calculatedReturnRate = _assetService.GetPortfolioAssetReturnsForPeriod(submittedPeriods, portfolioInDb, assetInDb);
 
                 _assetRepository.Add(assetInDb);
 
                 return Ok(calculatedReturnRate);
             }
-            catch (Exception ex)
+            catch (NoCalculationResultException exception)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(exception.Message);
             }
         }
 
