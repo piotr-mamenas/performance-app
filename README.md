@@ -11,21 +11,22 @@ Username: DemoUser
 Password: Secret1#
 
 ## Current Features
-- Add and Edit Contacts, Partners, Accounts, Portfolios
-- List Contacts, Partners, Accounts, Portfolios and Tasks (w/ pagination, sorting and search)
+- Add and Edit Contacts, Partners, Accounts, Portfolios, Widgets
+- List Contacts, Partners, Accounts, Assets, Exchange Rates, Portfolios and Tasks (w/ pagination, sorting and search)
 - Close Account, Contact, Partner
 - View Portfolio Details i.e Linked Partners and Assets with its prices
+- Calculate Portfolio Assets Holding Period Return
 - Download Pdf Reports from remote storage
-- Log into the system, change password
+- Log into the system
 
 ## Patterns and Practices Used
-- Domain Driven Development
-- Unit of Work
-- Sitemap
+- Domain Driven Design
+- Onion Architecture, Service Oriented Architecture
+- Unit of Work and Repository Patterns
 - SOLID
 - Revealing Module Pattern
-- IoC (DI)
-- MVC (MVVM Postback)
+- IoC (Dependency Injection)
+- Minor: Data Transfer Object, ViewModel, Sitemap
 - Standard Gang of Four: Facade, Singleton, Factory, Decorator
 
 ## Api 
