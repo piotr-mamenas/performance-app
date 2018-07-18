@@ -25,7 +25,6 @@
 
     var init = function () {
         presetNavbar(routing.getCurrentPage());
-        toasty.notify("Welcome!");
     }
 
     return {

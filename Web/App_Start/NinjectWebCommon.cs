@@ -1,9 +1,3 @@
-using Core.Domain.Contacts;
-using Core.Domain.Countries;
-using Core.Domain.Currencies;
-using Core.Domain.Identity;
-using Core.Domain.Institutions;
-using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.BaseData;
 using Core.Interfaces.Repositories.Business;

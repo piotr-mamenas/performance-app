@@ -1,6 +1,9 @@
-﻿using Infrastructure;
+﻿using System;
+using Core.Domain.Identity;
+using Infrastructure;
 using Infrastructure.Identity;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
@@ -18,8 +21,15 @@ namespace Web
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
+                CookieName = "DefaultCookie",
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/auth/login")
+                LoginPath = new PathString("/auth/login"),
+                Provider = new CookieAuthenticationProvider
+                {
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User>(
+                        validateInterval:TimeSpan.FromMinutes(20),
+                        regenerateIdentity: (manager,user) => user.GenerateUserIdentityAsync(manager))
+                }
             });
         }
     }

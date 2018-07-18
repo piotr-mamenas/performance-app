@@ -14,12 +14,16 @@ namespace Service.Controllers
         {
             get
             {
-                if (_currentUser == null)
+                if (User.Identity.IsAuthenticated)
                 {
-                    var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                    _currentUser = userManager.FindByNameAsync(HttpContext.Current.User.Identity.Name).Result;
+                    if (_currentUser == null)
+                    {
+                        var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                        _currentUser = userManager.FindByNameAsync(User.Identity.Name).Result;
+                    }
+                    return _currentUser;
                 }
-                return _currentUser;
+                return null;
             }
         }
     }

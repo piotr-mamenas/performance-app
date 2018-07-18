@@ -1,12 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.Cors;
-using Core.Domain.TileWidgets;
+﻿using Core.Domain.TileWidgets;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Service.Dtos.Widget;
 using Service.Filters;
+using System;
+using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Service.Controllers
 {
