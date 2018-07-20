@@ -46,19 +46,6 @@
         });
     }
 
-    var appendPeriod = function() {
-        numberOfPeriods++;
-        $(".bootbox-body").find("#calculation-datepicker").append(
-            "<div class='row input-group input-daterange'>" +
-                "<div class='col-md-6'>" +
-                    "<input type='text' class='form-control datepicker-input' data-date-from-row-id='" + numberOfPeriods + "' placeholder='Date From' />" +
-                "</div>" +
-                "<div class='col-md-6'>" +
-                    "<input type='text' class='form-control datepicker-input' data-date-to-row-id='" + numberOfPeriods + "' placeholder='Date To' />" +
-                "</div>" +
-            "</div>");
-    };
-
     var triggerInputValidation = function (e) {
         var rowId = $(e.currentTarget).data("date-from-row-id") || $(e.currentTarget).data("date-to-row-id");
         var dateFrom = $("input[data-date-from-row-id='" + rowId + "']").val();
@@ -77,7 +64,21 @@
             isFormValid = false;
             $("input[data-date-to-row-id='" + rowId + "']").css("box-shadow", "inset 0 -1px 0 #F00");
         }
-    }
+    };
+
+    var appendPeriod = function() {
+        numberOfPeriods++;
+        $(".bootbox-body").find("#calculation-datepicker").append(
+            "<div class='row input-group input-daterange'>" +
+                "<div class='col-md-6'>" +
+                    "<input type='text' class='form-control datepicker-input' data-date-from-row-id='" + numberOfPeriods + "' placeholder='Date From' />" +
+                "</div>" +
+                "<div class='col-md-6'>" +
+                    "<input type='text' class='form-control datepicker-input' data-date-to-row-id='" + numberOfPeriods + "' placeholder='Date To' />" +
+                "</div>" +
+            "</div>");
+        $(".datepicker-input").on("blur", triggerInputValidation);
+    };
 
     var onCalculateAssetClick = function(e) {
         calculateAssetButton = $(e.currentTarget);
