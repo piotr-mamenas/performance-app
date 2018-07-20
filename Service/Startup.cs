@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Security;
+using System.Configuration;
 using Core.Domain.Identity;
 using Infrastructure;
 using Infrastructure.Identity;
@@ -35,25 +32,9 @@ namespace Service
                 {
                     OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User>(
                         validateInterval: TimeSpan.FromMinutes(30),
-                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager)),
-                    OnApplyRedirect = ApplyRedirect
+                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
             });
-        }
-
-        public static void ApplyRedirect(CookieApplyRedirectContext context)
-        {
-            if (Uri.TryCreate(context.RedirectUri, UriKind.Absolute, out Uri absoluteUri))
-            {
-                var path = PathString.FromUriComponent(absoluteUri);
-
-                if (path == context.OwinContext.Request.PathBase + context.Options.LoginPath)
-                {
-                    context.RedirectUri = "/Account/Login" + 
-                        new QueryString(context.Options.ReturnUrlParameter, context.Request.Uri.AbsoluteUri);
-                }
-            }
-            context.Response.Redirect(context.RedirectUri);
         }
     }
 }

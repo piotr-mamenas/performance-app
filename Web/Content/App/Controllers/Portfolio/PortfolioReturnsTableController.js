@@ -5,6 +5,7 @@
     var numberOfPeriods = 1;
     var selectedAssetId = 0;
     var portfolioId = 0;
+    var isFormValid;
 
     var initializeDatatable = function (result) {
         if (table != null) {
@@ -47,16 +48,36 @@
 
     var appendPeriod = function() {
         numberOfPeriods++;
-        $(".bootbox-body").find(".calculation-datepicker").append(
+        $(".bootbox-body").find("#calculation-datepicker").append(
             "<div class='row input-group input-daterange'>" +
                 "<div class='col-md-6'>" +
-                    "<input type='text' required='required' class='form-control' data-date-from-row-id='" + numberOfPeriods + "' placeholder='Date From' />" +
+                    "<input type='text' class='form-control datepicker-input' data-date-from-row-id='" + numberOfPeriods + "' placeholder='Date From' />" +
                 "</div>" +
                 "<div class='col-md-6'>" +
-                    "<input type='text' required='required' class='form-control' data-date-to-row-id='" + numberOfPeriods + "' placeholder='Date To' />" +
+                    "<input type='text' class='form-control datepicker-input' data-date-to-row-id='" + numberOfPeriods + "' placeholder='Date To' />" +
                 "</div>" +
             "</div>");
     };
+
+    var triggerInputValidation = function (e) {
+        var rowId = $(e.currentTarget).data("date-from-row-id") || $(e.currentTarget).data("date-to-row-id");
+        var dateFrom = $("input[data-date-from-row-id='" + rowId + "']").val();
+        var dateTo = $("input[data-date-to-row-id='" + rowId + "']").val();
+
+        $("input[data-date-from-row-id='" + rowId + "']").css("box-shadow", "");
+        $("input[data-date-to-row-id='" + rowId + "']").css("box-shadow", "");
+
+        isFormValid = true;
+        if (dateFrom == null || dateFrom === "") {
+            isFormValid = false;
+            $("input[data-date-from-row-id='" + rowId + "']").css("box-shadow", "inset 0 -1px 0 #F00");
+        }
+
+        if (dateTo == null || dateTo === "") {
+            isFormValid = false;
+            $("input[data-date-to-row-id='" + rowId + "']").css("box-shadow", "inset 0 -1px 0 #F00");
+        }
+    }
 
     var onCalculateAssetClick = function(e) {
         calculateAssetButton = $(e.currentTarget);
@@ -64,7 +85,7 @@
         numberOfPeriods = 0;
         calculationPeriods = [];
 
-        $(".calculation-datepicker").empty();
+        $("#calculation-datepicker").empty();
 
         bootbox.dialog({
             title: "Enter Calculation Periods",
@@ -82,21 +103,32 @@
                     className: "btn-primary",
                     callback: function () {
                         for (var cnt = 1; cnt <= numberOfPeriods; cnt++) {
-                            calculationPeriods.push({
-                                dateFrom: $("input[data-date-from-row-id='" + cnt + "']").val(),
-                                dateTo: $("input[data-date-to-row-id='" + cnt + "']").val()
-                            });
+                            var dateFromInput = $("input[data-date-from-row-id='" + cnt + "']").val();
+                            var dateToInput = $("input[data-date-to-row-id='" + cnt + "']").val();
+
+                            if (isFormValid) {
+                                calculationPeriods.push({
+                                    dateFrom: dateFromInput,
+                                    dateTo: dateToInput
+                                });
+                            }
                         }
 
-                        service.getReturnsByIdAndPeriod(selectedAssetId,
-                            portfolioId,
-                            JSON.stringify(calculationPeriods),
-                            function(e) {
-                                console.log(e);
-                            },
-                            function(e) {
-                                console.log(e);
-                            });
+                        if (isFormValid) {
+                            service.getReturnsByIdAndPeriod(selectedAssetId,
+                                portfolioId,
+                                JSON.stringify(calculationPeriods),
+                                function(e) {
+                                    console.log(e);
+                                },
+                                function(e) {
+                                    console.log(e);
+                                });
+                            return true;
+                        } else {
+                            console.log("Invalid");
+                            return false;
+                        }
                     }
                 },
                 addPeriod: {
@@ -124,6 +156,7 @@
         appendPeriod();
         initializeDatepicker("[data-date-from-row-id='1']");
         initializeDatepicker("[data-date-to-row-id='1']");
+        $(".datepicker-input").on("blur", triggerInputValidation);
     };
 
     var init = function(id) {
