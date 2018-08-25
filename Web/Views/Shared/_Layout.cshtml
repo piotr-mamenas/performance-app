@@ -1,5 +1,6 @@
 ﻿@using Web.Extensions.HtmlHelperExtensions
 @using Web.Extensions.SitemapExtensions
+@using Web.Helpers
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +38,7 @@
     $(document).ready(function() {
         App.init();
         $.support.cors = true;
-        Routing.init('@Html.GetWebServerUri()');
+        Routing.init('@ConfigurationHelper.WebServerUri');
         ToastNotification.init("#snackbar");
 
         @RenderSection("scripts", false)

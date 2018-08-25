@@ -67,6 +67,7 @@ namespace Infrastructure
         public DbSet<ReturnIncome> ReturnIncomes { get; set; }
         public DbSet<ReturnCalculationPeriod> ReturnCalculationPeriods { get; set; }
         public DbSet<TileWidget> TileWidgets { get; set; }
+        public DbSet<UserSession> UserSessions { get; set; }
 
         public ApplicationDbContext()
             : base("PerformanceApp")
@@ -107,6 +108,7 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new UserLoginConfiguration());
             modelBuilder.Configurations.Add(new UserRoleConfiguration());
+            modelBuilder.Configurations.Add(new UserSessionConfiguration());
 
             modelBuilder.Configurations.Add(new MessageConfiguration());
 

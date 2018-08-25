@@ -225,8 +225,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Extensions\HtmlHelperExtensions\ConfigurationHelper.cs" />
     <Compile Include="Helpers\Authentication\ApplicationAuthorizeAttribute.cs" />
+    <Compile Include="Helpers\ConfigurationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

@@ -2,12 +2,13 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 using Infrastructure.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Infrastructure;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
+using Web.Helpers;
 using Web.Presentation.ViewModels.IdentityViewModels;
 
 namespace Web.Controllers
@@ -79,6 +80,7 @@ namespace Web.Controllers
                 case SignInStatus.Success:
                     if (returnUrl != null && Url.IsLocalUrl(returnUrl))
                     {
+                        //Response.Cookies.Add(new HttpCookie(ConfigurationHelper.SessionCookieName,));
                         return Redirect(returnUrl);
                     }
                     return RedirectToAction("Index", "Partner");

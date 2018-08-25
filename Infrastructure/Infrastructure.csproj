@@ -99,6 +99,7 @@
     <Compile Include="EntityConfigurations\BaseEntityConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ExchangeRateConfiguration\ExchangeRatesConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\InstitutionConfigurations\BankConfiguration.cs" />
+    <Compile Include="EntityConfigurations\SystemConfigurations\IdentityConfigurations\UserSessionConfiguration.cs" />
     <Compile Include="EntityConfigurations\SystemConfigurations\MessageConfigurations\MessageConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\PortfolioConfigurations\PortfolioConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\PortfolioConfigurations\PortfolioAssetPositionConfiguration.cs" />
@@ -170,6 +171,10 @@
     <Compile Include="Migrations\201803301843248_RenamingTileWidgetsToTileWidgetForConsistency.Designer.cs">
       <DependentUpon>201803301843248_RenamingTileWidgetsToTileWidgetForConsistency.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808251947570_UserSessionTableMigration.cs" />
+    <Compile Include="Migrations\201808251947570_UserSessionTableMigration.Designer.cs">
+      <DependentUpon>201808251947570_UserSessionTableMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -202,6 +207,7 @@
     <Compile Include="Serialization\JsonContractResolvers\AccountContractResolver.cs" />
     <Compile Include="Serialization\JsonContractResolvers\AssetContractResolver.cs" />
     <Compile Include="Serialization\JsonContractResolvers\ContactContractResolver.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\LocalizationService.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
@@ -244,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803301843248_RenamingTileWidgetsToTileWidgetForConsistency.resx">
       <DependentUpon>201803301843248_RenamingTileWidgetsToTileWidgetForConsistency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808251947570_UserSessionTableMigration.resx">
+      <DependentUpon>201808251947570_UserSessionTableMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

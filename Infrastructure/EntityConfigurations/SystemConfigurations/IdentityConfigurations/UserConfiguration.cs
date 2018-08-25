@@ -7,11 +7,11 @@ namespace Infrastructure.EntityConfigurations.SystemConfigurations.IdentityConfi
     {
         public UserConfiguration()
         {
-            Map(c =>
+            Map(u =>
             {
-                c.ToTable("Users");
-                c.Property(p => p.Id).HasColumnName("UserId");
-                c.Properties(p => new
+                u.ToTable("Users");
+                u.Property(p => p.Id).HasColumnName("UserId");
+                u.Properties(p => new
                 {
                     p.Language,
                     p.AccessFailedCount,
@@ -26,13 +26,23 @@ namespace Infrastructure.EntityConfigurations.SystemConfigurations.IdentityConfi
                     p.SecurityStamp,
                     p.TwoFactorEnabled
                 });
-            }).HasKey(c => c.Id);
+            }).HasKey(u => u.Id);
 
-            HasMany(c => c.Logins).WithOptional().HasForeignKey(c => c.UserId);
+            HasMany(u => u.Logins)
+                .WithOptional()
+                .HasForeignKey(u => u.UserId);
 
-            HasMany(c => c.Claims).WithOptional().HasForeignKey(c => c.UserId);
+            HasMany(u => u.Claims)
+                .WithOptional()
+                .HasForeignKey(c => c.UserId);
 
-            HasMany(c => c.Roles).WithRequired().HasForeignKey(c => c.UserId);
+            HasMany(u => u.Roles)
+                .WithRequired()
+                .HasForeignKey(c => c.UserId);
+
+            HasMany(u => u.Sessions)
+                .WithRequired(us => us.User)
+                .HasForeignKey(us => us.UserId);
 
             HasMany(u => u.TileWidgets)
                 .WithRequired(tw => tw.User)

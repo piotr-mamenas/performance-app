@@ -73,6 +73,7 @@
     <Compile Include="Domain\Assets\Equity.cs" />
     <Compile Include="Domain\ExchangeRates\ExchangeRate.cs" />
     <Compile Include="Domain\BaseEntity.cs" />
+    <Compile Include="Domain\Identity\UserSession.cs" />
     <Compile Include="Domain\Messages\ErrorMessage.cs" />
     <Compile Include="Domain\Messages\TextConstant.cs" />
     <Compile Include="Domain\Messages\WarningMessage.cs" />
