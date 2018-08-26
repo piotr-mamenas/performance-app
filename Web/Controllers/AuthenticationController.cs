@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Infrastructure.Identity;
+using Infrastructure.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Infrastructure;
@@ -18,6 +19,7 @@ namespace Web.Controllers
     {
         private ApplicationUserManager _userManager;
         private ApplicationSignInManager _signInManager;
+        private readonly IAuthenticationService _authenticationService;
 
         public ApplicationUserManager UserManager
         {
@@ -31,9 +33,10 @@ namespace Web.Controllers
             private set => _signInManager = value;
         }
 
-        public AuthenticationController(ILogger logger)
+        public AuthenticationController(ILogger logger, IAuthenticationService authenticationService)
             : base(logger)
         {
+            _authenticationService = authenticationService;
         }
 
         public AuthenticationController(ILogger logger, ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -80,7 +83,8 @@ namespace Web.Controllers
                 case SignInStatus.Success:
                     if (returnUrl != null && Url.IsLocalUrl(returnUrl))
                     {
-                        //Response.Cookies.Add(new HttpCookie(ConfigurationHelper.SessionCookieName,));
+                        var authenticationToken = await _authenticationService.StartSession(loginVm.Username);
+                        Response.Cookies.Add(new HttpCookie(ConfigurationHelper.SessionCookieName,authenticationToken));
                         return Redirect(returnUrl);
                     }
                     return RedirectToAction("Index", "Partner");

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
+using Infrastructure;
+using Infrastructure.Services;
 
 namespace Web.Helpers.Authentication
 {
@@ -9,10 +11,12 @@ namespace Web.Helpers.Authentication
     public class ApplicationAuthorizeAttribute : AuthorizeAttribute
     {
         private readonly ICollection<string> _userRoles;
-        
+        private readonly IAuthenticationService _authService;
+
         public ApplicationAuthorizeAttribute(params string[] additionalRoles)
         {
             _userRoles = new List<string>();
+            _authService = new AuthenticationService(ApplicationDbContext.Create());
 
             foreach (var role in additionalRoles)
             {
@@ -36,6 +40,14 @@ namespace Web.Helpers.Authentication
                     {
                         filterContext.HttpContext.Response.Redirect("/auth/login", true);
                     }
+                }
+
+                var cookie = filterContext.HttpContext.Request.Cookies.Get(ConfigurationHelper.SessionCookieName);
+                var isTokenValid = _authService.IsTokenValidAsync(cookie?.Value).Result;
+
+                if (!isTokenValid)
+                {
+                    filterContext.HttpContext.Response.Redirect("/auth/login", true);
                 }
             }
         }

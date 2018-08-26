@@ -1,22 +1,91 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Domain.Identity;
 
 namespace Infrastructure.Services
 {
-    public class AuthenticationService
+    public interface IAuthenticationService
     {
+        Task<string> StartSession(string userName);
+        Task<bool> IsTokenValidAsync(string authToken);
+        Task<bool> IsUserTokenValidAsync(string userName);
+        Task<User> GetCurrentUserByAuthenticationTokenAsync(string authToken);
+    }
+
+    public class AuthenticationService : IAuthenticationService
+    {
+        private const int SessionTimeout = 20;
         private readonly ApplicationDbContext _dbContext;
         public AuthenticationService(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task ValidateToken(string authToken, string userId)
+        /// <summary>
+        /// Starts a new session for User
+        /// </summary>
+        /// <returns>Authentication Token</returns>
+        public async Task<string> StartSession(string userName)
         {
-            var user = _dbContext.Users.SingleOrDefault(u => u.Id == userId);
+            var user = await _dbContext.Users.SingleOrDefaultAsync(u => u.UserName == userName);
 
-            
+            var newSession = UserSession.Build(user);
+            _dbContext.UserSessions.Add(newSession);
+            await _dbContext.SaveChangesAsync();
+
+            return newSession.AuthenticationToken;
+        }
+
+        public async Task<bool> IsTokenValidAsync(string authToken)
+        {
+            var currentSession = await _dbContext.UserSessions
+                .SingleOrDefaultAsync(us => us.AuthenticationToken == authToken && us.SessionEnd == null);
+
+            return await _isSessionValid(currentSession);
+        }
+
+        public async Task<bool> IsUserTokenValidAsync(string userName)
+        {
+            var currentSession = await _dbContext.UserSessions
+                .Include(us => us.User)
+                .SingleOrDefaultAsync(us => us.User.UserName == userName && us.SessionEnd == null);
+
+            return await _isSessionValid(currentSession);
+        }
+
+        public async Task<User> GetCurrentUserByAuthenticationTokenAsync(string authToken)
+        {
+            var currentSession = await _dbContext.UserSessions
+                .Include(us => us.User)
+                .SingleOrDefaultAsync(us => us.AuthenticationToken == authToken && us.SessionEnd == null);
+
+            var isSessionValid = await _isSessionValid(currentSession);
+            if (!isSessionValid)
+            {
+                return null;
+            }
+
+            return currentSession?.User;
+        }
+
+        private async Task<bool> _isSessionValid(UserSession session)
+        {
+            if (session == null)
+            {
+                return false;
+            }
+
+            var currentTime = DateTime.Now;
+            if (currentTime - session.SessionStart > TimeSpan.FromMinutes(SessionTimeout))
+            {
+                session.SessionEnd = DateTime.Now;
+                await _dbContext.SaveChangesAsync();
+                return false;
+            }
+
+            return true;
         }
     }
 }

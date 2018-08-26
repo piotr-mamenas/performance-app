@@ -11,6 +11,18 @@ namespace Core.Domain.Identity
 
         public DateTime SessionStart { get; set; }
 
-        public DateTime SessionEnd { get; set; }
+        public DateTime? SessionEnd { get; set; }
+
+        public static UserSession Build(User user)
+        {
+            return new UserSession
+            {
+                AuthenticationToken = Guid.NewGuid().ToString(),
+                SessionStart = DateTime.Now,
+                SessionEnd = null,
+                IsDeleted = false,
+                UserId = user.Id
+            };
+        }
     }
 }

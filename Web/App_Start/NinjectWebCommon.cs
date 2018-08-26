@@ -5,6 +5,7 @@ using Infrastructure;
 using Infrastructure.Identity;
 using Infrastructure.Repositories.BaseData;
 using Infrastructure.Repositories.Business;
+using Infrastructure.Services;
 using Microsoft.AspNet.Identity;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Web.App_Start.NinjectWebCommon), "Start")]
@@ -76,6 +77,7 @@ namespace Web.App_Start
             kernel.Bind<ICountryRepository>().To<CountryRepository>().InRequestScope();
             kernel.Bind<IPartnerRepository>().To<PartnerRepository>().InRequestScope();
             kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
+            kernel.Bind<IAuthenticationService>().To<AuthenticationService>().InRequestScope();
             kernel.Bind(typeof(UserManager<User>)).ToSelf().InRequestScope();
             kernel.Bind<IUserStore<User>>().To<ApplicationUserStore>().InRequestScope();
         }
