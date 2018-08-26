@@ -10,6 +10,8 @@ using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Infrastructure.Serialization.JsonContractResolvers;
+using Infrastructure.Services;
+using Ninject.Extensions.Logging;
 using Service.Dtos.Contact;
 using Service.Filters;
 
@@ -22,7 +24,8 @@ namespace Service.Controllers
         private readonly IContactRepository _repository;
         private readonly IComplete _unitOfWork;
 
-        public ContactApiController(IUnitOfWork unitOfWork)
+        public ContactApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
+            : base(logger, sessionService)
         {
             var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
             json.SerializerSettings.ContractResolver = new ContactContractResolver();

@@ -6,7 +6,7 @@ using Core.Domain.Identity;
 
 namespace Infrastructure.Services
 {
-    public interface IAuthenticationService
+    public interface ISessionService
     {
         Task<string> StartSession(string userName);
         Task<bool> IsTokenValidAsync(string authToken);
@@ -14,11 +14,11 @@ namespace Infrastructure.Services
         Task<User> GetCurrentUserByAuthenticationTokenAsync(string authToken);
     }
 
-    public class AuthenticationService : IAuthenticationService
+    public class SessionService : ISessionService
     {
         private const int SessionTimeout = 20;
         private readonly ApplicationDbContext _dbContext;
-        public AuthenticationService(ApplicationDbContext dbContext)
+        public SessionService(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -59,6 +59,7 @@ namespace Infrastructure.Services
         {
             var currentSession = await _dbContext.UserSessions
                 .Include(us => us.User)
+                .Include(us => us.User.Roles)
                 .SingleOrDefaultAsync(us => us.AuthenticationToken == authToken && us.SessionEnd == null);
 
             var isSessionValid = await _isSessionValid(currentSession);

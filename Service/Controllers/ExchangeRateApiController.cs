@@ -9,6 +9,8 @@ using Core.Domain.ExchangeRates;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
+using Infrastructure.Services;
+using Ninject.Extensions.Logging;
 using Service.Dtos.BaseData;
 using Service.Dtos.ExchangeRate;
 using Service.Filters;
@@ -22,7 +24,8 @@ namespace Service.Controllers
         private readonly IExchangeRateRepository _repository;
         private readonly IComplete _unitOfWork;
 
-        public ExchangeRateApiController(IUnitOfWork unitOfWork)
+        public ExchangeRateApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
+            : base(logger, sessionService)
         {
             _repository = unitOfWork.ExchangeRates;
             _unitOfWork = (IComplete)unitOfWork;

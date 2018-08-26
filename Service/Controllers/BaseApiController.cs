@@ -2,28 +2,31 @@
 using System.Web.Http;
 using Core.Domain.Identity;
 using Infrastructure.Identity;
+using Infrastructure.Services;
 using Microsoft.AspNet.Identity.Owin;
+using Ninject.Extensions.Logging;
+using Service.Helpers;
 
 namespace Service.Controllers
 {
+    [ApplicationAuthorize]
     public class BaseApiController : ApiController
     {
-        private User _currentUser;
+        private readonly ISessionService _sessionService;
+        private readonly ILogger _logger;
+
+        protected BaseApiController(ILogger logger, ISessionService sessionService)
+        {
+            _sessionService = sessionService;
+            _logger = logger;
+        }
 
         protected User CurrentUser
         {
             get
             {
-                if (User.Identity.IsAuthenticated)
-                {
-                    if (_currentUser == null)
-                    {
-                        var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                        _currentUser = userManager.FindByNameAsync(User.Identity.Name).Result;
-                    }
-                    return _currentUser;
-                }
-                return null;
+                var cookie = HttpContext.Current.Request.Cookies.Get(ConfigurationHelper.SessionCookieName);
+                return _sessionService.GetCurrentUserByAuthenticationTokenAsync(cookie?.Value).Result;
             }
         }
     }

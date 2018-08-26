@@ -9,6 +9,8 @@ using Core.Domain.Countries;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.BaseData;
 using Infrastructure.AutoMapper;
+using Infrastructure.Services;
+using Ninject.Extensions.Logging;
 using Service.Dtos.BaseData;
 using Service.Filters;
 
@@ -21,7 +23,8 @@ namespace Service.Controllers
         private readonly IComplete _unitOfWork;
         private readonly ICountryRepository _repository;
 
-        public CountryApiController(IUnitOfWork unitOfWork)
+        public CountryApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
+            : base(logger, sessionService)
         {
             _unitOfWork = (IComplete)unitOfWork;
             _repository = unitOfWork.Countries;

@@ -12,6 +12,8 @@ using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
+using Infrastructure.Services;
+using Ninject.Extensions.Logging;
 using Service.Dtos.Partner;
 using Service.Filters;
 
@@ -24,7 +26,8 @@ namespace Service.Controllers
         private readonly IComplete _unitOfWork;
         private readonly IPartnerRepository _partnersRepository;
 
-        public PartnerApiController(IUnitOfWork unitOfWork)
+        public PartnerApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
+            : base(logger, sessionService)
         {
             _unitOfWork = (IComplete) unitOfWork;
             _partnersRepository = unitOfWork.Partners;

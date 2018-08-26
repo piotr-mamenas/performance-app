@@ -6,12 +6,16 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using Core.Domain.Accounts;
+using Core.Domain.Identity;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
 using Infrastructure.Serialization.JsonContractResolvers;
+using Infrastructure.Services;
+using Ninject.Extensions.Logging;
 using Service.Dtos.Account;
 using Service.Filters;
+using Service.Helpers;
 
 namespace Service.Controllers
 {
@@ -22,7 +26,8 @@ namespace Service.Controllers
         private readonly IAccountRepository _repository;
         private readonly IComplete _unitOfWork;
 
-        public AccountApiController(IUnitOfWork unitOfWork)
+        public AccountApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
+            : base(logger, sessionService)
         {
             var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
             json.SerializerSettings.ContractResolver = new AccountContractResolver();

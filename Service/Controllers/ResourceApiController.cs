@@ -2,6 +2,8 @@
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Core.Domain.TileWidgets;
+using Infrastructure.Services;
+using Ninject.Extensions.Logging;
 
 namespace Service.Controllers
 {
@@ -9,6 +11,11 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ResourceApiController : BaseApiController
     {
+        public ResourceApiController(ILogger logger, ISessionService sessionService)
+            : base(logger, sessionService)
+        {
+        }
+
         [HttpGet, Route("icons")]
         public ICollection<string> GetAvailableIconNames()
         {

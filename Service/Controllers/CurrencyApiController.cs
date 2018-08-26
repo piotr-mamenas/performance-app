@@ -9,6 +9,8 @@ using Core.Domain.Currencies;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.BaseData;
 using Infrastructure.AutoMapper;
+using Infrastructure.Services;
+using Ninject.Extensions.Logging;
 using Service.Dtos.BaseData;
 using Service.Filters;
 
@@ -21,7 +23,8 @@ namespace Service.Controllers
         private readonly ICurrencyRepository _repository;
         private readonly IComplete _unitOfWork;
 
-        public CurrencyApiController(IUnitOfWork unitOfWork)
+        public CurrencyApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
+            : base(logger, sessionService)
         {
             _repository = unitOfWork.Currencies;
             _unitOfWork = (IComplete)unitOfWork;

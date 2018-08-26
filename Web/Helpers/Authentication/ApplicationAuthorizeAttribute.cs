@@ -7,16 +7,15 @@ using Infrastructure.Services;
 
 namespace Web.Helpers.Authentication
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public class ApplicationAuthorizeAttribute : AuthorizeAttribute
     {
         private readonly ICollection<string> _userRoles;
-        private readonly IAuthenticationService _authService;
+        private readonly ISessionService _authService;
 
         public ApplicationAuthorizeAttribute(params string[] additionalRoles)
         {
             _userRoles = new List<string>();
-            _authService = new AuthenticationService(ApplicationDbContext.Create());
+            _authService = new SessionService(ApplicationDbContext.Create());
 
             foreach (var role in additionalRoles)
             {

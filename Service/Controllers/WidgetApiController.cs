@@ -7,6 +7,8 @@ using System;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Infrastructure.Services;
+using Ninject.Extensions.Logging;
 
 namespace Service.Controllers
 {
@@ -17,7 +19,8 @@ namespace Service.Controllers
         private readonly ITileWidgetRepository _repository;
         private readonly IComplete _unitOfWork;
 
-        public WidgetApiController(IUnitOfWork unitOfWork)
+        public WidgetApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
+            : base(logger, sessionService)
         {
             _unitOfWork = (IComplete)unitOfWork;
             _repository = unitOfWork.TileWidgets;

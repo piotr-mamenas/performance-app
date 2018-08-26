@@ -10,6 +10,8 @@ using Core.Domain.Tasks;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.System;
 using Infrastructure.AutoMapper;
+using Infrastructure.Services;
+using Ninject.Extensions.Logging;
 using Service.Dtos.Portfolio;
 using Service.Dtos.Task;
 using Service.Filters;
@@ -23,7 +25,8 @@ namespace Service.Controllers
         private readonly ITaskRepository _repository;
         private readonly IComplete _unitOfWork;
 
-        public TaskApiController(IUnitOfWork unitOfWork)
+        public TaskApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
+            : base(logger, sessionService)
         {
             _unitOfWork = (IComplete)unitOfWork;
             _repository = unitOfWork.Tasks;

@@ -10,16 +10,15 @@ using Infrastructure.Services;
 
 namespace Service.Helpers
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public class ApplicationAuthorizeAttribute : AuthorizeAttribute
     {
         private readonly ICollection<string> _userRoles;
-        private readonly IAuthenticationService _authService;
+        private readonly ISessionService _authService;
 
         public ApplicationAuthorizeAttribute(params string[] additionalRoles)
         {
             _userRoles = new List<string>();
-            _authService = new AuthenticationService(ApplicationDbContext.Create());
+            _authService = new SessionService(ApplicationDbContext.Create());
 
             foreach (var role in additionalRoles)
             {
@@ -34,9 +33,22 @@ namespace Service.Helpers
                 .GetCookies(ConfigurationHelper.SessionCookieName)
                 .FirstOrDefault();
             
-            var isTokenValid = _authService.IsTokenValidAsync(cookie[ConfigurationHelper.SessionCookieName].Value).Result;
+            var tokenUser = _authService.GetCurrentUserByAuthenticationTokenAsync(cookie[ConfigurationHelper.SessionCookieName].Value).Result;
+            if (tokenUser == null)
+            {
+                filterContext.Response.StatusCode = HttpStatusCode.Unauthorized;
+            }
 
-            if (!isTokenValid)
+            var isAllowedAccess = false;
+            foreach (var role in tokenUser.Roles)
+            {
+                if (_userRoles.Contains(role.RoleId))
+                {
+                    isAllowedAccess = true;
+                }
+            }
+
+            if (!isAllowedAccess)
             {
                 filterContext.Response.StatusCode = HttpStatusCode.Unauthorized;
             }

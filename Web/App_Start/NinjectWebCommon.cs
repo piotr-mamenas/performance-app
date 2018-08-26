@@ -77,7 +77,7 @@ namespace Web.App_Start
             kernel.Bind<ICountryRepository>().To<CountryRepository>().InRequestScope();
             kernel.Bind<IPartnerRepository>().To<PartnerRepository>().InRequestScope();
             kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
-            kernel.Bind<IAuthenticationService>().To<AuthenticationService>().InRequestScope();
+            kernel.Bind<ISessionService>().To<SessionService>().InRequestScope();
             kernel.Bind(typeof(UserManager<User>)).ToSelf().InRequestScope();
             kernel.Bind<IUserStore<User>>().To<ApplicationUserStore>().InRequestScope();
         }

@@ -6,7 +6,6 @@ using Infrastructure.Identity;
 using Infrastructure.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Infrastructure;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
 using Web.Helpers;
@@ -19,7 +18,7 @@ namespace Web.Controllers
     {
         private ApplicationUserManager _userManager;
         private ApplicationSignInManager _signInManager;
-        private readonly IAuthenticationService _authenticationService;
+        private readonly ISessionService _sessionService;
 
         public ApplicationUserManager UserManager
         {
@@ -33,10 +32,10 @@ namespace Web.Controllers
             private set => _signInManager = value;
         }
 
-        public AuthenticationController(ILogger logger, IAuthenticationService authenticationService)
+        public AuthenticationController(ILogger logger, ISessionService sessionService)
             : base(logger)
         {
-            _authenticationService = authenticationService;
+            _sessionService = sessionService;
         }
 
         public AuthenticationController(ILogger logger, ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -83,7 +82,7 @@ namespace Web.Controllers
                 case SignInStatus.Success:
                     if (returnUrl != null && Url.IsLocalUrl(returnUrl))
                     {
-                        var authenticationToken = await _authenticationService.StartSession(loginVm.Username);
+                        var authenticationToken = await _sessionService.StartSession(loginVm.Username);
                         Response.Cookies.Add(new HttpCookie(ConfigurationHelper.SessionCookieName,authenticationToken));
                         return Redirect(returnUrl);
                     }

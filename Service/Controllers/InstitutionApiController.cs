@@ -8,6 +8,8 @@ using Core.Domain.Institutions;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
+using Infrastructure.Services;
+using Ninject.Extensions.Logging;
 using Service.Dtos.Institution;
 using Service.Filters;
 
@@ -20,7 +22,8 @@ namespace Service.Controllers
         private readonly IComplete _unitOfWork;
         private readonly IInstitutionRepository _repository;
 
-        public InstitutionApiController(IUnitOfWork unitOfWork)
+        public InstitutionApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
+            : base(logger, sessionService)
         {
             _unitOfWork = (IComplete) unitOfWork;
             _repository = unitOfWork.Institutions;

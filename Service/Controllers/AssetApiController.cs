@@ -12,9 +12,12 @@ using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Core.Interfaces.Services;
 using Infrastructure.AutoMapper;
+using Infrastructure.Services;
+using Ninject.Extensions.Logging;
 using Service.Dtos.Asset;
 using Service.Dtos.Shared;
 using Service.Filters;
+using Service.Helpers;
 
 namespace Service.Controllers
 {
@@ -28,10 +31,12 @@ namespace Service.Controllers
         private readonly IPortfolioRepository _portfolioRepository;
         private readonly IComplete _unitOfWork;
 
-        public AssetApiController(IUnitOfWork unitOfWork, IAssetService assetService)
+        public AssetApiController(IUnitOfWork unitOfWork, 
+            IAssetService assetService,
+            ISessionService sessionService,
+            ILogger logger)
+            : base(logger, sessionService)
         {
-            //var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
-            //json.SerializerSettings.ContractResolver = new AssetContractResolver();
             _assetService = assetService;
             _unitOfWork = (IComplete)unitOfWork;
             _assetRepository = unitOfWork.Assets;
