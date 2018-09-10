@@ -21,7 +21,7 @@ namespace Infrastructure.EntityConfigurations.SystemConfigurations.IdentityConfi
             Property(w => w.SessionEnd)
                 .HasColumnType(DatabaseVendorTypes.TimestampField)
                 .HasColumnName("SessionEndTimestamp")
-                .IsRequired();
+                .IsOptional();
 
             Property(us => us.AuthenticationToken).IsRequired();
 

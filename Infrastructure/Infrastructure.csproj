@@ -175,6 +175,10 @@
     <Compile Include="Migrations\201808251947570_UserSessionTableMigration.Designer.cs">
       <DependentUpon>201808251947570_UserSessionTableMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809101930179_MakeSessionEndOnUserSessionOptional.cs" />
+    <Compile Include="Migrations\201809101930179_MakeSessionEndOnUserSessionOptional.Designer.cs">
+      <DependentUpon>201809101930179_MakeSessionEndOnUserSessionOptional.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -253,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808251947570_UserSessionTableMigration.resx">
       <DependentUpon>201808251947570_UserSessionTableMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809101930179_MakeSessionEndOnUserSessionOptional.resx">
+      <DependentUpon>201809101930179_MakeSessionEndOnUserSessionOptional.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

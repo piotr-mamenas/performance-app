@@ -80,10 +80,12 @@ namespace Web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+
+                    var authenticationToken = await _sessionService.StartSession(loginVm.Username);
+                    Response.Cookies.Add(new HttpCookie(ConfigurationHelper.SessionCookieName, authenticationToken));
+
                     if (returnUrl != null && Url.IsLocalUrl(returnUrl))
                     {
-                        var authenticationToken = await _sessionService.StartSession(loginVm.Username);
-                        Response.Cookies.Add(new HttpCookie(ConfigurationHelper.SessionCookieName,authenticationToken));
                         return Redirect(returnUrl);
                     }
                     return RedirectToAction("Index", "Partner");
