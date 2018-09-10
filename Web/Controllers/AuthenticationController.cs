@@ -7,18 +7,18 @@ using Infrastructure.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Ninject.Extensions.Logging;
-using Web.Controllers.Templates;
 using Web.Helpers;
 using Web.Presentation.ViewModels.IdentityViewModels;
 
 namespace Web.Controllers
 {
     [RoutePrefix("auth")]
-    public class AuthenticationController : BaseController
+    public class AuthenticationController : Controller
     {
         private ApplicationUserManager _userManager;
         private ApplicationSignInManager _signInManager;
         private readonly ISessionService _sessionService;
+        private readonly ILogger _logger;
 
         public ApplicationUserManager UserManager
         {
@@ -33,14 +33,14 @@ namespace Web.Controllers
         }
 
         public AuthenticationController(ILogger logger, ISessionService sessionService)
-            : base(logger)
         {
+            _logger = logger;
             _sessionService = sessionService;
         }
 
         public AuthenticationController(ILogger logger, ApplicationUserManager userManager, ApplicationSignInManager signInManager)
-            : base(logger)
         {
+            _logger = logger;
             UserManager = userManager;
             SignInManager = signInManager;
         }

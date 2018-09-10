@@ -40,14 +40,6 @@ namespace Web.Helpers.Authentication
                         filterContext.HttpContext.Response.Redirect("/auth/login", true);
                     }
                 }
-
-                var cookie = filterContext.HttpContext.Request.Cookies.Get(ConfigurationHelper.SessionCookieName);
-                var isTokenValid = _authService.IsTokenValidAsync(cookie?.Value).Result;
-
-                if (!isTokenValid)
-                {
-                    filterContext.HttpContext.Response.Redirect("/auth/login", true);
-                }
             }
         }
     }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Core.Domain.Identity;
 using Infrastructure;
 using Infrastructure.Identity;
@@ -27,14 +26,9 @@ namespace Web
                 LoginPath = new PathString("/auth/login"),
                 Provider = new CookieAuthenticationProvider
                 {
-                    OnValidateIdentity = onValidateIdentity =>
-                    {
-                        SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User>(
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User>(
                             validateInterval: TimeSpan.FromMinutes(20),
-                            regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager));
-
-                        return Task.CompletedTask;
-                    }
+                            regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
             });
         }

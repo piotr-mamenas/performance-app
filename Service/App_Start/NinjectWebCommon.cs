@@ -1,16 +1,9 @@
-using Core.Domain.Accounts;
-using Core.Domain.Contacts;
-using Core.Domain.Countries;
-using Core.Domain.Currencies;
-using Core.Domain.Institutions;
-using Core.Domain.Partners;
-using Core.Domain.Portfolios;
-using Core.Domain.Tasks;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.BaseData;
 using Core.Interfaces.Repositories.Business;
 using Core.Interfaces.Repositories.System;
 using Infrastructure;
+using Infrastructure.Services;
 using Infrastructure.Repositories.BaseData;
 using Infrastructure.Repositories.Business;
 using Infrastructure.Repositories.System;
@@ -95,6 +88,7 @@ namespace Service.App_Start
             kernel.Bind<IPortfolioRepository>().To<PortfolioRepository>().InRequestScope();
             kernel.Bind<ITaskRepository>().To<TaskRepository>().InRequestScope();
             kernel.Bind<IAssetService>().To<AssetService>().InRequestScope();
+            kernel.Bind<ISessionService>().To<SessionService>().InRequestScope();
             kernel.Bind(typeof(UserManager<User>)).ToSelf().InRequestScope();
             kernel.Bind<IUserStore<User>>().To<ApplicationUserStore>().InRequestScope();
         }        

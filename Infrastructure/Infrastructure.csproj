@@ -207,7 +207,7 @@
     <Compile Include="Serialization\JsonContractResolvers\AccountContractResolver.cs" />
     <Compile Include="Serialization\JsonContractResolvers\AssetContractResolver.cs" />
     <Compile Include="Serialization\JsonContractResolvers\ContactContractResolver.cs" />
-    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\SessionService.cs" />
     <Compile Include="Services\LocalizationService.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>

@@ -13,12 +13,12 @@ namespace Service.Helpers
     public class ApplicationAuthorizeAttribute : AuthorizeAttribute
     {
         private readonly ICollection<string> _userRoles;
-        private readonly ISessionService _authService;
+        private readonly ISessionService _sessionService;
 
         public ApplicationAuthorizeAttribute(params string[] additionalRoles)
         {
             _userRoles = new List<string>();
-            _authService = new SessionService(ApplicationDbContext.Create());
+            _sessionService = new SessionService(ApplicationDbContext.Create());
 
             foreach (var role in additionalRoles)
             {
@@ -33,7 +33,7 @@ namespace Service.Helpers
                 .GetCookies(ConfigurationHelper.SessionCookieName)
                 .FirstOrDefault();
             
-            var tokenUser = _authService.GetCurrentUserByAuthenticationTokenAsync(cookie[ConfigurationHelper.SessionCookieName].Value).Result;
+            var tokenUser = _sessionService.GetCurrentUserByAuthenticationTokenAsync(cookie[ConfigurationHelper.SessionCookieName].Value).Result;
             if (tokenUser == null)
             {
                 filterContext.Response.StatusCode = HttpStatusCode.Unauthorized;
