@@ -5,7 +5,8 @@
             url: routing.getApiUri("Contact"),
             type: "GET",
             dataSrc: "",
-            dataType: "json"
+            dataType: "json",
+            xhrFields: { withCredentials: true }
         }).done(done)
           .fail(fail);
     };
@@ -17,7 +18,8 @@
             url: routing.getApiUri("Contact") + contactId + "/delete",
             type: "POST",
             method: "DELETE",
-            contentType: "text/plain"
+            contentType: "text/plain",
+            xhrFields: { withCredentials: true }
             }).done(done)
               .fail(fail);
     }

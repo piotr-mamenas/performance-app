@@ -39,7 +39,8 @@ namespace Service.Helpers
                 filterContext.Response.StatusCode = HttpStatusCode.Unauthorized;
             }
 
-            var isAllowedAccess = false;
+            var isAllowedAccess = !_userRoles.Any();
+
             foreach (var role in tokenUser.Roles)
             {
                 if (_userRoles.Contains(role.RoleId))
@@ -50,7 +51,7 @@ namespace Service.Helpers
 
             if (!isAllowedAccess)
             {
-                filterContext.Response.StatusCode = HttpStatusCode.Unauthorized;
+                filterContext.Response.StatusCode = HttpStatusCode.Unauthorized; //TODO: solve exception
             }
         }
     }

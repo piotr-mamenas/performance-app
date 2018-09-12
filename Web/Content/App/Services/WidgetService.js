@@ -8,7 +8,8 @@
             method: "POST",
             data: JSON.stringify(widget),
             dataType: "json",
-            contentType: "application/json"
+            contentType: "application/json",
+            xhrFields: { withCredentials: true }
         }).done(done)
             .fail(fail);
     };

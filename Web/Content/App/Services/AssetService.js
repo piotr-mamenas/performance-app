@@ -5,7 +5,8 @@
             url: routing.getApiUri("Asset"),
             type: "GET",
             dataSrc: "",
-            dataType: "json"
+            dataType: "json",
+            xhrFields: { withCredentials: true }
         }).done(done)
             .fail(fail);
     };
@@ -15,7 +16,8 @@
             url: routing.getApiUri("Asset") + "portfolios/" + portfolioId,
             type: "GET",
             dataSrc: "",
-            dataType: "json"
+            dataType: "json",
+            xhrFields: { withCredentials: true }
         }).done(done)
             .fail(fail);
     };
@@ -25,7 +27,8 @@
             url: routing.getApiUri("Asset") + "prices",
             type: "GET",
             dataSrc: "",
-            dataType: "json"
+            dataType: "json",
+            xhrFields: { withCredentials: true }
         }).done(done)
             .fail(fail);
     };
@@ -36,7 +39,8 @@
             type: "POST",
             data: calculationPeriods,
             dataType: "json",
-            contentType: "application/json"
+            contentType: "application/json",
+            xhrFields: { withCredentials: true }
         }).done(done)
             .fail(fail);
     };

@@ -5,7 +5,8 @@
             url: routing.getApiUri("Portfolio"),
             type: "GET",
             dataSrc: "",
-            dataType: "json"
+            dataType: "json",
+            xhrFields: { withCredentials: true }
             }).done(done)
               .fail(fail);
     };

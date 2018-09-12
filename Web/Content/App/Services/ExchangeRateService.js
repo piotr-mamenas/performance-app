@@ -2,11 +2,12 @@
 
     var getExchangeRates = function (done, fail) {
         $.ajax({
-                url: routing.getApiUri("ExchangeRate"),
-                type: "GET",
-                dataSrc: "",
-                dataType: "json"
-            }).done(done)
+            url: routing.getApiUri("ExchangeRate"),
+            type: "GET",
+            dataSrc: "",
+            dataType: "json",
+            xhrFields: { withCredentials: true }
+        }).done(done)
             .fail(fail);
     };
 
