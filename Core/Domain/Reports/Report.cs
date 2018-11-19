@@ -14,10 +14,5 @@ namespace Core.Domain.Reports
         {
             
         }
-
-        public void Download()
-        {
-            
-        }
     }
 }

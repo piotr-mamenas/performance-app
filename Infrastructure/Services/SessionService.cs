@@ -56,18 +56,27 @@ namespace Infrastructure.Services
 
         public async Task<User> GetCurrentUserByAuthenticationTokenAsync(string authToken)
         {
-            var currentSession = await _dbContext.UserSessions
-                .Include(us => us.User)
-                .Include(us => us.User.Roles)
-                .SingleOrDefaultAsync(us => us.AuthenticationToken == authToken && us.SessionEnd == null);
-
-            var isSessionValid = await _isSessionValid(currentSession);
-            if (!isSessionValid)
+            try
             {
-                return null;
+                var currentSession = await _dbContext.UserSessions
+                    .Include(us => us.User)
+                    .Include(us => us.User.Roles)
+                    .SingleOrDefaultAsync(us => us.AuthenticationToken == authToken && us.SessionEnd == null);
+
+                var isSessionValid = await _isSessionValid(currentSession);
+                if (!isSessionValid)
+                {
+                    return null;
+                }
+
+                return currentSession?.User;
+            }
+            catch (Exception e)
+            {
+                var somevar = e;
             }
 
-            return currentSession?.User;
+            return null;
         }
 
         private async Task<bool> _isSessionValid(UserSession session)
