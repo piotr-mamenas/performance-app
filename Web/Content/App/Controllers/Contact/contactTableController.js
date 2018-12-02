@@ -2,7 +2,7 @@
     var button;
     var table;
 
-    var initializeDatatable = function (result) {
+    var initializeDatatable = function(result) {
         table = $("#contactTable").DataTable({
             data: result,
             columns: [
@@ -26,14 +26,19 @@
                 },
                 {
                     data: "Id",
-                    render: function (data) {
-                        return "<a href=\"" + "update/" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-pencil'></span>";
+                    render: function(data) {
+                        return "<a href=\"" +
+                            "update/" +
+                            data +
+                            "\" class=\"btn btn-default btn-block\"><span class='fa fa-pencil'></span>";
                     }
                 },
                 {
                     data: "Id",
-                    render: function (data) {
-                        return "<button href=\"#\" data-contact-id=\"" + data + "\" class=\"btn btn-default btn-block contact-delete-contact\"><span class='fa fa-trash'></span></button>";
+                    render: function(data) {
+                        return "<button href=\"#\" data-contact-id=\"" +
+                            data +
+                            "\" class=\"btn btn-default btn-block contact-delete-contact\"><span class='fa fa-trash'></span></button>";
                     }
                 }
             ],
@@ -41,7 +46,7 @@
                 emptyTable: "No records at present."
             }
         });
-    }
+    };
 
     var deleteSelectedRow = function (e) {
         button = $(e.currentTarget);
@@ -80,10 +85,10 @@
 
     var init = function () {
 
-        var loadDatatable = function (result) {
+        var loadDatatable = function(result) {
             initializeDatatable(result);
             $("button.contact-delete-contact").on("click", openDeletePrompt);
-        }
+        };
         service.getContacts(loadDatatable, loadDatatable);
     };
 

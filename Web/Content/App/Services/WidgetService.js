@@ -1,7 +1,6 @@
 ﻿var WidgetService = function (routing) {
 
     var createWidget = function (widget, done, fail) {
-        console.log(JSON.stringify(widget));
         $.ajax({
             url: routing.getApiUri("Widget"),
             type: "POST",

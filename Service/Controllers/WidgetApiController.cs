@@ -30,7 +30,7 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(CreateWidgetDto createWidgetDto)
         {
-            var newWidget = TileWidget.Build(CurrentUser.Id, createWidgetDto.Name, createWidgetDto.Name, createWidgetDto.Url);
+            var newWidget = TileWidget.Build(CurrentUser.Id, createWidgetDto.Name, createWidgetDto.Icon, createWidgetDto.Url);
             _repository.Add(newWidget);
 
             await _unitOfWork.CompleteAsync();

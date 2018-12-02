@@ -2,10 +2,10 @@
     var availableIcons = [];
     var currentlySelectedIconId = 0;
 
-    var appendIcon = function () {
+    var appendIcon = function() {
         $(".new-widget-icon-spinner").empty();
         $(".new-widget-icon-spinner").append("<span class='" + availableIcons[currentlySelectedIconId] + "'></span>");
-    }
+    };
 
     var onLeftCaretClick = function (e) {
         e.preventDefault();
@@ -51,7 +51,12 @@
                             url: modalSelector.find(".js-new-widget-url").val(),
                             icon: modalSelector.find(".new-widget-icon-spinner").children("span").attr("class")
                         };
-                        widgetService.createWidget(newWidget, toastNotification.notify, toastNotification.notify);
+                        widgetService.createWidget(newWidget, function() {
+                            toastNotification.notify("Widget created successfully");
+                            window.location.reload(false);
+                        }, function () {
+                            toastNotification.notify("Encountered error: " + data, "error");
+                        });
                     }
                 }
             }
