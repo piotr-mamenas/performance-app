@@ -4,6 +4,5 @@ namespace Core.Domain.Identity
 {
     public class UserClaim : IdentityUserClaim
     {
-
     }
 }

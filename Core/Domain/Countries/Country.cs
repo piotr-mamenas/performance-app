@@ -13,5 +13,9 @@ namespace Core.Domain.Countries
         public int CurrencyId { get; set; }
 
         public bool IsEnabled { get; set; }
+
+        protected Country()
+        {
+        }
     }
 }

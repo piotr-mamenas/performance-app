@@ -22,7 +22,7 @@ namespace Core.Domain.Partners
 
         public ICollection<Account> Accounts { get; set; }
 
-        public Partner()
+        protected Partner()
         {
             Institutions = null;
             Contacts = null;

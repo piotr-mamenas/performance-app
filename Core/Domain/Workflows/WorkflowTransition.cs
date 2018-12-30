@@ -9,5 +9,9 @@
         public WorkflowStatus TransitionFrom { get; set; }
 
         public WorkflowStatus TransitionTo { get; set; }
+
+        protected WorkflowTransition()
+        {
+        }
     }
 }

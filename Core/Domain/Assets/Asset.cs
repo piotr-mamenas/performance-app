@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Core.Domain.Portfolios;
 using Core.Domain.Returns;
 using Core.Enums.Domain;
@@ -35,7 +34,7 @@ namespace Core.Domain.Assets
             }
         }
 
-        public Asset()
+        protected Asset()
         {
             Prices = null;
             Portfolios = null;

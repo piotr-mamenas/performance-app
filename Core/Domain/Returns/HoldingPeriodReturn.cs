@@ -21,12 +21,14 @@ namespace Core.Domain.Returns
         {
             foreach (var period in periods)
             {
-                Periods.Add(new ReturnCalculationPeriod{ DateFrom = period.Item1, DateTo = period.Item2, ReturnId = this.Id });
+                var addedPeriod = ReturnCalculationPeriod.Build(period.Item1, period.Item2, Id);
+                Periods.Add(addedPeriod);
             }
 
             foreach (var income in incomes)
             {
-                Incomes.Add(new ReturnIncome{ Amount = income.Item1, Timestamp = income.Item2, ReturnId = this.Id });
+                var addedIncome = ReturnIncome.Build(income.Item1, income.Item2, Id);
+                Incomes.Add(addedIncome);
             }
         }
 

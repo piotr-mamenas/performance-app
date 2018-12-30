@@ -19,5 +19,9 @@ namespace Core.Domain.Portfolios
         public int PortfolioId { get; set; }
 
         public DateTime Timestamp { get; set; }
+
+        protected PortfolioAssetPosition()
+        {
+        }
     }
 }

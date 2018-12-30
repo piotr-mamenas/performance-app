@@ -36,30 +36,27 @@ namespace Core.Domain.Accounts
 
         #region Constructor
 
-        public Account()
+        protected Account()
         {
             Portfolios = null;
         }
 
         public void Close()
         {
-            
         }
 
         public void RequestClose()
         {
-            
         }
 
-        public Account(string accountName, string accountNumber, Partner accountOwner)
+        protected Account(string accountName, string accountNumber, Partner accountOwner)
         {
             Name = accountName;
             Number = accountNumber;
             OpenedDate = DateTime.Today;
             Portfolios = null;
             Partner = accountOwner;
-            StatusId = 1;
-            //TODO: Status fetching logic, hardcoding this id is a horrible idea
+            StatusId = WorkflowStatus.Initial;
         }
         #endregion
     }

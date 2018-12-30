@@ -13,6 +13,10 @@ namespace Core.Domain.Identity
 
         public DateTime? SessionEnd { get; set; }
 
+        protected UserSession()
+        {
+        }
+
         public static UserSession Build(User user)
         {
             return new UserSession

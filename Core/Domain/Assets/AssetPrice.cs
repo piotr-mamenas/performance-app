@@ -19,5 +19,9 @@ namespace Core.Domain.Assets
         {
             return 0;
         }
+
+        protected AssetPrice()
+        {
+        }
     }
 }

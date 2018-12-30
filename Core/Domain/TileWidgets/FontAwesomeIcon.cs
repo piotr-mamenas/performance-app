@@ -12,11 +12,11 @@ namespace Core.Domain.TileWidgets
         
         public string Name { get; set; }
         
-        public FontAwesomeIcon()
+        protected FontAwesomeIcon()
         {
         }
 
-        public FontAwesomeIcon(string name)
+        protected FontAwesomeIcon(string name)
         {
             Name = name;
         }

@@ -21,7 +21,7 @@ namespace Core.Domain.Portfolios
 
         public ICollection<PortfolioAssetPosition> Positions { get; set; }
 
-        public Portfolio()
+        protected Portfolio()
         {
             Assets = null;
             Positions = null;

@@ -12,7 +12,10 @@ namespace Core.Domain.Reports
 
         public void Generate()
         {
-            
+        }
+
+        protected Report()
+        {
         }
     }
 }

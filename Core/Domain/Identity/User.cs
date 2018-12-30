@@ -23,7 +23,7 @@ namespace Core.Domain.Identity
             return userIdentity;
         }
 
-        public User()
+        protected User()
         {
             TileWidgets = new List<TileWidget>();
             Sessions = new List<UserSession>();

@@ -12,7 +12,7 @@ namespace Core.Domain.TileWidgets
         public FontAwesomeIcon Icon { get; set; }
         public string Url { get; set; }
 
-        public TileWidget()
+        protected TileWidget()
         {
             Icon = new FontAwesomeIcon(FontAwesomeIcon.StickyNote);
         }

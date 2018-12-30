@@ -111,13 +111,9 @@
     <Compile Include="Domain\Workflows\WorkflowStatus.cs" />
     <Compile Include="Domain\Workflows\WorkflowTransition.cs" />
     <Compile Include="Enums\Domain\AssetType.cs" />
-    <Compile Include="Enums\Domain\ContactType.cs" />
-    <Compile Include="Enums\Domain\CountryType.cs" />
-    <Compile Include="Enums\Domain\CurrencyType.cs" />
     <Compile Include="Enums\Domain\InstitutionType.cs" />
     <Compile Include="Enums\Domain\MessageType.cs" />
     <Compile Include="Enums\Domain\PortfolioOperationType.cs" />
-    <Compile Include="Enums\Domain\PositionType.cs" />
     <Compile Include="Enums\Domain\ReturnType.cs" />
     <Compile Include="Enums\Domain\TaskType.cs" />
     <Compile Include="Enums\Language.cs" />

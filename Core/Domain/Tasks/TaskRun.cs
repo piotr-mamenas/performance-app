@@ -18,7 +18,7 @@ namespace Core.Domain.Tasks
 
         public int Progress { get; set; }
 
-        public TaskRun()
+        protected TaskRun()
         {
             StartTimestamp = DateTime.Now;
             Progress = 0;

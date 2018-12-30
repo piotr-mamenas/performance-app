@@ -9,6 +9,11 @@ namespace Core.Domain
         
         public bool IsDeleted { get; set; }
 
+        protected BaseEntity()
+        {
+            IsDeleted = false;
+        }
+
         public static bool operator ==(BaseEntity leftEntity, BaseEntity rightEntity)
         {
             if (ReferenceEquals(leftEntity, null) && ReferenceEquals(rightEntity, null))

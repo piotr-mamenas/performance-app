@@ -19,5 +19,9 @@ namespace Core.Domain.ExchangeRates
         public decimal Min { get; set; }
 
         public DateTime Timestamp { get; set; }
+
+        protected ExchangeRate()
+        {
+        }
     }
 }

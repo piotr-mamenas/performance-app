@@ -19,6 +19,11 @@ namespace Core.Domain.Tasks
 
         public string Parameters { get; set; }
 
+        protected ServerTask()
+        {
+            Runs = new List<TaskRun>();
+        }
+
         public Task<IList<ValidationFailure>> Run(CancellationToken cancellationToken)
         {
             while (true)

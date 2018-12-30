@@ -20,7 +20,7 @@ namespace Core.Domain.Currencies
 
         public ICollection<PortfolioAssetPosition> Positions { get; set; }
 
-        public Currency()
+        protected Currency()
         {
             Countries = null;
             Bonds = null;

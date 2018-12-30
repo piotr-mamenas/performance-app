@@ -9,5 +9,9 @@ namespace Core.Domain.Workflows
 
         public WorkflowStatus Status { get; set; }
         public int StatusId { get; set; }
+
+        protected Workflow()
+        {
+        }
     }
 }

@@ -12,5 +12,9 @@ namespace Core.Domain.Portfolios
         public DateTime TransactionDate { get; set; }
 
         public DateTime PlacedDate { get; set; }
+
+        protected PortfolioOperationOrder()
+        {
+        }
     }
 }

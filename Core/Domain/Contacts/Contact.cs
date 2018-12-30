@@ -17,5 +17,9 @@ namespace Core.Domain.Contacts
 
         public Partner Partner { get; set; }
         public int PartnerId { get; set; }
+
+        protected Contact()
+        {
+        }
     }
 }

@@ -17,11 +17,11 @@ namespace Core.Domain.Assets
 
         public decimal FaceValue { get; set; }
 
-        public Bond()
+        protected Bond()
         {
         }
 
-        public Bond(BondCoupon coupon, decimal faceValue, Currency currency, DateTime issueDate, DateTime maturityDate)
+        protected Bond(BondCoupon coupon, decimal faceValue, Currency currency, DateTime issueDate, DateTime maturityDate)
         {
             Coupon = coupon;
             FaceValue = faceValue;

@@ -9,5 +9,10 @@ namespace Core.Domain.Tasks
         public string Description { get; set; }
 
         public ICollection<ServerTask> Tasks { get; set; }
+
+        protected TaskType()
+        {
+            Tasks = new List<ServerTask>();
+        }
     }
 }

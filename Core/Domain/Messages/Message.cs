@@ -10,5 +10,9 @@ namespace Core.Domain.Messages
         public Language Language { get; set; }
 
         public string Content { get; set; }
+
+        protected Message()
+        {
+        }
     }
 }

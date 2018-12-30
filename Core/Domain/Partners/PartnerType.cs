@@ -8,7 +8,7 @@ namespace Core.Domain.Partners
 
         public ICollection<Partner> Partners { get; set; }
 
-        public PartnerType()
+        protected PartnerType()
         {
             Partners = null;
         }

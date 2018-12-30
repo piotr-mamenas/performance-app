@@ -10,7 +10,7 @@ namespace Core.Domain.Institutions
 
         public ICollection<Partner> Partners { get; set; }
 
-        public Institution()
+        protected Institution()
         {
             Partners = null;
         }
