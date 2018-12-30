@@ -11,7 +11,12 @@ namespace Core.Domain.TileWidgets
         public static string LargeBriefCase = "fa fa-4x fa-briefcase";
         
         public string Name { get; set; }
-        
+
+        public static FontAwesomeIcon Build(string name)
+        {
+            return new FontAwesomeIcon(name);
+        }
+
         protected FontAwesomeIcon()
         {
         }

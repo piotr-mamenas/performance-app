@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Core.Domain.Accounts;
 using Core.Domain.Contacts;
 using Core.Domain.Institutions;
@@ -21,6 +22,15 @@ namespace Core.Domain.Partners
         public ICollection<Contact> Contacts { get; set; }
 
         public ICollection<Account> Accounts { get; set; }
+
+        public static Partner Build(string name, string number)
+        {
+            return new Partner
+            {
+                Name = name,
+                Number = number
+            };
+        }
 
         protected Partner()
         {

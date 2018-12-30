@@ -67,16 +67,7 @@ namespace Infrastructure.Migrations
 
             if (!userManager.Users.Any(u => u.UserName == "DemoUser"))
             {
-                var user = new User
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Language = Language.En,
-                    UserName = "DemoUser",
-                    Email = "demoUser@gmail.com",
-                    EmailConfirmed = true,
-                    PhoneNumber = "+41790788495",
-                    PhoneNumberConfirmed = true
-                };
+                var user = User.Build(Language.En, "DemoUser", "demoUser@gmail.com", "+41790788495");
 
                 await userManager.CreateAsync(user, "Secret1#");
                 await userManager.AddToRoleAsync(user.Id, Role.AdminRole);
@@ -85,16 +76,7 @@ namespace Infrastructure.Migrations
 
             if (!userManager.Users.Any(u => u.UserName == "niemieckiUser"))
             {
-                var user = new User
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Language = Language.De,
-                    UserName = "niemieckiUser",
-                    Email = "demoDE@gmail.com",
-                    EmailConfirmed = true,
-                    PhoneNumber = "+41780349204",
-                    PhoneNumberConfirmed = true
-                };
+                var user = User.Build(Language.De, "niemieckiUser", "demoDE@gmail.com", "+41780349204");
 
                 await userManager.CreateAsync(user, "Secret1#");
                 await userManager.AddToRoleAsync(user.Id, Role.AssociateRole);

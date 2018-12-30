@@ -69,8 +69,8 @@ namespace Web.Controllers
             {
                 return View(accountVm);
             }
-
-            var account = new Account(accountVm.Name, accountVm.Number, partner);
+            
+            var account = Account.Build(accountVm.Name, accountVm.Number, partner.Id);
             _accounts.Add(account);
 
             await _unitOfWork.CompleteAsync();

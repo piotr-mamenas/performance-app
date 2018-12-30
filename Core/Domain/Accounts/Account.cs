@@ -34,11 +34,9 @@ namespace Core.Domain.Accounts
         
         #endregion
 
-        #region Constructor
-
-        protected Account()
+        public static Account Build(string name, string number, int partnerId)
         {
-            Portfolios = null;
+            return new Account(name, number, partnerId);
         }
 
         public void Close()
@@ -49,15 +47,19 @@ namespace Core.Domain.Accounts
         {
         }
 
-        protected Account(string accountName, string accountNumber, Partner accountOwner)
+        protected Account()
+        {
+            Portfolios = null;
+        }
+
+        private Account(string accountName, string accountNumber, int accountOwnerId)
         {
             Name = accountName;
             Number = accountNumber;
             OpenedDate = DateTime.Today;
             Portfolios = null;
-            Partner = accountOwner;
+            PartnerId = accountOwnerId;
             StatusId = WorkflowStatus.Initial;
         }
-        #endregion
     }
 }

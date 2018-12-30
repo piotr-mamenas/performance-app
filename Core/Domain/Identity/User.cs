@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Core.Domain.TileWidgets;
@@ -27,6 +28,23 @@ namespace Core.Domain.Identity
         {
             TileWidgets = new List<TileWidget>();
             Sessions = new List<UserSession>();
+        }
+
+        public static User Build(Language language, 
+            string username, 
+            string email,
+            string phoneNumber)
+        {
+            return new User
+            {
+                Id = Guid.NewGuid().ToString(),
+                Language = language,
+                UserName = username,
+                Email = email,
+                EmailConfirmed = true,
+                PhoneNumber = phoneNumber,
+                PhoneNumberConfirmed = true
+            };
         }
     }
 }

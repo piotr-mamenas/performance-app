@@ -9,20 +9,8 @@ namespace Tests.Web.FakeData
         {
             return new List<Partner>
             {
-                new Partner
-                {
-                    Id = 1,
-                    IsDeleted = false,
-                    Name = "TESTPARTNER1",
-                    Number = "PARTNERNUMBER1"
-                },
-                new Partner
-                {
-                    Id = 2,
-                    IsDeleted = false,
-                    Name = "TESTPARTNER1",
-                    Number = "PARTNERNUMBER1"
-                }
+                Partner.Build("TESTPARTNER1", "PARTNERNUMBER1"),
+                Partner.Build("TESTPARTNER1", "PARTNERNUMBER1")
             };
         }
     }

@@ -14,7 +14,7 @@ namespace Core.Domain.TileWidgets
 
         protected TileWidget()
         {
-            Icon = new FontAwesomeIcon(FontAwesomeIcon.StickyNote);
+            Icon = FontAwesomeIcon.Build(FontAwesomeIcon.StickyNote);
         }
 
         public static TileWidget Build(string userId, string name, string iconName, string url)
@@ -23,7 +23,7 @@ namespace Core.Domain.TileWidgets
             {
                 UserId = userId,
                 Name = name,
-                Icon = new FontAwesomeIcon(iconName),
+                Icon = FontAwesomeIcon.Build(iconName),
                 Url = url
             };
         }
