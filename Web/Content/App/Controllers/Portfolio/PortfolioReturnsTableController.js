@@ -7,7 +7,7 @@
     var portfolioId = 0;
     var isFormValid;
 
-    var initializeDatatable = function (result) {
+    var initializeDatatable = function(result) {
         if (table != null) {
             table.destroy();
         }
@@ -25,8 +25,10 @@
                 },
                 {
                     data: "Id",
-                    render: function (data) {
-                        return "<button href=\"#\" data-asset-id=\"" + data + "\" class=\"btn btn-default btn-block btn-portfolio-calculate-asset-returns\"><span class='fa fa-calculator'></span></button>";
+                    render: function(data) {
+                        return "<button href=\"#\" data-asset-id=\"" +
+                            data +
+                            "\" class=\"btn btn-default btn-block btn-portfolio-calculate-asset-returns\"><span class='fa fa-calculator'></span></button>";
                     }
                 }
             ],
@@ -34,17 +36,18 @@
                 emptyTable: "No records at present."
             }
         });
-    }
-    
-    var initializeDatepicker = function (selector) {
+    };
+
+    var initializeDatepicker = function(selector) {
         $(selector).datepicker({
             format: "dd/mm/yyyy",
             autoclose: true
-        }).on("changeDate", function () {
-            $(this).blur();
-            $(this).datepicker("hide");
-        });
-    }
+        }).on("changeDate",
+            function() {
+                $(this).blur();
+                $(this).datepicker("hide");
+            });
+    };
 
     var triggerInputValidation = function (e) {
         var rowId = $(e.currentTarget).data("date-from-row-id") || $(e.currentTarget).data("date-to-row-id");
@@ -161,13 +164,13 @@
     };
 
     var init = function(id) {
-        var loadDatatable = function (result) {
+        var loadDatatable = function(result) {
             initializeDatatable(result);
             $(".btn-portfolio-calculate-asset-returns").on("click", onCalculateAssetClick);
-        }
+        };
         portfolioId = id;
         service.getAssetsByPortfolios(portfolioId, loadDatatable, loadDatatable);
-    }
+    };
 
     return {
         init: init

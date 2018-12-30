@@ -4,10 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container">
-    @foreach (var widget in Model.UserWidgets)
-    {
-        Html.RenderPartial("_Widget",widget);
-    }    
+    <div class="row">
+        @foreach (var widget in Model.UserWidgets)
+        {
+            Html.RenderPartial("_Widget", widget);
+        }        
+    </div>
 </div>
 
 @Html.Partial("_NewWidgetForm")

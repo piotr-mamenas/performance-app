@@ -25,5 +25,5 @@
     return {
         init: init,
         notify: notify
-    }
+    };
 }();
