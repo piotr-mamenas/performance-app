@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Core.Domain.Accounts;
-using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Core.Validation;

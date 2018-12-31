@@ -1,8 +1,8 @@
-﻿var PartnerTableController = function (service) {
+﻿var PartnerTableController = function(service) {
     var button;
     var table;
 
-    var initializeDatatable = function (result) {
+    var initializeDatatable = function(result) {
         table = $("#partnerTable").DataTable({
             data: result,
             columns: [
@@ -17,14 +17,19 @@
                 },
                 {
                     data: "Id",
-                    render: function (data) {
-                        return "<a href=\"" + "update/" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-pencil'></span>";
+                    render: function(data) {
+                        return "<a href=\"" +
+                            "update/" +
+                            data +
+                            "\" class=\"btn btn-default btn-block\"><span class='fa fa-pencil'></span>";
                     }
                 },
                 {
                     data: "Id",
-                    render: function (data) {
-                        return "<button href=\"#\" data-partner-id=\"" + data + "\" class=\"btn btn-default btn-block partner-delete-partner\"><span class='fa fa-trash'></span></button>";
+                    render: function(data) {
+                        return "<button href=\"#\" data-partner-id=\"" +
+                            data +
+                            "\" class=\"btn btn-default btn-block partner-delete-partner\"><span class='fa fa-trash'></span></button>";
                     }
                 }
             ],
@@ -32,23 +37,23 @@
                 emptyTable: "No records at present."
             }
         });
-    }
+    };
 
-    var deleteSelectedRow = function (e) {
+    var deleteSelectedRow = function(e) {
         button = $(e.currentTarget);
 
         service.deletePartner(button.attr("data-partner-id"),
-            function () {
+            function() {
                 table.row(button.parents("tr"))
                     .remove()
                     .draw();
             },
-            function (result) {
+            function(result) {
                 bootbox.alert(result.responseJSON.Message);
             });
     };
 
-    var openDeletePrompt = function (e) {
+    var openDeletePrompt = function(e) {
 
         bootbox.confirm({
             title: "Delete partner?",
@@ -61,7 +66,7 @@
                     label: "<i class=\"fa fa-check\"></i> Confirm"
                 }
             },
-            callback: function (isConfirmed) {
+            callback: function(isConfirmed) {
                 if (isConfirmed === true) {
                     deleteSelectedRow(e);
                 }
@@ -69,16 +74,16 @@
         });
     };
 
-    var init = function () {
-        var loadDatatable = function (result) {
+    var init = function() {
+        var loadDatatable = function(result) {
             initializeDatatable(result);
             $(".partner-delete-partner").on("click", openDeletePrompt);
         }
         service.getPartners(loadDatatable, loadDatatable);
-    }
+    };
 
     return {
         init: init
     };
 
-}(PartnerService)
+}(PartnerService);

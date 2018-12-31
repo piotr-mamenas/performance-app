@@ -18,5 +18,5 @@
     return {
         getReports: getReports,
         getDownloadUri: getDownloadUri
-    }
+    };
 }(Routing);

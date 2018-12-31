@@ -11,21 +11,21 @@
             .fail(fail);
     };
 
-    var deleteAccount = function (accountId, done, fail) {
+    var deleteAccount = function(accountId, done, fail) {
         this.accountId = accountId;
 
         $.ajax({
-            url: routing.getApiUri("Account") + accountId + "/delete",
-            type: "POST",
-            method: "DELETE",
-            contentType: "text/plain",
-            xhrFields: { withCredentials: true }
-        }).done(done)
+                url: routing.getApiUri("Account") + accountId + "/delete",
+                type: "POST",
+                method: "DELETE",
+                contentType: "text/plain",
+                xhrFields: { withCredentials: true }
+            }).done(done)
             .fail(fail);
-    }
+    };
 
     return {
         getAccounts: getAccounts,
         deleteAccount: deleteAccount
-    }
+    };
 }(Routing);

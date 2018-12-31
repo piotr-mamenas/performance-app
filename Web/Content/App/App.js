@@ -5,5 +5,5 @@
 
     return {
         init: init
-    }
+    };
 }();

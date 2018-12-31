@@ -46,7 +46,7 @@
             }
         });
 
-        if (table == null || table === undefined) {
+        if (table === null || table === undefined) {
             $("div.bootbox.modal").on("shown.bs.modal", loadSelection);
         }
     };

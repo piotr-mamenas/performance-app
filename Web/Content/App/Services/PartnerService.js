@@ -22,22 +22,22 @@
             .fail(fail);
     };
 
-    var deletePartner = function (partnerId, done, fail) {
+    var deletePartner = function(partnerId, done, fail) {
         this.partnerId = partnerId;
 
         $.ajax({
-            url: routing.getApiUri("Partner") + partnerId + "/delete",
-            type: "POST",
-            method: "DELETE",
-            dataType: "json",
-            xhrFields: { withCredentials: true }
-        }).done(done)
+                url: routing.getApiUri("Partner") + partnerId + "/delete",
+                type: "POST",
+                method: "DELETE",
+                dataType: "json",
+                xhrFields: { withCredentials: true }
+            }).done(done)
             .fail(fail);
-    }
+    };
 
     return {
         getPartners: getPartners,
         deletePartner: deletePartner,
         getPartnersByAccounts: getPartnersByAccounts
-    }
+    };
 }(Routing);

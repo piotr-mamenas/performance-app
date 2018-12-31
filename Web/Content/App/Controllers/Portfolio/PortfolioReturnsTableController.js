@@ -8,7 +8,7 @@
     var isFormValid;
 
     var initializeDatatable = function(result) {
-        if (table != null) {
+        if (table !== null) {
             table.destroy();
         }
         table = $("#portfolioReturnsTable").DataTable({
@@ -58,12 +58,12 @@
         $("input[data-date-to-row-id='" + rowId + "']").css("box-shadow", "");
 
         isFormValid = true;
-        if (dateFrom == null || dateFrom === "") {
+        if (dateFrom === null || dateFrom === "") {
             isFormValid = false;
             $("input[data-date-from-row-id='" + rowId + "']").css("box-shadow", "inset 0 -1px 0 #F00");
         }
 
-        if (dateTo == null || dateTo === "") {
+        if (dateTo === null || dateTo === "") {
             isFormValid = false;
             $("input[data-date-to-row-id='" + rowId + "']").css("box-shadow", "inset 0 -1px 0 #F00");
         }

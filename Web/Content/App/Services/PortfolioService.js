@@ -13,5 +13,5 @@
 
     return {
         getPortfolios: getPortfolios
-    }
+    };
 }(Routing);

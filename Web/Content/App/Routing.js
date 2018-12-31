@@ -73,16 +73,18 @@
     var getMvcUri = function (service) {
         return _.findWhere(mvc, { Name: service })["Uri"];
     };
-    
-    var buildUris = function (webServerUrl) {
-        _.map(api, function (element, index) {
-            api[index]["Uri"] = webServerUrl + element["Uri"];
-        });
 
-        _.map(mvc, function (element, index) {
-            mvc[index]["Uri"] = webServerUrl + element["Uri"];
-        });
-    }
+    var buildUris = function(webServerUrl) {
+        _.map(api,
+            function(element, index) {
+                api[index]["Uri"] = webServerUrl + element["Uri"];
+            });
+
+        _.map(mvc,
+            function(element, index) {
+                mvc[index]["Uri"] = webServerUrl + element["Uri"];
+            });
+    };
 
     var init = function (webServerUrl) {
         buildUris(webServerUrl);

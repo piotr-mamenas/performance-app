@@ -23,11 +23,11 @@
 
     });
 
-    var init = function () {
+    var init = function() {
         presetNavbar(routing.getCurrentPage());
-    }
+    };
 
     return {
         init: init
-    }
+    };
 }(Routing, ToastNotification);

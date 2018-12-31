@@ -1,8 +1,8 @@
-﻿var AccountTableController = function (service) {
+﻿var AccountTableController = function(service) {
     var button;
     var table;
 
-    var initializeDatatable = function (result) {
+    var initializeDatatable = function(result) {
         table = $("#accountTable").DataTable({
             data: result,
             columns: [
@@ -20,14 +20,19 @@
                 },
                 {
                     data: "Id",
-                    render: function (data) {
-                        return "<a href=\"" + "update/" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-pencil'></span>";
+                    render: function(data) {
+                        return "<a href=\"" +
+                            "update/" +
+                            data +
+                            "\" class=\"btn btn-default btn-block\"><span class='fa fa-pencil'></span>";
                     }
                 },
                 {
                     data: "Id",
-                    render: function (data) {
-                        return "<button href=\"#\" data-account-id=\"" + data + "\" class=\"btn btn-default btn-block account-delete-account\"><span class='fa fa-trash'></span></button>";
+                    render: function(data) {
+                        return "<button href=\"#\" data-account-id=\"" +
+                            data +
+                            "\" class=\"btn btn-default btn-block account-delete-account\"><span class='fa fa-trash'></span></button>";
                     }
                 }
             ],
@@ -35,23 +40,23 @@
                 emptyTable: "No records at present."
             }
         });
-    }
+    };
 
-    var deleteSelectedRow = function (e) {
+    var deleteSelectedRow = function(e) {
         button = $(e.currentTarget);
 
         service.deleteAccount(button.attr("data-account-id"),
-            function () {
+            function() {
                 table.row(button.parents("tr"))
                     .remove()
                     .draw();
             },
-            function () {
+            function() {
                 alert("Unexpected Error");
             });
     };
 
-    var openDeletePrompt = function (e) {
+    var openDeletePrompt = function(e) {
 
         bootbox.confirm({
             title: "Delete account?",
@@ -64,7 +69,7 @@
                     label: "<i class=\"fa fa-check\"></i> Confirm"
                 }
             },
-            callback: function (isConfirmed) {
+            callback: function(isConfirmed) {
                 if (isConfirmed === true) {
                     deleteSelectedRow(e);
                 }
@@ -72,16 +77,16 @@
         });
     };
 
-    var init = function () {
-        var loadDatatable = function (result) {
+    var init = function() {
+        var loadDatatable = function(result) {
             initializeDatatable(result);
             $(".account-delete-account").on("click", openDeletePrompt);
-        }
+        };
         service.getAccounts(loadDatatable, loadDatatable);
-    }
+    };
 
     return {
         init: init
     };
 
-}(AccountService)
+}(AccountService);

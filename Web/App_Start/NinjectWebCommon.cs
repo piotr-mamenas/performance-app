@@ -7,6 +7,7 @@ using Infrastructure.Repositories.BaseData;
 using Infrastructure.Repositories.Business;
 using Infrastructure.Services;
 using Microsoft.AspNet.Identity;
+using Ninject.Web.Common.WebHost;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Web.App_Start.NinjectWebCommon), "Stop")]
