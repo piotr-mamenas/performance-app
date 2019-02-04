@@ -95,6 +95,7 @@
     <Compile Include="EntityConfigurations\BusinessConfigurations\ReturnConfigurations\ReturnConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ReturnConfigurations\ReturnIncomeConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\TileWidgetConfigurations\TileWidgetConfiguration.cs" />
+    <Compile Include="EntityConfigurations\BusinessConfigurations\TileWidgetConfigurations\WidgetBookmarkConfiguration.cs" />
     <Compile Include="EntityConfigurations\DatabaseVendorTypes.cs" />
     <Compile Include="EntityConfigurations\BaseEntityConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\ExchangeRateConfiguration\ExchangeRatesConfiguration.cs" />

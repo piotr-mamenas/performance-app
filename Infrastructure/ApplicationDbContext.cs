@@ -67,6 +67,7 @@ namespace Infrastructure
         public DbSet<ReturnIncome> ReturnIncomes { get; set; }
         public DbSet<ReturnCalculationPeriod> ReturnCalculationPeriods { get; set; }
         public DbSet<TileWidget> TileWidgets { get; set; }
+        public DbSet<WidgetBookmark> TileWidgetBookmarks { get; set; }
         public DbSet<UserSession> UserSessions { get; set; }
 
         public ApplicationDbContext()
@@ -134,6 +135,7 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new ReturnCalculationPeriodConfiguration());
 
             modelBuilder.Configurations.Add(new TileWidgetConfiguration());
+            modelBuilder.Configurations.Add(new WidgetBookmarkConfiguration());
             modelBuilder.Configurations.Add(new FontAwesomeIconConfiguration());
         }
 
