@@ -112,6 +112,7 @@
     <Compile Include="Domain\Tasks\TaskType.cs" />
     <Compile Include="Domain\TileWidgets\FontAwesomeIcon.cs" />
     <Compile Include="Domain\TileWidgets\TileWidget.cs" />
+    <Compile Include="Domain\TileWidgets\WidgetBookmark.cs" />
     <Compile Include="Domain\ValueObject.cs" />
     <Compile Include="Domain\Workflows\Workflow.cs" />
     <Compile Include="Domain\Workflows\WorkflowStatus.cs" />

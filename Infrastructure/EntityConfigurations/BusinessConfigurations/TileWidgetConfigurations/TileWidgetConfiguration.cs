@@ -17,9 +17,10 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.TileWidgetC
                 .HasColumnName("TileName")
                 .IsRequired();
 
-            Property(tw => tw.Url)
-                .HasColumnName("LinkUrl")
-                .IsOptional();
+            HasRequired(tw => tw.Bookmark)
+                .WithMany(b => b.Widgets)
+                .HasForeignKey(p => p.BookmarkId)
+                .WillCascadeOnDelete(false);
 
             Property(tw => tw.Icon.Name);
 

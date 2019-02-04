@@ -48,7 +48,7 @@
 
                         var newWidget = {
                             name: modalSelector.find(".js-new-widget-name").val(),
-                            url: modalSelector.find(".js-new-widget-url").val(),
+                            bookmark: null,
                             icon: modalSelector.find(".new-widget-icon-spinner").children("span").attr("class")
                         };
                         widgetService.createWidget(newWidget, function() {

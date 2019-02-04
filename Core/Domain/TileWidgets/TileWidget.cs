@@ -10,21 +10,23 @@ namespace Core.Domain.TileWidgets
 
         public string Name { get; set; }
         public FontAwesomeIcon Icon { get; set; }
-        public string Url { get; set; }
+
+        public WidgetBookmark Bookmark { get; set; }
+        public int BookmarkId { get; set; }
 
         protected TileWidget()
         {
             Icon = FontAwesomeIcon.Build(FontAwesomeIcon.StickyNote);
         }
 
-        public static TileWidget Build(string userId, string name, string iconName, string url)
+        public static TileWidget Build(string userId, string name, string iconName, int bookmarkId)
         {
             return new TileWidget
             {
                 UserId = userId,
                 Name = name,
                 Icon = FontAwesomeIcon.Build(iconName),
-                Url = url
+                BookmarkId = bookmarkId
             };
         }
     }

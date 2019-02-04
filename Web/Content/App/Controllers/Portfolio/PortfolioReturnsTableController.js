@@ -8,7 +8,7 @@
     var isFormValid;
 
     var initializeDatatable = function(result) {
-        if (table !== null) {
+        if (table !== null && typeof table !== "undefined") {
             table.destroy();
         }
         table = $("#portfolioReturnsTable").DataTable({
