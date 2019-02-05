@@ -180,6 +180,14 @@
     <Compile Include="Migrations\201809101930179_MakeSessionEndOnUserSessionOptional.Designer.cs">
       <DependentUpon>201809101930179_MakeSessionEndOnUserSessionOptional.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902052105596_WidgetBookmarkMigration.cs" />
+    <Compile Include="Migrations\201902052105596_WidgetBookmarkMigration.Designer.cs">
+      <DependentUpon>201902052105596_WidgetBookmarkMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902052111464_SupplementaryMigration.cs" />
+    <Compile Include="Migrations\201902052111464_SupplementaryMigration.Designer.cs">
+      <DependentUpon>201902052111464_SupplementaryMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -261,6 +269,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809101930179_MakeSessionEndOnUserSessionOptional.resx">
       <DependentUpon>201809101930179_MakeSessionEndOnUserSessionOptional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902052105596_WidgetBookmarkMigration.resx">
+      <DependentUpon>201902052105596_WidgetBookmarkMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902052111464_SupplementaryMigration.resx">
+      <DependentUpon>201902052111464_SupplementaryMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

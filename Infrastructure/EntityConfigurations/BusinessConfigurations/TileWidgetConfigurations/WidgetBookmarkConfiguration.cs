@@ -13,6 +13,10 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.TileWidgetC
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .HasColumnName("TileWidgetBookmarkId");
 
+            Property(wb => wb.Url)
+                .HasColumnName("Url")
+                .IsRequired();
+
             HasMany(wb => wb.Widgets)
                 .WithRequired(tw => tw.Bookmark)
                 .HasForeignKey(tw => tw.BookmarkId);

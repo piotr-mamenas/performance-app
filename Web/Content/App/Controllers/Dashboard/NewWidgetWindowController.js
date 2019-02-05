@@ -48,9 +48,12 @@
 
                         var newWidget = {
                             name: modalSelector.find(".js-new-widget-name").val(),
-                            bookmark: null,
+                            bookmark: modalSelector.find(".js-new-widget-bookmark").val(),
                             icon: modalSelector.find(".new-widget-icon-spinner").children("span").attr("class")
                         };
+
+                        console.log(newWidget);
+
                         widgetService.createWidget(newWidget, function() {
                             toastNotification.notify("Widget created successfully");
                             window.location.reload(false);
