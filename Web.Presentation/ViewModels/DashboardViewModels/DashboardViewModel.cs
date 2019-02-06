@@ -6,6 +6,8 @@ namespace Web.Presentation.ViewModels.DashboardViewModels
     {
         public ICollection<DashboardWidgetViewModel> UserWidgets { get; set; }
 
+        public ICollection<DashboardWidgetBookmarkViewModel>  UserWidgetBookmarks { get; set; }
+
         public DashboardViewModel()
         {
             UserWidgets = new List<DashboardWidgetViewModel>();

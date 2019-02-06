@@ -6,6 +6,8 @@ namespace Core.Domain.TileWidgets
     {
         public string Url { get; set; }
 
+        public string Name { get; set; }
+
         public ICollection<TileWidget> Widgets { get; set; }
 
         protected WidgetBookmark()

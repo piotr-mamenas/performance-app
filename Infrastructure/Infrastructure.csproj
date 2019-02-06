@@ -188,6 +188,10 @@
     <Compile Include="Migrations\201902052111464_SupplementaryMigration.Designer.cs">
       <DependentUpon>201902052111464_SupplementaryMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902062104559_AddBookMarkNameMigration.cs" />
+    <Compile Include="Migrations\201902062104559_AddBookMarkNameMigration.Designer.cs">
+      <DependentUpon>201902062104559_AddBookMarkNameMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -275,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902052111464_SupplementaryMigration.resx">
       <DependentUpon>201902052111464_SupplementaryMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902062104559_AddBookMarkNameMigration.resx">
+      <DependentUpon>201902062104559_AddBookMarkNameMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">

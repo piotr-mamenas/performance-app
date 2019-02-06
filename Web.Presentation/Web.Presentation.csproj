@@ -61,6 +61,7 @@
     <Compile Include="ViewModels\AccountViewModels\AccountViewModel.cs" />
     <Compile Include="ViewModels\ContactViewModels\ContactViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModels\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModels\DashboardWidgetBookmarkViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModels\DashboardWidgetViewModel.cs" />
     <Compile Include="ViewModels\IdentityViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\IdentityViewModels\LoginViewModel.cs" />
