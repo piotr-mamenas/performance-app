@@ -192,6 +192,10 @@
     <Compile Include="Migrations\201902062104559_AddBookMarkNameMigration.Designer.cs">
       <DependentUpon>201902062104559_AddBookMarkNameMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902062140269_UserToBookmarkMigration.cs" />
+    <Compile Include="Migrations\201902062140269_UserToBookmarkMigration.Designer.cs">
+      <DependentUpon>201902062140269_UserToBookmarkMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -282,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902062104559_AddBookMarkNameMigration.resx">
       <DependentUpon>201902062104559_AddBookMarkNameMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902062140269_UserToBookmarkMigration.resx">
+      <DependentUpon>201902062140269_UserToBookmarkMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
