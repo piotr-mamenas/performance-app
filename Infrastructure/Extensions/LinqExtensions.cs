@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -6,6 +7,24 @@ namespace Infrastructure.Extensions
 {
     public static class LinqHelper
     {
+        public static void AddRange<T>(this ICollection<T> destination,
+            IEnumerable<T> source)
+        {
+            var list = destination as List<T>;
+
+            if (list != null)
+            {
+                list.AddRange(source);
+            }
+            else
+            {
+                foreach (var item in source)
+                {
+                    destination.Add(item);
+                }
+            }
+        }
+
         public static IOrderedQueryable<T> OrderBy<T>(this IQueryable<T> source, string property)
         {
             return ApplyOrder<T>(source, property, "OrderBy");

@@ -10,16 +10,26 @@ namespace Infrastructure.Repositories.Business
     public class TileWidgetRepository : Repository<TileWidget>, ITileWidgetRepository
     {
         private readonly DbSet<TileWidget> _widgets;
+        private readonly DbSet<WidgetBookmark> _bookmarks;
 
         public TileWidgetRepository(ApplicationDbContext context)
             : base(context)
         {
             _widgets = context.TileWidgets;
+            _bookmarks = context.TileWidgetBookmarks;
         }
 
-        public async Task<IEnumerable<TileWidget>> GetUserWidgets(string userGuid)
+        public async Task<IEnumerable<TileWidget>> GetUserWidgetsByUserGuidAsync(string userGuid)
         {
-            return await _widgets.Where(w => w.UserId == userGuid).ToListAsync();
+            return await _widgets.Where(w => w.UserId == userGuid)
+                .Include(w => w.Bookmark)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<WidgetBookmark>> GetUserBookmarksByUserGuidAsync(string userGuid)
+        {
+            return await _bookmarks.Where(wb => wb.UserId == userGuid)
+                .ToListAsync();
         }
     }
 }

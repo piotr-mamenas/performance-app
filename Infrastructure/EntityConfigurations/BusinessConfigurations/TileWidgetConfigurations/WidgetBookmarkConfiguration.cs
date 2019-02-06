@@ -24,6 +24,11 @@ namespace Infrastructure.EntityConfigurations.BusinessConfigurations.TileWidgetC
             HasMany(wb => wb.Widgets)
                 .WithRequired(tw => tw.Bookmark)
                 .HasForeignKey(tw => tw.BookmarkId);
+
+            HasRequired(wb => wb.User)
+                .WithMany(u => u.WidgetBookmarks)
+                .HasForeignKey(wb => wb.UserId)
+                .WillCascadeOnDelete(false);
         }
     }
 }

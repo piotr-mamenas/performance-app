@@ -15,6 +15,8 @@ namespace Core.Domain.Identity
 
         public ICollection<TileWidget> TileWidgets { get; set; }
 
+        public ICollection<WidgetBookmark> WidgetBookmarks { get; set; }
+
         public ICollection<UserSession> Sessions { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
@@ -28,6 +30,7 @@ namespace Core.Domain.Identity
         {
             TileWidgets = new List<TileWidget>();
             Sessions = new List<UserSession>();
+            WidgetBookmarks = new List<WidgetBookmark>();
         }
 
         public static User Build(Language language, 

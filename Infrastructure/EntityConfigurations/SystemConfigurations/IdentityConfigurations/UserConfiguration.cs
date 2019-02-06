@@ -47,6 +47,10 @@ namespace Infrastructure.EntityConfigurations.SystemConfigurations.IdentityConfi
             HasMany(u => u.TileWidgets)
                 .WithRequired(tw => tw.User)
                 .HasForeignKey(tw => tw.UserId);
+
+            HasMany(u => u.WidgetBookmarks)
+                .WithRequired(wb => wb.User)
+                .HasForeignKey(wb => wb.UserId);
         }
 
     }

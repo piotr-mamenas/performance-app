@@ -11,6 +11,7 @@ namespace Web.Presentation.ViewModels.DashboardViewModels
         public DashboardViewModel()
         {
             UserWidgets = new List<DashboardWidgetViewModel>();
+            UserWidgetBookmarks = new List<DashboardWidgetBookmarkViewModel>();
         }
     }
 }

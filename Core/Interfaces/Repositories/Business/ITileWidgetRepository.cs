@@ -6,6 +6,7 @@ namespace Core.Interfaces.Repositories.Business
 {
     public interface ITileWidgetRepository : IRepository<TileWidget>
     {
-        Task<IEnumerable<TileWidget>> GetUserWidgets(string userGuid);
+        Task<IEnumerable<TileWidget>> GetUserWidgetsByUserGuidAsync(string userGuid);
+        Task<IEnumerable<WidgetBookmark>> GetUserBookmarksByUserGuidAsync(string userGuid);
     }
 }

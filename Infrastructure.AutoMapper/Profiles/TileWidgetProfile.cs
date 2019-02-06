@@ -10,6 +10,9 @@ namespace Infrastructure.AutoMapper.Profiles
         {
             CreateMap<TileWidget, DashboardWidgetViewModel>()
                 .ForMember(dest => dest.Icon, opt => opt.MapFrom(src => src.Icon.Name));
+
+            CreateMap<WidgetBookmark, DashboardWidgetBookmarkViewModel>(MemberList.None);
+
         }
     }
 }

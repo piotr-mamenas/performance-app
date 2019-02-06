@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Core.Domain.Identity;
 
 namespace Core.Domain.TileWidgets
 {
@@ -9,6 +10,9 @@ namespace Core.Domain.TileWidgets
         public string Name { get; set; }
 
         public ICollection<TileWidget> Widgets { get; set; }
+
+        public User User { get; set; }
+        public string UserId { get; set; }
 
         protected WidgetBookmark()
         {

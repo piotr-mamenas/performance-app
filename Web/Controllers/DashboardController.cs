@@ -1,10 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Core.Domain.TileWidgets;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;
+using Infrastructure.Extensions;
 using Infrastructure.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -39,15 +41,15 @@ namespace Web.Controllers
         {
             var user = _userManager.FindByName(User.Identity.Name);
 
-            var userWidgets = await _widgetRepository.GetUserWidgets(user.Id);
+            var userWidgets = await _widgetRepository.GetUserWidgetsByUserGuidAsync(user.Id);
+            var userBookmarks = await _widgetRepository.GetUserBookmarksByUserGuidAsync(user.Id);
+
             var dashboardViewModel = new DashboardViewModel();
+            var widgetVms = userWidgets.Map<IEnumerable<DashboardWidgetViewModel>>();
+            var bookmarkVms = userBookmarks.Map<IEnumerable<DashboardWidgetBookmarkViewModel>>();
 
-            foreach (var widget in userWidgets)
-            {
-                var widgetVm = widget.Map<DashboardWidgetViewModel>();
-
-                dashboardViewModel.UserWidgets.Add(widgetVm);
-            }
+            dashboardViewModel.UserWidgets.AddRange(widgetVms);
+            dashboardViewModel.UserWidgetBookmarks.AddRange(bookmarkVms);
 
             return View(dashboardViewModel);
         }
