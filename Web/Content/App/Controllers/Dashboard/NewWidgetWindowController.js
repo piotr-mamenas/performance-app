@@ -48,7 +48,7 @@
 
                         var newWidget = {
                             name: modalSelector.find(".js-new-widget-name").val(),
-                            bookmark: modalSelector.find(".js-new-widget-bookmark").val(),
+                            bookmarkId: modalSelector.find(".js-new-widget-bookmark").val(),
                             icon: modalSelector.find(".new-widget-icon-spinner").children("span").attr("class")
                         };
 
@@ -68,7 +68,8 @@
         $(".new-widget-caret-right").on("click", onRightCaretClick);
     };
 
-    var init = function() {
+    var init = function (widgetBookmarks) {
+        console.log(widgetBookmarks);
         $(".open-new-widget-window").parent("a").on("click", onNewWidgetClick);
         resourceService.getAvailableLargeIconClasses(function(data) {
             availableIcons = data;

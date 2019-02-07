@@ -1,4 +1,6 @@
-﻿<div id="newWidgetForm" style="display: none">
+﻿@using Web.Presentation.ViewModels.DashboardViewModels
+@model IEnumerable<DashboardWidgetBookmarkViewModel>
+<div id="newWidgetForm" style="display: none">
     <div class="form-group">
         <label for="new-widget-name">Widget Name</label>
         <input type="text" id="new-widget-name" class="form-control js-new-widget-name" />
@@ -7,7 +9,10 @@
     <div class="form-group">
         <label for="new-widget-bookmark">Widget Bookmark</label>
         <select id="new-widget-bookmark" class="form-control js-new-widget-bookmark">
-            <option>1</option>
+            @foreach (var bookmark in Model)
+            {
+                <option value="@bookmark.Id">@Html.Raw(bookmark.Name)</option>
+            }
         </select>
     </div>
     <br/>
@@ -17,7 +22,7 @@
             <span class="col-md-3">
                 <button class="new-widget-caret-left btn btn-block"><span class="fa fa-caret-left"></span></button>
             </span>
-            <span class="col-md-2 new-widget-icon-spinner"></span>
+            <span class="col-md-2 new-widget-icon-spinner" style="margin-top: 10px;"></span>
             <span class="col-md-3">
                 <button class="new-widget-caret-right btn btn-block"><span class="fa fa-caret-right"></span></button>
             </span>

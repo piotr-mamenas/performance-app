@@ -12,7 +12,7 @@
     </div>
 </div>
 
-@Html.Partial("_NewWidgetForm")
+@Html.Partial("_NewWidgetForm", Model.UserWidgetBookmarks)
 
 @section scripts {
     NewWidgetWindowController.init();
