@@ -2,9 +2,6 @@
 
 namespace Web.Controllers
 {
-    /// <summary>
-    /// 
-    /// </summary>
     [RoutePrefix("error")]
     public class ErrorController : Controller
     {

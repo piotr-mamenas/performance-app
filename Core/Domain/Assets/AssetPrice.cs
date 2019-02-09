@@ -15,11 +15,6 @@ namespace Core.Domain.Assets
 
         public decimal Amount { get; set; }
 
-        public int GetAmountInCurrency(Currency targetCurrency)
-        {
-            return 0;
-        }
-
         protected AssetPrice()
         {
         }

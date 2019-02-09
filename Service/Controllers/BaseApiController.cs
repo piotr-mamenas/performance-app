@@ -1,9 +1,7 @@
 ﻿using System.Web;
 using System.Web.Http;
 using Core.Domain.Identity;
-using Infrastructure.Identity;
 using Infrastructure.Services;
-using Microsoft.AspNet.Identity.Owin;
 using Ninject.Extensions.Logging;
 using Service.Helpers;
 

@@ -62,11 +62,6 @@ namespace Web.Controllers
             return View(partnerVm);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="partnerVm">The viewmodel for the partner to be created</param>
-        /// <returns></returns>
         [HttpPost]
         [Route("create")]
         public async Task<ActionResult> Create(PartnerViewModel partnerVm)

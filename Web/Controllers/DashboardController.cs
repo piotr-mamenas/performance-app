@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Core.Domain.TileWidgets;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.AutoMapper;

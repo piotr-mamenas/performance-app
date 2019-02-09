@@ -31,6 +31,9 @@ namespace Core.Domain.Assets
                     holdingPeriodReturn.Calculate();
                     Returns.Add(holdingPeriodReturn);
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(returnType), returnType, null);
             }
         }
 

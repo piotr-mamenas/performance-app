@@ -37,8 +37,8 @@ namespace Service.Controllers
             ILogger logger)
             : base(logger, sessionService)
         {
-            _assetService = assetService;
             _unitOfWork = (IComplete)unitOfWork;
+            _assetService = assetService;
             _assetRepository = unitOfWork.Assets;
             _bondRepository = unitOfWork.Bonds;
             _portfolioRepository = unitOfWork.Portfolios;

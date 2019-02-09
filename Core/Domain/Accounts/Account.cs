@@ -7,17 +7,11 @@ using Core.Interfaces;
 
 namespace Core.Domain.Accounts
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class Account : BaseEntity, IEntityRoot
     {
         #region Properties
         public string Name { get; set; }
 
-        /// <summary>
-        /// The number of the account derived from the linked partner names
-        /// </summary>
         public string Number { get; set; }
 
         public DateTime OpenedDate { get; set; }
@@ -37,14 +31,6 @@ namespace Core.Domain.Accounts
         public static Account Build(string name, string number, int partnerId)
         {
             return new Account(name, number, partnerId);
-        }
-
-        public void Close()
-        {
-        }
-
-        public void RequestClose()
-        {
         }
 
         protected Account()

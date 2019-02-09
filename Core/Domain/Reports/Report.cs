@@ -10,10 +10,6 @@ namespace Core.Domain.Reports
 
         public string ReportHash { get; set; }
 
-        public void Generate()
-        {
-        }
-
         protected Report()
         {
         }

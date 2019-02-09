@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
 

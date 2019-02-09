@@ -12,11 +12,6 @@ namespace Core.Domain.Returns
             Periods = new List<ReturnCalculationPeriod>();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="periods"></param>
-        /// <param name="incomes"></param>
         public HoldingPeriodReturn(IEnumerable<Tuple<DateTime, DateTime>> periods, IEnumerable<Tuple<decimal, DateTime>> incomes)
         {
             foreach (var period in periods)
@@ -52,10 +47,6 @@ namespace Core.Domain.Returns
             return income + (maturityPrice - initialPrice) / initialPrice;
         }
 
-        /// <summary>
-        /// Calculates the Holding Period Return
-        /// </summary>
-        /// <returns></returns>
         public override void Calculate()
         {
             var holdingPeriodReturn = 0.00m;
