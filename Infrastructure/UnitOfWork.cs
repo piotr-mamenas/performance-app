@@ -28,7 +28,6 @@ namespace Infrastructure
             Countries = new CountryRepository(_context);
             Messages = new MessageRepository(_context);
             Portfolios = new PortfolioRepository(_context);
-            Tasks = new TaskRepository(_context);
             Reports = new ReportRepository(_context);
             ExchangeRates = new ExchangeRateRepository(_context);
             Returns = new ReturnRepository(_context);
@@ -47,7 +46,6 @@ namespace Infrastructure
         public ICountryRepository Countries { get; }
         public IMessageRepository Messages { get; }
         public IPortfolioRepository Portfolios { get; }
-        public ITaskRepository Tasks { get; }
         public IReportRepository Reports { get; }
         public IExchangeRateRepository ExchangeRates { get; }
         public IReturnRepository Returns { get; }

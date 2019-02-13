@@ -17,7 +17,6 @@ using Core.Domain.Partners;
 using Core.Domain.Portfolios;
 using Core.Domain.Reports;
 using Core.Domain.Returns;
-using Core.Domain.Tasks;
 using Core.Domain.TileWidgets;
 using Core.Domain.Workflows;
 using Infrastructure.ComplexTypesConfigurations;
@@ -35,7 +34,6 @@ using Infrastructure.EntityConfigurations.BusinessConfigurations.ReturnConfigura
 using Infrastructure.EntityConfigurations.BusinessConfigurations.TileWidgetConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.IdentityConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.MessageConfigurations;
-using Infrastructure.EntityConfigurations.SystemConfigurations.TaskConfigurations;
 using Infrastructure.EntityConfigurations.SystemConfigurations.WorkflowConfigurations;
 using Infrastructure.Helpers;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -57,7 +55,6 @@ namespace Infrastructure
         public DbSet<PortfolioAssetPosition> Positions { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Portfolio> Portfolios { get; set; }
-        public DbSet<ServerTask> Tasks { get; set; }
         public DbSet<ExchangeRate> ExchangeRates { get; set; }
         public DbSet<Report> Reports { get; set; }
         public DbSet<Workflow> Worksflows { get; set; }
@@ -116,12 +113,6 @@ namespace Infrastructure
             modelBuilder.Configurations.Add(new PortfolioConfiguration());
 
             modelBuilder.Configurations.Add(new ExchangeRateConfiguration());
-
-            modelBuilder.Configurations.Add(new ServerTaskConfiguration());
-            modelBuilder.Configurations.Add(new ExportTaskConfiguration());
-            modelBuilder.Configurations.Add(new ImportTaskConfiguration());
-            modelBuilder.Configurations.Add(new TaskRunConfiguration());
-            modelBuilder.Configurations.Add(new TaskTypeConfiguration());
 
             modelBuilder.Configurations.Add(new WorkflowStatusConfiguration());
             modelBuilder.Configurations.Add(new WorkflowConfiguration());

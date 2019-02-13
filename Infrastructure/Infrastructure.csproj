@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="CherrySeed, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CherrySeed.1.1.0.0\lib\net40\CherrySeed.dll</HintPath>
     </Reference>
@@ -54,6 +57,7 @@
     <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
     </Reference>
@@ -76,6 +80,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComplexTypesConfigurations\BondCouponConfiguration.cs" />
@@ -104,15 +109,11 @@
     <Compile Include="EntityConfigurations\SystemConfigurations\MessageConfigurations\MessageConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\PortfolioConfigurations\PortfolioConfiguration.cs" />
     <Compile Include="EntityConfigurations\BusinessConfigurations\PortfolioConfigurations\PortfolioAssetPositionConfiguration.cs" />
-    <Compile Include="EntityConfigurations\SystemConfigurations\TaskConfigurations\ExportTaskConfiguration.cs" />
-    <Compile Include="EntityConfigurations\SystemConfigurations\TaskConfigurations\ImportTaskConfiguration.cs" />
-    <Compile Include="EntityConfigurations\SystemConfigurations\TaskConfigurations\ServerTaskConfiguration.cs" />
-    <Compile Include="EntityConfigurations\SystemConfigurations\TaskConfigurations\TaskRunConfiguration.cs" />
-    <Compile Include="EntityConfigurations\SystemConfigurations\TaskConfigurations\TaskTypeConfiguration.cs" />
     <Compile Include="EntityConfigurations\SystemConfigurations\WorkflowConfigurations\WorkflowConfiguration.cs" />
     <Compile Include="EntityConfigurations\SystemConfigurations\WorkflowConfigurations\WorkflowStatusConfiguration.cs" />
     <Compile Include="EntityConfigurations\SystemConfigurations\WorkflowConfigurations\WorkflowTransitionConfiguration.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Helpers\AttributeHelper.cs" />
     <Compile Include="Helpers\ExceptionHelper.cs" />
     <Compile Include="Helpers\ReflectionHelper.cs" />
@@ -196,6 +197,10 @@
     <Compile Include="Migrations\201902062140269_UserToBookmarkMigration.Designer.cs">
       <DependentUpon>201902062140269_UserToBookmarkMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902131412396_RemoveTaskTableMigration.cs" />
+    <Compile Include="Migrations\201902131412396_RemoveTaskTableMigration.Designer.cs">
+      <DependentUpon>201902131412396_RemoveTaskTableMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUserStore.cs" />
@@ -224,10 +229,6 @@
     <Compile Include="Repositories\Business\InstitutionRepository.cs" />
     <Compile Include="Repositories\Business\PortfolioRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Repositories\System\TaskRepository.cs" />
-    <Compile Include="Serialization\JsonContractResolvers\AccountContractResolver.cs" />
-    <Compile Include="Serialization\JsonContractResolvers\AssetContractResolver.cs" />
-    <Compile Include="Serialization\JsonContractResolvers\ContactContractResolver.cs" />
     <Compile Include="Services\SessionService.cs" />
     <Compile Include="Services\LocalizationService.cs" />
     <Compile Include="UnitOfWork.cs" />
@@ -289,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902062140269_UserToBookmarkMigration.resx">
       <DependentUpon>201902062140269_UserToBookmarkMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902131412396_RemoveTaskTableMigration.resx">
+      <DependentUpon>201902131412396_RemoveTaskTableMigration.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Logging\log4net.xsd">
