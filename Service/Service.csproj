@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -130,6 +133,7 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
@@ -169,6 +173,21 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Dtos\Account\AccountDto.cs" />
+    <Compile Include="Dtos\Asset\AssetDto.cs" />
+    <Compile Include="Dtos\Asset\AssetPriceDto.cs" />
+    <Compile Include="Dtos\Asset\BondCouponDto.cs" />
+    <Compile Include="Dtos\BaseData\CountryDto.cs" />
+    <Compile Include="Dtos\BaseData\CurrencyDto.cs" />
+    <Compile Include="Dtos\Contact\ContactDto.cs" />
+    <Compile Include="Dtos\ExchangeRate\ExchangeRateDto.cs" />
+    <Compile Include="Dtos\Institution\InstitutionDto.cs" />
+    <Compile Include="Dtos\Partner\PartnerDto.cs" />
+    <Compile Include="Dtos\Portfolio\PortfolioAssetPositionDto.cs" />
+    <Compile Include="Dtos\Portfolio\PortfolioDto.cs" />
+    <Compile Include="Dtos\Report\ReportDto.cs" />
+    <Compile Include="Dtos\Shared\DatePeriodDto.cs" />
+    <Compile Include="Dtos\Widget\CreateWidgetDto.cs" />
     <Compile Include="Helpers\ApplicationAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AccountApiController.cs" />
     <Compile Include="Controllers\AssetApiController.cs" />
@@ -182,13 +201,24 @@
     <Compile Include="Controllers\PortfolioApiController.cs" />
     <Compile Include="Controllers\ReportApiController.cs" />
     <Compile Include="Controllers\ResourceApiController.cs" />
-    <Compile Include="Controllers\TaskApiController.cs" />
     <Compile Include="Controllers\WidgetApiController.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ConfigurationHelper.cs" />
+    <Compile Include="Mapping\MappingConfiguration.cs" />
+    <Compile Include="Mapping\Profiles\AccountProfile.cs" />
+    <Compile Include="Mapping\Profiles\AssetProfile.cs" />
+    <Compile Include="Mapping\Profiles\ContactProfile.cs" />
+    <Compile Include="Mapping\Profiles\Converters\DateProfiles.cs" />
+    <Compile Include="Mapping\Profiles\CountryProfile.cs" />
+    <Compile Include="Mapping\Profiles\CurrencyProfile.cs" />
+    <Compile Include="Mapping\Profiles\ExchangeRateProfile.cs" />
+    <Compile Include="Mapping\Profiles\InstitutionProfile.cs" />
+    <Compile Include="Mapping\Profiles\PartnerProfile.cs" />
+    <Compile Include="Mapping\Profiles\PortfolioProfile.cs" />
+    <Compile Include="Mapping\Profiles\ReportProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -197,17 +227,9 @@
       <Project>{9be4c39d-6c17-4d22-8a87-b1639fc8d371}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infrastructure.AutoMapper\Infrastructure.AutoMapper.csproj">
-      <Project>{8fb3a646-466f-46ac-b1c5-5af85991a139}</Project>
-      <Name>Infrastructure.AutoMapper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{b2ce8a5c-043c-4ea9-bcd3-402b9c1891de}</Project>
       <Name>Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Service.Dtos\Service.Dtos.csproj">
-      <Project>{36743a08-08ab-4a51-beda-1c638b889361}</Project>
-      <Name>Service.Dtos</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

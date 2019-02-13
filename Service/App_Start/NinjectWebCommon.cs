@@ -1,35 +1,32 @@
+using System;
+using System.Web;
+using Core.Domain.Identity;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.BaseData;
 using Core.Interfaces.Repositories.Business;
-using Core.Interfaces.Repositories.System;
-using Infrastructure;
-using Infrastructure.Services;
-using Infrastructure.Repositories.BaseData;
-using Infrastructure.Repositories.Business;
-using Infrastructure.Repositories.System;
-using Infrastructure.Identity;
-using Microsoft.AspNet.Identity;
-using Core.Domain.Identity;
 using Core.Interfaces.Services;
 using Core.Services;
+using Infrastructure;
+using Infrastructure.Identity;
+using Infrastructure.Repositories.BaseData;
+using Infrastructure.Repositories.Business;
+using Infrastructure.Services;
+using Microsoft.AspNet.Identity;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using Ninject;
+using Ninject.Web.Common;
 using Ninject.Web.Common.WebHost;
+using Service;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Service.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Service.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
 
-namespace Service.App_Start
+namespace Service
 {
-    using System;
-    using System.Web;
-
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-    using Ninject;
-    using Ninject.Web.Common;
 
     public static class NinjectWebCommon 
     {
-        private static readonly Bootstrapper bootstrapper = new Bootstrapper();
+        private static readonly Bootstrapper Bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
@@ -38,7 +35,7 @@ namespace Service.App_Start
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
-            bootstrapper.Initialize(CreateKernel);
+            Bootstrapper.Initialize(CreateKernel);
         }
         
         /// <summary>
@@ -46,7 +43,7 @@ namespace Service.App_Start
         /// </summary>
         public static void Stop()
         {
-            bootstrapper.ShutDown();
+            Bootstrapper.ShutDown();
         }
         
         /// <summary>
@@ -87,7 +84,6 @@ namespace Service.App_Start
             kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
             kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
             kernel.Bind<IPortfolioRepository>().To<PortfolioRepository>().InRequestScope();
-            kernel.Bind<ITaskRepository>().To<TaskRepository>().InRequestScope();
             kernel.Bind<IAssetService>().To<AssetService>().InRequestScope();
             kernel.Bind<ISessionService>().To<SessionService>().InRequestScope();
             kernel.Bind(typeof(UserManager<User>)).ToSelf().InRequestScope();

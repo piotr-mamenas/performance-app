@@ -6,10 +6,10 @@ using Core.Domain.Contacts;
 using Core.Domain.Partners;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
-using Infrastructure.AutoMapper;
+using Infrastructure.Extensions;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
-using Web.Presentation.ViewModels.ContactViewModels;
+using Web.ViewModels.ContactViewModels;
 
 namespace Web.Controllers
 {

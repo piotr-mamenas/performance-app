@@ -8,7 +8,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Ninject.Extensions.Logging;
 using Web.Helpers;
-using Web.Presentation.ViewModels.IdentityViewModels;
+using Web.ViewModels.IdentityViewModels;
 
 namespace Web.Controllers
 {

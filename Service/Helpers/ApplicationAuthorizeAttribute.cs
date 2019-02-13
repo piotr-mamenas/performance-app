@@ -37,6 +37,7 @@ namespace Service.Helpers
             if (tokenUser == null)
             {
                 filterContext.Response.StatusCode = HttpStatusCode.Unauthorized;
+                return;
             }
 
             var isAllowedAccess = !_userRoles.Any();
@@ -51,7 +52,7 @@ namespace Service.Helpers
 
             if (!isAllowedAccess)
             {
-                filterContext.Response.StatusCode = HttpStatusCode.Unauthorized; //TODO: solve exception
+                filterContext.Response.StatusCode = HttpStatusCode.Unauthorized;
             }
         }
     }

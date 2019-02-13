@@ -6,10 +6,10 @@ using Core.Domain.Accounts;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Core.Validation;
-using Infrastructure.AutoMapper;
+using Infrastructure.Extensions;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
-using Web.Presentation.ViewModels.AccountViewModels;
+using Web.ViewModels.AccountViewModels;
 
 namespace Web.Controllers
 {

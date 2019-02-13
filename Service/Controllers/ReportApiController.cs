@@ -12,7 +12,7 @@ using System.Web.Http.Description;
 using Core.Domain.Reports;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
-using Infrastructure.AutoMapper;
+using Infrastructure.Extensions;
 using Infrastructure.Services;
 using Ninject.Extensions.Logging;
 using Service.Dtos.Portfolio;

@@ -1,5 +1,5 @@
 ﻿using System.Web;
-using Infrastructure.AutoMapper;
+using Service.Mapping;
 
 namespace Service
 {

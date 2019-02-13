@@ -49,6 +49,9 @@
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -152,6 +155,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
@@ -223,7 +227,6 @@
     <Compile Include="Controllers\PartnerController.cs" />
     <Compile Include="Controllers\PortfolioController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
-    <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\Templates\BaseController.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Extensions\LocalizationHelper.cs" />
@@ -235,8 +238,30 @@
     </Compile>
     <Compile Include="Helpers\Authentication\ApplicationAuthorizeAttribute.cs" />
     <Compile Include="Helpers\ConfigurationHelper.cs" />
+    <Compile Include="Mapping\MappingConfiguration.cs" />
+    <Compile Include="Mapping\Profiles\AccountProfile.cs" />
+    <Compile Include="Mapping\Profiles\AssetProfile.cs" />
+    <Compile Include="Mapping\Profiles\ContactProfile.cs" />
+    <Compile Include="Mapping\Profiles\CurrencyProfile.cs" />
+    <Compile Include="Mapping\Profiles\PartnerProfile.cs" />
+    <Compile Include="Mapping\Profiles\PortfolioProfile.cs" />
+    <Compile Include="Mapping\Profiles\TileWidgetProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AccountViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\BaseData\CurrencyViewModel.cs" />
+    <Compile Include="ViewModels\ContactViewModels\ContactViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModels\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModels\DashboardWidgetBookmarkViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModels\DashboardWidgetViewModel.cs" />
+    <Compile Include="ViewModels\IdentityViewModels\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\IdentityViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\PartnerViewModels\PartnerViewModel.cs" />
+    <Compile Include="ViewModels\PortfolioViewModels\PortfolioAssetViewModel.cs" />
+    <Compile Include="ViewModels\PortfolioViewModels\NewPortfolioViewModel.cs" />
+    <Compile Include="ViewModels\PortfolioViewModels\PortfolioAssetPositionViewModel.cs" />
+    <Compile Include="ViewModels\PortfolioViewModels\PortfolioDetailsViewModel.cs" />
+    <Compile Include="ViewModels\ReportViewModels\GenerateReportViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\App\Controllers\Account\AccountTableController.js" />
@@ -262,8 +287,6 @@
     <Content Include="Content\App\Controllers\Shared\AccountSelectionTableController.js" />
     <Content Include="Content\App\Controllers\Shared\InstitutionSelectionTableController.js" />
     <Content Include="Content\App\Controllers\Shared\PartnerSelectionTableController.js" />
-    <Content Include="Content\App\Controllers\Task\RunTaskWindowController.js" />
-    <Content Include="Content\App\Controllers\Task\TaskTableController.js" />
     <Content Include="Content\App\Services\WidgetService.js" />
     <Content Include="Content\App\ToastNotification.js" />
     <Content Include="Content\App\Images\background.jpg" />
@@ -279,7 +302,6 @@
     <Content Include="Content\App\Services\PartnerService.js" />
     <Content Include="Content\App\Services\PortfolioService.js" />
     <Content Include="Content\App\Services\ReportService.js" />
-    <Content Include="Content\App\Services\TaskService.js" />
     <Content Include="Content\App\Services\ResourceService.js" />
     <Content Include="Content\App\Styles\dashboard-widget.css" />
     <Content Include="Content\App\Styles\global.css" />
@@ -673,7 +695,6 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Portfolio\Index.cshtml" />
     <Content Include="Views\Report\Index.cshtml" />
-    <Content Include="Views\Task\Index.cshtml" />
     <Content Include="Views\Shared\Selection.cshtml" />
     <Content Include="Views\Contact\List.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
@@ -681,7 +702,6 @@
     <Content Include="Views\Account\List.cshtml" />
     <Content Include="Views\Partner\List.cshtml" />
     <Content Include="Views\Report\List.cshtml" />
-    <Content Include="Views\Task\List.cshtml" />
     <Content Include="Views\Portfolio\List.cshtml" />
     <Content Include="Views\Contact\Update.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
@@ -701,7 +721,6 @@
     <Content Include="Views\Portfolio\Details.cshtml" />
     <Content Include="Views\Portfolio\Create.cshtml" />
     <Content Include="Views\Shared\_AccountSelection.cshtml" />
-    <Content Include="Views\Task\ShowSchedule.cshtml" />
     <Content Include="Views\MarketData\Index.cshtml" />
     <Content Include="Views\MarketData\ListPrices.cshtml" />
     <Content Include="Views\MarketData\ListExchangeRates.cshtml" />
@@ -804,17 +823,9 @@
       <Project>{9be4c39d-6c17-4d22-8a87-b1639fc8d371}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infrastructure.AutoMapper\Infrastructure.AutoMapper.csproj">
-      <Project>{8fb3a646-466f-46ac-b1c5-5af85991a139}</Project>
-      <Name>Infrastructure.AutoMapper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{b2ce8a5c-043c-4ea9-bcd3-402b9c1891de}</Project>
       <Name>Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Web.Presentation\Web.Presentation.csproj">
-      <Project>{599e6cd3-9de4-4c0f-a6e2-6c4fc37874de}</Project>
-      <Name>Web.Presentation</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

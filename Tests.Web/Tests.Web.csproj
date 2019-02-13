@@ -101,10 +101,6 @@
       <Project>{9be4c39d-6c17-4d22-8a87-b1639fc8d371}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Web.Presentation\Web.Presentation.csproj">
-      <Project>{599e6cd3-9de4-4c0f-a6e2-6c4fc37874de}</Project>
-      <Name>Web.Presentation</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Web\Web.csproj">
       <Project>{edd4a23e-2629-44c3-a21d-e45f75385c06}</Project>
       <Name>Web</Name>

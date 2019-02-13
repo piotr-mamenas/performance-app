@@ -4,14 +4,13 @@ using System.Web;
 using System.Web.Mvc;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
-using Infrastructure.AutoMapper;
 using Infrastructure.Extensions;
 using Infrastructure.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
-using Web.Presentation.ViewModels.DashboardViewModels;
+using Web.ViewModels.DashboardViewModels;
 
 namespace Web.Controllers
 {

@@ -5,10 +5,10 @@ using System.Web.Mvc;
 using Core.Domain.Portfolios;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
-using Infrastructure.AutoMapper;
+using Infrastructure.Extensions;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
-using Web.Presentation.ViewModels.PortfolioViewModels;
+using Web.ViewModels.PortfolioViewModels;
 
 namespace Web.Controllers
 {

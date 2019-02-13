@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -8,8 +7,7 @@ using System.Web.Http.Description;
 using Core.Domain.Contacts;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
-using Infrastructure.AutoMapper;
-using Infrastructure.Serialization.JsonContractResolvers;
+using Infrastructure.Extensions;
 using Infrastructure.Services;
 using Ninject.Extensions.Logging;
 using Service.Dtos.Contact;
@@ -27,9 +25,6 @@ namespace Service.Controllers
         public ContactApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
             : base(logger, sessionService)
         {
-            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
-            json.SerializerSettings.ContractResolver = new ContactContractResolver();
-
             _unitOfWork = (IComplete)unitOfWork;
             _repository = unitOfWork.Contacts;
         }

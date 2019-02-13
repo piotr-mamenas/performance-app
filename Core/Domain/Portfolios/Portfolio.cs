@@ -27,7 +27,7 @@ namespace Core.Domain.Portfolios
             Positions = null;
         }
 
-        public void CalculateReturn(ReturnType returnType, IEnumerable<Tuple<DateTime, DateTime>> periods)
+        public void CalculateReturn(ReturnType returnType, IList<Tuple<DateTime, DateTime>> periods)
         {
             foreach (var asset in Assets)
             {

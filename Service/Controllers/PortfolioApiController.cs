@@ -7,8 +7,7 @@ using System.Web.Http.Description;
 using Core.Domain.Portfolios;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
-using Infrastructure.AutoMapper;
-using Infrastructure.Serialization.JsonContractResolvers;
+using Infrastructure.Extensions;
 using Infrastructure.Services;
 using Ninject.Extensions.Logging;
 using Service.Dtos.Portfolio;
@@ -26,9 +25,6 @@ namespace Service.Controllers
         public PortfolioApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
             : base(logger, sessionService)
         {
-            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
-            json.SerializerSettings.ContractResolver = new AccountContractResolver();
-
             _unitOfWork = (IComplete)unitOfWork;
             _repository = unitOfWork.Portfolios;
         }

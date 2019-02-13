@@ -11,7 +11,7 @@ using Core.Exceptions;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Core.Interfaces.Services;
-using Infrastructure.AutoMapper;
+using Infrastructure.Extensions;
 using Infrastructure.Services;
 using Ninject.Extensions.Logging;
 using Service.Dtos.Asset;
@@ -22,6 +22,7 @@ using Service.Helpers;
 namespace Service.Controllers
 {
     [RoutePrefix("api/assets")]
+    [ApplicationAuthorize()]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AssetApiController : BaseApiController
     {

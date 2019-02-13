@@ -1,9 +1,8 @@
 ﻿using System.Globalization;
-using Core.Interfaces;
 
 namespace Core.Domain
 {
-    public abstract class BaseEntity : IIdentifiable
+    public abstract class BaseEntity
     {
         public int Id { get; set; }
         
