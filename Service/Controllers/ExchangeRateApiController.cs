@@ -20,21 +20,22 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ExchangeRateApiController : BaseApiController
     {
-        private readonly IExchangeRateRepository _repository;
-        private readonly IComplete _unitOfWork;
+        private readonly IExchangeRateRepository _exchangeRateRepository;
 
-        public ExchangeRateApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
-            : base(logger, sessionService)
+        public ExchangeRateApiController(IUnitOfWork unitOfWork, 
+            IExchangeRateRepository exchangeRateRepository,
+            ILogger logger, 
+            ISessionService sessionService)
+            : base(logger, unitOfWork, sessionService)
         {
-            _repository = unitOfWork.ExchangeRates;
-            _unitOfWork = (IComplete)unitOfWork;
+            _exchangeRateRepository = exchangeRateRepository;
         }
 
         [HttpGet, Route("")]
         [ResponseType(typeof(ICollection<ExchangeRateDto>))]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var exchangeRates = await _repository.GetExchangeRatesWithCurrenciesAsync();
+            var exchangeRates = await _exchangeRateRepository.GetExchangeRatesWithCurrenciesAsync();
 
             if (exchangeRates == null)
             {
@@ -47,7 +48,7 @@ namespace Service.Controllers
         [ResponseType(typeof(ExchangeRate))]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            var exchangeRate = await _repository.GetAsync(id);
+            var exchangeRate = await _exchangeRateRepository.GetAsync(id);
 
             if (exchangeRate == null)
             {
@@ -60,15 +61,15 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, ExchangeRateDto exchangeRate)
         {
-            var exchangeRateInDb = await _repository.GetAsync(id);
+            var exchangeRateInDb = await _exchangeRateRepository.GetAsync(id);
 
             if (exchangeRateInDb == null)
             {
                 return NotFound();
             }
 
-            _repository.Add(exchangeRate.Map<ExchangeRate>());
-            await _unitOfWork.CompleteAsync();
+            _exchangeRateRepository.Add(exchangeRate.Map<ExchangeRate>());
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }
@@ -77,9 +78,9 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> Create(ExchangeRateDto exchangeRate)
         {
-            _repository.Add(exchangeRate.Map<ExchangeRate>());
+            _exchangeRateRepository.Add(exchangeRate.Map<ExchangeRate>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Created(new Uri(Request.RequestUri + "/" + exchangeRate.Id), exchangeRate);
         }
@@ -87,16 +88,16 @@ namespace Service.Controllers
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> Delete(int id)
         {
-            var exchangeRateInDb = await _repository.GetAsync(id);
+            var exchangeRateInDb = await _exchangeRateRepository.GetAsync(id);
 
             if (exchangeRateInDb == null)
             {
                 return NotFound();
             }
 
-            _repository.Remove(exchangeRateInDb);
+            _exchangeRateRepository.Remove(exchangeRateInDb);
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }

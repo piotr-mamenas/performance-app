@@ -17,16 +17,17 @@ namespace Web.Controllers
     [Authorize]
     public class ContactController : BaseController
     {
-        private readonly IContactRepository _contacts;
-        private readonly IPartnerRepository _partners;
-        private readonly IComplete _unitOfWork;
+        private readonly IContactRepository _contactRepository;
+        private readonly IPartnerRepository _partnerRepository;
 
-        public ContactController(IUnitOfWork unitOfWork, ILogger logger)
-            : base(logger)
+        public ContactController(IUnitOfWork unitOfWork, 
+            IContactRepository contactRepository, 
+            IPartnerRepository partnerRepository, 
+            ILogger logger)
+            : base(logger, unitOfWork)
         {
-            _unitOfWork = (IComplete)unitOfWork;
-            _contacts = unitOfWork.Contacts;
-            _partners = unitOfWork.Partners;
+            _contactRepository = contactRepository;
+            _partnerRepository = partnerRepository;
         }
 
         [Route("")]
@@ -63,9 +64,9 @@ namespace Web.Controllers
                 return View(contactVm);
             }
 
-            _contacts.Add(contactVm.Map<Contact>());
+            _contactRepository.Add(contactVm.Map<Contact>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return RedirectToAction("List");
         }
@@ -74,7 +75,7 @@ namespace Web.Controllers
         [Route("update/{id}")]
         public async Task<ActionResult> Update(int id)
         {
-            var contactInDb = await _contacts.GetAsync(id);
+            var contactInDb = await _contactRepository.GetAsync(id);
 
             if (contactInDb == null)
             {
@@ -97,7 +98,7 @@ namespace Web.Controllers
                 return View(contactVm);
             }
 
-            var contactInDb = await _contacts.GetAsync(id);
+            var contactInDb = await _contactRepository.GetAsync(id);
 
             if (contactInDb == null)
             {
@@ -106,16 +107,16 @@ namespace Web.Controllers
 
             contactInDb = contactVm.Map<Contact>();
 
-            _contacts.Add(contactInDb);
+            _contactRepository.Add(contactInDb);
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return RedirectToAction("List");
         }
 
         private async Task<IEnumerable<SelectListItem>> GetPartnerSelection()
         {
-            var partners = await _partners.GetAllPartnersAsync();
+            var partners = await _partnerRepository.GetAllPartnersAsync();
 
             if (partners != null)
             {

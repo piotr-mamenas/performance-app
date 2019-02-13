@@ -1,6 +1,6 @@
-﻿var PartnerSelectionTableController = function (service) {
+﻿var PartnerSelectionTableController = function(service) {
 
-    var initializeDatatable = function (result) {
+    var initializeDatatable = function(result) {
         $("#partnerSelectionTable").DataTable({
             data: result,
             columns: [
@@ -15,18 +15,18 @@
                 emptyTable: "No records at present."
             }
         });
-    }
+    };
 
     $("#partnerSelectionTable tbody").on("click", "tr", function () {
         $(this).toggleClass("active");
     });
 
-    var init = function () {
+    var init = function() {
         service.getPartners(initializeDatatable, initializeDatatable);
-    }
+    };
 
     return {
         init: init
     };
 
-}(PartnerService)
+}(PartnerService);

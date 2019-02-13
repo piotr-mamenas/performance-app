@@ -1,7 +1,7 @@
-﻿var AssetPriceTableController = function (service) {
+﻿var AssetPriceTableController = function(service) {
     var table;
 
-    var initializeDatatable = function (result) {
+    var initializeDatatable = function(result) {
         table = $("#assetPriceTable").DataTable({
             data: result,
             columns: [
@@ -28,14 +28,14 @@
                 emptyTable: "No records at present."
             }
         });
-    }
+    };
 
-    var init = function () {
+    var init = function() {
         service.getAssetPrices(initializeDatatable, initializeDatatable);
-    }
+    };
 
     return {
         init: init
     };
 
-}(AssetService)
+}(AssetService);

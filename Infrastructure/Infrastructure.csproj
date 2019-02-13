@@ -229,8 +229,10 @@
     <Compile Include="Repositories\Business\InstitutionRepository.cs" />
     <Compile Include="Repositories\Business\PortfolioRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Serialization\JsonContractResolvers\AccountContractResolver.cs" />
+    <Compile Include="Serialization\JsonContractResolvers\AssetContractResolver.cs" />
+    <Compile Include="Serialization\JsonContractResolvers\ContactContractResolver.cs" />
     <Compile Include="Services\SessionService.cs" />
-    <Compile Include="Services\LocalizationService.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

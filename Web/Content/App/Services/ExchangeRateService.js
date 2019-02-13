@@ -13,5 +13,5 @@
 
     return {
         getExchangeRates: getExchangeRates
-    }
+    };
 }(Routing);

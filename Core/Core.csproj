@@ -120,7 +120,6 @@
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\Periodicity.cs" />
     <Compile Include="Exceptions\NoCalculationResultException.cs" />
-    <Compile Include="Interfaces\IComplete.cs" />
     <Compile Include="Interfaces\IEntityRoot.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Repositories\Business\IAccountRepository.cs" />

@@ -1,8 +1,8 @@
-﻿var ReportTableController = function (service) {
+﻿var ReportTableController = function(service) {
     var button;
     var table;
 
-    var initializeDatatable = function (result) {
+    var initializeDatatable = function(result) {
         table = $("#reportTable").DataTable({
             data: result,
             columns: [
@@ -14,8 +14,12 @@
                 },
                 {
                     data: "Id",
-                    render: function (data) {
-                        return "<a href=\"" + service.getDownloadUri(data) + "\" data-report-id=\"" + data + "\" class=\"btn btn-default btn-block report-download-report\"><span class='fa fa-download'></span></button>";
+                    render: function(data) {
+                        return "<a href=\"" +
+                            service.getDownloadUri(data) +
+                            "\" data-report-id=\"" +
+                            data +
+                            "\" class=\"btn btn-default btn-block report-download-report\"><span class='fa fa-download'></span></button>";
                     }
                 }
             ],
@@ -23,14 +27,14 @@
                 emptyTable: "No records at present."
             }
         });
-    }
+    };
 
-    var init = function () {
+    var init = function() {
         service.getReports(initializeDatatable, initializeDatatable);
-    }
+    };
 
     return {
         init: init
     };
 
-}(ReportService)
+}(ReportService);

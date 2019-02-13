@@ -27,10 +27,13 @@ namespace Web.Controllers
             private set => _userManager = value;
         }
 
-        public DashboardController(ILogger logger, IUnitOfWork unitOfWork, ApplicationUserManager userManager)
-            : base(logger)
+        public DashboardController(IUnitOfWork unitOfWork,
+            ITileWidgetRepository tileWidgetRepository,
+            ApplicationUserManager userManager, 
+            ILogger logger)
+            : base(logger, unitOfWork)
         {
-            _widgetRepository = unitOfWork.TileWidgets;
+            _widgetRepository = tileWidgetRepository;
             _userManager = userManager;
         }
 

@@ -16,19 +16,14 @@ namespace Web.Controllers
     [RoutePrefix("partners")]
     public class PartnerController : BaseController
     {
-        private readonly IPartnerRepository _partners;
-        private readonly IComplete _unitOfWork;
+        private readonly IPartnerRepository _partnerRepository;
 
-        /// <summary>
-        /// Default constructor with injected components
-        /// </summary>
-        /// <param name="unitOfWork"></param>
-        /// <param name="logger"></param>
-        public PartnerController(IUnitOfWork unitOfWork, ILogger logger)
-            : base(logger)
+        public PartnerController(IUnitOfWork unitOfWork, 
+            IPartnerRepository partnerRepository,
+            ILogger logger)
+            : base(logger, unitOfWork)
         {
-            _unitOfWork = (IComplete)unitOfWork;
-            _partners = unitOfWork.Partners;
+            _partnerRepository = partnerRepository;
         }
 
         [Route("")]
@@ -70,10 +65,10 @@ namespace Web.Controllers
             {
                 return View(partnerVm);
             }
-            
-            _partners.Add(partnerVm.Map<Partner>());
 
-            await _unitOfWork.CompleteAsync();
+            _partnerRepository.Add(partnerVm.Map<Partner>());
+
+            await UnitOfWork.CompleteAsync();
 
             return View("List");
         }
@@ -82,7 +77,7 @@ namespace Web.Controllers
         [Route("update/{id}")]
         public async Task<ActionResult> Update(int id)
         {
-            var partnerInDb = await _partners.GetAsync(id);
+            var partnerInDb = await _partnerRepository.GetAsync(id);
 
             if (partnerInDb == null)
             {
@@ -110,7 +105,7 @@ namespace Web.Controllers
                 return View(partnerVm);
             }
 
-            var partnerInDb = await _partners.GetAsync(id);
+            var partnerInDb = await _partnerRepository.GetAsync(id);
 
             if (partnerInDb == null)
             {
@@ -119,9 +114,9 @@ namespace Web.Controllers
 
             partnerInDb = partnerVm.Map<Partner>();
 
-            _partners.Add(partnerInDb);
+            _partnerRepository.Add(partnerInDb);
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return RedirectToAction("List");
         }
@@ -132,7 +127,7 @@ namespace Web.Controllers
         /// <returns></returns>
         private IEnumerable<SelectListItem> GetPartnerTypeSelection()
         {
-            var partnerTypes = _partners.GetTypesAsQueryable()
+            var partnerTypes = _partnerRepository.GetTypesAsQueryable()
                 .Select(p => new SelectListItem
                 {
                     Value = p.Id.ToString(),

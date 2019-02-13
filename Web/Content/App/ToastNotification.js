@@ -16,7 +16,7 @@
 
         if (!msgType) {
             msgType = "default";
-        };
+        }
 
         var toast = new Message(displayMessage, { type: msgType });
         toast.show();

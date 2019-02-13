@@ -8,6 +8,7 @@ using Core.Domain.Contacts;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.Extensions;
+using Infrastructure.Serialization.JsonContractResolvers;
 using Infrastructure.Services;
 using Ninject.Extensions.Logging;
 using Service.Dtos.Contact;
@@ -19,21 +20,25 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ContactApiController : BaseApiController
     {
-        private readonly IContactRepository _repository;
-        private readonly IComplete _unitOfWork;
+        private readonly IContactRepository _contactRepository;
 
-        public ContactApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
-            : base(logger, sessionService)
+        public ContactApiController(IUnitOfWork unitOfWork, 
+            IContactRepository contactRepository,
+            ILogger logger, 
+            ISessionService sessionService)
+            : base(logger, unitOfWork, sessionService)
         {
-            _unitOfWork = (IComplete)unitOfWork;
-            _repository = unitOfWork.Contacts;
+            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            json.SerializerSettings.ContractResolver = new ContactContractResolver();
+
+            _contactRepository = contactRepository;
         }
 
         [ResponseType(typeof(ICollection<ContactDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var contacts = await _repository.GetAllContactsWithPartnersAsync();
+            var contacts = await _contactRepository.GetAllContactsWithPartnersAsync();
 
             if (contacts == null)
             {
@@ -46,7 +51,7 @@ namespace Service.Controllers
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            var contact = await _repository.GetAsync(id);
+            var contact = await _contactRepository.GetAsync(id);
 
             if (contact == null)
             {
@@ -59,16 +64,16 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, ContactDto contact)
         {
-            var contactInDb = await _repository.GetAsync(id);
+            var contactInDb = await _contactRepository.GetAsync(id);
 
             if (contactInDb == null)
             {
                 return NotFound();
             }
-            
-            _repository.Add(contact.Map<Contact>());
 
-            await _unitOfWork.CompleteAsync();
+            _contactRepository.Add(contact.Map<Contact>());
+
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }
@@ -77,9 +82,9 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(ContactDto contact)
         {
-            _repository.Add(contact.Map<Contact>());
+            _contactRepository.Add(contact.Map<Contact>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Created(new Uri(Request.RequestUri + "/" + contact.Id), contact);
         }
@@ -87,16 +92,16 @@ namespace Service.Controllers
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            var contact = await _repository.GetAsync(id);
+            var contact = await _contactRepository.GetAsync(id);
 
             if (contact == null)
             {
                 return NotFound();
             }
 
-            _repository.Remove(contact);
+            _contactRepository.Remove(contact);
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }

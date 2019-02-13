@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -20,21 +19,22 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CurrencyApiController : BaseApiController
     {
-        private readonly ICurrencyRepository _repository;
-        private readonly IComplete _unitOfWork;
+        private readonly ICurrencyRepository _currencyRepository;
 
-        public CurrencyApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
-            : base(logger, sessionService)
+        public CurrencyApiController(IUnitOfWork unitOfWork, 
+            ICurrencyRepository currencyRepository,
+            ILogger logger, 
+            ISessionService sessionService)
+            : base(logger, unitOfWork, sessionService)
         {
-            _repository = unitOfWork.Currencies;
-            _unitOfWork = (IComplete)unitOfWork;
+            _currencyRepository = currencyRepository;
         }
 
         [HttpGet, Route("")]
         [ResponseType(typeof(ICollection<CurrencyDto>))]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var currencies = await _repository.GetAllCurrenciesAsync();
+            var currencies = await _currencyRepository.GetAllCurrenciesAsync();
 
             if (currencies == null)
             {
@@ -47,7 +47,7 @@ namespace Service.Controllers
         [ResponseType(typeof(CurrencyDto))]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            var currency = await _repository.GetAsync(id);
+            var currency = await _currencyRepository.GetAsync(id);
 
             if (currency == null)
             {
@@ -60,15 +60,15 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, CurrencyDto currency)
         {
-            var currencyInDb = await _repository.GetAsync(id);
+            var currencyInDb = await _currencyRepository.GetAsync(id);
 
             if (currencyInDb == null)
             {
                 return NotFound();
             }
 
-            _repository.Add(currency.Map<Currency>());
-            await _unitOfWork.CompleteAsync();
+            _currencyRepository.Add(currency.Map<Currency>());
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }
@@ -77,9 +77,9 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> Create(CurrencyDto currency)
         {
-            _repository.Add(currency.Map<Currency>());
+            _currencyRepository.Add(currency.Map<Currency>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Created(new Uri(Request.RequestUri + "/" + currency.Id), currency);
         }
@@ -87,16 +87,16 @@ namespace Service.Controllers
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> Delete(int id)
         {
-            var currencyInDb = await _repository.GetAsync(id);
+            var currencyInDb = await _currencyRepository.GetAsync(id);
 
             if (currencyInDb == null)
             {
                 return NotFound();
             }
 
-            _repository.Remove(currencyInDb);
+            _currencyRepository.Remove(currencyInDb);
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }

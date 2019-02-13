@@ -16,14 +16,15 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class WidgetApiController : BaseApiController
     {
-        private readonly ITileWidgetRepository _repository;
-        private readonly IComplete _unitOfWork;
+        private readonly ITileWidgetRepository _widgetRepository;
 
-        public WidgetApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
-            : base(logger, sessionService)
+        public WidgetApiController(IUnitOfWork unitOfWork, 
+            ITileWidgetRepository tileWidgetRepository, 
+            ILogger logger, 
+            ISessionService sessionService)
+            : base(logger, unitOfWork, sessionService)
         {
-            _unitOfWork = (IComplete)unitOfWork;
-            _repository = unitOfWork.TileWidgets;
+            _widgetRepository = tileWidgetRepository;
         }
 
         [HttpPost, Route("")]
@@ -31,9 +32,9 @@ namespace Service.Controllers
         public async Task<IHttpActionResult> CreateAsync(CreateWidgetDto createWidgetDto)
         {
             var newWidget = TileWidget.Build(CurrentUser.Id, createWidgetDto.Name, createWidgetDto.Icon, createWidgetDto.BookmarkId);
-            _repository.Add(newWidget);
+            _widgetRepository.Add(newWidget);
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Created(new Uri(Request.RequestUri + "/" + newWidget.Id), newWidget);
         }

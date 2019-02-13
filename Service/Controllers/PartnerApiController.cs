@@ -21,21 +21,22 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PartnerApiController : BaseApiController
     {
-        private readonly IComplete _unitOfWork;
-        private readonly IPartnerRepository _partnersRepository;
+        private readonly IPartnerRepository _partnerRepository;
 
-        public PartnerApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
-            : base(logger, sessionService)
+        public PartnerApiController(IUnitOfWork unitOfWork, 
+            IPartnerRepository partnerRepository,
+            ILogger logger, 
+            ISessionService sessionService)
+            : base(logger, unitOfWork, sessionService)
         {
-            _unitOfWork = (IComplete) unitOfWork;
-            _partnersRepository = unitOfWork.Partners;
+            _partnerRepository = partnerRepository;
         }
 
         [ResponseType(typeof(ICollection<PartnerDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var partners = await _partnersRepository.GetAllPartnersWithTypesAsync();
+            var partners = await _partnerRepository.GetAllPartnersWithTypesAsync();
 
             if (partners == null)
             {
@@ -48,7 +49,7 @@ namespace Service.Controllers
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            var partner = await _partnersRepository.GetAsync(id);
+            var partner = await _partnerRepository.GetAsync(id);
 
             if (partner == null)
             {
@@ -62,7 +63,7 @@ namespace Service.Controllers
         [HttpGet, Route("accounts/{id}")]
         public async Task<IHttpActionResult> GetByAccountAsync(int id)
         {
-            var partners = await _partnersRepository.GetAccountPartnersAsync(id);
+            var partners = await _partnerRepository.GetAccountPartnersAsync(id);
 
             if (partners == null)
             {
@@ -76,16 +77,16 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, PartnerDto partner)
         {
-            var partnerInDb = await _partnersRepository.GetAsync(id);
+            var partnerInDb = await _partnerRepository.GetAsync(id);
 
             if (partnerInDb == null)
             {
                 return NotFound();
             }
 
-            _partnersRepository.Add(partner.Map<Partner>());
+            _partnerRepository.Add(partner.Map<Partner>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }
@@ -94,9 +95,9 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(PartnerDto partner)
         {
-            _partnersRepository.Add(partner.Map<Partner>());
+            _partnerRepository.Add(partner.Map<Partner>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Created(new Uri(Request.RequestUri + "/" + partner.Id), partner);
         }
@@ -104,7 +105,7 @@ namespace Service.Controllers
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            var partner = await _partnersRepository.GetByIdWithAccountsAndContactsAsync(id);
+            var partner = await _partnerRepository.GetByIdWithAccountsAndContactsAsync(id);
 
             if (partner == null)
             {
@@ -121,9 +122,9 @@ namespace Service.Controllers
                 return ResponseMessage(response);
             }
 
-            _partnersRepository.Remove(partner);
+            _partnerRepository.Remove(partner);
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }

@@ -11,21 +11,21 @@
           .fail(fail);
     };
 
-    var deleteContact = function (contactId, done, fail) {
+    var deleteContact = function(contactId, done, fail) {
         this.contactId = contactId;
 
         $.ajax({
-            url: routing.getApiUri("Contact") + contactId + "/delete",
-            type: "POST",
-            method: "DELETE",
-            contentType: "text/plain",
-            xhrFields: { withCredentials: true }
+                url: routing.getApiUri("Contact") + contactId + "/delete",
+                type: "POST",
+                method: "DELETE",
+                contentType: "text/plain",
+                xhrFields: { withCredentials: true }
             }).done(done)
-              .fail(fail);
-    }
+            .fail(fail);
+    };
 
     return {
         getContacts: getContacts,
         deleteContact: deleteContact
-    }
+    };
 }(Routing);

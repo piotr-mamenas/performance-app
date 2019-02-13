@@ -76,14 +76,18 @@ namespace Service
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
+            kernel.Bind<IAssetRepository>().To<AssetRepository>().InRequestScope();
+            kernel.Bind<IBondRepository>().To<BondRepository>().InRequestScope();
             kernel.Bind<IAccountRepository>().To<AccountRepository>().InRequestScope();
             kernel.Bind<IContactRepository>().To<ContactRepository>().InRequestScope();
             kernel.Bind<ICurrencyRepository>().To<CurrencyRepository>().InRequestScope();
             kernel.Bind<ICountryRepository>().To<CountryRepository>().InRequestScope();
             kernel.Bind<IPartnerRepository>().To<PartnerRepository>().InRequestScope();
             kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
-            kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
             kernel.Bind<IPortfolioRepository>().To<PortfolioRepository>().InRequestScope();
+            kernel.Bind<IExchangeRateRepository>().To<ExchangeRateRepository>().InRequestScope();
+            kernel.Bind<ITileWidgetRepository>().To<TileWidgetRepository>().InRequestScope();
+            kernel.Bind<IReportRepository>().To<ReportRepository>().InRequestScope();
             kernel.Bind<IAssetService>().To<AssetService>().InRequestScope();
             kernel.Bind<ISessionService>().To<SessionService>().InRequestScope();
             kernel.Bind(typeof(UserManager<User>)).ToSelf().InRequestScope();

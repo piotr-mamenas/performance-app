@@ -1,7 +1,7 @@
-﻿var PortfolioAssetsTableController = function (service) {
+﻿var PortfolioAssetsTableController = function(service) {
     var table;
 
-    var initializeDatatable = function (result) {
+    var initializeDatatable = function(result) {
         table = $("#portfolioAssetsTable").DataTable({
             data: result,
             columns: [
@@ -28,14 +28,14 @@
                 emptyTable: "No records at present."
             }
         });
-    }
+    };
 
-    var init = function (id) {
+    var init = function(id) {
         service.getAssetsByPortfolios(id, initializeDatatable, initializeDatatable);
-    }
+    };
 
     return {
         init: init
     };
 
-}(AssetService)
+}(AssetService);

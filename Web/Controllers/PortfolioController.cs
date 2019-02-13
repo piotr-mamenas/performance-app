@@ -16,14 +16,14 @@ namespace Web.Controllers
     [Authorize]
     public class PortfolioController : BaseController
     {
-        private readonly IPortfolioRepository _portfolios;
-        private readonly IComplete _unitOfWork;
+        private readonly IPortfolioRepository _portfolioRepository;
 
-        public PortfolioController(IUnitOfWork unitOfWork, ILogger logger)
-            : base(logger)
+        public PortfolioController(IUnitOfWork unitOfWork, 
+            IPortfolioRepository portfolioRepository,
+            ILogger logger)
+            : base(logger, unitOfWork)
         {
-            _unitOfWork = (IComplete)unitOfWork;
-            _portfolios = unitOfWork.Portfolios;
+            _portfolioRepository = portfolioRepository;
         }
 
         [Route("")]
@@ -48,7 +48,7 @@ namespace Web.Controllers
         [Route("details/{id}")]
         public async Task<ActionResult> Details(int id)
         {
-            var portfolioInDb = await _portfolios.SingleOrDefaultAsync(p => p.Id == id);
+            var portfolioInDb = await _portfolioRepository.SingleOrDefaultAsync(p => p.Id == id);
 
             if (portfolioInDb == null)
             {
@@ -78,16 +78,16 @@ namespace Web.Controllers
                 return View(portfolioVm);
             }
 
-            _portfolios.Add(portfolioVm.Map<Portfolio>());
+            _portfolioRepository.Add(portfolioVm.Map<Portfolio>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return View("List");
         }
 
         private async Task<IEnumerable<SelectListItem>> GetAccountSelection()
         {
-            var accounts = await _portfolios.GetAllPortfoliosWithDetailsAsync();
+            var accounts = await _portfolioRepository.GetAllPortfoliosWithDetailsAsync();
 
             if (accounts != null)
             {

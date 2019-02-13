@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Core.Interfaces;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
 
@@ -8,8 +9,8 @@ namespace Web.Controllers
     [RoutePrefix("marketdata")]
     public class MarketDataController : BaseController
     {
-        public MarketDataController(ILogger logger)
-            : base(logger)
+        public MarketDataController(IUnitOfWork unitOfWork, ILogger logger)
+            : base(logger, unitOfWork)
         {
         }
 

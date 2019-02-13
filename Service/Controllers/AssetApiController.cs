@@ -22,7 +22,6 @@ using Service.Helpers;
 namespace Service.Controllers
 {
     [RoutePrefix("api/assets")]
-    [ApplicationAuthorize()]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AssetApiController : BaseApiController
     {
@@ -30,19 +29,20 @@ namespace Service.Controllers
         private readonly IAssetRepository _assetRepository;
         private readonly IBondRepository _bondRepository;
         private readonly IPortfolioRepository _portfolioRepository;
-        private readonly IComplete _unitOfWork;
 
         public AssetApiController(IUnitOfWork unitOfWork, 
             IAssetService assetService,
+            IAssetRepository assetRepository,
+            IBondRepository bondRepository,
+            IPortfolioRepository portfolioRepository,
             ISessionService sessionService,
             ILogger logger)
-            : base(logger, sessionService)
+            : base(logger, unitOfWork, sessionService)
         {
-            _unitOfWork = (IComplete)unitOfWork;
             _assetService = assetService;
-            _assetRepository = unitOfWork.Assets;
-            _bondRepository = unitOfWork.Bonds;
-            _portfolioRepository = unitOfWork.Portfolios;
+            _assetRepository = assetRepository;
+            _bondRepository = bondRepository;
+            _portfolioRepository = portfolioRepository;
         }
 
         [ResponseType(typeof(ICollection<AssetDto>))]
@@ -164,7 +164,7 @@ namespace Service.Controllers
 
             _assetRepository.Add(asset.Map<Asset>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }
@@ -175,7 +175,7 @@ namespace Service.Controllers
         {
             _assetRepository.Add(asset.Map<Asset>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Created(new Uri(Request.RequestUri + "/" + asset.Id), asset);
         }
@@ -192,7 +192,7 @@ namespace Service.Controllers
 
             _assetRepository.Remove(asset);
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }

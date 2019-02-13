@@ -1,4 +1,4 @@
-﻿var PortfolioSelectionTableController = function (service) {
+﻿var PortfolioSelectionTableController = function(service) {
     var table;
     var selectedRow;
 
@@ -24,11 +24,10 @@
         });
     };
 
-    var selectRow = function () {
+    var selectRow = function() {
         selectedRow = $(this);
         var selectedPortfolioId = table.row(selectedRow).data().Id;
-        if (selectedRow.hasClass("active")) {
-        } else {
+        if (!selectedRow.hasClass("active")) {
             table.$("tr.active").removeClass("active");
             selectedRow.addClass("active");
             PortfolioReturnsTableController.init(selectedPortfolioId);
@@ -44,4 +43,4 @@
         init: init
     };
 
-}(PortfolioService)
+}(PortfolioService);

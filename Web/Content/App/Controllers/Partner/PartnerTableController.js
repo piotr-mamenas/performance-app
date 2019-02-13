@@ -78,7 +78,7 @@
         var loadDatatable = function(result) {
             initializeDatatable(result);
             $(".partner-delete-partner").on("click", openDeletePrompt);
-        }
+        };
         service.getPartners(loadDatatable, loadDatatable);
     };
 

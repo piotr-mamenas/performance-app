@@ -17,16 +17,17 @@ namespace Web.Controllers
     [Authorize]
     public class AccountController : BaseController
     {
-        private readonly IComplete _unitOfWork;
-        private readonly IAccountRepository _accounts;
-        private readonly IPartnerRepository _partners;
+        private readonly IAccountRepository _accountRepository;
+        private readonly IPartnerRepository _partnerRepository;
 
-        public AccountController(IUnitOfWork unitOfWork, ILogger logger)
-            : base(logger)
+        public AccountController(IUnitOfWork unitOfWork, 
+            IPartnerRepository partnerRepository,
+            IAccountRepository accountRepository,
+            ILogger logger)
+            : base(logger, unitOfWork)
         {
-            _unitOfWork = (IComplete) unitOfWork;
-            _accounts = unitOfWork.Accounts;
-            _partners = unitOfWork.Partners;
+            _accountRepository = accountRepository;
+            _partnerRepository = partnerRepository;
         }
 
         [Route("")]
@@ -62,7 +63,7 @@ namespace Web.Controllers
                 return View(accountVm);
             }
             
-            var partner = await _partners.GetAsync(accountVm.SelectedPartnerId);
+            var partner = await _partnerRepository.GetAsync(accountVm.SelectedPartnerId);
             
             if (partner == null)
             {
@@ -70,9 +71,9 @@ namespace Web.Controllers
             }
             
             var account = Account.Build(accountVm.Name, accountVm.Number, partner.Id);
-            _accounts.Add(account);
+            _accountRepository.Add(account);
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return RedirectToAction("List");
         }
@@ -86,7 +87,7 @@ namespace Web.Controllers
         [Route("update/{id}")]
         public async Task<ActionResult> Update(int id)
         {
-            var accountInDb = await _accounts.GetAsync(id);
+            var accountInDb = await _accountRepository.GetAsync(id);
 
             if (accountInDb == null)
             {
@@ -115,7 +116,7 @@ namespace Web.Controllers
                 return View(accountVm);
             }
 
-            var accountInDb = await _accounts.GetAsync(id);
+            var accountInDb = await _accountRepository.GetAsync(id);
 
             if (accountInDb == null)
             {
@@ -127,16 +128,16 @@ namespace Web.Controllers
             updatedAccount.OpenedDate = accountInDb.OpenedDate;
 
             var validationResult = updatedAccount.Validate();
-            _accounts.Add(updatedAccount);
+            _accountRepository.Add(updatedAccount);
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return RedirectToAction("List");
         }
 
         private async Task<IEnumerable<SelectListItem>> GetPartnerSelection()
         {
-            var partners = await _partners.GetAllPartnersAsync();
+            var partners = await _partnerRepository.GetAllPartnersAsync();
 
             if (partners != null)
             {

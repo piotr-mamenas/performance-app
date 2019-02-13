@@ -2,6 +2,7 @@
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Core.Domain.TileWidgets;
+using Core.Interfaces;
 using Infrastructure.Services;
 using Ninject.Extensions.Logging;
 
@@ -11,8 +12,10 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ResourceApiController : BaseApiController
     {
-        public ResourceApiController(ILogger logger, ISessionService sessionService)
-            : base(logger, sessionService)
+        public ResourceApiController(ILogger logger,
+            IUnitOfWork unitOfWork,
+            ISessionService sessionService)
+            : base(logger, unitOfWork, sessionService)
         {
         }
 

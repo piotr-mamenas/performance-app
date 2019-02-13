@@ -1,7 +1,7 @@
-﻿var ExchangeRateTableController = function (service) {
+﻿var ExchangeRateTableController = function(service) {
     var table;
 
-    var initializeDatatable = function (result) {
+    var initializeDatatable = function(result) {
         table = $("#exchangeRateTable").DataTable({
             data: result,
             columns: [
@@ -28,14 +28,14 @@
                 emptyTable: "No records at present."
             }
         });
-    }
+    };
 
-    var init = function () {
+    var init = function() {
         service.getExchangeRates(initializeDatatable, initializeDatatable);
-    }
+    };
 
     return {
         init: init
     };
 
-}(ExchangeRateService)
+}(ExchangeRateService);

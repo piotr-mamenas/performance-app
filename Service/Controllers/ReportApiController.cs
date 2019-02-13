@@ -25,21 +25,22 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ReportApiController : BaseApiController
     {
-        private readonly IReportRepository _repository;
-        private readonly IComplete _unitOfWork;
+        private readonly IReportRepository _reportRepository;
 
-        public ReportApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
-            : base(logger, sessionService)
+        public ReportApiController(IUnitOfWork unitOfWork, 
+            IReportRepository reportRepository,
+            ILogger logger, 
+            ISessionService sessionService)
+            : base(logger, unitOfWork, sessionService)
         {
-            _unitOfWork = (IComplete)unitOfWork;
-            _repository = unitOfWork.Reports;
+            _reportRepository = reportRepository;
         }
 
         [ResponseType(typeof(ICollection<ReportDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var reports = await _repository.GetAllReportsAsync();
+            var reports = await _reportRepository.GetAllReportsAsync();
 
             if (reports == null)
             {
@@ -52,7 +53,7 @@ namespace Service.Controllers
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            var report = await _repository.GetAsync(id);
+            var report = await _reportRepository.GetAsync(id);
 
             if (report == null)
             {
@@ -66,16 +67,16 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, ReportDto report)
         {
-            var reportInDb = await _repository.GetAsync(id);
+            var reportInDb = await _reportRepository.GetAsync(id);
 
             if (reportInDb == null)
             {
                 return NotFound();
             }
 
-            _repository.Add(report.Map<Report>());
+            _reportRepository.Add(report.Map<Report>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }
@@ -84,9 +85,9 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(PortfolioDto report)
         {
-            _repository.Add(report.Map<Report>());
+            _reportRepository.Add(report.Map<Report>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Created(new Uri(Request.RequestUri + "/" + report.Id), report);
         }
@@ -94,16 +95,16 @@ namespace Service.Controllers
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            var report = await _repository.GetAsync(id);
+            var report = await _reportRepository.GetAsync(id);
 
             if (report == null)
             {
                 return NotFound();
             }
 
-            _repository.Remove(report);
+            _reportRepository.Remove(report);
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }
@@ -111,7 +112,7 @@ namespace Service.Controllers
         [HttpGet, Route("{id}/download")]
         public async Task<IHttpActionResult> DownloadAsync(int id)
         {
-            var report = await _repository.GetAsync(id);
+            var report = await _reportRepository.GetAsync(id);
 
             if (report == null)
             {

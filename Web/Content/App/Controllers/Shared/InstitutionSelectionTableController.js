@@ -1,6 +1,6 @@
-﻿var InstitutionSelectionTableController = function (service) {
+﻿var InstitutionSelectionTableController = function(service) {
 
-    var initializeDatatable = function (result) {
+    var initializeDatatable = function(result) {
         $("#institutionSelectionTable").DataTable({
             data: result,
             columns: [
@@ -12,18 +12,20 @@
                 emptyTable: "No records at present."
             }
         });
-    }
+    };
 
-    $("#institutionSelectionTable tbody").on("click","tr",function() {
-        $(this).toggleClass("active");
-    });
+    $("#institutionSelectionTable tbody").on("click",
+        "tr",
+        function() {
+            $(this).toggleClass("active");
+        });
 
-    var init = function () {
+    var init = function() {
         service.getInstitutions(initializeDatatable, initializeDatatable);
-    }
+    };
 
     return {
         init: init
     };
 
-}(InstitutionService)
+}(InstitutionService);

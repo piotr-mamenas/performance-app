@@ -1,22 +1,24 @@
 ﻿using System.Web;
 using System.Web.Http;
 using Core.Domain.Identity;
+using Core.Interfaces;
 using Infrastructure.Services;
 using Ninject.Extensions.Logging;
 using Service.Helpers;
 
 namespace Service.Controllers
 {
-    [ApplicationAuthorize]
     public class BaseApiController : ApiController
     {
         private readonly ISessionService _sessionService;
         private readonly ILogger _logger;
+        protected readonly IUnitOfWork UnitOfWork;
 
-        protected BaseApiController(ILogger logger, ISessionService sessionService)
+        protected BaseApiController(ILogger logger, IUnitOfWork unitOfWork, ISessionService sessionService)
         {
             _sessionService = sessionService;
             _logger = logger;
+            UnitOfWork = unitOfWork;
         }
 
         protected User CurrentUser

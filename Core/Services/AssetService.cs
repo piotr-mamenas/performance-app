@@ -16,10 +16,10 @@ namespace Core.Services
         private readonly IAssetRepository _assetRepository;
         private readonly IBondRepository _bondRepository;
 
-        public AssetService(IUnitOfWork unitOfWork)
+        public AssetService(IAssetRepository assetRepository, IBondRepository bondRepository)
         {
-            _assetRepository = unitOfWork.Assets;
-            _bondRepository = unitOfWork.Bonds;
+            _assetRepository = assetRepository;
+            _bondRepository = bondRepository;
         }
         
         public decimal? GetPortfolioAssetReturnsForPeriod(List<Tuple<DateTime,DateTime>> calculationPeriods, Portfolio portfolio, Asset asset)

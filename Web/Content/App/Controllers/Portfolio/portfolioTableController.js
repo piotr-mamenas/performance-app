@@ -1,7 +1,7 @@
-﻿var PortfolioTableController = function (service) {
+﻿var PortfolioTableController = function(service) {
     var table;
 
-    var initializeDatatable = function (result) {
+    var initializeDatatable = function(result) {
         table = $("#portfolioTable").DataTable({
             data: result,
             columns: [
@@ -19,8 +19,11 @@
                 },
                 {
                     data: "Id",
-                    render: function (data) {
-                        return "<a href=\"" + "details/" + data + "\" class=\"btn btn-default btn-block\"><span class='fa fa-search'></span>";
+                    render: function(data) {
+                        return "<a href=\"" +
+                            "details/" +
+                            data +
+                            "\" class=\"btn btn-default btn-block\"><span class='fa fa-search'></span>";
                     }
                 }
             ],
@@ -28,14 +31,14 @@
                 emptyTable: "No records at present."
             }
         });
-    }
+    };
 
-    var init = function () {
+    var init = function() {
         service.getPortfolios(initializeDatatable, initializeDatatable);
-    }
+    };
 
     return {
         init: init
     };
 
-}(PortfolioService)
+}(PortfolioService);

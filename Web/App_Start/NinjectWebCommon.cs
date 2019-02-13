@@ -78,6 +78,9 @@ namespace Web
             kernel.Bind<ICountryRepository>().To<CountryRepository>().InRequestScope();
             kernel.Bind<IPartnerRepository>().To<PartnerRepository>().InRequestScope();
             kernel.Bind<IInstitutionRepository>().To<InstitutionRepository>().InRequestScope();
+            kernel.Bind<ITileWidgetRepository>().To<TileWidgetRepository>().InRequestScope();
+            kernel.Bind<IAccountRepository>().To<AccountRepository>();
+            kernel.Bind<IPortfolioRepository>().To<PortfolioRepository>();
             kernel.Bind<ISessionService>().To<SessionService>().InRequestScope();
             kernel.Bind(typeof(UserManager<User>)).ToSelf().InRequestScope();
             kernel.Bind<IUserStore<User>>().To<ApplicationUserStore>().InRequestScope();

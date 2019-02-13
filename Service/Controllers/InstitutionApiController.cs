@@ -19,21 +19,22 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class InstitutionApiController : BaseApiController
     {
-        private readonly IComplete _unitOfWork;
-        private readonly IInstitutionRepository _repository;
+        private readonly IInstitutionRepository _institutionRepository;
 
-        public InstitutionApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
-            : base(logger, sessionService)
+        public InstitutionApiController(IUnitOfWork unitOfWork, 
+            IInstitutionRepository institutionRepository,
+            ILogger logger, 
+            ISessionService sessionService)
+            : base(logger, unitOfWork, sessionService)
         {
-            _unitOfWork = (IComplete) unitOfWork;
-            _repository = unitOfWork.Institutions;
+            _institutionRepository = institutionRepository;
         }
 
         [ResponseType(typeof(ICollection<InstitutionDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var institutions = await _repository.GetAllInstitutionsAsync();
+            var institutions = await _institutionRepository.GetAllInstitutionsAsync();
 
             if (institutions == null)
             {
@@ -47,7 +48,7 @@ namespace Service.Controllers
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            var institution = await _repository.GetAsync(id);
+            var institution = await _institutionRepository.GetAsync(id);
 
             if (institution == null)
             {
@@ -61,16 +62,16 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, InstitutionDto institution)
         {
-            var institutionInDb = await _repository.GetAsync(id);
+            var institutionInDb = await _institutionRepository.GetAsync(id);
 
             if (institutionInDb == null)
             {
                 return NotFound();
             }
 
-            _repository.Add(institution.Map<Institution>());
+            _institutionRepository.Add(institution.Map<Institution>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }
@@ -79,9 +80,9 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(InstitutionDto institution)
         {
-            _repository.Add(institution.Map<Institution>());
+            _institutionRepository.Add(institution.Map<Institution>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Created(new Uri(Request.RequestUri + "/" + institution.Id), institution);
         }
@@ -89,16 +90,16 @@ namespace Service.Controllers
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            var institution = _repository.GetAsync(id);
+            var institution = _institutionRepository.GetAsync(id);
 
             if (institution == null)
             {
                 return NotFound();
             }
 
-            _repository.Remove(institution.Map<Institution>());
+            _institutionRepository.Remove(institution.Map<Institution>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }

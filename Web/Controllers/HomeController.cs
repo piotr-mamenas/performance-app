@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Core.Interfaces;
 using Ninject.Extensions.Logging;
 using Web.Controllers.Templates;
 
@@ -8,8 +9,8 @@ namespace Web.Controllers
     [Authorize]
     public class HomeController : BaseController
     {
-        public HomeController(ILogger logger)
-            : base(logger)
+        public HomeController(ILogger logger, IUnitOfWork unitOfWork)
+            : base(logger, unitOfWork)
         {
         }
 

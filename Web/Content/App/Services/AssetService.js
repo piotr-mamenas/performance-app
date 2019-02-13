@@ -50,5 +50,5 @@
         getAssetPrices: getAssetPrices,
         getAssetsByPortfolios: getAssetsByPortfolios,
         getReturnsByIdAndPeriod: getReturnsByIdAndPeriod
-    }
+    };
 }(Routing);

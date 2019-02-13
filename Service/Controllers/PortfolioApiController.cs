@@ -8,6 +8,8 @@ using Core.Domain.Portfolios;
 using Core.Interfaces;
 using Core.Interfaces.Repositories.Business;
 using Infrastructure.Extensions;
+using Infrastructure.Repositories.Business;
+using Infrastructure.Serialization.JsonContractResolvers;
 using Infrastructure.Services;
 using Ninject.Extensions.Logging;
 using Service.Dtos.Portfolio;
@@ -19,21 +21,25 @@ namespace Service.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PortfolioApiController : BaseApiController
     {
-        private readonly IPortfolioRepository _repository;
-        private readonly IComplete _unitOfWork;
+        private readonly IPortfolioRepository _portfolioRepository;
 
-        public PortfolioApiController(IUnitOfWork unitOfWork, ILogger logger, ISessionService sessionService)
-            : base(logger, sessionService)
+        public PortfolioApiController(IUnitOfWork unitOfWork, 
+            IPortfolioRepository portfolioRepository, 
+            ILogger logger, 
+            ISessionService sessionService)
+            : base(logger, unitOfWork, sessionService)
         {
-            _unitOfWork = (IComplete)unitOfWork;
-            _repository = unitOfWork.Portfolios;
+            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            json.SerializerSettings.ContractResolver = new AccountContractResolver();
+
+            _portfolioRepository = portfolioRepository;
         }
 
         [ResponseType(typeof(ICollection<PortfolioDto>))]
         [HttpGet, Route("")]
         public async Task<IHttpActionResult> GetAsync()
         {
-            var portfolios = await _repository.GetAllPortfoliosWithDetailsAsync();
+            var portfolios = await _portfolioRepository.GetAllPortfoliosWithDetailsAsync();
 
             if (portfolios == null)
             {
@@ -46,7 +52,7 @@ namespace Service.Controllers
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            var portfolio = await _repository.GetAsync(id);
+            var portfolio = await _portfolioRepository.GetAsync(id);
 
             if (portfolio == null)
             {
@@ -60,16 +66,16 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> UpdateAsync(int id, PortfolioDto portfolio)
         {
-            var portfolioInDb = await _repository.GetAsync(id);
+            var portfolioInDb = await _portfolioRepository.GetAsync(id);
 
             if (portfolioInDb == null)
             {
                 return NotFound();
             }
 
-            _repository.Add(portfolio.Map<Portfolio>());
+            _portfolioRepository.Add(portfolio.Map<Portfolio>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }
@@ -78,9 +84,9 @@ namespace Service.Controllers
         [ValidateModel]
         public async Task<IHttpActionResult> CreateAsync(PortfolioDto portfolio)
         {
-            _repository.Add(portfolio.Map<Portfolio>());
+            _portfolioRepository.Add(portfolio.Map<Portfolio>());
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Created(new Uri(Request.RequestUri + "/" + portfolio.Id), portfolio);
         }
@@ -88,16 +94,16 @@ namespace Service.Controllers
         [HttpDelete, Route("{id}/delete")]
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            var portfolio = await _repository.GetAsync(id);
+            var portfolio = await _portfolioRepository.GetAsync(id);
 
             if (portfolio == null)
             {
                 return NotFound();
             }
 
-            _repository.Remove(portfolio);
+            _portfolioRepository.Remove(portfolio);
 
-            await _unitOfWork.CompleteAsync();
+            await UnitOfWork.CompleteAsync();
 
             return Ok();
         }

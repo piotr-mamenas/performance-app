@@ -1,8 +1,8 @@
-﻿var AccountSelectionTableController = function (service) {
+﻿var AccountSelectionTableController = function(service) {
     var table;
     var box;
 
-    var initializeDatatable = function (result) {
+    var initializeDatatable = function(result) {
         table = $("#accountSelectionTable").DataTable({
             data: result,
             columns: [
@@ -17,9 +17,9 @@
                 emptyTable: "No records at present."
             }
         });
-    }
+    };
 
-    var loadSelection = function () {
+    var loadSelection = function() {
         service.getAccounts(initializeDatatable, initializeDatatable);
     };
 
@@ -39,7 +39,7 @@
                 ok: {
                     label: "<i class='fa fa-check'></i> OK",
                     className: "btn-primary",
-                    callback: function () {
+                    callback: function() {
                         console.log("OK Button");
                     }
                 }
@@ -51,17 +51,17 @@
         }
     };
 
-    var highlightRow = function () {
+    var highlightRow = function() {
         $(this).toggleClass("active");
     };
-    
-    var init = function () {
+
+    var init = function() {
         $("#openAccountSelectionButton").on("click", showAccountSelection);
         $("#accountSelectionTable tbody").on("click", "tr", highlightRow);
-    }
+    };
 
     return {
         init: init
     };
 
-}(AccountService)
+}(AccountService);
