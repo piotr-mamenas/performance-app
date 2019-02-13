@@ -111,10 +111,8 @@ namespace Service.Controllers
             {
                 return NotFound();
             }
-
-            var deletionError = partner.ValidateDelete();
-
-            if (deletionError != null)
+;
+            if (partner.CanDelete(out string deletionError))
             {
                 var httpError = new HttpError(deletionError);
 

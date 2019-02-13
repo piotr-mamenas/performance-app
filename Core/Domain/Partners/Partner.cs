@@ -39,23 +39,22 @@ namespace Core.Domain.Partners
             Accounts = null;
         }
         
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public string ValidateDelete ()
+        public bool CanDelete (out string errorMessage)
         {
+            errorMessage = string.Empty;
             if (Contacts.Any())
             {
-                return "Partner has existing Contacts";
+                errorMessage = "Partner has existing Contacts";
+                return false;
             }
 
             if (Accounts.Any())
             {
-                return "Partner has existing Accounts";
+                errorMessage = "Partner has existing Accounts";
+                return false;
             }
-
-            return null;
+            
+            return true;
         }
     }
 }
