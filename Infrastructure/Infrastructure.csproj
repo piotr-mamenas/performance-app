@@ -39,9 +39,6 @@
     <Reference Include="CherrySeed.DataProviders.Csv, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CherrySeed.DataProviders.Csv.1.0.1.0\lib\net40\CherrySeed.DataProviders.Csv.dll</HintPath>
     </Reference>
-    <Reference Include="CherrySeed.Repositories.Ef, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CherrySeed.Repositories.Ef.1.0.1.0\lib\net40\CherrySeed.Repositories.Ef.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>

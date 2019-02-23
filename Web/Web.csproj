@@ -306,6 +306,10 @@
     <Content Include="Content\App\Styles\dashboard-widget.css" />
     <Content Include="Content\App\Styles\global.css" />
     <Content Include="Content\App\Styles\snackbar.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\vendor\scripts\bootstrap\bootstrap-datepicker.min.js" />
     <Content Include="Content\vendor\scripts\bootstrap\bootstrap-datetimepicker.min.js" />
     <Content Include="Content\vendor\scripts\prophet\prophet-min.js" />
@@ -435,6 +439,7 @@
     <Content Include="Content\vendor\styles\prophet\prophet.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\vendor\fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\vendor\scripts\bootstrap\bootstrap.js" />
     <Content Include="Content\vendor\scripts\bootstrap\bootstrap.min.js" />
@@ -443,6 +448,10 @@
     </Content>
     <Content Include="Content\vendor\styles\datatables\css\mixins.scss" />
     <Content Include="Content\vendor\styles\datatables\css\common.scss" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Content\vendor\scripts\jquery\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\vendor\scripts\jquery\jquery-1.10.2.js" />
     <Content Include="Content\vendor\scripts\jquery\jquery-1.10.2.min.js" />
@@ -672,6 +681,8 @@
     <Content Include="Content\vendor\scripts\highcharts\5.0.14\themes\skies.src.js" />
     <Content Include="Content\vendor\scripts\highcharts\5.0.14\themes\sunset.js" />
     <Content Include="Content\vendor\scripts\highcharts\5.0.14\themes\sunset.src.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -808,6 +819,10 @@
     <Content Include="Content\vendor\scripts\highcharts\5.0.14\highcharts-more.js.map" />
     <Content Include="Content\vendor\scripts\highcharts\5.0.14\highcharts-3d.js.map" />
     <Content Include="Views\Dashboard\_NewWidgetForm.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
