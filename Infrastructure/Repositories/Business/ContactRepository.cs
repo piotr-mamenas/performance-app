@@ -6,16 +6,18 @@ using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class ContactRepository : Repository<Contact>, IContactRepository
+    public class ContactRepository : IContactRepository
     {
+        private readonly ApplicationDbContext _context;
+
         public ContactRepository(ApplicationDbContext context)
-            : base(context)
         {
+            _context = context;
         }
 
         public async Task<IEnumerable<Contact>> GetAllContactsWithPartnersAsync()
         {
-            return await Context.Contacts
+            return await _context.Contacts
                 .Include(p => p.Partner)
                 .ToListAsync();
         }

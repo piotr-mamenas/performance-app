@@ -4,7 +4,7 @@ using Core.Domain.Contacts;
 
 namespace Core.Interfaces.Repositories.Business
 {
-    public interface IContactRepository : IRepository<Contact>
+    public interface IContactRepository
     {
         Task<IEnumerable<Contact>> GetAllContactsWithPartnersAsync();
     }

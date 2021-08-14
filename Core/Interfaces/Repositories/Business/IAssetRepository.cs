@@ -6,9 +6,8 @@ using Core.Domain.Assets;
 
 namespace Core.Interfaces.Repositories.Business
 {
-    public interface IAssetRepository : IRepository<Asset>
+    public interface IAssetRepository
     {
-        Task<IEnumerable<AssetPrice>> GetPrices(Expression<Func<AssetPrice, bool>> predicate);
         Task<IEnumerable<Asset>> GetAllAssetsWithDetailsByPortfolioAsync(int portfolioId);
         Task<IEnumerable<Asset>> GetAllAssetsWithPricesAsync();
     }

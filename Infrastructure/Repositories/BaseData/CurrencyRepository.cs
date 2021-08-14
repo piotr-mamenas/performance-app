@@ -7,16 +7,18 @@ using Core.Interfaces.Repositories.BaseData;
 
 namespace Infrastructure.Repositories.BaseData
 {
-    public class CurrencyRepository : Repository<Currency>, ICurrencyRepository
+    public class CurrencyRepository : ICurrencyRepository
     {
+        private readonly ApplicationDbContext _context;
+
         public CurrencyRepository(ApplicationDbContext context)
-            : base(context)
         {
+            _context = context;
         }
 
         public async Task<IEnumerable<Currency>> GetAllCurrenciesAsync()
         {
-            return await Context.Currencies.ToListAsync();
+            return await _context.Currencies.ToListAsync();
         }
     }
 }

@@ -7,36 +7,33 @@ using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class PartnerRepository : Repository<Partner>, IPartnerRepository
+    public class PartnerRepository : IPartnerRepository
     {
-        public PartnerRepository(ApplicationDbContext context)
-            : base(context)
-        {
-        }
+        private readonly ApplicationDbContext _context;
 
-        public IQueryable<PartnerType> GetTypesAsQueryable()
+        public PartnerRepository(ApplicationDbContext context)
         {
-            return Context.PartnerTypes.AsQueryable();
+            _context = context;
         }
 
         public async Task<IEnumerable<Partner>> GetAllPartnersAsync()
         {
-            return await Context.Partners.ToListAsync();
+            return await _context.Partners.ToListAsync();
         }
 
         public async Task<IEnumerable<Partner>> GetAllPartnersWithTypesAsync()
         {
-            return await Context.Partners.Include(p => p.Type).ToListAsync();
+            return await _context.Partners.Include(p => p.Type).ToListAsync();
         }
 
         public async Task<IEnumerable<Partner>> GetAccountPartnersAsync(int accountId)
         {
-            return await Context.Partners.Where(a => a.Accounts.Any(p => p.Id == accountId)).ToListAsync();
+            return await _context.Partners.Where(a => a.Accounts.Any(p => p.Id == accountId)).ToListAsync();
         }
 
         public async Task<Partner> GetByIdWithAccountsAndContactsAsync(int id)
         {
-            return await Context.Partners.Where(p => p.Id == id)
+            return await _context.Partners.Where(p => p.Id == id)
                 .Include(p => p.Accounts)
                 .Include(p => p.Contacts)
                 .SingleOrDefaultAsync();

@@ -4,7 +4,7 @@ using Core.Domain.ExchangeRates;
 
 namespace Core.Interfaces.Repositories.Business
 {
-    public interface IExchangeRateRepository : IRepository<ExchangeRate>
+    public interface IExchangeRateRepository
     {
         Task<IEnumerable<ExchangeRate>> GetExchangeRatesWithCurrenciesAsync();
     }

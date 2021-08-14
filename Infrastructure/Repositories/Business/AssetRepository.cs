@@ -1,40 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Core.Domain.Assets;
 using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class AssetRepository : Repository<Asset>, IAssetRepository
+    public class AssetRepository : IAssetRepository
     {
-        public AssetRepository(ApplicationDbContext context)
-            : base(context)
-        {
-        }
+        private readonly ApplicationDbContext _context;
 
-        public async Task<IEnumerable<AssetPrice>> GetPrices(Expression<Func<AssetPrice,bool>> predicate)
+        public AssetRepository(ApplicationDbContext context)
         {
-            return await Context.Set<AssetPrice>()
-                .Where(predicate)
-                .Include(ap => ap.Asset)
-                .Include(ap => ap.Currency)
-                .ToListAsync();
+            _context = context;
         }
 
         public async Task<IEnumerable<Asset>> GetAllAssetsWithPricesAsync()
         {
-            return await Context.Assets
+            return await _context.Assets
                 .Include(a => a.Prices)
                 .Include(a => a.Class)
                 .ToListAsync();
         }
+
         public async Task<IEnumerable<Asset>> GetAllAssetsWithDetailsByPortfolioAsync(int portfolioId)
         {
-            return await Context.Assets.Where(a => a.Portfolios.Any(p => p.Id == portfolioId))
+            return await _context.Assets.Where(a => a.Portfolios.Any(p => p.Id == portfolioId))
                 .Include(a => a.Class)
                 .Include(a => a.Prices)
                 .Include(a => a.Prices.Select(p => p.Currency))

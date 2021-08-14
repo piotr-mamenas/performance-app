@@ -6,16 +6,18 @@ using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class ReportRepository : Repository<Report>, IReportRepository
+    public class ReportRepository : IReportRepository
     {
+        private readonly ApplicationDbContext _context;
+
         public ReportRepository(ApplicationDbContext context)
-            : base(context)
         {
+            _context = context;
         }
 
         public async Task<IEnumerable<Report>> GetAllReportsAsync()
         {
-            return await Context.Reports.ToListAsync();
+            return await _context.Reports.ToListAsync();
         }
     }
 }

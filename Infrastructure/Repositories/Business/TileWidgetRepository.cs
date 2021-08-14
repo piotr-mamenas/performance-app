@@ -7,23 +7,25 @@ using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class TileWidgetRepository : Repository<TileWidget>, ITileWidgetRepository
+    public class TileWidgetRepository : ITileWidgetRepository
     {
+        private readonly ApplicationDbContext _context;
+
         public TileWidgetRepository(ApplicationDbContext context)
-            : base(context)
         {
+            _context = context;
         }
 
         public async Task<IEnumerable<TileWidget>> GetUserWidgetsByUserGuidAsync(string userGuid)
         {
-            return await Context.TileWidgets.Where(w => w.UserId == userGuid)
+            return await _context.TileWidgets.Where(w => w.UserId == userGuid)
                 .Include(w => w.Bookmark)
                 .ToListAsync();
         }
 
         public async Task<IEnumerable<WidgetBookmark>> GetUserBookmarksByUserGuidAsync(string userGuid)
         {
-            return await Context.TileWidgetBookmarks.Where(wb => wb.UserId == userGuid)
+            return await _context.TileWidgetBookmarks.Where(wb => wb.UserId == userGuid)
                 .ToListAsync();
         }
     }

@@ -6,16 +6,18 @@ using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class ExchangeRateRepository : Repository<ExchangeRate>, IExchangeRateRepository
+    public class ExchangeRateRepository : IExchangeRateRepository
     {
+        private readonly ApplicationDbContext _context;
+
         public ExchangeRateRepository(ApplicationDbContext context)
-            : base(context)
         {
+            _context = context;
         }
 
         public async Task<IEnumerable<ExchangeRate>> GetExchangeRatesWithCurrenciesAsync()
         {
-            return await Context.ExchangeRates
+            return await _context.ExchangeRates
                 .Include(er => er.BaseCurrency)
                 .Include(er => er.TargetCurrency)
                 .ToListAsync();

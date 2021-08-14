@@ -4,7 +4,7 @@ using Core.Domain.Accounts;
 
 namespace Core.Interfaces.Repositories.Business
 {
-    public interface IAccountRepository : IRepository<Account>
+    public interface IAccountRepository
     {
         Task<IEnumerable<Account>> GetAllWithPartnerAsync();
     }

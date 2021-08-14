@@ -221,11 +221,9 @@
     <Compile Include="Repositories\Business\ReportRepository.cs" />
     <Compile Include="Repositories\Business\ReturnRepository.cs" />
     <Compile Include="Repositories\Business\TileWidgetRepository.cs" />
-    <Compile Include="Repositories\System\MessageRepository.cs" />
     <Compile Include="Repositories\Business\PartnerRepository.cs" />
     <Compile Include="Repositories\Business\InstitutionRepository.cs" />
     <Compile Include="Repositories\Business\PortfolioRepository.cs" />
-    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Serialization\JsonContractResolvers\AccountContractResolver.cs" />
     <Compile Include="Serialization\JsonContractResolvers\AssetContractResolver.cs" />
     <Compile Include="Serialization\JsonContractResolvers\ContactContractResolver.cs" />

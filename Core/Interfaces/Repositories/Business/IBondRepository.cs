@@ -4,7 +4,7 @@ using Core.Domain.Assets;
 
 namespace Core.Interfaces.Repositories.Business
 {
-    public interface IBondRepository : IRepository<Bond>
+    public interface IBondRepository
     {
         Task<Bond> GetBondAssetWithCurrencyAsync(int bondId);
     }

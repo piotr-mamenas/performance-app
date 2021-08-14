@@ -7,16 +7,20 @@ using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class BondRepository : Repository<Bond>, IBondRepository
+    public class BondRepository : IBondRepository
     {
+        private readonly ApplicationDbContext _context;
+        private readonly DbSet<Bond> _bonds;
+
         public BondRepository(ApplicationDbContext context)
-            : base(context)
         {
+            _context = context;
+            _bonds = context.Set<Bond>();
         }
 
         public async Task<Bond> GetBondAssetWithCurrencyAsync(int bondId)
         {
-            return await GetAll()
+            return await _bonds
                 .Where(b => b.Id == bondId)
                 .Include(b => b.Currency)
                 .SingleOrDefaultAsync();

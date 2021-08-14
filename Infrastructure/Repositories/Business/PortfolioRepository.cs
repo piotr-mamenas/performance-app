@@ -6,16 +6,18 @@ using Core.Interfaces.Repositories.Business;
 
 namespace Infrastructure.Repositories.Business
 {
-    public class PortfolioRepository : Repository<Portfolio>, IPortfolioRepository
+    public class PortfolioRepository : IPortfolioRepository
     {
+        private readonly ApplicationDbContext _context;
+
         public PortfolioRepository(ApplicationDbContext context)
-            : base(context)
         {
+            _context = context;
         }
 
         public async Task<IEnumerable<Portfolio>> GetAllPortfoliosWithDetailsAsync()
         {
-            return await Context.Portfolios
+            return await _context.Portfolios
                 .Include(p => p.Account)
                 .Include(p => p.Account.Partner)
                 .Include(p => p.Assets)

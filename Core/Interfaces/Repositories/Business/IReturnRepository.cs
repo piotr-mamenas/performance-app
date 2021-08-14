@@ -2,7 +2,7 @@
 
 namespace Core.Interfaces.Repositories.Business
 {
-    public interface IReturnRepository : IRepository<Return>
+    public interface IReturnRepository
     {
         decimal GetLastHoldingPeriodReturnRate(int assetId);
     }

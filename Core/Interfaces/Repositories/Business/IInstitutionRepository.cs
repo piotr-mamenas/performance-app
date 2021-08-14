@@ -4,7 +4,7 @@ using Core.Domain.Institutions;
 
 namespace Core.Interfaces.Repositories.Business
 {
-    public interface IInstitutionRepository : IRepository<Institution>
+    public interface IInstitutionRepository
     {
         Task<IEnumerable<Institution>> GetAllInstitutionsAsync();
     }

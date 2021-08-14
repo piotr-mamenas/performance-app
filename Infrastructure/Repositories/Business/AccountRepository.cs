@@ -5,16 +5,18 @@ using Core.Domain.Accounts;
 using Core.Interfaces.Repositories.Business;
 namespace Infrastructure.Repositories.Business
 {
-    public class AccountRepository : Repository<Account>, IAccountRepository
+    public class AccountRepository : IAccountRepository
     {
+        private readonly ApplicationDbContext _context;
+
         public AccountRepository(ApplicationDbContext context)
-            : base(context)
         {
+            _context = context;
         }
 
         public async Task<IEnumerable<Account>> GetAllWithPartnerAsync()
         {
-            return await Context.Accounts
+            return await _context.Accounts
                 .Include(a => a.Partner)
                 .ToListAsync();
         }

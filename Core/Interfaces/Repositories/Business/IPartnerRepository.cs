@@ -5,9 +5,8 @@ using Core.Domain.Partners;
 
 namespace Core.Interfaces.Repositories.Business
 {
-    public interface IPartnerRepository : IRepository<Partner>
+    public interface IPartnerRepository
     {
-        IQueryable<PartnerType> GetTypesAsQueryable();
         Task<IEnumerable<Partner>> GetAllPartnersAsync();
         Task<IEnumerable<Partner>> GetAllPartnersWithTypesAsync();
         Task<IEnumerable<Partner>> GetAccountPartnersAsync(int accountId);

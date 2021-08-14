@@ -4,7 +4,7 @@ using Core.Domain.Currencies;
 
 namespace Core.Interfaces.Repositories.BaseData
 {
-    public interface ICurrencyRepository : IRepository<Currency>
+    public interface ICurrencyRepository
     {
         Task<IEnumerable<Currency>> GetAllCurrenciesAsync();
     }
