@@ -2,7 +2,7 @@
 
 ## Description
 Initially started as a 2 week DDD challenge Splitbook is a Financial Portfolio Management corporate app developed as a part of building my personal application portfolio.
-This git repository should be treated as work-in-progress rather than the final product. I commit daily so the project changes rapidly.
+This git repository should be treated as work-in-progress rather than the final product.
 
 ## Running
 The application is configured to run with a local instance of SQL Server 2014 Express, in order to setup the database run
